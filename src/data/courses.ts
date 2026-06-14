@@ -1,0 +1,698 @@
+export interface Course {
+  id: string;
+  slug: string;
+  title: { ar: string; en: string };
+  description: { ar: string; en: string };
+  overview: { ar: string; en: string };
+  outcomes: { ar: string[]; en: string[] };
+  category: "Quran" | "Arabic" | "Islamic Studies" | "Kids";
+  level: "Beginner" | "Intermediate" | "Advanced" | "All Levels";
+  duration: { ar: string; en: string };
+  rating: number;
+  students: number;
+  image: string;
+  price: { ar: string; en: string };
+  isFeatured?: boolean;
+  durationDetails: {
+    title: { ar: string; en: string };
+    hours: number;
+    lessons: number;
+  }[];
+}
+
+export const categories = ["Quran", "Arabic", "Islamic Studies", "Kids"] as const;
+
+export const courses: Course[] = [
+  {
+    id: "c1",
+    title: { ar: "تلاوة القرآن مع التجويد", en: "Quran Recitation with Tajweed" },
+    slug: "quran-recitation-with-tajweed",
+    description: {
+      ar: "حقق الإتقان في فن التلاوة بدقة ورنين روحي وكمال تقني.",
+      en: "Achieve mastery in the art of Tilawah with precision, spiritual resonance, and technical perfection.",
+    },
+    overview: {
+      ar: "انطلق في رحلة تحولية إلى قلب الكلمة الإلهية. تم تصميم هذه الدورة للباحثين عن التميز، حيث تغمرك في علم التجويد العميق. تحت إشراف نخبة من العلماء، ستصقل كل مخرج حرف لتردد صدى تلاوة النبي ﷺ.",
+      en: "Embark on a transformative journey into the heart of the Divine Word. Designed for seekers of excellence, this masterclass immerses you in the profound science of Tajweed. Under distinguished scholars, you will refine every articulation to echo the Prophet's ﷺ recitation.",
+    },
+    outcomes: {
+      ar: [
+        "النطق السليم لجميع الحروف العربية من مخارجها الدقيقة.",
+        "الإتقان الكامل لأحكام النون والميم الساكنة والمدود.",
+        "تطوير أسلوب تلاوة شجي ومؤثر روحياً.",
+        "القدرة على تحديد وتطبيق قواعد التجويد في الوقت الفعلي.",
+        "ثقة عميقة في إمامة الصلاة والتلاوات العامة.",
+      ],
+      en: [
+        "Perfect articulation of all Arabic letters from their precise points of origin.",
+        "Complete mastery over the rules of Noon and Meem Sakinah, and Mudood.",
+        "Development of a melodic and spiritually resonant recitation style.",
+        "Ability to identify and apply complex tajweed rules in real-time during recitation.",
+        "A deep-seated confidence in leading prayers and public recitations.",
+      ],
+    },
+    durationDetails: [
+      { title: { ar: "أسس مخارج الحروف", en: "Foundations of Articulation" }, lessons: 12, hours: 18 },
+      { title: { ar: "التجويد التطبيقي", en: "Applied Tajweed Mechanics" }, lessons: 15, hours: 22 },
+      { title: { ar: "الدقة واللحن والطلاقة", en: "Nuance, Melody & Fluency" }, lessons: 10, hours: 15 },
+    ],
+    category: "Quran",
+    level: "Beginner",
+    duration: { ar: "3 أشهر", en: "3 Months" },
+    rating: 4.9,
+    students: 120,
+    image: "/images/courses/quran-recitation1.webp",
+    price: { ar: "$49/شهرياً", en: "$49/mo" },
+    isFeatured: true,
+  },
+  {
+    id: "c2",
+    title: { ar: "اللغة العربية الشاملة", en: "Comprehensive Arabic" },
+    slug: "comprehensive-arabic",
+    description: {
+      ar: "اكتشف الكنوز اللغوية للقرآن والتراث الكلاسيكي.",
+      en: "Uncover the linguistic treasures of the Quran and the classical heritage.",
+    },
+    overview: {
+      ar: "اللغة العربية هي المفتاح لفهم التراث المجيد. يوفر هذا البرنامج الركائز الأساسية للتنقل في اللغة العربية الفصحى الحديثة بأناقة.",
+      en: "The Arabic language is a key to understanding a glorious heritage. This program provides the foundational pillars to navigate Modern Standard Arabic with elegance.",
+    },
+    outcomes: {
+      ar: [
+        "قراءة وكتابة الأبجدية العربية بثقة.",
+        "إتقان التراكيب الحوارية الأساسية.",
+        "فهم منطق بناء الجملة العربية.",
+        "تحديد جذور الكلمات واشتقاقاتها.",
+        "التواصل بفعالية في السياقات الأكاديمية.",
+      ],
+      en: [
+        "Confidently read and write the Arabic alphabet with proper calligraphy.",
+        "Master basic conversational structures and essential daily vocabulary.",
+        "Understand the fundamental logic of Arabic sentence construction.",
+        "Develop the ability to identify core root words and their derivations.",
+        "Communicate effectively in standard social and academic settings.",
+      ],
+    },
+    durationDetails: [
+      { title: { ar: "الأبجدية وعلم الأصوات", en: "The Alphabet & Phonology" }, lessons: 20, hours: 30 },
+      { title: { ar: "الركائز اللغوية والنحو", en: "Linguistic Pillars & Grammar" }, lessons: 24, hours: 36 },
+      { title: { ar: "الانغماس الحواري", en: "Conversational Immersion" }, lessons: 16, hours: 24 },
+    ],
+    category: "Arabic",
+    level: "Beginner",
+    duration: { ar: "6 أشهر", en: "6 Months" },
+    rating: 4.8,
+    students: 85,
+    image: "/images/courses/arabic-level11.webp",
+    price: { ar: "$59/شهرياً", en: "$59/mo" },
+    isFeatured: true,
+  },
+  {
+    id: "c3",
+    title: { ar: "فقه العبادات", en: "Fiqh of Worship" },
+    slug: "fiqh-of-worship",
+    description: {
+      ar: "عمق عبادتك من خلال الفهم الدقيق للأحكام الشرعية.",
+      en: "Deepen your devotion through the precise understanding of sacred laws.",
+    },
+    overview: {
+      ar: "فهم منهجية العبادة هو الخطوة الأولى نحو الإخلاص القلبي. تقدم هذه الدورة استكشافاً منظماً لفقه الطهارة والصلاة.",
+      en: "Understanding the methodology of worship is the first step toward spiritual sincerity. This course provides a structured exploration of the Fiqh of Taharah and Salah.",
+    },
+    outcomes: {
+      ar: [
+        "إتقان أحكام الوضوء والغسل والتيمم.",
+        "فهم أركان وشروط وسنن الصلاة اليومية.",
+        "تعلم التعامل مع سجود السهو.",
+        "استكشاف الفروق بين المذاهب الكبرى.",
+        "مواءمة الممارسة الخارجية مع التميز الروحي.",
+      ],
+      en: [
+        "Master the detailed rulings of Wudu, Ghusl, and Tayammum.",
+        "Understand the essentials, conditions, and sunnahs of daily prayer.",
+        "Learn to properly handle Sujud al-Sahw.",
+        "Explore the differences between the major Madhabs.",
+        "Align your outer practice with inner spiritual excellence.",
+      ],
+    },
+    durationDetails: [
+      { title: { ar: "محراب الطهارة", en: "The Sanctuary of Purification" }, lessons: 10, hours: 15 },
+      { title: { ar: "أركان الصلاة", en: "Pillars of Salah" }, lessons: 14, hours: 21 },
+      { title: { ar: "صقل عبادتك", en: "Refining Your Devotion" }, lessons: 8, hours: 12 },
+    ],
+    category: "Islamic Studies",
+    level: "Intermediate",
+    duration: { ar: "4 أشهر", en: "4 Months" },
+    rating: 5.0,
+    students: 60,
+    image: "/images/courses/fiqh-worship1.webp",
+    price: { ar: "$45/شهرياً", en: "$45/mo" },
+    isFeatured: true,
+  },
+  {
+    id: "c4",
+    title: { ar: "القاعدة النورانية للأطفال", en: "Noorani Qaida for Kids" },
+    slug: "noorani-qaida-for-kids",
+    description: {
+      ar: "مقدمة حانية للحروف الإلهية تُغرس بالحب وتُوجّه بالصبر.",
+      en: "A nurturing introduction to the divine letters, planted with love and guided by patience.",
+    },
+    overview: {
+      ar: "لمتعلمينا الصغار، تبدأ الرحلة بالقاعدة النورانية. يستخدم معلّمونا مزيجاً من الصوتيات التقليدية والتفاعل المرتكز على الطفل.",
+      en: "For our youngest learners, the journey begins with the Noorani Qaida. Our certified mentors use a blend of traditional phonetics and engaging, child-centered interaction.",
+    },
+    outcomes: {
+      ar: [
+        "التعرف والنطق المثالي لجميع الحروف العربية.",
+        "فهم الحركات الأساسية وتوصيل الحروف.",
+        "تطوير إيقاع القراءة الصحيح.",
+        "حفظ الأدعية اليومية والسور القصيرة.",
+        "بناء رابط عاطفي مع اللغة العربية.",
+      ],
+      en: [
+        "Recognition and perfect pronunciation of all Arabic letters.",
+        "Understanding of basic vowel movements and connecting letters.",
+        "Development of correct reading rhythm and initial Tajweed familiarity.",
+        "Memorization of foundational daily Duas and short Surahs.",
+        "An emotional and spiritual bond with the Arabic language.",
+      ],
+    },
+    durationDetails: [
+      { title: { ar: "عالم الحروف", en: "The World of Letters" }, lessons: 15, hours: 22 },
+      { title: { ar: "الحركات والروابط", en: "Vowels & Connections" }, lessons: 15, hours: 22 },
+      { title: { ar: "بداية التلاوة", en: "Beginning to Recite" }, lessons: 10, hours: 15 },
+    ],
+    category: "Kids",
+    level: "Beginner",
+    duration: { ar: "3 أشهر", en: "3 Months" },
+    rating: 4.9,
+    students: 200,
+    image: "/images/courses/kids-qaida1.webp",
+    price: { ar: "$39/شهرياً", en: "$39/mo" },
+    isFeatured: true,
+  },
+  {
+    id: "c5",
+    title: { ar: "حفظ القرآن الكريم", en: "Quran Memorization (Hifz)" },
+    slug: "quran-memorization-hifz",
+    description: {
+      ar: "برنامج مكثف لحفظ القرآن الكريم مع متابعة مستمرة ومراجعة منهجية.",
+      en: "An intensive program for memorizing the Holy Quran with continuous follow-up and systematic review.",
+    },
+    overview: {
+      ar: "برنامج حفظ القرآن يوفر بيئة داعمة للحفظ المتقن مع خطة مخصصة لكل طالب حسب مستواه وقدرته.",
+      en: "Our Hifz program offers a supportive environment for proficient memorization with a customized plan for each student based on their level and capacity.",
+    },
+    outcomes: {
+      ar: [
+        "حفظ القرآن الكريم بالتجويد.",
+        "مراجعة منظمة للأجزاء المحفوظة.",
+        "تقوية الحفظ بالفهم والتدبر.",
+        "بناء روتين يومي فعال للحفظ.",
+        "المتابعة المستمرة مع شيخ متخصص.",
+      ],
+      en: [
+        "Memorize the Holy Quran with proper Tajweed.",
+        "Systematic review of memorized portions.",
+        "Strengthen memorization through understanding.",
+        "Build an effective daily memorization routine.",
+        "Continuous follow-up with a dedicated scholar.",
+      ],
+    },
+    durationDetails: [
+      { title: { ar: "التأسيس والتهيئة", en: "Foundation & Preparation" }, lessons: 10, hours: 15 },
+      { title: { ar: "الحفظ المكثف", en: "Intensive Memorization" }, lessons: 30, hours: 45 },
+      { title: { ar: "المراجعة والتثبيت", en: "Review & Consolidation" }, lessons: 20, hours: 30 },
+    ],
+    category: "Quran",
+    level: "All Levels",
+    duration: { ar: "مرن", en: "Flexible" },
+    rating: 5.0,
+    students: 150,
+    image: "/images/courses/hifz1.webp",
+    price: { ar: "$55/شهرياً", en: "$55/mo" },
+    isFeatured: true,
+  },
+  {
+    id: "c6",
+    title: { ar: "الحديث: الأربعون النووية", en: "Hadith: 40 Nawawi" },
+    slug: "hadith-40-nawawi",
+    description: {
+      ar: "دراسة الأحاديث الأساسية المتعلقة بالمبادئ الإسلامية.",
+      en: "Study the foundational sayings of the Prophet ﷺ related to core Islamic principles.",
+    },
+    overview: {
+      ar: "شرح وافٍ للأحاديث الأربعين التي جمعها الإمام النووي، والتي تعتبر قواعد الدين الأساسية.",
+      en: "A comprehensive explanation of the forty Hadiths collected by Imam al-Nawawi, considered the foundational rules of religion.",
+    },
+    outcomes: {
+      ar: [
+        "حفظ وفهم الأحاديث الأربعين النووية.",
+        "استخلاص الفوائد الفقهية والتربوية.",
+        "فهم منهج الإمام النووي في الجمع.",
+        "تطبيق مضامين الأحاديث في الحياة اليومية.",
+        "التعرف على علم مصطلح الحديث.",
+      ],
+      en: [
+        "Memorize and understand the 40 Nawawi Hadiths.",
+        "Extract juristic and educational benefits from each hadith.",
+        "Understand Imam Nawawi's methodology in collecting hadiths.",
+        "Apply hadith teachings in daily life.",
+        "Introduction to the science of Hadith terminology.",
+      ],
+    },
+    durationDetails: [
+      { title: { ar: "أحاديث العبادات والنيات", en: "Hadiths of Worship & Intentions" }, lessons: 10, hours: 15 },
+      { title: { ar: "أحاديث المعاملات والأخلاق", en: "Hadiths of Conduct & Ethics" }, lessons: 10, hours: 15 },
+      { title: { ar: "المراجعة والتطبيق", en: "Review & Application" }, lessons: 6, hours: 9 },
+    ],
+    category: "Islamic Studies",
+    level: "Beginner",
+    duration: { ar: "3 أشهر", en: "3 Months" },
+    rating: 4.9,
+    students: 75,
+    image: "/images/courses/hadith-40-nawawi.webp",
+    price: { ar: "$40/شهرياً", en: "$40/mo" },
+    isFeatured: true,
+  },
+  {
+    id: "c7",
+    title: { ar: "تفسير القرآن الكريم", en: "Quran Tafsir" },
+    slug: "quran-tafsir",
+    description: {
+      ar: "دراسة معاني القرآن الكريم وأسباب النزول وفهم مقاصد السور والآيات.",
+      en: "Study the meanings of the Holy Quran, reasons of revelation, and understand the purposes of Surahs and verses.",
+    },
+    overview: {
+      ar: "رحلة عميقة في فهم كتاب الله من خلال أمهات كتب التفسير. يشمل البرنامج دراسة أسباب النزول والناسخ والمنسوخ والمكي والمدني.",
+      en: "A deep journey into understanding the Book of Allah through the greatest Tafsir references. The program includes studying reasons of revelation, abrogation, and Makki vs Madani classifications.",
+    },
+    outcomes: {
+      ar: ["فهم معاني الآيات القرآنية في سياقها.", "معرفة أسباب النزول وأثرها في الفهم.", "الإلمام بأقوال المفسرين الكبار.", "استخراج الأحكام والفوائد من الآيات.", "تطوير ملكة التدبر والتفكر."],
+      en: ["Understand Quranic verses in their context.", "Know the reasons of revelation and their impact.", "Learn the opinions of major scholars of Tafsir.", "Extract rulings and benefits from verses.", "Develop the faculty of contemplation and reflection."],
+    },
+    durationDetails: [
+      { title: { ar: "أصول التفسير", en: "Foundations of Tafsir" }, lessons: 12, hours: 18 },
+      { title: { ar: "تفسير السور المختارة", en: "Tafsir of Selected Surahs" }, lessons: 20, hours: 30 },
+      { title: { ar: "التدبر والاستنباط", en: "Contemplation & Derivation" }, lessons: 10, hours: 15 },
+    ],
+    category: "Quran",
+    level: "Intermediate",
+    duration: { ar: "5 أشهر", en: "5 Months" },
+    rating: 4.9,
+    students: 90,
+    image: "/images/courses/tafsir.webp",
+    price: { ar: "$55/شهرياً", en: "$55/mo" },
+    isFeatured: false,
+  },
+  {
+    id: "c8",
+    title: { ar: "القراءات العشر", en: "Ten Qira'at" },
+    slug: "ten-qiraat",
+    description: {
+      ar: "دراسة القراءات القرآنية العشر المتواترة مع التطبيق العملي والإسناد.",
+      en: "Study the ten mutawatir Quranic recitations with practical application and chain of narration.",
+    },
+    overview: {
+      ar: "برنامج متقدم للدارسين المتميزين يتناول القراءات العشر المتواترة من طريق الشاطبية والدرة، مع التطبيق العملي على سور مختارة.",
+      en: "An advanced program for distinguished students covering the ten mutawatir recitations through Shatibiyyah and Durrah, with practical application on selected Surahs.",
+    },
+    outcomes: {
+      ar: ["إتقان أصول القراءات العشر.", "التمييز بين الفرش والأصول.", "تطبيق القراءات على المصحف.", "فهم توجيه القراءات.", "الاستعداد للإجازة في القراءات."],
+      en: ["Master the foundations of the Ten Qira'at.", "Distinguish between Farsh and Usul.", "Apply recitations to the Mushaf.", "Understand the reasoning behind variant readings.", "Prepare for Ijazah in Qira'at."],
+    },
+    durationDetails: [
+      { title: { ar: "أصول القراءات", en: "Foundations of Qira'at" }, lessons: 15, hours: 22 },
+      { title: { ar: "الفرش والتطبيق", en: "Farsh & Application" }, lessons: 25, hours: 37 },
+      { title: { ar: "الجمع والمراجعة", en: "Compilation & Review" }, lessons: 15, hours: 22 },
+    ],
+    category: "Quran",
+    level: "Advanced",
+    duration: { ar: "8 أشهر", en: "8 Months" },
+    rating: 5.0,
+    students: 35,
+    image: "/images/courses/qiraat.webp",
+    price: { ar: "$65/شهرياً", en: "$65/mo" },
+    isFeatured: false,
+  },
+  {
+    id: "c9",
+    title: { ar: "برنامج الإجازة بالسند المتصل", en: "Ijazah Certification Program" },
+    slug: "ijazah-program",
+    description: {
+      ar: "برنامج متخصص للحصول على إجازة في القرآن الكريم بسند متصل إلى النبي ﷺ.",
+      en: "A specialized program to obtain an Ijazah in the Holy Quran with a continuous chain to the Prophet ﷺ.",
+    },
+    overview: {
+      ar: "أرقى برامجنا الأكاديمية — مصمم للطلاب الذين أتموا حفظ القرآن ويرغبون في الحصول على إجازة بسند متصل. يشمل قراءة القرآن كاملاً على الشيخ المجيز.",
+      en: "Our most prestigious program — designed for students who have completed Hifz and wish to obtain an Ijazah with a connected chain. Includes reciting the entire Quran to the certifying Sheikh.",
+    },
+    outcomes: {
+      ar: ["الحصول على إجازة بسند متصل.", "إتقان التلاوة بأعلى المستويات.", "فهم علم الإسناد ورجاله.", "التأهل لإجازة الغير.", "الانتماء لسلسلة علمية عريقة."],
+      en: ["Obtain an Ijazah with a connected chain.", "Master recitation at the highest levels.", "Understand the science of Isnad.", "Qualify to certify others.", "Join a prestigious scholarly lineage."],
+    },
+    durationDetails: [
+      { title: { ar: "المراجعة والتثبيت", en: "Review & Consolidation" }, lessons: 20, hours: 30 },
+      { title: { ar: "العرض على الشيخ", en: "Recitation to the Sheikh" }, lessons: 30, hours: 45 },
+      { title: { ar: "الاختبار والإجازة", en: "Examination & Certification" }, lessons: 10, hours: 15 },
+    ],
+    category: "Quran",
+    level: "Advanced",
+    duration: { ar: "12 شهر", en: "12 Months" },
+    rating: 5.0,
+    students: 25,
+    image: "/images/courses/ijazah.webp",
+    price: { ar: "$75/شهرياً", en: "$75/mo" },
+    isFeatured: true,
+  },
+  {
+    id: "c10",
+    title: { ar: "النحو العربي — الآجرومية", en: "Arabic Grammar — Al-Ajurrumiyyah" },
+    slug: "arabic-grammar-nahw",
+    description: {
+      ar: "دراسة قواعد النحو العربي من خلال متن الآجرومية مع التطبيقات العملية.",
+      en: "Study Arabic grammar rules through the Ajurrumiyyah text with practical applications.",
+    },
+    overview: {
+      ar: "برنامج أساسي لبناء قاعدة نحوية صلبة من خلال دراسة متن الآجرومية — أشهر المتون النحوية — مع شرح وافٍ وتطبيقات على النصوص القرآنية والأدبية.",
+      en: "A foundational program for building solid grammatical knowledge through studying Al-Ajurrumiyyah — the most famous grammar text — with comprehensive explanations and applications on Quranic and literary texts.",
+    },
+    outcomes: {
+      ar: ["فهم أقسام الكلام العربي.", "إتقان باب الإعراب والبناء.", "معرفة المرفوعات والمنصوبات والمجرورات.", "تطبيق القواعد على النصوص.", "القدرة على إعراب الجمل."],
+      en: ["Understand the divisions of Arabic speech.", "Master the chapter of I'rab and Bina.", "Know Marfu'at, Mansubat, and Majrurat.", "Apply rules to texts.", "Ability to parse Arabic sentences."],
+    },
+    durationDetails: [
+      { title: { ar: "أقسام الكلام والإعراب", en: "Parts of Speech & Parsing" }, lessons: 15, hours: 22 },
+      { title: { ar: "المرفوعات والمنصوبات", en: "Nominative & Accusative Cases" }, lessons: 18, hours: 27 },
+      { title: { ar: "المجرورات والتطبيق", en: "Genitive Case & Application" }, lessons: 12, hours: 18 },
+    ],
+    category: "Arabic",
+    level: "Beginner",
+    duration: { ar: "4 أشهر", en: "4 Months" },
+    rating: 4.8,
+    students: 110,
+    image: "/images/courses/nahw.webp",
+    price: { ar: "$49/شهرياً", en: "$49/mo" },
+    isFeatured: false,
+  },
+  {
+    id: "c11",
+    title: { ar: "الصرف العربي", en: "Arabic Morphology — Sarf" },
+    slug: "arabic-morphology-sarf",
+    description: {
+      ar: "دراسة علم الصرف وتصاريف الأفعال والأسماء وأوزانها المختلفة.",
+      en: "Study the science of morphology, verb conjugations, and noun patterns in Arabic.",
+    },
+    overview: {
+      ar: "علم الصرف هو مفتاح فهم بنية الكلمة العربية. يتناول البرنامج الأوزان الصرفية والتصريفات والمشتقات مع تطبيقات على القرآن الكريم.",
+      en: "Morphology is the key to understanding Arabic word structure. The program covers morphological patterns, conjugations, and derivatives with applications on the Quran.",
+    },
+    outcomes: {
+      ar: ["فهم الميزان الصرفي.", "إتقان تصريف الأفعال.", "معرفة المشتقات وأوزانها.", "التمييز بين الأفعال المجردة والمزيدة.", "تطبيق الصرف على النصوص."],
+      en: ["Understand the morphological scale.", "Master verb conjugation.", "Know derivatives and their patterns.", "Distinguish bare and augmented verbs.", "Apply morphology to texts."],
+    },
+    durationDetails: [
+      { title: { ar: "الميزان الصرفي", en: "The Morphological Scale" }, lessons: 10, hours: 15 },
+      { title: { ar: "تصريف الأفعال", en: "Verb Conjugation" }, lessons: 15, hours: 22 },
+      { title: { ar: "المشتقات والتطبيق", en: "Derivatives & Application" }, lessons: 12, hours: 18 },
+    ],
+    category: "Arabic",
+    level: "Intermediate",
+    duration: { ar: "4 أشهر", en: "4 Months" },
+    rating: 4.7,
+    students: 65,
+    image: "/images/courses/sarf.webp",
+    price: { ar: "$49/شهرياً", en: "$49/mo" },
+    isFeatured: false,
+  },
+  {
+    id: "c12",
+    title: { ar: "البلاغة العربية", en: "Arabic Rhetoric — Balagha" },
+    slug: "arabic-rhetoric-balagha",
+    description: {
+      ar: "دراسة فنون البلاغة العربية: المعاني والبيان والبديع.",
+      en: "Study the arts of Arabic rhetoric: meanings, expression, and ornamentation.",
+    },
+    overview: {
+      ar: "البلاغة هي تاج العلوم العربية. يتناول هذا البرنامج علوم المعاني والبيان والبديع مع تطبيقات على الإعجاز البلاغي في القرآن الكريم.",
+      en: "Rhetoric is the crown of Arabic sciences. This program covers the sciences of Ma'ani, Bayan, and Badi' with applications on the rhetorical miracle of the Holy Quran.",
+    },
+    outcomes: {
+      ar: ["فهم علم المعاني وأساليبه.", "إتقان علم البيان: التشبيه والاستعارة والكناية.", "معرفة المحسنات البديعية.", "تذوق الإعجاز البلاغي في القرآن.", "تحسين مهارات الكتابة الأدبية."],
+      en: ["Understand the science of meanings.", "Master Bayan: simile, metaphor, and metonymy.", "Know the ornamental improvements.", "Appreciate the rhetorical miracle of the Quran.", "Improve literary writing skills."],
+    },
+    durationDetails: [
+      { title: { ar: "علم المعاني", en: "Science of Meanings" }, lessons: 12, hours: 18 },
+      { title: { ar: "علم البيان", en: "Science of Expression" }, lessons: 14, hours: 21 },
+      { title: { ar: "علم البديع", en: "Science of Ornamentation" }, lessons: 10, hours: 15 },
+    ],
+    category: "Arabic",
+    level: "Advanced",
+    duration: { ar: "5 أشهر", en: "5 Months" },
+    rating: 4.9,
+    students: 45,
+    image: "/images/courses/balagha.webp",
+    price: { ar: "$55/شهرياً", en: "$55/mo" },
+    isFeatured: false,
+  },
+  {
+    id: "c13",
+    title: { ar: "عربية القرآن الكريم", en: "Quranic Arabic" },
+    slug: "quranic-arabic",
+    description: {
+      ar: "فهم اللغة العربية من خلال القرآن الكريم — مفردات وتراكيب وأساليب.",
+      en: "Understand the Arabic language through the Holy Quran — vocabulary, structures, and styles.",
+    },
+    overview: {
+      ar: "برنامج فريد يجمع بين تعلم اللغة العربية وفهم القرآن. يركز على المفردات القرآنية الأكثر تكراراً والتراكيب اللغوية المميزة في كتاب الله.",
+      en: "A unique program combining Arabic learning with Quran understanding. Focuses on the most frequent Quranic vocabulary and distinctive linguistic structures in the Book of Allah.",
+    },
+    outcomes: {
+      ar: ["حفظ أكثر 300 كلمة قرآنية تكراراً.", "فهم التراكيب القرآنية المميزة.", "القدرة على فهم 70% من القرآن مباشرة.", "تحليل الآيات لغوياً.", "ربط المعنى اللغوي بالتفسير."],
+      en: ["Memorize the 300 most frequent Quranic words.", "Understand distinctive Quranic structures.", "Ability to directly understand 70% of the Quran.", "Linguistically analyze verses.", "Connect linguistic meaning to Tafsir."],
+    },
+    durationDetails: [
+      { title: { ar: "المفردات القرآنية", en: "Quranic Vocabulary" }, lessons: 15, hours: 22 },
+      { title: { ar: "التراكيب والأساليب", en: "Structures & Styles" }, lessons: 18, hours: 27 },
+      { title: { ar: "التطبيق على السور", en: "Application on Surahs" }, lessons: 12, hours: 18 },
+    ],
+    category: "Arabic",
+    level: "Intermediate",
+    duration: { ar: "5 أشهر", en: "5 Months" },
+    rating: 4.9,
+    students: 95,
+    image: "/images/courses/quranic-arabic.webp",
+    price: { ar: "$52/شهرياً", en: "$52/mo" },
+    isFeatured: true,
+  },
+  {
+    id: "c14",
+    title: { ar: "العقيدة الإسلامية", en: "Islamic Theology — Aqeedah" },
+    slug: "islamic-aqeedah",
+    description: {
+      ar: "دراسة أصول الإيمان والعقيدة الإسلامية الصحيحة وفق منهج أهل السنة والجماعة.",
+      en: "Study the foundations of faith and correct Islamic creed according to Ahl al-Sunnah methodology.",
+    },
+    overview: {
+      ar: "بناء أساس عقدي صحيح من خلال دراسة أركان الإيمان الستة وأسماء الله الحسنى وصفاته، مع الرد على الشبهات المعاصرة بأسلوب علمي رصين.",
+      en: "Building a correct creedal foundation through studying the six pillars of faith and Allah's names and attributes, with scholarly responses to contemporary doubts.",
+    },
+    outcomes: {
+      ar: ["فهم أركان الإيمان الستة.", "معرفة أسماء الله الحسنى وصفاته.", "التعامل مع الشبهات المعاصرة.", "الإلمام بأقوال أئمة العقيدة.", "تقوية الإيمان بالعلم."],
+      en: ["Understand the six pillars of faith.", "Know Allah's beautiful names and attributes.", "Address contemporary doubts.", "Learn the views of Aqeedah scholars.", "Strengthen faith through knowledge."],
+    },
+    durationDetails: [
+      { title: { ar: "أركان الإيمان", en: "Pillars of Faith" }, lessons: 14, hours: 21 },
+      { title: { ar: "الأسماء والصفات", en: "Names & Attributes" }, lessons: 12, hours: 18 },
+      { title: { ar: "الرد على الشبهات", en: "Responding to Doubts" }, lessons: 10, hours: 15 },
+    ],
+    category: "Islamic Studies",
+    level: "Beginner",
+    duration: { ar: "4 أشهر", en: "4 Months" },
+    rating: 4.8,
+    students: 120,
+    image: "/images/courses/aqeedah.webp",
+    price: { ar: "$45/شهرياً", en: "$45/mo" },
+    isFeatured: false,
+  },
+  {
+    id: "c15",
+    title: { ar: "السيرة النبوية الشريفة", en: "Prophetic Biography — Seerah" },
+    slug: "prophetic-seerah",
+    description: {
+      ar: "دراسة شاملة لحياة النبي محمد ﷺ من الميلاد إلى الوفاة واستخلاص الدروس والعبر.",
+      en: "A comprehensive study of Prophet Muhammad's ﷺ life from birth to passing, extracting lessons and wisdom.",
+    },
+    overview: {
+      ar: "رحلة ممتعة عبر سيرة خير البشر ﷺ — من البعثة إلى تأسيس الدولة الإسلامية. يتناول البرنامج الأحداث الكبرى والدروس المستفادة وتطبيقاتها المعاصرة.",
+      en: "An enjoyable journey through the life of the best of mankind ﷺ — from prophethood to establishing the Islamic state. Covers major events, lessons learned, and modern applications.",
+    },
+    outcomes: {
+      ar: ["معرفة أحداث السيرة بتسلسلها الزمني.", "استخلاص الدروس القيادية والتربوية.", "فهم سياق نزول القرآن.", "تعميق محبة النبي ﷺ.", "تطبيق دروس السيرة في الحياة."],
+      en: ["Know Seerah events chronologically.", "Extract leadership and educational lessons.", "Understand the context of Quran revelation.", "Deepen love for the Prophet ﷺ.", "Apply Seerah lessons in daily life."],
+    },
+    durationDetails: [
+      { title: { ar: "العهد المكي", en: "The Makkan Period" }, lessons: 15, hours: 22 },
+      { title: { ar: "العهد المدني", en: "The Madinan Period" }, lessons: 18, hours: 27 },
+      { title: { ar: "الدروس والتطبيقات", en: "Lessons & Applications" }, lessons: 10, hours: 15 },
+    ],
+    category: "Islamic Studies",
+    level: "All Levels",
+    duration: { ar: "5 أشهر", en: "5 Months" },
+    rating: 4.9,
+    students: 140,
+    image: "/images/courses/seerah.webp",
+    price: { ar: "$45/شهرياً", en: "$45/mo" },
+    isFeatured: true,
+  },
+  {
+    id: "c16",
+    title: { ar: "أصول الفقه", en: "Principles of Islamic Jurisprudence" },
+    slug: "usul-al-fiqh",
+    description: {
+      ar: "دراسة القواعد والأصول التي يُبنى عليها الفقه الإسلامي واستنباط الأحكام الشرعية.",
+      en: "Study the rules and principles upon which Islamic jurisprudence is built and how rulings are derived.",
+    },
+    overview: {
+      ar: "علم أصول الفقه هو المنهج العلمي لفهم كيفية استنباط الأحكام من الأدلة الشرعية. يتناول البرنامج مصادر التشريع والقواعد الأصولية والمقاصد الشرعية.",
+      en: "Usul al-Fiqh is the scientific methodology for understanding how rulings are derived from Islamic sources. The program covers sources of legislation, principles, and objectives of Shariah.",
+    },
+    outcomes: {
+      ar: ["فهم مصادر التشريع الإسلامي.", "معرفة القواعد الأصولية الكبرى.", "فهم مقاصد الشريعة الإسلامية.", "القدرة على تحليل الأدلة.", "التمييز بين الأقوال الفقهية."],
+      en: ["Understand Islamic legislative sources.", "Know the major Usuli rules.", "Understand the objectives of Shariah.", "Ability to analyze evidence.", "Distinguish between juristic opinions."],
+    },
+    durationDetails: [
+      { title: { ar: "مصادر التشريع", en: "Sources of Legislation" }, lessons: 12, hours: 18 },
+      { title: { ar: "القواعد الأصولية", en: "Foundational Rules" }, lessons: 16, hours: 24 },
+      { title: { ar: "المقاصد والتطبيق", en: "Objectives & Application" }, lessons: 10, hours: 15 },
+    ],
+    category: "Islamic Studies",
+    level: "Advanced",
+    duration: { ar: "5 أشهر", en: "5 Months" },
+    rating: 4.8,
+    students: 55,
+    image: "/images/courses/usul-fiqh.webp",
+    price: { ar: "$55/شهرياً", en: "$55/mo" },
+    isFeatured: false,
+  },
+  {
+    id: "c17",
+    title: { ar: "الأخلاق والتزكية", en: "Islamic Ethics & Purification" },
+    slug: "islamic-ethics-akhlaq",
+    description: {
+      ar: "دراسة الأخلاق الإسلامية وعلم تزكية النفس وتهذيب السلوك.",
+      en: "Study Islamic ethics, the science of soul purification, and character refinement.",
+    },
+    overview: {
+      ar: "برنامج يجمع بين العلم والعمل — يتناول الأخلاق النبوية والآداب الإسلامية مع منهج عملي لتزكية النفس مستمد من القرآن والسنة.",
+      en: "A program combining knowledge and practice — covering Prophetic ethics and Islamic etiquettes with a practical methodology for soul purification derived from Quran and Sunnah.",
+    },
+    outcomes: {
+      ar: ["فهم منظومة الأخلاق الإسلامية.", "تعلم آداب التعامل مع الله والناس.", "اكتساب منهج عملي للتزكية.", "معرفة أمراض القلوب وعلاجها.", "تطبيق الأخلاق النبوية."],
+      en: ["Understand the Islamic ethical system.", "Learn etiquettes with Allah and people.", "Acquire a practical purification methodology.", "Know heart diseases and their cures.", "Apply Prophetic ethics."],
+    },
+    durationDetails: [
+      { title: { ar: "الأخلاق النبوية", en: "Prophetic Ethics" }, lessons: 12, hours: 18 },
+      { title: { ar: "تزكية النفس", en: "Soul Purification" }, lessons: 14, hours: 21 },
+      { title: { ar: "التطبيق العملي", en: "Practical Application" }, lessons: 10, hours: 15 },
+    ],
+    category: "Islamic Studies",
+    level: "All Levels",
+    duration: { ar: "4 أشهر", en: "4 Months" },
+    rating: 4.9,
+    students: 100,
+    image: "/images/courses/akhlaq.webp",
+    price: { ar: "$40/شهرياً", en: "$40/mo" },
+    isFeatured: false,
+  },
+  {
+    id: "c18",
+    title: { ar: "حفظ جزء عمّ للأطفال", en: "Juz Amma Memorization for Kids" },
+    slug: "kids-juz-amma",
+    description: {
+      ar: "برنامج ممتع لحفظ جزء عمّ للأطفال بأساليب تفاعلية ومحفزة.",
+      en: "An engaging program for kids to memorize Juz Amma with interactive and motivating methods.",
+    },
+    overview: {
+      ar: "برنامج مصمم خصيصاً للأطفال من 5 إلى 12 سنة لحفظ جزء عمّ بطريقة ممتعة تجمع بين التكرار الذكي والألعاب التعليمية والمكافآت التحفيزية.",
+      en: "A program designed specifically for children aged 5-12 to memorize Juz Amma in a fun way combining smart repetition, educational games, and motivational rewards.",
+    },
+    outcomes: {
+      ar: ["حفظ جزء عمّ كاملاً.", "تعلم أحكام التجويد الأساسية.", "فهم معاني السور المحفوظة.", "بناء عادة يومية للحفظ.", "تنمية حب القرآن."],
+      en: ["Memorize the entire Juz Amma.", "Learn basic Tajweed rules.", "Understand meanings of memorized Surahs.", "Build a daily memorization habit.", "Develop love for the Quran."],
+    },
+    durationDetails: [
+      { title: { ar: "السور القصيرة", en: "Short Surahs" }, lessons: 15, hours: 15 },
+      { title: { ar: "السور المتوسطة", en: "Medium Surahs" }, lessons: 20, hours: 20 },
+      { title: { ar: "المراجعة والتثبيت", en: "Review & Consolidation" }, lessons: 10, hours: 10 },
+    ],
+    category: "Kids",
+    level: "Beginner",
+    duration: { ar: "6 أشهر", en: "6 Months" },
+    rating: 4.9,
+    students: 180,
+    image: "/images/courses/kids-juz-amma.webp",
+    price: { ar: "$35/شهرياً", en: "$35/mo" },
+    isFeatured: true,
+  },
+  {
+    id: "c19",
+    title: { ar: "الآداب الإسلامية للأطفال", en: "Islamic Manners for Kids" },
+    slug: "kids-islamic-manners",
+    description: {
+      ar: "تعليم الأطفال الآداب والأخلاق الإسلامية بأسلوب تفاعلي وقصصي ممتع.",
+      en: "Teaching children Islamic etiquettes and morals through interactive storytelling methods.",
+    },
+    overview: {
+      ar: "برنامج تربوي شامل يعلّم الأطفال آداب الإسلام من خلال القصص النبوية والأنشطة التفاعلية — آداب الطعام والسلام والمسجد والتعامل مع الآخرين.",
+      en: "A comprehensive educational program teaching children Islamic manners through Prophetic stories and interactive activities — eating, greeting, mosque, and interpersonal etiquettes.",
+    },
+    outcomes: {
+      ar: ["تعلم آداب الحياة اليومية.", "معرفة الأذكار والأدعية الأساسية.", "فهم قصص الأنبياء المبسطة.", "اكتساب أخلاق إسلامية راسخة.", "بناء شخصية إسلامية متوازنة."],
+      en: ["Learn daily life etiquettes.", "Know essential remembrances and supplications.", "Understand simplified stories of Prophets.", "Acquire firm Islamic morals.", "Build a balanced Islamic personality."],
+    },
+    durationDetails: [
+      { title: { ar: "آداب العبادات", en: "Worship Etiquettes" }, lessons: 10, hours: 10 },
+      { title: { ar: "آداب التعامل", en: "Social Etiquettes" }, lessons: 12, hours: 12 },
+      { title: { ar: "قصص وأنشطة", en: "Stories & Activities" }, lessons: 10, hours: 10 },
+    ],
+    category: "Kids",
+    level: "Beginner",
+    duration: { ar: "3 أشهر", en: "3 Months" },
+    rating: 4.8,
+    students: 150,
+    image: "/images/courses/kids-manners.webp",
+    price: { ar: "$30/شهرياً", en: "$30/mo" },
+    isFeatured: false,
+  },
+  {
+    id: "c20",
+    title: { ar: "اللغة العربية للأطفال", en: "Arabic Language for Kids" },
+    slug: "kids-arabic-language",
+    description: {
+      ar: "تعليم الأطفال اللغة العربية قراءة وكتابة ومحادثة بأساليب ممتعة وتفاعلية.",
+      en: "Teaching children Arabic reading, writing, and conversation through fun and interactive methods.",
+    },
+    overview: {
+      ar: "برنامج متكامل لتعليم الأطفال من 4 إلى 12 سنة أساسيات اللغة العربية — من الحروف والأصوات إلى القراءة والكتابة والمحادثة البسيطة.",
+      en: "A comprehensive program teaching children aged 4-12 the basics of Arabic — from letters and sounds to reading, writing, and simple conversation.",
+    },
+    outcomes: {
+      ar: ["إتقان الحروف العربية وأشكالها.", "القدرة على القراءة بطلاقة.", "كتابة الجمل البسيطة.", "المحادثة بالعربية الفصحى المبسطة.", "بناء حصيلة لغوية قوية."],
+      en: ["Master Arabic letters and their forms.", "Ability to read fluently.", "Write simple sentences.", "Converse in simplified Standard Arabic.", "Build a strong vocabulary."],
+    },
+    durationDetails: [
+      { title: { ar: "الحروف والأصوات", en: "Letters & Sounds" }, lessons: 15, hours: 15 },
+      { title: { ar: "القراءة والكتابة", en: "Reading & Writing" }, lessons: 20, hours: 20 },
+      { title: { ar: "المحادثة", en: "Conversation" }, lessons: 12, hours: 12 },
+    ],
+    category: "Kids",
+    level: "Beginner",
+    duration: { ar: "6 أشهر", en: "6 Months" },
+    rating: 4.8,
+    students: 160,
+    image: "/images/courses/kids-arabic.webp",
+    price: { ar: "$35/شهرياً", en: "$35/mo" },
+    isFeatured: false,
+  },
+];
