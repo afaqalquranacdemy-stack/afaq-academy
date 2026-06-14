@@ -32,7 +32,7 @@ export function Hero() {
         {/* Desktop Background */}
         <Image
           src="/hero-bg.webp"
-          alt=" walmnaho background desktop"
+          alt="afaq alquran background desktop"
           fill
           priority
           // @ts-ignore
@@ -43,7 +43,7 @@ export function Hero() {
         {/* Mobile Background */}
         <Image
           src="/hero-mobile-bg.webp"
-          alt=" walmnaho background mobile"
+          alt="afaq alquran background mobile"
           fill
           priority
           // @ts-ignore

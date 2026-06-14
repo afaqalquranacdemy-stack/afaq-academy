@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       subject: `New Form Submission: ${formType || 'Contact Form'} - ${firstName} ${lastName}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
-          <div style="background: linear-gradient(to right, #0d9488, #10b981); padding: 24px; color: white; text-align: center;">
+          <div style="background: linear-gradient(to right, #004B3E, #007561); padding: 24px; color: white; text-align: center;">
             <h2 style="margin: 0; font-size: 24px;">New Registration Inquiry</h2>
             <p style="margin: 8px 0 0; opacity: 0.9;">${formType === 'Trial Booking' ? 'Trial Session Request' : 'General Inquiry'}</p>
           </div>
@@ -76,7 +76,7 @@ export async function POST(req: Request) {
             </div>
           </div>
           <div style="background-color: #f8fafc; padding: 16px; text-align: center; color: #94a3b8; font-size: 12px;">
-            This email was sent from the Walamnaho Academy website contact form.
+            This email was sent from the Afaq Al-Quran Academy website contact form.
           </div>
         </div>
       `,

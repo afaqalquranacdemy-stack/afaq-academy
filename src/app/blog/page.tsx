@@ -3,7 +3,7 @@ import { BlogHero } from "@/components/blog/BlogHero";
 import { BlogGrid } from "@/components/blog/BlogGrid";
 
 export const metadata: Metadata = {
-  title: "Blog | Walamnaho Academy",
+  title: "Blog | Afaq Al-Quran Academy",
   description: "Articles, reflections, and news from our scholars to enrich your journey of seeking knowledge.",
 };
 

@@ -9,7 +9,7 @@ import { CoursesCTA } from "@/components/courses/CoursesCTA";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Courses | Walamnaho Academy",
+  title: "Courses | Afaq Al-Quran Academy",
   description:
     "Explore our comprehensive academic programs in Quran, Arabic, and Islamic Studies. Expert Al-Azhar scholars, personalized curriculum, and certified Ijazah tracks.",
 };

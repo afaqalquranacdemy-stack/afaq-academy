@@ -325,7 +325,7 @@ export function TrialBooking() {
                   src="/logo.png" 
                   alt="Afaq Al-Quran Academy Logo" 
                   width={200} 
-                  height={70} 
+                  height={100} 
                   className="opacity-40 hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
