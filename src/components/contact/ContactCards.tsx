@@ -33,7 +33,7 @@ export function ContactCards() {
       detailEn: "Reply within an hour",
       valueAr: "info@afaqalquran.com",
       valueEn: "info@afaqalquran.com",
-      link: "mailto:info@afaqalquran.com",
+      link: "mailto:afaqalquranacdemy@gmail.com",
       actionAr: "أرسل بريداً",
       actionEn: "Send Email",
       gradient: "from-indigo-500 to-violet-600",

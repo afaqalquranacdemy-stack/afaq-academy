@@ -157,7 +157,7 @@ export function Footer() {
             {/* Contact Items - styled as mini dark cards based on user preference */}
             <div className="space-y-3 text-sm mb-8">
               <a
-                href="mailto:info@afaqalquran.com"
+                href="mailto:afaqalquranacdemy@gmail.com"
                 className="flex items-center gap-3 p-3 rounded-xl bg-[#0F172A] border border-slate-800 text-slate-300 hover:border-teal-500/50 hover:shadow-lg hover:shadow-teal-500/10 transition-all group"
               >
                 <div className="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center group-hover:bg-teal-500/20 transition-all">
