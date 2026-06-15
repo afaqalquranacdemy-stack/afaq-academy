@@ -11,7 +11,8 @@ const en = {
     badge: "Online Islamic Education",
     subtitle: "Your Gateway to Sacred Knowledge",
     title: {
-      line1: "Master the Quran, Arabic &",
+      line1: "A rigorous Al-Azhar methodology to",
+      line2: "master Quran, Arabic & ",
       highlight: "Islamic Sciences",
     },
     description:

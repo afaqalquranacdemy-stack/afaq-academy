@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import Image from "next/image";
 
 export function TrialBooking() {
-  const { t, isRtl } = useLanguage();
+  const { t, locale, isRtl } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -103,7 +103,7 @@ export function TrialBooking() {
   ];
 
   const contactInfo = [
-    { icon: Phone, label: "WhatsApp", value: "+20 1010 575 332", color: "bg-teal-50 text-teal-600" },
+    { icon: Phone, label: "WhatsApp", value: "+20 10 6100 3860", color: "bg-teal-50 text-teal-600" },
     { icon: Mail, label: "Email", value: "info@afaqalquran.com", color: "bg-indigo-50 text-indigo-600" },
   ];
 
@@ -322,11 +322,11 @@ export function TrialBooking() {
               {/* Premium Footer Logo */}
               <div className="flex justify-center mt-6">
                 <Image 
-                  src="/logo.png" 
+                  src={locale === "ar" ? "/logo-ar.png" : "/logo.png"} 
                   alt="Afaq Al-Quran Academy Logo" 
                   width={200} 
                   height={100} 
-                  className="opacity-40 hover:opacity-100 transition-opacity duration-300"
+                  className="opacity-90 hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
             </div>

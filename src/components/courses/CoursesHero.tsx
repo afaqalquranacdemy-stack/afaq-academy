@@ -35,10 +35,10 @@ export function CoursesHero() {
       suffix: "+",
       labelAr: "طالب نشط",
       labelEn: "Active Students",
-      color: "from-rose-50 via-rose-100/60 to-pink-50",
-      border: "border-rose-200/40",
-      iconColor: "text-rose-500",
-      glow: "bg-rose-400/20",
+      color: "from-teal-50 via-teal-100/60 to-emerald-50",
+      border: "border-teal-200/40",
+      iconColor: "text-teal-600",
+      glow: "bg-teal-400/20",
     },
     {
       icon: GraduationCap,
@@ -46,10 +46,10 @@ export function CoursesHero() {
       suffix: "+",
       labelAr: "معلم أزهري",
       labelEn: "Azhar Scholars",
-      color: "from-amber-50 via-amber-100/60 to-yellow-50",
-      border: "border-amber-200/40",
-      iconColor: "text-amber-600",
-      glow: "bg-amber-400/20",
+      color: "from-teal-50 via-teal-100/60 to-emerald-50",
+      border: "border-teal-200/40",
+      iconColor: "text-teal-600",
+      glow: "bg-teal-400/20",
     },
     {
       icon: Globe,
@@ -57,15 +57,15 @@ export function CoursesHero() {
       suffix: "+",
       labelAr: "دولة",
       labelEn: "Countries",
-      color: "from-indigo-50 via-indigo-100/60 to-violet-50",
-      border: "border-indigo-200/40",
-      iconColor: "text-indigo-600",
-      glow: "bg-indigo-400/20",
+      color: "from-teal-50 via-teal-100/60 to-emerald-50",
+      border: "border-teal-200/40",
+      iconColor: "text-teal-600",
+      glow: "bg-teal-400/20",
     },
   ];
 
   return (
-    <section className="relative pt-28 pb-32 md:pt-36 md:pb-44 overflow-hidden bg-slate-950">
+    <section className="relative min-h-[100dvh] w-full flex flex-col justify-between overflow-hidden bg-slate-950">
       {/* ═══ Background Layers ═══ */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         {/* Hero Background Image */}
@@ -128,8 +128,8 @@ export function CoursesHero() {
       />
 
       {/* ═══ Main Content ═══ */}
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="max-w-5xl mx-auto text-center">
+      <div className="container mx-auto px-4 md:px-8 relative z-30 flex-grow flex flex-col items-center justify-center pt-28 pb-8 md:pt-36 md:pb-12">
+        <div className="max-w-5xl mx-auto text-center -translate-y-[10vh] md:translate-y-0">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
@@ -203,8 +203,8 @@ export function CoursesHero() {
           >
             <div className="relative group">
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-teal-500/30 via-indigo-500/20 to-teal-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative flex items-center bg-white/[0.06] backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden group-hover:border-white/20 transition-all duration-500">
-                <Search className="w-5 h-5 text-slate-400 mx-4 shrink-0" />
+              <div className="relative flex items-center bg-slate-950/40 backdrop-blur-xl border border-white/15 rounded-2xl overflow-hidden group-hover:border-teal-500/50 transition-all duration-500">
+                <Search className="w-5 h-5 text-slate-300 group-hover:text-teal-400 transition-colors duration-300 mx-4 shrink-0" />
                 <input
                   type="text"
                   placeholder={
@@ -212,7 +212,7 @@ export function CoursesHero() {
                       ? "ابحث عن كورس أو موضوع..."
                       : "Search for a course or topic..."
                   }
-                  className="flex-1 bg-transparent py-4 pr-4 text-white placeholder:text-slate-400 outline-none text-base"
+                  className="flex-1 bg-transparent py-4 px-4 text-white placeholder:text-slate-300 outline-none text-base font-medium"
                 />
                 <button className="m-1.5 px-6 py-2.5 bg-gradient-to-r from-teal-600 to-teal-500 text-white font-bold text-sm rounded-xl hover:from-teal-500 hover:to-teal-400 transition-all duration-300 shadow-lg shadow-teal-500/20">
                   {isRtl ? "بحث" : "Search"}
@@ -221,77 +221,78 @@ export function CoursesHero() {
             </div>
           </motion.div>
 
-          {/* ═══ Stats Cards ═══ */}
-          <motion.div
-            initial={{ opacity: 0, y: 50, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{
-              duration: 1,
-              delay: 0.5,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-            className="max-w-4xl mx-auto"
-          >
-            {/* Animated gradient border */}
-            <div className="relative">
-              <div className="absolute -inset-[1.5px] rounded-[2rem] bg-gradient-to-r from-teal-400/30 via-emerald-300/20 to-indigo-400/30 animate-gradient bg-[length:300%_300%] opacity-60" />
-              <div className="glass-card !rounded-[2rem] p-0 hover:!translate-y-0 hover:!scale-100">
-                {/* Top edge light */}
-                <div className="absolute top-0 left-[15%] right-[15%] h-[1px] bg-gradient-to-r from-transparent via-teal-400/30 to-transparent z-30" />
-                {/* Bottom glow */}
-                <div className="absolute -bottom-4 left-[20%] right-[20%] h-8 bg-teal-400/10 blur-2xl rounded-full z-0" />
-
-                <div className="relative z-10 px-4 py-6 md:px-8 md:py-5">
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 md:gap-y-0 relative">
-                    {/* Desktop dividers */}
-                    <div className="hidden md:block absolute top-[20%] bottom-[20%] left-[25%] w-[2px] bg-slate-200/60" />
-                    <div className="hidden md:block absolute top-[20%] bottom-[20%] left-[50%] w-[2px] bg-slate-200/60" />
-                    <div className="hidden md:block absolute top-[20%] bottom-[20%] left-[75%] w-[2px] bg-slate-200/60" />
-
-                    {/* Mobile dividers */}
-                    <div className="block md:hidden absolute left-1/2 top-[10%] bottom-[10%] w-[1px] bg-slate-200/60" />
-                    <div className="block md:hidden absolute left-[10%] right-[10%] top-1/2 h-[1px] bg-slate-200/60" />
-
-                    {stats.map((stat, idx) => (
-                      <div
-                        key={idx}
-                        className="flex flex-col items-center gap-2 md:gap-3 px-3 md:px-5 py-2 group/s"
-                      >
-                        <div className="relative">
-                          <div
-                            className={`absolute inset-0 ${stat.glow} rounded-xl blur-lg scale-0 group-hover/s:scale-100 transition-transform duration-700`}
-                          />
-                          <div
-                            className={`relative w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br ${stat.color} border ${stat.border} flex items-center justify-center group-hover/s:shadow-lg transition-all duration-500`}
-                          >
-                            <stat.icon
-                              className={`w-5 h-5 md:w-[22px] md:h-[22px] ${stat.iconColor}`}
-                            />
-                          </div>
-                        </div>
-                        <div className="text-center">
-                          <h4 className="text-[22px] md:text-[32px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
-                            <CountUp
-                              end={stat.value}
-                              suffix={stat.suffix}
-                              className="font-black text-slate-900"
-                            />
-                          </h4>
-                          <p
-                            className={`text-slate-600 text-[9px] md:text-xs font-bold uppercase tracking-[0.12em] mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}
-                          >
-                            {isRtl ? stat.labelAr : stat.labelEn}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
+
+      {/* ═══ Stats Cards ═══ */}
+      <motion.div
+        initial={{ opacity: 0, y: 50, scale: 0.97 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{
+          duration: 1,
+          delay: 0.5,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+        className="absolute bottom-[5vh] inset-x-4 md:inset-x-0 w-auto md:w-full max-w-4xl mx-auto z-40 mb-0"
+      >
+        {/* Animated gradient border */}
+        <div className="relative">
+          <div className="absolute -inset-[1.5px] rounded-[1.5rem] md:rounded-[2.1rem] bg-gradient-to-r from-teal-400/30 via-emerald-300/20 to-teal-500/30 animate-gradient bg-[length:300%_300%] opacity-60" />
+          <div className="glass-card !rounded-[1.5rem] md:!rounded-[2rem] p-0 hover:!translate-y-0 hover:!scale-100">
+            {/* Top edge light */}
+            <div className="absolute top-0 left-[15%] right-[15%] h-[1px] bg-gradient-to-r from-transparent via-teal-400/30 to-transparent z-30" />
+            {/* Bottom glow */}
+            <div className="absolute -bottom-4 left-[20%] right-[20%] h-8 bg-teal-400/10 blur-2xl rounded-full z-0" />
+
+            <div className="relative z-10 px-2 py-3 md:px-4 lg:px-6 md:py-2.5">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-y-3 md:gap-y-0 relative">
+                {/* Desktop dividers */}
+                <div className="hidden md:block absolute top-[20%] bottom-[20%] left-[25%] w-[2px] bg-slate-200/60" />
+                <div className="hidden md:block absolute top-[20%] bottom-[20%] left-[50%] w-[2px] bg-slate-200/60" />
+                <div className="hidden md:block absolute top-[20%] bottom-[20%] left-[75%] w-[2px] bg-slate-200/60" />
+
+                {/* Mobile dividers */}
+                <div className="block md:hidden absolute left-1/2 top-[10%] bottom-[10%] w-[1px] bg-slate-200/60" />
+                <div className="block md:hidden absolute left-[10%] right-[10%] top-1/2 h-[1px] bg-slate-200/60" />
+
+                {stats.map((stat, idx) => (
+                  <div
+                    key={idx}
+                    className="flex flex-col items-center gap-1 md:gap-2 px-2 md:px-4 py-1.5 group/s"
+                  >
+                    <div className="relative">
+                      <div
+                        className={`absolute inset-0 ${stat.glow} rounded-xl blur-lg scale-0 group-hover/s:scale-100 transition-transform duration-700`}
+                      />
+                      <div
+                        className={`relative w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br ${stat.color} border ${stat.border} flex items-center justify-center group-hover/s:shadow-lg transition-all duration-500`}
+                      >
+                        <stat.icon
+                          className={`w-4 h-4 md:w-[18px] md:h-[18px] ${stat.iconColor}`}
+                        />
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <h4 className="text-[18px] md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
+                        <CountUp
+                          end={stat.value}
+                          suffix={stat.suffix}
+                          className="font-black text-slate-900"
+                        />
+                      </h4>
+                      <p
+                        className={`text-slate-600 text-[9px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-1 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}
+                      >
+                        {isRtl ? stat.labelAr : stat.labelEn}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
 
       {/* ═══ Bottom Transition ═══ */}
       <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">

@@ -25,8 +25,8 @@ export function AboutHero() {
       suffix: t.aboutUs.stats.scholars.replace(/\d/g, ''),
       labelAr: t.aboutUs.stats.scholarsLabel,
       labelEn: t.aboutUs.stats.scholarsLabel,
-      color: "text-indigo-600",
-      bg: "bg-indigo-50",
+      color: "text-teal-600",
+      bg: "bg-teal-50",
     },
     {
       icon: Award,
@@ -34,8 +34,8 @@ export function AboutHero() {
       suffix: t.aboutUs.stats.years.replace(/\d/g, ''),
       labelAr: t.aboutUs.stats.yearsLabel,
       labelEn: t.aboutUs.stats.yearsLabel,
-      color: "text-amber-500",
-      bg: "bg-amber-50",
+      color: "text-teal-600",
+      bg: "bg-teal-50",
     }
   ];
 
@@ -122,27 +122,27 @@ export function AboutHero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full max-w-4xl relative"
+            className="w-full max-w-3xl relative"
           >
-            <div className="glass-card rounded-[2rem] p-6 md:p-8 border-slate-200/60 shadow-xl shadow-slate-200/50 bg-white/80">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-0">
+            <div className="glass-card rounded-[2rem] p-4 md:p-6 border-slate-200/60 shadow-xl shadow-slate-200/50 bg-white/80">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0">
                 {stats.map((stat, idx) => (
                   <div 
                     key={idx} 
-                    className={`flex flex-col items-center justify-center group/stat py-4 md:py-2 ${
-                      idx === 1 ? 'md:border-x md:border-y-0 border-y border-x-0 border-slate-100 my-4 md:my-0 md:mx-4' : ''
+                    className={`flex flex-col items-center justify-center group/stat py-3 md:py-1.5 ${
+                      idx === 1 ? 'md:border-x md:border-y-0 border-y border-x-0 border-slate-100 my-3 md:my-0 md:mx-3' : ''
                     }`}
                   >
-                    <div className={`w-14 h-14 rounded-2xl ${stat.bg} ${stat.color} flex items-center justify-center mb-4 shadow-sm group-hover/stat:scale-110 transition-transform duration-300`}>
-                      <stat.icon className="w-7 h-7" strokeWidth={1.5} />
+                    <div className={`w-11 h-11 rounded-2xl ${stat.bg} ${stat.color} flex items-center justify-center mb-3 shadow-sm group-hover/stat:scale-110 transition-transform duration-300`}>
+                      <stat.icon className="w-6 h-6" strokeWidth={1.5} />
                     </div>
                     <div className="flex items-baseline gap-1 mb-1">
-                      <h4 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight tabular-nums">
+                      <h4 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight tabular-nums">
                         <CountUp end={stat.value} className="text-slate-900" />
                       </h4>
-                      <span className={`text-xl font-bold ${stat.color}`}>{stat.suffix}</span>
+                      <span className={`text-lg font-bold ${stat.color}`}>{stat.suffix}</span>
                     </div>
-                    <p className="text-xs md:text-sm font-bold text-slate-500 uppercase">
+                    <p className="text-[11px] md:text-xs font-bold text-slate-500 uppercase">
                       {isRtl ? stat.labelAr : stat.labelEn}
                     </p>
                   </div>

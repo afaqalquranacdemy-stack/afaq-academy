@@ -92,11 +92,11 @@ export function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-block mb-6 relative group">
               <Image
-                src="/logo.png"
+                src={locale === "ar" ? "/logo-ar.png" : "/logo.png"}
                 alt="Afaq Al-Quran Academy"
-                width={240}
-                height={72}
-                className="object-contain w-auto h-14 md:h-16 opacity-90 group-hover:opacity-100 transition-all duration-500"
+                width={160}
+                height={80}
+                className="object-contain w-auto h-16 md:h-20 opacity-90 group-hover:opacity-100 transition-all duration-500"
               />
             </Link>
             <p className="text-slate-600 text-sm leading-relaxed mb-6">
@@ -166,13 +166,13 @@ export function Footer() {
                 <span>info@afaqalquran.com</span>
               </a>
               <a
-                href="tel:+201010575332"
+                href="tel:+201061003860"
                 className="flex items-center gap-3 p-3 rounded-xl bg-[#0F172A] border border-slate-800 text-slate-300 hover:border-teal-500/50 hover:shadow-lg hover:shadow-teal-500/10 transition-all group"
               >
                 <div className="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center group-hover:bg-teal-500/20 transition-all">
                   <Phone className="w-4 h-4 text-teal-400" />
                 </div>
-                <span dir="ltr">+201010575332</span>
+                <span dir="ltr">+20 106 100 3860</span>
               </a>
             </div>
 
@@ -192,7 +192,7 @@ export function Footer() {
                 </a>
               ))}
               <a
-                href="https://wa.me/201010575332"
+                href="https://wa.me/201061003860"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"

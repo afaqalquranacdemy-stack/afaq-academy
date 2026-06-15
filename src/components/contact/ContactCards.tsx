@@ -14,9 +14,9 @@ export function ContactCards() {
       titleEn: "WhatsApp",
       detailAr: "رد فوري خلال دقائق",
       detailEn: "Instant reply within minutes",
-      valueAr: "+20 1010 575 332",
-      valueEn: "+20 1010 575 332",
-      link: "https://wa.me/201010575332",
+      valueAr: "+20 10 6100 3860",
+      valueEn: "+20 10 6100 3860",
+      link: "https://wa.me/201061003860",
       actionAr: "ابدأ المحادثة",
       actionEn: "Start Chat",
       gradient: "from-green-500 to-emerald-600",
@@ -48,9 +48,9 @@ export function ContactCards() {
       titleEn: "Call Us",
       detailAr: "متاح ٢٤ ساعة / ٧ أيام",
       detailEn: "Available 24/7",
-      valueAr: "+20 1010 575 332",
-      valueEn: "+20 1010 575 332",
-      link: "tel:+201010575332",
+      valueAr: "+20 10 6100 3860",
+      valueEn: "+20 10 6100 3860",
+      link: "tel:+201061003860",
       actionAr: "اتصل الآن",
       actionEn: "Call Now",
       gradient: "from-teal-500 to-cyan-600",
@@ -79,7 +79,7 @@ export function ContactCards() {
   ];
 
   return (
-    <section className="relative z-20 -mt-16 pb-20">
+    <section className="relative z-20 pt-[10vh] pb-20">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
           {cards.map((card, idx) => (

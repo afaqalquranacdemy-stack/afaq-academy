@@ -33,7 +33,7 @@ export function ContactHero() {
   ];
 
   return (
-    <div className="relative pt-32 pb-40 md:pt-40 md:pb-56 overflow-hidden bg-slate-950">
+    <div className="relative min-h-[100dvh] w-full flex flex-col justify-between overflow-hidden bg-slate-950">
       {/* ═══ Dark Cinematic Background ═══ */}
       <div
         className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -79,7 +79,7 @@ export function ContactHero() {
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20 mix-blend-overlay pointer-events-none z-[3]" />
 
       {/* ═══ Content ═══ */}
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
+      <div className="container mx-auto px-4 md:px-8 relative z-10 flex-grow flex flex-col items-center justify-center pt-32 pb-8 md:pt-40 md:pb-12">
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
           {/* Trust Badge */}
           <motion.div
@@ -149,11 +149,8 @@ export function ContactHero() {
         </div>
       </div>
 
-      {/* Spacer between title and stats */}
-      <div className="h-[25vh]" />
-
       {/* ═══ Floating Stats Cards ═══ */}
-      <div className="container mx-auto px-4 md:px-8 relative z-30">
+      <div className="container mx-auto px-4 md:px-8 relative z-30 pb-16 md:pb-20">
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-3 gap-3 md:gap-6">
             {stats.map((stat, idx) => (

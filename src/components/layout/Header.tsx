@@ -32,12 +32,12 @@ export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] flex justify-center pt-6 px-4 md:px-8 pointer-events-none">
       <div 
-        className={`pointer-events-auto relative w-full max-w-7xl rounded-full border flex items-center px-6 md:px-10 transition-colors duration-500 ${
+        className={`pointer-events-auto relative w-full max-w-7xl rounded-full border flex items-center px-6 md:px-10 transition-all duration-500 transform-gpu ${
           isScrolled 
-            ? "py-2 bg-white/95 backdrop-blur-md shadow-xl border-slate-200" 
-            : "py-3 bg-white/75 backdrop-blur-md shadow-lg border-white/40"
+            ? "py-2 bg-white/95 backdrop-blur-[40px] shadow-xl border-slate-200" 
+            : "py-3 bg-white/90 backdrop-blur-[40px] shadow-lg border-[rgba(13,148,136,0.15)]"
         }`}
-        style={{ isolation: 'isolate' }}
+        style={{ isolation: 'isolate', WebkitBackdropFilter: 'blur(40px)', backfaceVisibility: 'hidden' }}
       >
         {/* 1. Left Section: Logo */}
         <div className="flex-1 flex justify-start items-center">
@@ -48,11 +48,11 @@ export function Header() {
               transition={{ duration: 0.5 }}
             >
               <Image 
-                src="/logo.png" 
+                src={locale === "ar" ? "/logo-ar.png" : "/logo.png"} 
                 alt="Afaq Al-Quran Academy" 
-                width={200} 
-                height={70} 
-                className="object-contain w-auto h-10 md:h-28 group-hover:scale-105 transition-all duration-500" 
+                width={143} 
+                height={55}
+                className="object-contain w-[104px] h-[40px] md:w-[143px] md:h-[55px] group-hover:scale-105 transition-all duration-500" 
                 priority 
               />
             </motion.div>

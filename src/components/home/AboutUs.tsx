@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Target, Globe, Shield, Sparkles, ArrowRight } from "lucide-react";
@@ -17,19 +17,7 @@ export function AboutUs() {
 
   const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
 
-  const handlePlayVideo = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
 
   return (
     <section ref={ref} className="relative py-24 md:py-32 bg-slate-50 overflow-hidden section-divider">
@@ -88,17 +76,17 @@ export function AboutUs() {
             </motion.div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-slate-200">
+            <div className="grid grid-cols-3 gap-3 md:gap-6 pt-8 border-t border-slate-200">
               {[
                 { value: t.aboutUs.stats.students, label: t.aboutUs.stats.studentsLabel },
                 { value: t.aboutUs.stats.scholars, label: t.aboutUs.stats.scholarsLabel },
                 { value: t.aboutUs.stats.years, label: t.aboutUs.stats.yearsLabel },
               ].map((stat, i) => (
-                <div key={i} className="flex flex-col">
-                  <div className={`text-3xl md:text-4xl font-extrabold text-slate-900 mb-2 tracking-tight ${isRtl ? "font-sans" : "font-serif"}`}>
+                <div key={i} className="flex flex-col items-center md:items-start text-center md:text-start">
+                  <div className={`text-2xl md:text-4xl font-extrabold text-slate-900 mb-2 tracking-tight ${isRtl ? "font-sans" : "font-serif"}`}>
                     {stat.value}
                   </div>
-                  <div className="text-sm text-slate-500 font-semibold">{stat.label}</div>
+                  <div className="text-[10px] md:text-sm text-slate-500 font-semibold leading-snug">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -198,49 +186,7 @@ export function AboutUs() {
           
         </div>
 
-        {/* Premium Video Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-20 lg:mt-32 w-full max-w-5xl mx-auto relative group"
-        >
-          {/* Decorative glows behind video */}
-          <div className="absolute -inset-4 bg-gradient-to-r from-teal-500/20 via-indigo-500/20 to-teal-500/20 blur-2xl rounded-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-          
-          {/* Video Container */}
-          <div 
-            className="relative aspect-video rounded-3xl bg-slate-900 border border-slate-200/50 shadow-2xl overflow-hidden cursor-pointer"
-            onClick={handlePlayVideo}
-          >
-            {/* HTML5 Video */}
-            <video
-              ref={videoRef}
-              className="absolute inset-0 w-full h-full object-cover"
-              controls={isPlaying}
-              playsInline
-              poster="/promo.webp"
-              onPause={() => setIsPlaying(false)}
-              onPlay={() => setIsPlaying(true)}
-            >
-              <source src="/WalamnahoPromo.webm" type="video/webm" />
-              <source src="/WalamnahoPromo.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
 
-            {/* Custom Play Button Overlay (Visible only when paused) */}
-            <div 
-              className={`absolute inset-0 bg-slate-900/40 flex items-center justify-center transition-opacity duration-500 ${isPlaying ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
-            >
-              <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03] mix-blend-overlay" />
-              
-              <div className="relative z-10 w-20 h-20 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/30 transition-all duration-500 shadow-[0_0_40px_rgba(20,184,166,0.3)]">
-                <div className="w-0 h-0 border-y-[12px] border-y-transparent border-l-[20px] border-l-white ml-2" />
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
 
       {/* ═══ Ultra Premium Section Divider ═══ */}

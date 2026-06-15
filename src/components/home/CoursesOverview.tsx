@@ -186,13 +186,13 @@ export function CoursesOverview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="flex flex-wrap gap-3 mb-16"
+          className="flex flex-row overflow-x-auto flex-nowrap gap-3 mb-16 pb-4 scrollbar-none -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap md:overflow-visible md:pb-0"
         >
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-8 py-3 rounded-full text-sm font-semibold transition-all duration-500 tracking-wide outline-none ${activeCategory === category
+              className={`px-8 py-3 rounded-full text-sm font-semibold transition-all duration-500 tracking-wide outline-none whitespace-nowrap ${activeCategory === category
                 ? "bg-gradient-to-r from-teal-500 to-indigo-600 text-white shadow-md shadow-teal-500/20 scale-105"
                 : "bg-white text-slate-600 hover:bg-slate-50 hover:text-teal-600 border border-slate-200 hover:border-slate-300"
                 }`}

@@ -90,7 +90,7 @@ export function CoursesCTA() {
                 </Link>
 
                 <a
-                  href="https://wa.me/201010575332"
+                  href="https://wa.me/201061003860"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-10 py-4 text-base font-medium rounded-full text-white bg-white/10 border border-white/20 backdrop-blur-sm hover:bg-white/20 hover:border-white/40 transition-all duration-500 hover:scale-105"

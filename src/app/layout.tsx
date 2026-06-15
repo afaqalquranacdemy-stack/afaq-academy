@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter, Cairo } from "next/font/google";
+import { Playfair_Display, Inter, El_Messiri, Tajawal } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -12,9 +12,16 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const cairo = Cairo({
+const elMessiri = El_Messiri({
   subsets: ["arabic", "latin"],
-  variable: "--font-cairo",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-elmessiri",
+});
+
+const tajawal = Tajawal({
+  subsets: ["arabic", "latin"],
+  weight: ["300", "400", "500", "700", "800", "900"],
+  variable: "--font-tajawal",
 });
 
 export const metadata: Metadata = {
@@ -86,7 +93,7 @@ export default async function RootLayout({
     <html lang={locale} dir={dir} suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${playfair.variable} ${inter.variable} ${cairo.variable} font-sans antialiased bg-slate-50 text-slate-900`}
+        className={`${playfair.variable} ${inter.variable} ${elMessiri.variable} ${tajawal.variable} font-sans antialiased bg-slate-50 text-slate-900`}
       >
         <LanguageProvider initialLocale={locale}>
           <Toaster position="top-center" reverseOrder={false} />

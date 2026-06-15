@@ -16,7 +16,7 @@ import toast from "react-hot-toast";
 import Image from "next/image";
 
 export function ContactFormSection() {
-  const { t, isRtl } = useLanguage();
+  const { t, locale, isRtl } = useLanguage();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
@@ -114,7 +114,7 @@ export function ContactFormSection() {
     {
       icon: Phone,
       label: "WhatsApp",
-      value: "+20 1010 575 332",
+      value: "+20 10 6100 3860",
       color: "bg-teal-50 text-teal-600",
     },
     {
@@ -506,14 +506,14 @@ export function ContactFormSection() {
                 </form>
 
                 {/* Premium Footer Logo */}
-                <div className="mt-12 flex flex-col items-center opacity-20 hover:opacity-40 transition-opacity duration-700 select-none">
+                <div className="mt-12 flex flex-col items-center select-none">
                   <div className="w-24 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mb-6" />
                   <Image
-                    src="/logo.png"
+                    src={locale === "ar" ? "/logo-ar.png" : "/logo.png"}
                     alt="Afaq Al-Quran Academy Logo"
                     width={180}
                     height={54}
-                    className="opacity-40 hover:opacity-100 transition-opacity duration-300"
+                    className="opacity-90 hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
               </div>
