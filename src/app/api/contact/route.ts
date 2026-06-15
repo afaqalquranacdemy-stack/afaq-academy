@@ -17,18 +17,20 @@ export async function POST(req: Request) {
       formType // To distinguish between Contact form and Trial booking if needed
     } = body;
 
-    // Create a transporter using Gmail service
+    // Create a transporter using Resend SMTP service
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.resend.com',
+      port: 465,
+      secure: true,
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: 'resend',
+        pass: process.env.RESEND_API_KEY,
       },
     });
 
     const mailOptions = {
-      from: `"${firstName} ${lastName}" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,
+      from: `"${firstName} ${lastName}" <${process.env.EMAIL_FROM || 'onboarding@resend.dev'}>`,
+      to: process.env.EMAIL_TO || 'afaqalquranacdemy@gmail.com',
       subject: `New Form Submission: ${formType || 'Contact Form'} - ${firstName} ${lastName}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
