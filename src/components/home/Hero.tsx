@@ -82,7 +82,9 @@ export function Hero() {
               {t.hero.title.line1}
               <br />
               <span className="relative z-10 mt-1 md:mt-4 inline-block">
-                {t.hero.title.line2}
+                <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-400">
+                  {t.hero.title.line2}
+                </span>
                 <span className="relative inline-block">
                   <div className="absolute inset-0 bg-teal-500/20 blur-[80px] z-[-1] animate-breathe" />
                   <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-emerald-300 to-teal-500 animate-gradient bg-[length:200%_200%] px-1 md:px-2">
