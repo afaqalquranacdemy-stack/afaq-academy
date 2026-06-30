@@ -17,7 +17,7 @@ export function FloatingWhatsApp() {
             initial={{ opacity: 0, y: 10, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.9 }}
-            className="relative bg-white/95 backdrop-blur-xl text-gray-800 text-sm px-4 py-2.5 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.2)] max-w-[200px] border border-white/50"
+            className="hidden md:block relative bg-white/95 backdrop-blur-xl text-gray-800 text-sm px-4 py-2.5 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.2)] max-w-[200px] border border-white/50"
           >
             <button
               onClick={() => setShowTooltip(false)}

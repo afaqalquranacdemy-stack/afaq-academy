@@ -69,8 +69,8 @@ export const blogPosts: BlogPost[] = [
       <h3 className="text-2xl font-bold text-slate-800 mt-8 mb-4">٢. التناغم الجمالي والروحي</h3>
       <p className="mb-6">بعيداً عن القواعد الجامدة، التجويد هو موسيقى الروح. الغنة، والمد، والقلقلة ليست مجرد زخارف صوتية، بل هي عناصر تخلق إيقاعاً يهيئ القلب للتدبر. يقول الحق سبحانه: "وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا" (سورة المزمل، ٤).</p>
 
-      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">منهجية أكاديمية "ولمنه" في التعليم</h2>
-      <p className="mb-6">نحن في أكاديمية ولمنه لا ندرس القواعد فحسب، بل نربطك بالـ "سند" المتصل. منهجنا الذي وضعه كبار علماء الأزهر يرتكز على:</p>
+      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">منهجية أكاديمية "آفاق القرآن" في التعليم</h2>
+      <p className="mb-6">نحن في أكاديمية آفاق القرآن لا ندرس القواعد فحسب، بل نربطك بالـ "سند" المتصل. منهجنا الذي وضعه كبار علماء الأزهر يرتكز على:</p>
       <ul className="list-disc list-inside space-y-3 mb-8 text-slate-700">
         <li><strong>تصحيح التلاوة:</strong> التلقي والمشافهة المباشرة من المصحف.</li>
         <li><strong>تأصيل القواعد:</strong> فهم العلة العلمية وراء كل حكم تجويدي.</li>
@@ -142,7 +142,7 @@ export const blogPosts: BlogPost[] = [
       <h3 className="text-2xl font-bold text-slate-800 mt-8 mb-4">٣. الأدب قبل العلم</h3>
       <p className="mb-6">قال الإمام مالك رحمه الله: "تعلم الأدب قبل أن تتعلم العلم". إن الطريقة التي تتعامل بها مع كتبك، ومعلميك، وحتى مع بيئة تعلمك الرقمية، هي التي تحدد مقدار "البركة" التي ستحصل عليها من هذا العلم.</p>
 
-      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">دور أكاديمية ولمنه في دعم رحلتك</h2>
+      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">دور أكاديمية آفاق القرآن في دعم رحلتك</h2>
       <p className="mb-6">لقد صممنا دوراتنا لتحاكي المسار الأزهري التقليدي ولكن بأدوات العصر الرقمي. يستفيد طلابنا من:</p>
       <ul className="list-disc list-inside space-y-3 mb-8 text-slate-700">
         <li><strong>مسارات تعليمية منظمة:</strong> لن تشعر بالتيه بعد الآن بين المحاضرات العشوائية.</li>
@@ -157,7 +157,7 @@ export const blogPosts: BlogPost[] = [
     authorEn: "Dr. Mahmoud Fawzy",
     authorAr: "د. محمود فوزي",
     authorRoleEn: "Head of Islamic Studies at Afaq Al-Quran",
-    authorRoleAr: "رئيس قسم الدراسات الإسلامية بأكاديمية ولمنه",
+    authorRoleAr: "رئيس قسم الدراسات الإسلامية بأكاديمية آفاق القرآن",
     categoryEn: "Islamic Studies",
     categoryAr: "الدراسات الإسلامية",
     readTime: "7 min read",
@@ -214,7 +214,7 @@ export const blogPosts: BlogPost[] = [
       <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">لماذا يهم هذا دارس القرآن؟</h2>
       <p className="mb-6">إن فهم الجذور هو مفتاح "التدبر". فكثيراً ما تعجز الترجمات عن التقاط الحمض النووي الدلالي المشترك بين الكلمات المرتبطة. عندما يتعرف الطالب على جذر كلمة في آية ما، يرى على الفور ارتباطها بمفاهيم أخرى عبر القرآن الكريم، مما يكشف له طبقات من العمق لا تظهر في الترجمة البشرية.</p>
 
-      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">إتقان الصرف في أكاديمية ولمنه</h2>
+      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">إتقان الصرف في أكاديمية آفاق القرآن</h2>
       <p className="mb-6">برنامجنا للغة العربية، الذي يقوده خريجون من كلية اللغة العربية بالأزهر، يدرس علم "الصرف" من خلال عدسة الجذور. نحن نساعدك على الانتقال من مجرد حفظ المفردات إلى فهم "منطق" اللغة ذاته.</p>
     `,
     image: "/about-card.webp",
@@ -273,7 +273,7 @@ export const blogPosts: BlogPost[] = [
       <h3 className="text-2xl font-bold text-slate-800 mt-8 mb-4">٣. قاعدة "القليل المستمر"</h3>
       <p className="mb-6">بالنسبة للطفل، خمس دقائق من التعلم المبهج أفضل من ساعة من الإكراه. احتفل بكل نصر صغير؛ فكل حرف "قاف" يُنطق بشكل صحيح هو إنجاز يستحق الثناء والمكافأة.</p>
 
-      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">برنامج "البراعم" في أكاديمية ولمنه</h2>
+      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">برنامج "البراعم" في أكاديمية آفاق القرآن</h2>
       <p className="mb-6">لقد صممنا مساراً خاصاً للأطفال يستخدم الوسائل التفاعلية، والقصص المصورة، ومعلمين متخصصين في التعامل مع سيكولوجية الطفل وتوجيه ملكاته الفطرية.</p>
     `,
     image: "/images/courses/kids-qaida1.webp",
@@ -334,7 +334,7 @@ export const blogPosts: BlogPost[] = [
       <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">دلالة "آمين"</h2>
       <p className="mb-6">لماذا نختم بـ "آمين"؟ إنها طابع الدعاء، ومعناها "اللهم استجب". هي إقرار بأن كل ما تلوناه سابقاً كان ابتهالاً وتضرعاً لأغلى عطاء يرجوه البشر: الهداية والثبات.</p>
 
-      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">ارتقِ بصلاتك مع أكاديمية ولمنه</h2>
+      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">ارتقِ بصلاتك مع أكاديمية آفاق القرآن</h2>
       <p className="mb-6">تركز دورة "تفسير قصار السور" لدينا على الثقل اللغوي والروحي لكل كلمة، مما يضمن أن تكون صلاتك القادمة مليئة بالخضوع والخشوع الحقيقي.</p>
     `,
     image: "/images/courses/tafsir.webp",
@@ -388,7 +388,7 @@ export const blogPosts: BlogPost[] = [
       <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">تقليد "الأربعين"</h2>
       <p className="mb-6">لماذا صنف الإمام النووي وغيره "الأربعين"؟ لقد انطلقوا من نية جمع "جوامع الكلم"—تلك الأحاديث القصيرة التي تكتنز بداخلها أمهات قواعد الدين. إتقان هذه الأصول هو الخطوة الأولى نحو فهم عبقرية الشخصية النبوية.</p>
 
-      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">دراسة الحديث في أكاديمية ولمنه</h2>
+      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">دراسة الحديث في أكاديمية آفاق القرآن</h2>
       <p className="mb-6">تحت إشراف علماء من كلية أصول الدين بالأزهر الشريف، يغطي برنامجنا:</p>
       <ul className="list-disc list-inside space-y-3 mb-8 text-slate-700">
         <li><strong>مصطلح الحديث:</strong> قواعد التحقق ومعرفة المقول والمردود.</li>
@@ -440,7 +440,7 @@ export const blogPosts: BlogPost[] = [
       <p class="lead text-xl text-slate-700 leading-relaxed mb-8">إن حفظ القرآن الكريم مشروع عظيم، ولكن "تعاهده" وصيانته هي المهمة الحقيقية التي تستمر مع الحافظ مدى الحياة.</p>
 
       <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">منهجية المراحل الثلاث</h2>
-      <p className="mb-6">نحن في أكاديمية ولمنه ندرس "الطريقة الأزهرية" التي تعتمد على ثلاث مراحل من الاشتباك الذهني مع النص:</p>
+      <p className="mb-6">نحن في أكاديمية آفاق القرآن ندرس "الطريقة الأزهرية" التي تعتمد على ثلاث مراحل من الاشتباك الذهني مع النص:</p>
 
       <h3 className="text-2xl font-bold text-slate-800 mt-8 mb-4">١. التحضير (السماع الواعي)</h3>
       <p className="mb-6">لا تبدأ أبداً في حفظ صفحة جديدة دون سماعها من شيخ متقن. يجب أن تقود أذنك عينك. السماع لتسجيلات "المصحف المعلم" للشيخ الحصري يضمن عدم "برمجة" أخطاء في دماغك، والتي يصعب جداً تصحيحها لاحقاً.</p>
@@ -454,7 +454,7 @@ export const blogPosts: BlogPost[] = [
       <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">سيكولوجية المصحف والذاكرة البصرية</h2>
       <p className="mb-6">استخدم دائماً نفس النسخة (المصحف). يبني دماغك "خريطة مكانية" للصفحة. يجب أن تكون قادراً على إغماض عينيك و "رؤية" موقع الآية—أعلى اليمين، أسفل اليسار، أو في المنتصف. هذا الرابط البصري هو منقذك في لحظات الارتباك.</p>
 
-      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">التوجيه الشخصي في أكاديمية ولمنه</h2>
+      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">التوجيه الشخصي في أكاديمية آفاق القرآن</h2>
       <p className="mb-6">يوفر معلمونا جلسات فردية أسبوعية لمتابعة تقدمك، وتحديد نقاط الضعف لديك، والحفاظ على جذوة حماسك في هذه الرحلة المقدسة.</p>
     `,
     image: "/images/courses/hifz1.webp",
@@ -462,7 +462,7 @@ export const blogPosts: BlogPost[] = [
     authorEn: "Sheikh Youssef Al-Sayyed",
     authorAr: "الشيخ يوسف السيد",
     authorRoleEn: "Head of Quranic Hifz at Afaq Al-Quran",
-    authorRoleAr: "رئيس قسم التحفيظ بأكاديمية ولمنه",
+    authorRoleAr: "رئيس قسم التحفيظ بأكاديمية آفاق القرآن",
     categoryEn: "Quran",
     categoryAr: "القرآن",
     readTime: "8 min read",
@@ -514,7 +514,7 @@ export const blogPosts: BlogPost[] = [
       <p className="mb-6">ربما سمعت عن "حفص عن عاصم" أو "ورش عن نافع". هذه أسماء الأئمة الذين نذروا حياتهم لضبط هذه الأوجه ونقلها. دراسة سير هؤلاء الأعلام هي درس في الإخلاص العلمي وقدسية المشافهة.</p>
 
       <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">الدراسات القرآنية المتقدمة</h2>
-      <p className="mb-6">نقدم في أكاديمية ولمنه دورات متخصصة في "تجويد ورش" و "مدخل إلى القراءات العشر" للطلاب الذين يرغبون في تجاوز الأساسيات وتذوق الأسرار اللغوية العميقة للقرآن.</p>
+      <p className="mb-6">نقدم في أكاديمية آفاق القرآن دورات متخصصة في "تجويد ورش" و "مدخل إلى القراءات العشر" للطلاب الذين يرغبون في تجاوز الأساسيات وتذوق الأسرار اللغوية العميقة للقرآن.</p>
     `,
     image: "/images/courses/qiraat.webp",
     date: "February 28, 2026",
@@ -572,7 +572,7 @@ export const blogPosts: BlogPost[] = [
       <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">منهج الوسطية</h2>
       <p className="mb-6">يتميز المنهج الأزهري بـ "الوسطية"—التي تتجنب إفراط الجمود وتفريط التحلل. إنها تسعى لتحقيق "التيسير" على الناس مع الحفاظ على مقاصد الشريعة وهيبتها.</p>
 
-      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">ابنِ ملكتك الفقهية في أكاديمية ولمنه</h2>
+      <h2 className="text-3xl font-bold text-slate-900 mt-12 mb-6">ابنِ ملكتك الفقهية في أكاديمية آفاق القرآن</h2>
       <p className="mb-6">صممت دوراتنا في "فقه العبادات" و "القضايا المعاصرة" لتعطيك الأدوات اللازمة لتعيش حياتك بثقة، عالماً أن خطواتك تسير وفق مرضاة الله عز وجل.</p>
     `,
     image: "/images/courses/fiqh-worship1.webp",
