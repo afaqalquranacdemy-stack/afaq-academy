@@ -100,7 +100,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className={`text-sm md:text-xl text-slate-100 max-w-4xl mx-auto leading-relaxed mb-10 md:mb-16 font-semibold text-center md:text-justify px-2 md:px-4`}
+            className={`text-[13px] sm:text-sm md:text-xl text-slate-100 max-w-4xl mx-auto leading-relaxed mb-10 md:mb-16 font-semibold text-center md:text-justify px-2 md:px-4`}
           >
             {t.hero.description}
           </motion.p>
