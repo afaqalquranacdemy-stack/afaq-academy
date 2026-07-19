@@ -139,7 +139,7 @@ export function TrialBooking() {
                     <div className="mt-1 w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center shrink-0 shadow-lg shadow-teal-500/20">
                       <CheckCircle2 className="w-4 h-4 text-white" />
                     </div>
-                    <p className="text-slate-600 text-lg font-medium leading-normal">
+                    <p className="text-slate-600 text-base font-normal leading-normal">
                       {point}
                     </p>
                   </div>
@@ -235,14 +235,14 @@ export function TrialBooking() {
                        <button 
                          type="button"
                          onClick={() => setFormData({...formData, gender: "male"})}
-                         className={`flex-1 py-2 rounded-lg text-sm font-bold transition-all ${formData.gender === "male" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"}`}
+                         className={`flex-1 py-3 rounded-lg text-sm font-bold transition-all ${formData.gender === "male" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"}`}
                        >
                          {t.trial.male}
                        </button>
                        <button 
                          type="button"
                          onClick={() => setFormData({...formData, gender: "female"})}
-                         className={`flex-1 py-2 rounded-lg text-sm font-bold transition-all ${formData.gender === "female" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"}`}
+                         className={`flex-1 py-3 rounded-lg text-sm font-bold transition-all ${formData.gender === "female" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"}`}
                        >
                          {t.trial.female}
                        </button>
@@ -252,9 +252,9 @@ export function TrialBooking() {
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.preferredTeacher}</label>
                     <div className="flex bg-slate-50 p-1 rounded-xl border border-slate-200">
-                       <button type="button" onClick={() => setFormData({...formData, preferredTeacher: "any"})} className={`flex-1 py-2 rounded-lg text-[10px] font-bold transition-all ${formData.preferredTeacher === "any" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}>{t.trial.anyTeacher}</button>
-                       <button type="button" onClick={() => setFormData({...formData, preferredTeacher: "male"})} className={`flex-1 py-2 rounded-lg text-[10px] font-bold transition-all ${formData.preferredTeacher === "male" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}>{t.trial.male}</button>
-                       <button type="button" onClick={() => setFormData({...formData, preferredTeacher: "female"})} className={`flex-1 py-2 rounded-lg text-[10px] font-bold transition-all ${formData.preferredTeacher === "female" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}>{t.trial.female}</button>
+                       <button type="button" onClick={() => setFormData({...formData, preferredTeacher: "any"})} className={`flex-1 py-3 rounded-lg text-[10px] font-bold transition-all ${formData.preferredTeacher === "any" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}>{t.trial.anyTeacher}</button>
+                       <button type="button" onClick={() => setFormData({...formData, preferredTeacher: "male"})} className={`flex-1 py-3 rounded-lg text-[10px] font-bold transition-all ${formData.preferredTeacher === "male" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}>{t.trial.male}</button>
+                       <button type="button" onClick={() => setFormData({...formData, preferredTeacher: "female"})} className={`flex-1 py-3 rounded-lg text-[10px] font-bold transition-all ${formData.preferredTeacher === "female" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}>{t.trial.female}</button>
                     </div>
                   </div>
                 </div>

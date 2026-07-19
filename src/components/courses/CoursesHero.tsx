@@ -214,7 +214,7 @@ export function CoursesHero() {
                   }
                   className="flex-1 bg-transparent py-4 px-4 text-white placeholder:text-slate-300 outline-none text-base font-medium"
                 />
-                <button className="m-1.5 px-6 py-2.5 bg-gradient-to-r from-teal-600 to-teal-500 text-white font-bold text-sm rounded-xl hover:from-teal-500 hover:to-teal-400 transition-all duration-300 shadow-lg shadow-teal-500/20">
+                <button className="m-1.5 px-6 py-2.5 bg-gradient-to-r from-teal-600 to-teal-500 text-white font-bold text-sm rounded-xl hover:from-teal-500 hover:to-teal-400 transition-all duration-300 shadow-lg shadow-teal-500/20 min-h-[44px] flex items-center justify-center">
                   {isRtl ? "بحث" : "Search"}
                 </button>
               </div>

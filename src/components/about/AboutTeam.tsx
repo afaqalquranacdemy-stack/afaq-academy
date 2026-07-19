@@ -126,7 +126,7 @@ export function AboutTeam() {
                 <div className="flex items-center justify-between pt-4 border-t border-slate-100">
                   <Link
                     href={`/teachers/${member.id}`}
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 text-slate-700 font-bold text-xs group-hover:bg-[#0B1120] group-hover:text-white transition-all duration-300 w-full justify-center"
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 text-slate-700 font-bold text-xs group-hover:bg-[#0B1120] group-hover:text-white transition-all duration-300 w-full justify-center min-h-[44px]"
                   >
                     {isRtl ? "عرض السيرة الذاتية" : "View Profile"}
                     <ArrowRight className={`w-3.5 h-3.5 ${isRtl ? "rotate-180" : ""}`} />

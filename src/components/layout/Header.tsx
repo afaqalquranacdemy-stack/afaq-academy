@@ -174,16 +174,16 @@ export function Header() {
 
           <button
             onClick={() => switchLocale(locale === "en" ? "ar" : "en")}
-            className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-slate-700 hover:text-teal-600 transition-all duration-300 rounded-full hover:bg-white border border-slate-200 whitespace-nowrap"
+            className="flex items-center justify-center min-h-[44px] gap-2 px-4 py-2 text-sm font-bold text-slate-700 hover:text-teal-600 transition-all duration-300 rounded-full hover:bg-white border border-slate-200 whitespace-nowrap"
           >
             <Globe className="w-4 h-4" />
             <span className="hidden sm:inline">{locale === "en" ? "العربية" : "EN"}</span>
           </button>
-
+          
           {/* Mobile Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 text-slate-700 bg-white border border-slate-200 rounded-full transition-all shadow-sm"
+            className="md:hidden p-2.5 text-slate-700 bg-white border border-slate-200 rounded-full transition-all shadow-sm flex items-center justify-center min-w-[44px] min-h-[44px]"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>

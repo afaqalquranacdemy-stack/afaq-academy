@@ -32,7 +32,7 @@ function FeatureCard({ item, index, isRtl, bgImage }: any) {
       className={`group relative h-full ${bentoClasses[index % bentoClasses.length] || ""}`}
     >
       <div 
-        className={`relative h-full glass-card p-10 flex flex-col items-start overflow-hidden ${bgImage ? "border-white/30" : "border-slate-200/60"}`}
+        className={`relative h-full glass-card p-6 sm:p-8 md:p-10 flex flex-col items-start overflow-hidden ${bgImage ? "border-white/30" : "border-slate-200/60"}`}
       >
         {/* Premium Background Image for card 01 */}
         {bgImage && (
@@ -62,7 +62,7 @@ function FeatureCard({ item, index, isRtl, bgImage }: any) {
           {item.title}
         </h3>
         
-        <p className={`relative z-30 leading-relaxed text-lg font-medium transition-colors duration-500 ${bgImage ? "text-white/95 drop-shadow-sm" : "text-slate-700/90 group-hover:text-slate-900"}`}>
+        <p className={`relative z-30 leading-relaxed text-sm font-normal transition-colors duration-500 ${bgImage ? "text-white/80 drop-shadow-sm" : "text-slate-500 group-hover:text-slate-700"}`}>
           {item.description}
         </p>
 

@@ -186,7 +186,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   aria-label={social.label}
                   title={social.label}
-                  className={`w-10 h-10 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${social.hoverColor}`}
+                  className={`w-11 h-11 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${social.hoverColor}`}
                 >
                   <social.icon className="w-4 h-4" />
                 </a>
@@ -197,7 +197,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
                 title="WhatsApp"
-                className="w-10 h-10 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-emerald-500 hover:border-emerald-500/30 hover:bg-emerald-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300"
+                className="w-11 h-11 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-500 hover:text-emerald-500 hover:border-emerald-500/30 hover:bg-emerald-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300"
               >
                 <MessageCircle className="w-4 h-4" />
               </a>

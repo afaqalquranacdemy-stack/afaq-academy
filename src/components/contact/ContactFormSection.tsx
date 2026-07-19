@@ -369,7 +369,7 @@ export function ContactFormSection() {
                           onClick={() =>
                             setFormData({ ...formData, gender: "male" })
                           }
-                          className={`flex-1 py-2 rounded-lg text-sm font-bold transition-all ${formData.gender === "male" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"}`}
+                          className={`flex-1 py-3 rounded-lg text-sm font-bold transition-all ${formData.gender === "male" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"}`}
                         >
                           {t.trial.male}
                         </button>
@@ -378,7 +378,7 @@ export function ContactFormSection() {
                           onClick={() =>
                             setFormData({ ...formData, gender: "female" })
                           }
-                          className={`flex-1 py-2 rounded-lg text-sm font-bold transition-all ${formData.gender === "female" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"}`}
+                          className={`flex-1 py-3 rounded-lg text-sm font-bold transition-all ${formData.gender === "female" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"}`}
                         >
                           {t.trial.female}
                         </button>
@@ -398,7 +398,7 @@ export function ContactFormSection() {
                               preferredTeacher: "any",
                             })
                           }
-                          className={`flex-1 py-2 rounded-lg text-[10px] font-bold transition-all ${formData.preferredTeacher === "any" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}
+                          className={`flex-1 py-3 rounded-lg text-[10px] font-bold transition-all ${formData.preferredTeacher === "any" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}
                         >
                           {t.trial.anyTeacher}
                         </button>
@@ -410,7 +410,7 @@ export function ContactFormSection() {
                               preferredTeacher: "male",
                             })
                           }
-                          className={`flex-1 py-2 rounded-lg text-[10px] font-bold transition-all ${formData.preferredTeacher === "male" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}
+                          className={`flex-1 py-3 rounded-lg text-[10px] font-bold transition-all ${formData.preferredTeacher === "male" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}
                         >
                           {t.trial.male}
                         </button>
@@ -422,7 +422,7 @@ export function ContactFormSection() {
                               preferredTeacher: "female",
                             })
                           }
-                          className={`flex-1 py-2 rounded-lg text-[10px] font-bold transition-all ${formData.preferredTeacher === "female" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}
+                          className={`flex-1 py-3 rounded-lg text-[10px] font-bold transition-all ${formData.preferredTeacher === "female" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}
                         >
                           {t.trial.female}
                         </button>

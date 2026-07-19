@@ -54,7 +54,7 @@ export function AboutUs() {
               </span>
             </h2>
 
-            <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium mb-10">
+            <p className="text-base text-slate-500 leading-relaxed font-normal mb-10">
               {t.aboutUs.description}
             </p>
 

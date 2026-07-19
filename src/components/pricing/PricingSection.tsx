@@ -43,12 +43,12 @@ export function PricingSection({ showViewAllButton = false }: PricingSectionProp
           viewport={{ once: true }}
           className="flex justify-center mb-16"
         >
-          <div className="relative flex p-1.5 bg-white/60 backdrop-blur-xl rounded-full border border-slate-200 shadow-xl shadow-slate-200/50">
+          <div className="relative flex items-center w-full max-w-[90vw] sm:max-w-md p-1 bg-white/60 backdrop-blur-xl rounded-full border border-slate-200 shadow-xl shadow-slate-200/50 overflow-hidden mx-auto">
             {durations.map((d) => (
               <button
                 key={d.value}
                 onClick={() => setDuration(d.value)}
-                className={`relative px-8 md:px-10 py-3.5 rounded-full text-sm font-bold transition-all duration-300 z-10 ${
+                className={`relative flex-1 flex items-center justify-center min-h-[44px] px-2 sm:px-6 md:px-10 py-2.5 sm:py-3.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 z-10 ${
                   duration === d.value ? "text-white" : "text-slate-600 hover:text-slate-900"
                 }`}
               >

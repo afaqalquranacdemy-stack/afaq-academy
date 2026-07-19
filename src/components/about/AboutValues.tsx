@@ -105,7 +105,7 @@ export function AboutValues() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: val.delay, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className={`group glass-card bg-white/80 p-8 md:p-10 rounded-[2.5rem] border border-slate-100 hover:border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden ${val.colSpan}`}
+              className={`group glass-card bg-white/80 p-6 sm:p-8 md:p-10 rounded-[2.5rem] border border-slate-100 hover:border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden ${val.colSpan}`}
             >
               <div className="relative z-10 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-8">

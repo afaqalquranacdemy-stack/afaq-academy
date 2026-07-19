@@ -82,7 +82,7 @@ function CourseCard({ course, index, locale, isRtl }: any) {
           </div>
 
           {/* Content */}
-          <div className="p-8 flex flex-col flex-grow relative z-20 bg-gradient-to-b from-white/40 to-white/80">
+          <div className="p-6 sm:p-8 flex flex-col flex-grow relative z-20 bg-gradient-to-b from-white/40 to-white/80">
             <div className="flex items-center gap-6 text-sm text-slate-500 mb-5 font-semibold">
               <span className="flex items-center gap-2 bg-slate-100/50 px-3 py-1.5 rounded-full border border-slate-200/50">
                 <Clock className="w-4 h-4 text-teal-600" /> {course.duration[locale as keyof typeof course.duration] || course.duration.en}
@@ -96,7 +96,7 @@ function CourseCard({ course, index, locale, isRtl }: any) {
               {course.title[locale as keyof typeof course.title] || course.title.en}
             </h3>
 
-            <p className="text-slate-600 line-clamp-2 mb-8 flex-grow leading-relaxed font-medium">
+            <p className="text-slate-500 line-clamp-2 mb-8 flex-grow leading-relaxed font-normal">
               {course.description[locale as keyof typeof course.description] || course.description.en}
             </p>
 
@@ -192,7 +192,7 @@ export function CoursesOverview() {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-8 py-3 rounded-full text-sm font-semibold transition-all duration-500 tracking-wide outline-none whitespace-nowrap ${activeCategory === category
+              className={`px-8 py-3 rounded-full text-sm font-semibold transition-all duration-500 tracking-wide outline-none whitespace-nowrap min-h-[44px] flex items-center justify-center ${activeCategory === category
                 ? "bg-gradient-to-r from-teal-500 to-indigo-600 text-white shadow-md shadow-teal-500/20 scale-105"
                 : "bg-white text-slate-600 hover:bg-slate-50 hover:text-teal-600 border border-slate-200 hover:border-slate-300"
                 }`}
