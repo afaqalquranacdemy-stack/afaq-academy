@@ -108,7 +108,7 @@ export function TrialBooking() {
   ];
 
   return (
-    <div className="mt-16 md:mt-32 w-full max-w-7xl mx-auto px-4 md:px-8">
+    <div className="mt-12 md:mt-32 w-full max-w-7xl mx-auto px-0 md:px-8">
       {/* Unified Master Card */}
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
@@ -119,7 +119,7 @@ export function TrialBooking() {
         <div className="grid grid-cols-1 lg:grid-cols-12 overflow-hidden rounded-[3rem]">
           
           {/* Left Column: Context & Contact */}
-          <div className="lg:col-span-5 p-5 md:p-12 lg:p-16 flex flex-col justify-between relative bg-slate-50/50">
+          <div className="lg:col-span-5 px-3 py-6 md:p-12 lg:p-16 flex flex-col justify-between relative bg-slate-50/50">
             {/* Background Decorative Blob */}
             <div className="absolute top-0 left-0 w-64 h-64 bg-teal-500/5 blur-[80px] rounded-full -translate-x-1/2 -translate-y-1/2" />
             
@@ -133,7 +133,7 @@ export function TrialBooking() {
                 {t.trial.cardTitle}
               </h3>
               
-              <div className="flex flex-col gap-6 mb-12">
+              <div className="flex flex-col gap-4 mb-8 md:gap-6 md:mb-12">
                 {t.trial.cardPoints.slice(0, 4).map((point: string, i: number) => (
                   <div key={i} className="flex items-start gap-4">
                     <div className="mt-1 w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center shrink-0 shadow-lg shadow-teal-500/20">
@@ -164,7 +164,7 @@ export function TrialBooking() {
           </div>
 
           {/* Right Column: Refined Compact Form */}
-          <div className="lg:col-span-7 p-5 md:p-12 lg:p-16 bg-white">
+          <div className="lg:col-span-7 px-3.5 py-6 md:p-12 lg:p-16 bg-white">
             <div className="max-w-xl mx-auto">
               <div className="mb-10">
                 <h4 className={`text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-2 ${isRtl ? "font-cairo" : "font-serif"}`}>
