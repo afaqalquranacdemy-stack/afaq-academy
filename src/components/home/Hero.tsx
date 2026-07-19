@@ -78,7 +78,10 @@ export function Hero() {
             transition={{ duration: 1.2, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             className="relative max-w-5xl mx-auto mb-4 md:mb-8"
           >
-            <h1 className={`text-xl sm:text-2xl md:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-400 tracking-tight leading-[1.25] md:leading-[1.15] ${isRtl ? "font-cairo leading-[1.4] md:leading-[1.3]" : "font-serif"}`}>
+            <h1
+              style={{ fontSize: "clamp(1.15rem, 5.5vw, 2rem)" }}
+              className={`md:!text-5xl lg:!text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-400 tracking-tight leading-[1.25] md:leading-[1.15] ${isRtl ? "font-cairo leading-[1.4] md:leading-[1.3]" : "font-serif"}`}
+            >
               {t.hero.title.line1}
               <br />
               <span className="relative z-10 mt-1 md:mt-4 inline-block">
@@ -100,7 +103,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className={`text-[12px] sm:text-sm md:text-lg text-slate-100 w-full md:max-w-4xl mx-auto leading-relaxed mb-10 md:mb-16 font-medium text-center md:text-justify px-2 md:px-4`}
+            className={`text-sm sm:text-base md:text-lg text-slate-200 w-full md:max-w-4xl mx-auto leading-relaxed mb-10 md:mb-16 font-medium text-center px-2 md:px-4`}
           >
             {t.hero.description}
           </motion.p>
@@ -150,20 +153,20 @@ export function Hero() {
           {/* Bottom teal glow */}
           <div className="absolute -bottom-4 left-[20%] right-[20%] h-8 bg-teal-400/10 blur-2xl rounded-full z-0" />
 
-          <div className="relative z-10 px-2 py-2 md:px-4 lg:px-6 md:py-2.5">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-y-2 md:gap-y-0 relative">
+          <div className="relative z-10 px-3 py-4 md:px-4 lg:px-6 md:py-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-y-3 md:gap-y-0 relative">
 
               {/* ── Desktop vertical dividers ── */}
-              <div className="hidden md:block absolute top-[20%] bottom-[20%] left-[25%] w-[3px] bg-slate-200/80" />
-              <div className="hidden md:block absolute top-[20%] bottom-[20%] left-[50%] w-[3px] bg-slate-200/80" />
-              <div className="hidden md:block absolute top-[20%] bottom-[20%] left-[75%] w-[3px] bg-slate-200/80" />
+              <div className="hidden md:block absolute top-[20%] bottom-[20%] left-[25%] w-[1px] bg-slate-200/50" />
+              <div className="hidden md:block absolute top-[20%] bottom-[20%] left-[50%] w-[1px] bg-slate-200/50" />
+              <div className="hidden md:block absolute top-[20%] bottom-[20%] left-[75%] w-[1px] bg-slate-200/50" />
 
               {/* ── Mobile cross dividers ── */}
               <div className="block md:hidden absolute left-1/2 top-[10%] bottom-[10%] w-[1px] bg-slate-200/60" />
               <div className="block md:hidden absolute left-[10%] right-[10%] top-1/2 h-[1px] bg-slate-200/60" />
 
               {/* ─── Stat 1: Expert Tutors ─── */}
-              <div className="flex flex-col items-center gap-0.5 md:gap-2 px-2 md:px-4 py-1 md:py-1.5 group/s">
+              <div className="flex flex-col items-center gap-1 md:gap-2 px-2 md:px-4 py-2 md:py-1.5 group/s">
                 <div className="relative">
                   <div className="absolute inset-0 bg-teal-400/20 rounded-xl blur-lg scale-0 group-hover/s:scale-100 transition-transform duration-700" />
                   <div className="relative w-7 h-7 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-teal-50 via-teal-100/60 to-emerald-50 border border-teal-200/40 flex items-center justify-center group-hover/s:border-teal-300/60 group-hover/s:shadow-lg group-hover/s:shadow-teal-200/30 transition-all duration-500">
@@ -171,17 +174,17 @@ export function Hero() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <h4 className="text-[16px] md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
+                  <h4 className="text-xl md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
                     <CountUp end={50} suffix="+" className="font-black text-slate-900" />
                   </h4>
-                  <p className={`text-slate-600 text-[8px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
+                  <p className={`text-slate-600 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
                     {isRtl ? "معلم خبير" : "Expert Tutors"}
                   </p>
                 </div>
               </div>
 
               {/* ─── Stat 2: Active Courses ─── */}
-              <div className="flex flex-col items-center gap-0.5 md:gap-2 px-2 md:px-4 py-1 md:py-1.5 group/s">
+              <div className="flex flex-col items-center gap-1 md:gap-2 px-2 md:px-4 py-2 md:py-1.5 group/s">
                 <div className="relative">
                   <div className="absolute inset-0 bg-teal-400/20 rounded-xl blur-lg scale-0 group-hover/s:scale-100 transition-transform duration-700" />
                   <div className="relative w-7 h-7 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-teal-50 via-teal-100/60 to-emerald-50 border border-teal-200/40 flex items-center justify-center group-hover/s:border-teal-300/60 group-hover/s:shadow-lg group-hover/s:shadow-teal-200/30 transition-all duration-500">
@@ -189,17 +192,17 @@ export function Hero() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <h4 className="text-[16px] md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
+                  <h4 className="text-xl md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
                     <CountUp end={20} suffix="+" className="font-black text-slate-900" />
                   </h4>
-                  <p className={`text-slate-600 text-[8px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
+                  <p className={`text-slate-600 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
                     {isRtl ? "كورس متاح" : "Active Courses"}
                   </p>
                 </div>
               </div>
 
               {/* ─── Stat 3: Years Experience ─── */}
-              <div className="flex flex-col items-center gap-0.5 md:gap-2 px-2 md:px-4 py-1 md:py-1.5 group/s">
+              <div className="flex flex-col items-center gap-1 md:gap-2 px-2 md:px-4 py-2 md:py-1.5 group/s">
                 <div className="relative">
                   <div className="absolute inset-0 bg-teal-400/20 rounded-xl blur-lg scale-0 group-hover/s:scale-100 transition-transform duration-700" />
                   <div className="relative w-7 h-7 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-teal-50 via-teal-100/60 to-emerald-50 border border-teal-200/40 flex items-center justify-center group-hover/s:border-teal-300/60 group-hover/s:shadow-lg group-hover/s:shadow-teal-200/30 transition-all duration-500">
@@ -207,17 +210,17 @@ export function Hero() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <h4 className="text-[16px] md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
+                  <h4 className="text-xl md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
                     <CountUp end={10} suffix="+" className="font-black text-slate-900" />
                   </h4>
-                  <p className={`text-slate-600 text-[8px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
+                  <p className={`text-slate-600 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
                     {isRtl ? "سنوات خبرة" : "Years Experience"}
                   </p>
                 </div>
               </div>
 
               {/* ─── Stat 4: Countries ─── */}
-              <div className="flex flex-col items-center gap-0.5 md:gap-2 px-2 md:px-4 py-1 md:py-1.5 group/s">
+              <div className="flex flex-col items-center gap-1 md:gap-2 px-2 md:px-4 py-2 md:py-1.5 group/s">
                 <div className="relative">
                   <div className="absolute inset-0 bg-teal-400/20 rounded-xl blur-lg scale-0 group-hover/s:scale-100 transition-transform duration-700" />
                   <div className="relative w-7 h-7 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-teal-50 via-teal-100/60 to-emerald-50 border border-teal-200/40 flex items-center justify-center group-hover/s:border-teal-300/60 group-hover/s:shadow-lg group-hover/s:shadow-teal-200/30 transition-all duration-500">
@@ -225,10 +228,10 @@ export function Hero() {
                   </div>
                 </div>
                 <div className="text-center">
-                  <h4 className="text-[16px] md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
+                  <h4 className="text-xl md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
                     <CountUp end={30} suffix="+" className="font-black text-slate-900" />
                   </h4>
-                  <p className={`text-slate-600 text-[8px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
+                  <p className={`text-slate-600 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
                     {isRtl ? "دولة" : "Countries"}
                   </p>
                 </div>
