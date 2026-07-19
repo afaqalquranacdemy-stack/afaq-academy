@@ -2363,6 +2363,40 @@ Ensure content remains comfortable on devices with rounded corners.
 
 ------------------------------------------------------------------------------
 
+## NESTED PADDING ACCUMULATION
+
+Avoid duplicating horizontal padding (e.g. px-4, px-6) across parent sections and nested inner cards on mobile screens.
+
+Accumulated side padding reduces usable content width on 360px viewports, leading to extremely narrow inputs.
+
+Guidelines:
+• Rely on the main parent section container for outer side margin (typically px-4 or 16px).
+• Set inner nested component wrappers to px-0 on mobile, scaling up to px-6 or px-8 on desktop.
+• Keep inner card/column padding compact on mobile (e.g. px-3.5 or px-3) to maximize form field width.
+
+------------------------------------------------------------------------------
+
+## MOBILE FORM COMPACTNESS
+
+When optimizing form fields on tight mobile viewports (360px):
+
+• Name Fields: Place first and last names side-by-side using grid-cols-2 with tight gaps (gap-2) to avoid vertical page lengthening.
+• Unbalanced Splits (e.g. Email & Age): Place in a shared row using a cols-10 grid layout (col-span-7 for Email/70% and col-span-3 for Age/30%) with compact gaps.
+• Label Sizing: Set labels to text-[10px] or text-xs font-bold uppercase with tracking-wider to keep them neat.
+• Input Height: Use py-2 on mobile for inputs to keep them compact and avoid high vertical scroll load.
+
+------------------------------------------------------------------------------
+
+## ABSOLUTE LAYOUT SAFETY & OVERLAP PREVENTION
+
+When absolutely positioning visual assets or status cards (e.g. Hero stats card) near the bottom of a section:
+
+• Parent Container Bottom Padding: The parent section must declare explicit bottom padding (e.g. pb-52 or pb-60 on mobile) equal to or greater than the height of the absolute child + safe margin.
+• Overlap Testing: Always verify that the flow elements (buttons, paragraphs) do not overlap with the absolute element on a 360px viewport.
+• Dynamic Bottom offset: Use bottom-[calc(1.5rem+5vh)] or bottom-[calc(1.5rem+10vh)] to dynamically raise the absolute card relative to screen height while maintaining a safe bottom buffer.
+
+------------------------------------------------------------------------------
+
 ## SAFE AREAS
 
 Respect device safe areas.
