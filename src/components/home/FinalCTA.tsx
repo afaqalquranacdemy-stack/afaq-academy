@@ -23,7 +23,7 @@ export function FinalCTA() {
     : ["No Credit Card", "Cancel Anytime", "100% Free"];
 
   return (
-    <section ref={ref} className="relative py-28 md:py-40 overflow-hidden bg-[#F8FAFC]">
+    <section ref={ref} className="relative py-16 md:py-40 overflow-hidden bg-[#F8FAFC]">
       {/* ═══ Light Premium Background ═══ */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Subtle radial gradient orbs */}
@@ -44,22 +44,22 @@ export function FinalCTA() {
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <motion.div
           style={{ scale: scaleCard, opacity: opacityCard }}
-          className="relative max-w-5xl mx-auto rounded-[3rem] p-10 md:p-20 text-center overflow-hidden z-20"
+          className="relative max-w-5xl mx-auto rounded-[2rem] md:rounded-[3rem] px-4 py-10 md:p-20 text-center overflow-hidden z-20"
         >
           {/* ═══ Ultra Premium Dark Glass Card ═══ */}
           {/* Base deep dark layer with heavy glass blur and outer drop shadow */}
-          <div className="absolute inset-0 bg-[#0B1120]/85 backdrop-blur-3xl rounded-[3rem] shadow-[0_30px_80px_-20px_rgba(2,6,23,0.4)]" />
+          <div className="absolute inset-0 bg-[#0B1120]/85 backdrop-blur-3xl rounded-[2rem] md:rounded-[3rem] shadow-[0_30px_80px_-20px_rgba(2,6,23,0.4)]" />
           
           {/* 3D Specular highlight and deep shadow gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-black/50 rounded-[3rem]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-black/50 rounded-[2rem] md:rounded-[3rem]" />
           
           {/* Crisp borders to define edges against the light background */}
-          <div className="absolute inset-0 rounded-[3rem] border border-white/10" />
-          <div className="absolute inset-0 rounded-[3rem] border-t border-white/20" />
+          <div className="absolute inset-0 rounded-[2rem] md:rounded-[3rem] border border-white/10" />
+          <div className="absolute inset-0 rounded-[2rem] md:rounded-[3rem] border-t border-white/20" />
 
           {/* Chromatic animated border */}
           <div
-            className="absolute inset-0 rounded-[3rem] animate-chromatic opacity-30 pointer-events-none"
+            className="absolute inset-0 rounded-[2rem] md:rounded-[3rem] animate-chromatic opacity-30 pointer-events-none"
             style={{
               background: `linear-gradient(135deg, rgba(13,148,136,0.4), rgba(99,102,241,0.2), rgba(245,158,11,0.15), rgba(13,148,136,0.4))`,
               mask: `linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)`,
@@ -84,10 +84,10 @@ export function FinalCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-teal-500/10 border border-teal-500/20 mb-8"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-teal-500/10 border border-teal-500/20 mb-4 md:mb-8"
             >
-              <Sparkles className="w-4 h-4 text-teal-400 animate-pulse" />
-              <span className="text-sm font-bold tracking-widest uppercase text-teal-300">
+              <Sparkles className="w-3.5 h-3.5 text-teal-400 animate-pulse" />
+              <span className="text-xs md:text-sm font-bold tracking-widest uppercase text-teal-300">
                 {isRtl ? "ابدأ رحلتك" : "Begin Your Journey"}
               </span>
             </motion.div>
@@ -98,8 +98,8 @@ export function FinalCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className={`text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white mb-6 leading-[1.1] ${
-                isRtl ? "font-cairo leading-[1.3]" : "font-serif"
+              className={`text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white mb-4 md:mb-6 leading-[1.2] md:leading-[1.1] ${
+                isRtl ? "font-cairo leading-[1.4] md:leading-[1.3]" : "font-serif"
               }`}
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-white to-emerald-300 drop-shadow-sm">
@@ -113,7 +113,7 @@ export function FinalCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="text-lg md:text-xl text-slate-400 mb-12 max-w-2xl mx-auto font-medium leading-relaxed"
+              className="text-sm sm:text-base md:text-xl text-slate-400 mb-8 md:mb-12 max-w-2xl mx-auto font-medium leading-relaxed"
             >
               {t.cta.subtitle}
             </motion.p>
@@ -124,18 +124,18 @@ export function FinalCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full mb-10"
+              className="flex flex-col sm:flex-row items-center justify-center gap-3.5 md:gap-5 w-full mb-8 md:mb-10"
             >
               {/* Primary CTA */}
               <Link
                 href="/contact"
-                className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold tracking-wide rounded-full text-white overflow-hidden transition-all duration-500 hover:scale-[1.03] w-full sm:w-auto animate-pulse-glow"
+                className="group relative inline-flex items-center justify-center gap-2.5 px-6 py-3.5 md:px-10 md:py-5 text-base md:text-lg font-bold tracking-wide rounded-full text-white overflow-hidden transition-all duration-500 hover:scale-[1.03] w-full sm:w-auto animate-pulse-glow"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-500 via-emerald-400 to-teal-500 bg-[length:200%_100%] animate-gradient rounded-full" />
                 <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-full" />
                 <span className="relative z-10">{t.cta.button}</span>
                 <ArrowRight
-                  className={`relative z-10 w-5 h-5 transition-transform duration-500 group-hover:translate-x-2 ${
+                  className={`relative z-10 w-4.5 h-4.5 md:w-5 md:h-5 transition-transform duration-500 group-hover:translate-x-2 ${
                     isRtl ? "rotate-180 group-hover:-translate-x-2" : ""
                   }`}
                 />
@@ -146,10 +146,10 @@ export function FinalCTA() {
                 href="https://wa.me/201061003860"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center gap-3 px-10 py-5 text-lg font-bold rounded-full text-white/80 bg-white/[0.06] border border-white/10 hover:bg-white/[0.1] hover:border-white/20 hover:text-white transition-all duration-500 w-full sm:w-auto overflow-hidden hover:scale-[1.02]"
+                className="group relative inline-flex items-center justify-center gap-2.5 px-6 py-3.5 md:px-10 md:py-5 text-base md:text-lg font-bold rounded-full text-white/80 bg-white/[0.06] border border-white/10 hover:bg-white/[0.1] hover:border-white/20 hover:text-white transition-all duration-500 w-full sm:w-auto overflow-hidden hover:scale-[1.02]"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 rounded-full" />
-                <MessageCircle className="relative z-10 w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform duration-500" />
+                <MessageCircle className="relative z-10 w-4.5 h-4.5 md:w-5 md:h-5 text-emerald-400 group-hover:scale-110 transition-transform duration-500" />
                 <span className="relative z-10">
                   {isRtl ? "تواصل عبر واتساب" : "Contact via WhatsApp"}
                 </span>
@@ -162,11 +162,11 @@ export function FinalCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-wrap items-center justify-center gap-6"
+              className="flex flex-wrap items-center justify-center gap-4 md:gap-6"
             >
               {trustItems.map((item, i) => (
-                <div key={i} className="flex items-center gap-2 text-sm text-slate-500">
-                  <CheckCircle2 className="w-4 h-4 text-teal-500/60" />
+                <div key={i} className="flex items-center gap-1.5 text-xs md:text-sm text-slate-500">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-teal-500/60" />
                   <span>{item}</span>
                 </div>
               ))}
