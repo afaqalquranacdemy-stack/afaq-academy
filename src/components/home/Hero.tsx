@@ -141,7 +141,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 60, scale: 0.97 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 1.2, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute bottom-[calc(1.5rem+5vh)] md:bottom-[calc(3rem+2vh)] inset-x-0 w-full max-w-[90%] md:max-w-4xl mx-auto z-40 mb-0"
+        className="absolute bottom-[calc(1.5rem+7vh)] md:bottom-[calc(3rem+2vh)] inset-x-0 w-full max-w-[90%] md:max-w-4xl mx-auto z-40 mb-0"
       >
         {/* Animated gradient border */}
         <div className="absolute -inset-[1.5px] rounded-[1.5rem] md:rounded-[2.1rem] bg-gradient-to-r from-teal-400/30 via-emerald-300/20 to-teal-500/30 animate-gradient bg-[length:300%_300%] opacity-60" />
