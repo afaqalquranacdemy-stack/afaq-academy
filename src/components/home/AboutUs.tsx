@@ -45,7 +45,7 @@ export function AboutUs() {
               <span className="text-sm font-bold tracking-wider uppercase">{t.aboutUs.title}</span>
             </div>
 
-            <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight ${isRtl ? "font-cairo" : "font-serif"}`}>
+            <h2 className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight ${isRtl ? "font-cairo" : "font-serif"}`}>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900">
                 {t.aboutUs.subtitle.split(' ').slice(0, -2).join(' ')}{" "}
               </span>
@@ -54,7 +54,7 @@ export function AboutUs() {
               </span>
             </h2>
 
-            <p className="text-base text-slate-500 leading-relaxed font-normal mb-10">
+            <p className="text-sm sm:text-base text-slate-500 leading-relaxed font-normal mb-8 md:mb-10">
               {t.aboutUs.description}
             </p>
 
