@@ -175,10 +175,10 @@ export function TrialBooking() {
                 </p>
               </div>
 
-              <form className="space-y-5" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.firstName}</label>
+              <form className="space-y-4" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-2 gap-2 md:gap-5">
+                  <div className="space-y-1">
+                    <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.firstName}</label>
                     <input 
                       type="text" 
                       name="firstName"
@@ -186,25 +186,25 @@ export function TrialBooking() {
                       onChange={handleChange}
                       required
                       placeholder="e.g. Abdullah"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-sm md:text-base text-slate-900 placeholder:text-slate-300"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 md:py-3 px-2.5 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-[13px] md:text-base text-slate-900 placeholder:text-slate-300"
                     />
                   </div>
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.lastName}</label>
+                  <div className="space-y-1">
+                    <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.lastName}</label>
                     <input 
                       type="text" 
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleChange}
                       placeholder="e.g. Al-Farsi"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-sm md:text-base text-slate-900 placeholder:text-slate-300"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 md:py-3 px-2.5 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-[13px] md:text-base text-slate-900 placeholder:text-slate-300"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.email}</label>
+                <div className="grid grid-cols-10 gap-2 md:gap-5">
+                  <div className="col-span-7 space-y-1">
+                    <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.email}</label>
                     <input 
                       type="email" 
                       name="email"
@@ -212,61 +212,61 @@ export function TrialBooking() {
                       onChange={handleChange}
                       required
                       placeholder="hello@example.com"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-sm md:text-base text-slate-900 placeholder:text-slate-300"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 md:py-3 px-2.5 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-[13px] md:text-base text-slate-900 placeholder:text-slate-300"
                     />
                   </div>
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.age}</label>
+                  <div className="col-span-3 space-y-1">
+                    <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.age}</label>
                     <input 
                       type="number" 
                       name="age"
                       value={formData.age}
                       onChange={handleChange}
                       placeholder="25"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-sm md:text-base text-slate-900 placeholder:text-slate-300"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 md:py-3 px-2.5 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-[13px] md:text-base text-slate-900 placeholder:text-slate-300"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.gender}</label>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-5">
+                  <div className="space-y-1">
+                    <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.gender}</label>
                     <div className="flex bg-slate-50 p-1 rounded-xl border border-slate-200">
                        <button 
                          type="button"
                          onClick={() => setFormData({...formData, gender: "male"})}
-                         className={`flex-1 py-3 rounded-lg text-sm font-bold transition-all ${formData.gender === "male" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"}`}
+                         className={`flex-1 py-2 md:py-3 rounded-lg text-xs md:text-sm font-bold transition-all ${formData.gender === "male" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"}`}
                        >
                          {t.trial.male}
                        </button>
                        <button 
                          type="button"
                          onClick={() => setFormData({...formData, gender: "female"})}
-                         className={`flex-1 py-3 rounded-lg text-sm font-bold transition-all ${formData.gender === "female" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"}`}
+                         className={`flex-1 py-2 md:py-3 rounded-lg text-xs md:text-sm font-bold transition-all ${formData.gender === "female" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400 hover:text-slate-600"}`}
                        >
                          {t.trial.female}
                        </button>
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.preferredTeacher}</label>
+                  <div className="space-y-1">
+                    <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.preferredTeacher}</label>
                     <div className="flex bg-slate-50 p-1 rounded-xl border border-slate-200">
-                       <button type="button" onClick={() => setFormData({...formData, preferredTeacher: "any"})} className={`flex-1 py-3 rounded-lg text-[10px] font-bold transition-all ${formData.preferredTeacher === "any" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}>{t.trial.anyTeacher}</button>
-                       <button type="button" onClick={() => setFormData({...formData, preferredTeacher: "male"})} className={`flex-1 py-3 rounded-lg text-[10px] font-bold transition-all ${formData.preferredTeacher === "male" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}>{t.trial.male}</button>
-                       <button type="button" onClick={() => setFormData({...formData, preferredTeacher: "female"})} className={`flex-1 py-3 rounded-lg text-[10px] font-bold transition-all ${formData.preferredTeacher === "female" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}>{t.trial.female}</button>
+                       <button type="button" onClick={() => setFormData({...formData, preferredTeacher: "any"})} className={`flex-1 py-2 md:py-3 rounded-lg text-[10px] md:text-xs font-bold transition-all ${formData.preferredTeacher === "any" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}>{t.trial.anyTeacher}</button>
+                       <button type="button" onClick={() => setFormData({...formData, preferredTeacher: "male"})} className={`flex-1 py-2 md:py-3 rounded-lg text-[10px] md:text-xs font-bold transition-all ${formData.preferredTeacher === "male" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}>{t.trial.male}</button>
+                       <button type="button" onClick={() => setFormData({...formData, preferredTeacher: "female"})} className={`flex-1 py-2 md:py-3 rounded-lg text-[10px] md:text-xs font-bold transition-all ${formData.preferredTeacher === "female" ? "bg-white text-teal-600 shadow-sm border border-slate-100" : "text-slate-400"}`}>{t.trial.female}</button>
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.course}</label>
+                <div className="space-y-1">
+                  <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.course}</label>
                   <select 
                     name="course"
                     value={formData.course}
                     onChange={handleChange}
                     aria-label={t.trial.course}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-slate-900 appearance-none cursor-pointer"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-[13px] md:text-base text-slate-900 appearance-none cursor-pointer"
                   >
                     <option value="">{t.trial.course}</option>
                     {courses.map(course => (
@@ -276,11 +276,11 @@ export function TrialBooking() {
                 </div>
 
                 {/* WhatsApp with Country Code Inline Layout */}
-                <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.whatsapp}</label>
+                <div className="space-y-1">
+                  <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.whatsapp}</label>
                   <div className="flex gap-2 md:gap-3">
-                    <div className="w-[35%] md:w-[25%] min-h-[50px] md:min-h-[56px] px-2 md:px-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center text-slate-600">
-                      <span className="text-[10px] md:text-xs font-bold truncate text-center">
+                    <div className="w-[35%] md:w-[25%] min-h-[42px] md:min-h-[56px] px-2 md:px-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center text-slate-600">
+                      <span className="text-[9px] md:text-xs font-bold truncate text-center">
                         {locationData.country === 'Egypt' ? 'EG Egypt' : locationData.country}
                       </span>
                     </div>
@@ -291,20 +291,20 @@ export function TrialBooking() {
                       onChange={handleChange}
                       required
                       placeholder={`${locationData.code} 101 451 7018`}
-                      className="flex-1 min-h-[50px] md:min-h-[56px] bg-slate-50 border border-slate-200 rounded-xl py-2.5 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-sm md:text-base text-slate-900 placeholder:text-slate-400"
+                      className="flex-1 min-h-[42px] md:min-h-[56px] bg-slate-50 border border-slate-200 rounded-xl py-2 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-[13px] md:text-base text-slate-900 placeholder:text-slate-400"
                     />
                   </div>
                 </div>
 
-                <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.message}</label>
+                <div className="space-y-1">
+                  <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.message}</label>
                   <textarea 
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     placeholder={t.trial.messagePlaceholder}
-                    rows={3}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-slate-900 placeholder:text-slate-300 resize-none px-4"
+                    rows={2}
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-[13px] md:text-base text-slate-900 placeholder:text-slate-300 resize-none px-4"
                   />
                 </div>
 
@@ -312,7 +312,7 @@ export function TrialBooking() {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.01, boxShadow: "0 20px 40px -15px rgba(20, 184, 166, 0.3)" }}
                   whileTap={{ scale: 0.99 }}
-                  className={`w-full bg-slate-900 text-white font-bold py-4 rounded-xl flex items-center justify-center gap-3 transition-all text-lg shadow-xl mt-4 ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""}`}
+                  className={`w-full bg-slate-900 text-white font-bold py-3 md:py-4 rounded-xl flex items-center justify-center gap-3 transition-all text-base md:text-lg shadow-xl mt-4 ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""}`}
                 >
                   {isSubmitting ? (isRtl ? "جاري الإرسال..." : "Sending...") : t.trial.submit}
                   {!isSubmitting && <ArrowRight className={`w-5 h-5 ${isRtl ? "rotate-180" : ""}`} />}
