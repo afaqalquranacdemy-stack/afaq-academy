@@ -38,7 +38,7 @@ export function Hero() {
           // @ts-ignore
           fetchPriority="high"
           sizes="100vw"
-          className="hidden md:block object-fill opacity-[0.72] mix-blend-overlay"
+          className="hidden md:block object-fill opacity-[0.5] mix-blend-overlay"
         />
         {/* Mobile Background */}
         <Image
@@ -48,7 +48,7 @@ export function Hero() {
           priority
           fetchPriority="high"
           sizes="100vw"
-          className="block md:hidden object-fill opacity-[0.72]"
+          className="block md:hidden object-fill opacity-[0.5]"
         />
       </div>
 
@@ -80,7 +80,7 @@ export function Hero() {
           >
             <h1
               style={{ fontSize: "clamp(1.15rem, 5.5vw, 2rem)" }}
-              className={`md:!text-5xl lg:!text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-400 tracking-tight leading-[1.25] md:leading-[1.15] ${isRtl ? "font-cairo leading-[1.4] md:leading-[1.3]" : "font-serif"}`}
+              className={`md:!text-4xl lg:!text-[52px] font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-400 tracking-tight leading-[1.25] md:leading-[1.2] ${isRtl ? "font-cairo leading-[1.4] md:leading-[1.35]" : "font-serif"}`}
             >
               {t.hero.title.line1}
               <br />
