@@ -36,11 +36,11 @@ export function RelatedBlogs({ currentPost }: RelatedBlogsProps) {
                 {isRtl ? "مقالات ذات صلة" : "Related Articles"}
               </div>
               
-              <h2 className={`text-3xl font-bold text-slate-900 ${isRtl ? "font-cairo" : "font-serif"}`}>
+              <h2 className={`text-2xl sm:text-3xl font-bold text-slate-900 ${isRtl ? "font-cairo text-right" : "font-serif"}`}>
                 {isRtl ? "اقرأ أيضاً" : "Read More"}
               </h2>
             </motion.div>
-
+ 
             <motion.div
               initial={{ opacity: 0, x: isRtl ? -20 : 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -55,7 +55,7 @@ export function RelatedBlogs({ currentPost }: RelatedBlogsProps) {
               </Link>
             </motion.div>
           </div>
-
+ 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {relatedPosts.map((post, index) => (
               <motion.div
@@ -66,7 +66,7 @@ export function RelatedBlogs({ currentPost }: RelatedBlogsProps) {
                 transition={{ duration: 0.6, delay: index * 0.15 }}
               >
                 <Link href={`/blog/${post.slug}`} className="block h-full group">
-                  <div className="bg-white rounded-3xl overflow-hidden h-full flex flex-col relative border border-slate-100 shadow-sm group-hover:border-teal-100 group-hover:shadow-xl transition-all duration-300">
+                  <div className="bg-white rounded-[1.5rem] md:rounded-3xl overflow-hidden h-full flex flex-col relative border border-slate-100 shadow-sm group-hover:border-teal-100 group-hover:shadow-xl transition-all duration-300">
                     
                     {/* Image Container */}
                     <div className="relative aspect-[16/9] w-full overflow-hidden">
@@ -80,9 +80,9 @@ export function RelatedBlogs({ currentPost }: RelatedBlogsProps) {
                         {locale === "ar" ? post.categoryAr : post.categoryEn}
                       </div>
                     </div>
-
+ 
                     {/* Content */}
-                    <div className="p-6 md:p-8 flex flex-col flex-grow">
+                    <div className="p-5 md:p-8 flex flex-col flex-grow">
                       <div className="flex items-center gap-3 text-xs text-slate-500 font-medium mb-4">
                         <span>{new Intl.DateTimeFormat(locale === "ar" ? "ar-EG" : "en-US", { month: "short", day: "numeric" }).format(new Date(post.date))}</span>
                         <span className="w-1 h-1 rounded-full bg-slate-300" />
@@ -90,8 +90,8 @@ export function RelatedBlogs({ currentPost }: RelatedBlogsProps) {
                           <Clock className="w-3.5 h-3.5" /> {post.readTime}
                         </span>
                       </div>
-
-                      <h3 className={`text-xl font-bold text-slate-900 mb-3 line-clamp-2 group-hover:text-teal-600 transition-colors ${isRtl ? "font-cairo" : "font-serif"}`}>
+ 
+                      <h3 className={`text-xl font-bold text-slate-900 mb-3 line-clamp-2 group-hover:text-teal-600 transition-colors ${isRtl ? "font-cairo text-right" : "font-serif"}`}>
                         {locale === "ar" ? post.titleAr : post.titleEn}
                       </h3>
                       

@@ -83,55 +83,55 @@ export function BlogDetailHero({ post }: BlogDetailHeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight drop-shadow-md ${isRtl ? "font-cairo" : "font-serif"}`}
+            className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-8 leading-tight drop-shadow-md ${isRtl ? "font-cairo text-right" : "font-serif"}`}
           >
             {title}
           </motion.h1>
-
+ 
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed"
+            className="text-sm sm:text-base md:text-xl text-slate-300 mb-8 md:mb-10 leading-relaxed px-1"
           >
             {excerpt}
           </motion.p>
-
+ 
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap items-center justify-between gap-6 border-t border-white/10 pt-8"
+            className="flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6 md:pt-8"
           >
             {/* Author & Meta */}
-            <div className="flex flex-wrap items-center gap-6">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-bold text-lg backdrop-blur-sm shadow-[0_0_15px_rgba(20,184,166,0.1)] shrink-0">
+            <div className="flex flex-wrap items-center gap-4 md:gap-6">
+              <div className="flex items-center gap-2.5 md:gap-3">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 font-bold text-base md:text-lg backdrop-blur-sm shadow-[0_0_15px_rgba(20,184,166,0.1)] shrink-0">
                   {authorName.charAt(0)}
                 </div>
                 <div>
-                  <div className="text-white font-bold text-sm">{authorName}</div>
-                  <div className="text-slate-400 text-xs">{authorRole}</div>
+                  <div className="text-white font-bold text-xs md:text-sm">{authorName}</div>
+                  <div className="text-slate-400 text-[10px] md:text-xs">{authorRole}</div>
                 </div>
               </div>
-
+ 
               <div className="hidden sm:block w-px h-8 bg-white/10" />
-
-              <div className="flex items-center gap-4 text-sm text-slate-300 font-medium">
-                <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
-                  <Calendar className="w-4 h-4 text-teal-400" />
+ 
+              <div className="flex flex-wrap items-center gap-3 text-xs md:text-sm text-slate-300 font-medium">
+                <div className="flex items-center gap-1.5 bg-white/5 px-2.5 py-1 rounded-full border border-white/5">
+                  <Calendar className="w-3.5 h-3.5 text-teal-400" />
                   <span>{formattedDate}</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
-                  <Clock className="w-4 h-4 text-indigo-400" />
+                <div className="flex items-center gap-1.5 bg-white/5 px-2.5 py-1 rounded-full border border-white/5">
+                  <Clock className="w-3.5 h-3.5 text-indigo-400" />
                   <span>{readTime}</span>
                 </div>
               </div>
             </div>
-
+ 
             {/* Share Button */}
-            <button title="Share" aria-label="Share this post" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-teal-400 hover:border-teal-400 hover:bg-teal-400/10 transition-all duration-300">
-              <Share2 className="w-4 h-4" />
+            <button title="Share" aria-label="Share this post" className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:text-teal-400 hover:border-teal-400 hover:bg-teal-400/10 transition-all duration-300 shrink-0">
+              <Share2 className="w-3.5 h-3.5" />
             </button>
           </motion.div>
         </div>
