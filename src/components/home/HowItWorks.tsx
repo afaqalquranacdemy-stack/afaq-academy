@@ -22,16 +22,16 @@ export function HowItWorks() {
   const icons = [ClipboardList, Video, Rocket];
 
   return (
-    <section ref={ref} className="relative py-32 md:py-48 bg-slate-50/50 overflow-hidden">
+    <section ref={ref} className="relative py-20 md:py-48 bg-slate-50/50 overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 relative z-10 w-full max-w-7xl">
 
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-32">
+        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-teal-50 border border-teal-100 text-teal-600 text-sm font-bold tracking-widest uppercase mb-8 shadow-sm"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-teal-50 border border-teal-100 text-teal-600 text-sm font-bold tracking-widest uppercase mb-4 md:mb-8 shadow-sm"
           >
             <Sparkles className="w-4 h-4" />
             {t.howItWorks.title}
@@ -42,7 +42,7 @@ export function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className={`text-4xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6 ${isRtl ? "font-cairo" : "font-serif"}`}
+            className={`text-2xl sm:text-4xl md:text-6xl font-bold tracking-tight text-slate-900 mb-4 md:mb-6 ${isRtl ? "font-cairo" : "font-serif"}`}
           >
             {t.howItWorks.title}
           </motion.h2>
@@ -52,7 +52,7 @@ export function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-slate-500 text-xl font-light leading-relaxed max-w-2xl mx-auto"
+            className="text-slate-500 text-sm sm:text-base md:text-xl font-light leading-relaxed max-w-2xl mx-auto"
           >
             {t.howItWorks.subtitle}
           </motion.p>
@@ -70,7 +70,7 @@ export function HowItWorks() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12 relative z-10 w-full">
             {t.howItWorks.steps.map((step, i) => {
               const Icon = icons[i];
 
@@ -86,7 +86,7 @@ export function HowItWorks() {
                   {/* Icon Area with Large Number Backdrop */}
                   <div className="relative mb-6 w-full flex flex-col items-center group">
                     {/* Large Professional Number - Positioned Above/Peeking */}
-                    <div className="text-[80px] font-bold text-teal-500/10 mb-[-30px] select-none leading-none z-0">
+                    <div className="text-[60px] md:text-[80px] font-bold text-teal-500/10 mb-[-24px] md:mb-[-30px] select-none leading-none z-0">
                       0{i + 1}
                     </div>
 
@@ -100,7 +100,7 @@ export function HowItWorks() {
 
                   {/* Text Card */}
                   <div className="w-full relative z-10 px-4">
-                    <h3 className={`text-xl font-bold text-slate-900 mb-3 group-hover:text-teal-600 transition-colors duration-500 ${isRtl ? "font-cairo" : ""}`}>
+                    <h3 className={`text-lg sm:text-xl font-bold text-slate-900 mb-2 group-hover:text-teal-600 transition-colors duration-500 ${isRtl ? "font-cairo" : ""}`}>
                       {step.title}
                     </h3>
                     <p className="text-slate-500 leading-relaxed text-sm max-w-[280px] mx-auto">

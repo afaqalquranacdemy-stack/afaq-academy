@@ -108,18 +108,18 @@ export function TrialBooking() {
   ];
 
   return (
-    <div className="mt-32 w-full max-w-7xl mx-auto px-4 md:px-8">
+    <div className="mt-16 md:mt-32 w-full max-w-7xl mx-auto px-4 md:px-8">
       {/* Unified Master Card */}
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="glass-card border border-slate-200/60 p-1 md:p-2 rounded-[3.5rem] bg-white/80 shadow-2xl overflow-hidden"
+        className="glass-card border border-slate-200/60 p-1 md:p-2 rounded-[2rem] md:rounded-[3.5rem] bg-white/80 shadow-2xl overflow-hidden"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 overflow-hidden rounded-[3rem]">
           
           {/* Left Column: Context & Contact */}
-          <div className="lg:col-span-5 p-8 md:p-12 lg:p-16 flex flex-col justify-between relative bg-slate-50/50">
+          <div className="lg:col-span-5 p-5 md:p-12 lg:p-16 flex flex-col justify-between relative bg-slate-50/50">
             {/* Background Decorative Blob */}
             <div className="absolute top-0 left-0 w-64 h-64 bg-teal-500/5 blur-[80px] rounded-full -translate-x-1/2 -translate-y-1/2" />
             
@@ -129,7 +129,7 @@ export function TrialBooking() {
                 {t.trial.cardSubtitle}
               </div>
               
-              <h3 className={`text-3xl md:text-5xl font-bold text-slate-900 mb-8 leading-tight ${isRtl ? "font-cairo" : "font-serif"}`}>
+              <h3 className={`text-2xl sm:text-3xl md:text-5xl font-bold text-slate-900 mb-6 md:mb-8 leading-tight ${isRtl ? "font-cairo" : "font-serif"}`}>
                 {t.trial.cardTitle}
               </h3>
               
@@ -139,7 +139,7 @@ export function TrialBooking() {
                     <div className="mt-1 w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center shrink-0 shadow-lg shadow-teal-500/20">
                       <CheckCircle2 className="w-4 h-4 text-white" />
                     </div>
-                    <p className="text-slate-600 text-base font-normal leading-normal">
+                    <p className="text-slate-600 text-sm sm:text-base font-normal leading-normal">
                       {point}
                     </p>
                   </div>
@@ -164,10 +164,10 @@ export function TrialBooking() {
           </div>
 
           {/* Right Column: Refined Compact Form */}
-          <div className="lg:col-span-7 p-8 md:p-12 lg:p-16 bg-white">
+          <div className="lg:col-span-7 p-5 md:p-12 lg:p-16 bg-white">
             <div className="max-w-xl mx-auto">
               <div className="mb-10">
-                <h4 className={`text-2xl md:text-3xl font-bold text-slate-900 mb-2 ${isRtl ? "font-cairo" : "font-serif"}`}>
+                <h4 className={`text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mb-2 ${isRtl ? "font-cairo" : "font-serif"}`}>
                   {t.trial.formTitle}
                 </h4>
                 <p className="text-slate-500">
@@ -176,9 +176,9 @@ export function TrialBooking() {
               </div>
 
               <form className="space-y-5" onSubmit={handleSubmit}>
-                <div className="grid grid-cols-2 gap-3 md:gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
                   <div className="space-y-1.5">
-                    <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.firstName}</label>
+                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.firstName}</label>
                     <input 
                       type="text" 
                       name="firstName"
@@ -190,7 +190,7 @@ export function TrialBooking() {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.lastName}</label>
+                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.lastName}</label>
                     <input 
                       type="text" 
                       name="lastName"
@@ -202,9 +202,9 @@ export function TrialBooking() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 md:gap-5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
                   <div className="space-y-1.5">
-                    <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.email}</label>
+                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.email}</label>
                     <input 
                       type="email" 
                       name="email"
@@ -216,7 +216,7 @@ export function TrialBooking() {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.age}</label>
+                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.age}</label>
                     <input 
                       type="number" 
                       name="age"
@@ -277,7 +277,7 @@ export function TrialBooking() {
 
                 {/* WhatsApp with Country Code Inline Layout */}
                 <div className="space-y-1.5">
-                  <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.whatsapp}</label>
+                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider px-1">{t.trial.whatsapp}</label>
                   <div className="flex gap-2 md:gap-3">
                     <div className="w-[35%] md:w-[25%] min-h-[50px] md:min-h-[56px] px-2 md:px-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center text-slate-600">
                       <span className="text-[10px] md:text-xs font-bold truncate text-center">
