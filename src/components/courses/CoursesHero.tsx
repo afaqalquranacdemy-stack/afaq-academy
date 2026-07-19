@@ -128,8 +128,8 @@ export function CoursesHero() {
       />
 
       {/* ═══ Main Content ═══ */}
-      <div className="container mx-auto px-4 md:px-8 relative z-30 flex-grow flex flex-col items-center justify-center pt-28 pb-8 md:pt-36 md:pb-12">
-        <div className="max-w-5xl mx-auto text-center -translate-y-[10vh] md:translate-y-0">
+      <div className="container mx-auto px-4 md:px-8 relative z-30 flex-grow flex flex-col items-center justify-center pt-24 pb-52 md:pt-36 md:pb-12">
+        <div className="max-w-5xl mx-auto text-center -translate-y-[2vh] md:translate-y-0">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
@@ -157,7 +157,8 @@ export function CoursesHero() {
               delay: 0.1,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-400 tracking-tight leading-[1.2] mb-6 ${isRtl ? "font-cairo leading-[1.4]" : "font-serif"}`}
+            style={{ fontSize: "clamp(1.15rem, 5.5vw, 2.1rem)" }}
+            className={`md:!text-5xl lg:!text-[52px] font-bold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-400 tracking-tight leading-[1.25] mb-6 ${isRtl ? "font-cairo leading-[1.4]" : "font-serif"}`}
           >
             {isRtl ? "استكشف " : "Explore "}
             <span className="relative inline-block">
@@ -167,10 +168,10 @@ export function CoursesHero() {
               </span>
             </span>
             <br className="hidden md:block" />
-            <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+            <span className="text-[18px] sm:text-[28px] md:text-5xl lg:text-6xl block mt-2 md:inline">
               {isRtl
-                ? "واختر رحلتك الأكاديمية"
-                : "& Choose Your Path"}
+                ? " واختر رحلتك الأكاديمية"
+                : " & Choose Your Path"}
             </span>
           </motion.h1>
 
@@ -183,7 +184,7 @@ export function CoursesHero() {
               delay: 0.25,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="text-base md:text-l text-slate-300 max-w-3xl mx-auto leading-relaxed mb-12 font-medium text-justify"
+            className="text-sm sm:text-base md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-10 font-medium text-center px-2"
           >
             {isRtl
               ? "برامج أكاديمية معتمدة بإشراف نخبة من علماء الأزهر الشريف. مناهج متكاملة تجمع بين الأصالة والمعاصرة، مصممة لتحقيق أعلى مستويات التميز العلمي."
@@ -244,8 +245,8 @@ export function CoursesHero() {
             {/* Bottom glow */}
             <div className="absolute -bottom-4 left-[20%] right-[20%] h-8 bg-teal-400/10 blur-2xl rounded-full z-0" />
 
-            <div className="relative z-10 px-2 py-3 md:px-4 lg:px-6 md:py-2.5">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-y-3 md:gap-y-0 relative">
+            <div className="relative z-10 px-3 py-2.5 md:px-4 lg:px-6 md:py-3">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-y-1.5 md:gap-y-0 relative">
                 {/* Desktop dividers */}
                 <div className="hidden md:block absolute top-[20%] bottom-[20%] left-[25%] w-[2px] bg-slate-200/60" />
                 <div className="hidden md:block absolute top-[20%] bottom-[20%] left-[50%] w-[2px] bg-slate-200/60" />
@@ -258,7 +259,7 @@ export function CoursesHero() {
                 {stats.map((stat, idx) => (
                   <div
                     key={idx}
-                    className="flex flex-col items-center gap-1 md:gap-2 px-2 md:px-4 py-1.5 group/s"
+                    className="flex flex-col items-center gap-0.5 md:gap-2 px-2 md:px-4 py-1 md:py-1.5 group/s"
                   >
                     <div className="relative">
                       <div

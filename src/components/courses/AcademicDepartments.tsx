@@ -81,13 +81,13 @@ export function AcademicDepartments() {
             {isRtl ? "الأقسام الأكاديمية" : "Academic Departments"}
           </span>
           <h2
-            className={`text-4xl md:text-5xl font-bold text-slate-900 mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
+            className={`text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
           >
             {isRtl
               ? "اختر مسارك العلمي"
               : "Choose Your Academic Path"}
           </h2>
-          <p className="text-lg text-slate-500 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-slate-500 leading-relaxed">
             {isRtl
               ? "أربعة أقسام أكاديمية متكاملة تغطي جميع جوانب العلم الشرعي واللغة العربية"
               : "Four comprehensive academic departments covering all aspects of Islamic scholarship and Arabic language"}
@@ -112,7 +112,7 @@ export function AcademicDepartments() {
                   duration: 0.7,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="glass-card p-8 md:p-10 rounded-[2.5rem] bg-[#F8FAFC] border border-slate-100 hover:shadow-2xl transition-all duration-500 group relative overflow-hidden"
+                className="glass-card p-5 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-[#F8FAFC] border border-slate-100 hover:shadow-2xl transition-all duration-500 group relative overflow-hidden"
               >
                 {/* Decorative glow */}
                 <div

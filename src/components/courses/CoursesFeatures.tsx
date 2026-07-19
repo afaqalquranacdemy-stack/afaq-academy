@@ -122,13 +122,13 @@ export function CoursesFeatures() {
             {isRtl ? "لماذا تختارنا؟" : "Why Choose Us?"}
           </span>
           <h2
-            className={`text-4xl md:text-5xl font-bold text-slate-900 mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
+            className={`text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
           >
             {isRtl
               ? "تجربة تعليمية لا تُضاهى"
               : "An Unmatched Learning Experience"}
           </h2>
-          <p className="text-lg text-slate-500 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-slate-500 leading-relaxed">
             {isRtl
               ? "نقدم تجربة تعليمية فريدة تجمع بين الخبرة الأكاديمية والتقنية الحديثة"
               : "We deliver a unique learning experience that combines academic expertise with modern technology"}
@@ -148,7 +148,7 @@ export function CoursesFeatures() {
                 duration: 0.6,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className={`glass-card p-8 rounded-[2rem] bg-white border border-slate-100 hover:shadow-2xl ${feat.glow} transition-all duration-500 group relative overflow-hidden`}
+              className={`glass-card p-5 rounded-[1.5rem] md:rounded-[2rem] bg-white border border-slate-100 hover:shadow-2xl ${feat.glow} transition-all duration-500 group relative overflow-hidden`}
             >
               {/* Decorative glow */}
               <div

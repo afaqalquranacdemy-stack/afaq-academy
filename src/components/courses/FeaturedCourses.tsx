@@ -56,13 +56,13 @@ export function FeaturedCourses() {
             {isRtl ? "الأكثر طلباً" : "Most Popular"}
           </div>
           <h2
-            className={`text-4xl md:text-5xl font-bold text-slate-900 mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
+            className={`text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
           >
             {isRtl
               ? "البرامج الأكثر تميّزاً"
               : "Featured Programs"}
           </h2>
-          <p className="text-lg text-slate-500 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-slate-500 leading-relaxed">
             {isRtl
               ? "برامج مختارة بعناية حققت أعلى تقييمات من طلابنا حول العالم"
               : "Handpicked programs that earned the highest ratings from our global students"}
@@ -77,10 +77,10 @@ export function FeaturedCourses() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="glass-card p-2 rounded-[2.5rem] bg-white border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500 group flex flex-col lg:row-span-2"
+            className="glass-card p-2 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500 group flex flex-col lg:row-span-2"
           >
             {/* Image */}
-            <div className="relative h-72 lg:h-[400px] rounded-[2rem] overflow-hidden">
+            <div className="relative h-72 lg:h-[400px] rounded-[1.2rem] md:rounded-[2rem] overflow-hidden">
               <Image
                 src={featured[0].image}
                 alt={isRtl ? featured[0].title.ar : featured[0].title.en}
@@ -133,7 +133,7 @@ export function FeaturedCourses() {
             </div>
 
             {/* Content */}
-            <div className="p-6 md:p-8 flex flex-col flex-grow">
+            <div className="p-4 md:p-8 flex flex-col flex-grow">
               <h3
                 className={`text-2xl md:text-3xl font-bold text-slate-900 mb-3 group-hover:text-teal-600 transition-colors ${isRtl ? "font-cairo" : ""}`}
               >
@@ -194,10 +194,10 @@ export function FeaturedCourses() {
                 delay: idx * 0.15,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="glass-card p-2 rounded-[2.5rem] bg-white border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500 group flex flex-col md:flex-row"
+              className="glass-card p-2 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500 group flex flex-col md:flex-row"
             >
               {/* Image */}
-              <div className="relative h-56 md:h-auto md:w-64 rounded-[2rem] overflow-hidden shrink-0">
+              <div className="relative h-56 md:h-auto md:w-64 rounded-[1.2rem] md:rounded-[2rem] overflow-hidden shrink-0">
                 <Image
                   src={course.image}
                   alt={isRtl ? course.title.ar : course.title.en}
@@ -222,7 +222,7 @@ export function FeaturedCourses() {
               </div>
 
               {/* Content */}
-              <div className="p-6 md:p-8 flex flex-col flex-grow">
+              <div className="p-4 md:p-8 flex flex-col flex-grow">
                 {/* Meta row */}
                 <div className="flex flex-wrap items-center gap-3 mb-4">
                   <div className="flex items-center gap-1.5 bg-amber-50 px-2.5 py-1 rounded-lg">

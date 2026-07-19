@@ -19,10 +19,10 @@ export function CoursesCTA() {
           className="relative max-w-5xl mx-auto"
         >
           {/* Outer glow */}
-          <div className="absolute -inset-[2px] rounded-[3rem] bg-gradient-to-r from-teal-500/30 via-indigo-500/20 to-teal-500/30 animate-gradient bg-[length:300%_300%] opacity-60" />
+          <div className="absolute -inset-[2px] rounded-[2rem] md:rounded-[3rem] bg-gradient-to-r from-teal-500/30 via-indigo-500/20 to-teal-500/30 animate-gradient bg-[length:300%_300%] opacity-60" />
 
           {/* Main Card */}
-          <div className="relative bg-[#0B1120] rounded-[3rem] overflow-hidden">
+          <div className="relative bg-[#0B1120] rounded-[2rem] md:rounded-[3rem] overflow-hidden">
             {/* Background decorative */}
             <div className="absolute inset-0 pointer-events-none">
               <div className="absolute top-[-20%] right-[-10%] w-[50vw] h-[50vw] bg-teal-500/10 blur-[150px] rounded-full" />
@@ -35,7 +35,7 @@ export function CoursesCTA() {
               />
             </div>
 
-            <div className="relative z-10 px-8 py-16 md:px-16 md:py-24 text-center">
+            <div className="relative z-10 px-4 py-12 md:px-16 md:py-24 text-center">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm text-teal-300 text-xs font-bold uppercase tracking-widest mb-8">
                 <Sparkles className="w-3.5 h-3.5" />
@@ -44,7 +44,7 @@ export function CoursesCTA() {
 
               {/* Title */}
               <h2
-                className={`text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight ${isRtl ? "font-cairo" : "font-serif"}`}
+                className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight ${isRtl ? "font-cairo" : "font-serif"}`}
               >
                 {isRtl ? (
                   <>
@@ -67,7 +67,7 @@ export function CoursesCTA() {
                 )}
               </h2>
 
-              <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+              <p className="text-slate-400 text-sm sm:text-base md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
                 {isRtl
                   ? "انضم إلى مئات الطلاب حول العالم الذين بدأوا رحلتهم مع أكاديمية آفاق القرآن. جلسة تجريبية مجانية بانتظارك."
                   : "Join hundreds of students worldwide who started their journey with Afaq Al-Quran Academy. A free trial session awaits you."}

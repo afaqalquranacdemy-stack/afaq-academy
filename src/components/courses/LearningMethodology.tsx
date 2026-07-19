@@ -86,13 +86,13 @@ export function LearningMethodology() {
             {isRtl ? "منهجيتنا في التعليم" : "Our Methodology"}
           </span>
           <h2
-            className={`text-4xl md:text-5xl font-bold text-slate-900 mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
+            className={`text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
           >
             {isRtl
               ? "كيف نصنع التميّز الأكاديمي؟"
               : "How We Achieve Academic Excellence?"}
           </h2>
-          <p className="text-lg text-slate-500 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-slate-500 leading-relaxed">
             {isRtl
               ? "منهجية تعليمية مُثبتة تجمع بين التقليد والابتكار لتحقيق أفضل النتائج"
               : "A proven educational methodology that blends tradition with innovation for the best outcomes"}
@@ -127,7 +127,7 @@ export function LearningMethodology() {
                 <div
                   className={`flex-1 ${isEven ? "md:text-right" : "md:text-left"}`}
                 >
-                  <div className="glass-card p-8 rounded-[2rem] bg-[#F8FAFC] border border-slate-100 hover:shadow-xl transition-all duration-500 group relative overflow-hidden">
+                  <div className="glass-card p-5 rounded-[1.5rem] md:rounded-[2rem] bg-[#F8FAFC] border border-slate-100 hover:shadow-xl transition-all duration-500 group relative overflow-hidden">
                     {/* Glow */}
                     <div
                       className={`absolute -top-10 ${isEven ? "-right-10" : "-left-10"} w-32 h-32 ${step.glow} blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700`}

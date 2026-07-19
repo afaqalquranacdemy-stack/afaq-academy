@@ -94,13 +94,13 @@ function CourseGridContent() {
             {isRtl ? "كتالوج البرامج" : "Program Catalog"}
           </span>
           <h2
-            className={`text-4xl md:text-5xl font-bold text-slate-900 mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
+            className={`text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
           >
             {isRtl
               ? "جميع البرامج الأكاديمية"
               : "All Academic Programs"}
           </h2>
-          <p className="text-lg text-slate-500 leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg text-slate-500 leading-relaxed">
             {isRtl
               ? "تصفح جميع برامجنا الأكاديمية واختر ما يناسب مستواك وأهدافك"
               : "Browse all our academic programs and choose what fits your level and goals"}
@@ -196,10 +196,10 @@ function CourseGridContent() {
                 exit={{ opacity: 0, scale: 0.95, y: -20 }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 key={course.id}
-                className="glass-card p-2 rounded-[2.5rem] bg-white border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500 group flex flex-col"
+                className="glass-card p-2 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500 group flex flex-col"
               >
                 {/* ── Image ── */}
-                <div className="relative h-52 rounded-[2rem] overflow-hidden">
+                <div className="relative h-52 rounded-[1.2rem] md:rounded-[2rem] overflow-hidden">
                   <Image
                     src={course.image}
                     alt={isRtl ? course.title.ar : course.title.en}
@@ -241,7 +241,7 @@ function CourseGridContent() {
                 </div>
 
                 {/* ── Content ── */}
-                <div className="p-6 md:p-7 flex flex-col flex-grow">
+                <div className="p-4 md:p-7 flex flex-col flex-grow">
                   {/* Level badge */}
                   <div className="flex items-center gap-2 mb-4">
                     <span
