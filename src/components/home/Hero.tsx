@@ -53,7 +53,7 @@ export function Hero() {
       </div>
 
       {/* Main Content Area - Balanced spacing for mobile/desktop */}
-      <div className="relative z-10 flex-grow flex flex-col items-center justify-center px-4 md:px-8 pt-28 pb-52 md:pt-[10vh] md:pb-48">
+      <div className="relative z-10 flex-grow flex flex-col items-center justify-center px-4 md:px-8 pt-22 pb-52 md:pt-[10vh] md:pb-48">
         <motion.div
           className="container mx-auto flex flex-col items-center text-center"
         >
@@ -62,7 +62,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="relative inline-flex items-center gap-2 md:gap-2.5 px-4 md:px-6 py-2 md:py-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 shadow-lg mb-6 md:mb-10 mt-4 md:mt-0 overflow-hidden group hover:border-teal-500/50 transition-all duration-700 cursor-default"
+            className="relative inline-flex items-center gap-2 md:gap-2.5 px-4 md:px-6 py-2 md:py-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 shadow-lg mb-3.5 md:mb-10 mt-1 md:mt-0 overflow-hidden group hover:border-teal-500/50 transition-all duration-700 cursor-default"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-teal-500/0 via-teal-500/20 to-teal-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
             <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4 text-teal-400 animate-pulse" />
@@ -76,7 +76,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="relative max-w-5xl mx-auto mb-4 md:mb-8"
+            className="relative max-w-5xl mx-auto mb-2 md:mb-8"
           >
             <h1
               style={{ fontSize: "clamp(1.15rem, 5.5vw, 2rem)" }}
@@ -103,7 +103,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className={`text-[12px] sm:text-base md:text-lg text-slate-200 w-full md:max-w-4xl mx-auto leading-relaxed mb-6 md:mb-16 font-medium text-center px-2 md:px-4`}
+            className={`text-[12px] sm:text-base md:text-lg text-slate-200 w-full md:max-w-4xl mx-auto leading-relaxed mb-4 md:mb-16 font-medium text-center px-2 md:px-4`}
           >
             {t.hero.description}
           </motion.p>
