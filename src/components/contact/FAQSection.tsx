@@ -78,7 +78,7 @@ export function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className={`text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
+            className={`text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
           >
             {isRtl ? "إجابات " : "Answers to "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">
@@ -90,7 +90,7 @@ export function FAQSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-slate-500 leading-relaxed max-w-2xl mx-auto"
+            className="text-sm sm:text-base md:text-lg text-slate-500 leading-relaxed max-w-2xl mx-auto px-2"
           >
             {isRtl
               ? "نجيب عن أكثر الأسئلة شيوعاً لمساعدتك في اتخاذ القرار المناسب."
@@ -109,7 +109,7 @@ export function FAQSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: idx * 0.08 }}
-                className={`rounded-[2rem] border transition-all duration-300 overflow-hidden ${
+                className={`rounded-[1.2rem] md:rounded-[2rem] border transition-all duration-300 overflow-hidden ${
                   isOpen
                     ? "bg-white border-teal-200 shadow-xl shadow-teal-500/5"
                     : "bg-white/60 border-slate-100 hover:bg-white hover:shadow-md"
@@ -117,7 +117,7 @@ export function FAQSection() {
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full flex items-center justify-between p-6 md:p-8 text-left"
+                  className="w-full flex items-center justify-between p-5 md:p-8 text-left"
                 >
                   <div className="flex items-center gap-4 flex-1">
                     <div
@@ -130,7 +130,7 @@ export function FAQSection() {
                       {idx + 1}
                     </div>
                     <h3
-                      className={`text-lg md:text-xl font-bold transition-colors ${isOpen ? "text-teal-600" : "text-slate-800"} ${isRtl ? "font-cairo text-right" : ""}`}
+                      className={`text-base md:text-xl font-bold transition-colors ${isOpen ? "text-teal-600" : "text-slate-800"} ${isRtl ? "font-cairo text-right" : ""}`}
                     >
                       {isRtl ? faq.qAr : faq.qEn}
                     </h3>
@@ -154,7 +154,7 @@ export function FAQSection() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="px-6 md:px-8 pb-8 pt-2 text-slate-600 text-lg leading-relaxed border-t border-slate-50">
+                      <div className="px-5 md:px-8 pb-6 md:pb-8 pt-2 text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed border-t border-slate-50">
                         <div className={`${isRtl ? "ps-12" : "ps-12"}`}>
                           {isRtl ? faq.aAr : faq.aEn}
                         </div>

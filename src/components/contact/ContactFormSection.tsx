@@ -202,58 +202,58 @@ export function ContactFormSection() {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass-card border border-slate-200/60 p-1 md:p-2 rounded-[3.5rem] bg-white/80 shadow-2xl overflow-hidden max-w-7xl mx-auto"
+          className="glass-card border border-slate-200/60 p-1 md:p-2 rounded-[1.5rem] md:rounded-[3.5rem] bg-white/80 shadow-2xl overflow-hidden max-w-7xl mx-auto"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-12 overflow-hidden rounded-[3rem]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 overflow-hidden rounded-[1.2rem] md:rounded-[3rem]">
             {/* Left Column: Context & Contact */}
-            <div className="lg:col-span-5 p-8 md:p-12 lg:p-16 flex flex-col justify-between relative bg-slate-50/50">
+            <div className="lg:col-span-5 p-4 sm:p-8 md:p-12 lg:p-16 flex flex-col justify-between relative bg-slate-50/50">
               {/* Background Decorative Blob */}
               <div className="absolute top-0 left-0 w-64 h-64 bg-teal-500/5 blur-[80px] rounded-full -translate-x-1/2 -translate-y-1/2" />
-
+ 
               <div className="relative z-10">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-100/50 border border-teal-200 text-teal-700 text-xs font-bold uppercase tracking-widest mb-8">
                   <Sparkles className="w-3.5 h-3.5" />
                   {t.trial.cardSubtitle}
                 </div>
-
+ 
                 <h3
-                  className={`text-3xl md:text-5xl font-bold text-slate-900 mb-8 leading-tight ${isRtl ? "font-cairo" : "font-serif"}`}
+                  className={`text-2xl md:text-5xl font-bold text-slate-900 mb-6 md:mb-8 leading-tight ${isRtl ? "font-cairo" : "font-serif"}`}
                 >
                   {t.trial.cardTitle}
                 </h3>
-
-                <div className="flex flex-col gap-6 mb-12">
+ 
+                <div className="flex flex-col gap-4 mb-8">
                   {t.trial.cardPoints.slice(0, 4).map((point: string, i: number) => (
-                    <div key={i} className="flex items-start gap-4">
-                      <div className="mt-1 w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center shrink-0 shadow-lg shadow-teal-500/20">
-                        <CheckCircle2 className="w-4 h-4 text-white" />
+                    <div key={i} className="flex items-start gap-3">
+                      <div className="mt-1 w-5 h-5 rounded-full bg-teal-500 flex items-center justify-center shrink-0 shadow-lg shadow-teal-500/20">
+                        <CheckCircle2 className="w-3 h-3 text-white" />
                       </div>
-                      <p className="text-slate-600 text-lg font-medium leading-normal">
+                      <p className="text-slate-600 text-base md:text-lg font-medium leading-normal">
                         {point}
                       </p>
                     </div>
                   ))}
                 </div>
-
+ 
                 {/* Steps */}
-                <div className="flex flex-col gap-4 mb-12">
+                <div className="flex flex-col gap-3 mb-8">
                   {steps.map((step, i) => (
                     <div
                       key={i}
-                      className="glass-card bg-white border-slate-100 p-5 rounded-2xl flex items-center gap-4 hover:shadow-md transition-shadow duration-300"
+                      className="glass-card bg-white border-slate-100 p-4 rounded-xl flex items-center gap-3.5 hover:shadow-md transition-shadow duration-300"
                     >
                       <div
-                        className={`w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-lg font-black ${step.color} shrink-0`}
+                        className={`w-9 h-9 rounded-full bg-slate-50 flex items-center justify-center text-base font-black ${step.color} shrink-0`}
                       >
                         {step.num}
                       </div>
                       <div>
                         <h4
-                          className={`text-base font-bold text-slate-900 ${isRtl ? "font-cairo" : ""}`}
+                          className={`text-sm md:text-base font-bold text-slate-900 ${isRtl ? "font-cairo" : ""}`}
                         >
                           {isRtl ? step.titleAr : step.titleEn}
                         </h4>
-                        <p className="text-slate-500 text-sm">
+                        <p className="text-slate-500 text-xs">
                           {isRtl ? step.descAr : step.descEn}
                         </p>
                       </div>
@@ -261,45 +261,45 @@ export function ContactFormSection() {
                   ))}
                 </div>
               </div>
-
+ 
               {/* Contact Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 relative z-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3 relative z-10">
                 {contactInfo.map((item, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow"
+                    className="flex items-center gap-3.5 p-3.5 rounded-xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow"
                   >
                     <div
-                      className={`w-12 h-12 rounded-xl ${item.color} flex items-center justify-center shrink-0`}
+                      className={`w-10 h-10 rounded-lg ${item.color} flex items-center justify-center shrink-0`}
                     >
-                      <item.icon className="w-6 h-6" />
+                      <item.icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+                      <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">
                         {item.label}
                       </p>
-                      <p className="text-sm font-bold text-slate-800">{item.value}</p>
+                      <p className="text-xs md:text-sm font-bold text-slate-800">{item.value}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-
+ 
             {/* Right Column: Full Form */}
-            <div className="lg:col-span-7 p-8 md:p-12 lg:p-16 bg-white">
+            <div className="lg:col-span-7 p-4 sm:p-8 md:p-12 lg:p-16 bg-white">
               <div className="max-w-xl mx-auto">
-                <div className="mb-10">
+                <div className="mb-6">
                   <h4
-                    className={`text-2xl md:text-3xl font-bold text-slate-900 mb-2 ${isRtl ? "font-cairo" : "font-serif"}`}
+                    className={`text-xl md:text-3xl font-bold text-slate-900 mb-2 ${isRtl ? "font-cairo" : "font-serif"}`}
                   >
                     {t.trial.formTitle}
                   </h4>
-                  <p className="text-slate-500">{t.trial.formSubtitle}</p>
+                  <p className="text-xs md:text-sm text-slate-500">{t.trial.formSubtitle}</p>
                 </div>
-
-                <form className="space-y-5" onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-2 gap-3 md:gap-5">
-                    <div className="space-y-1.5">
+ 
+                <form className="space-y-4" onSubmit={handleSubmit}>
+                  <div className="grid grid-cols-2 gap-2.5 md:gap-5">
+                    <div className="space-y-1">
                       <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">
                         {t.trial.firstName}
                       </label>
@@ -310,10 +310,10 @@ export function ContactFormSection() {
                         onChange={handleChange}
                         required
                         placeholder="e.g. Abdullah"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-sm md:text-base text-slate-900 placeholder:text-slate-300"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-xs md:text-base text-slate-900 placeholder:text-slate-300"
                       />
                     </div>
-                    <div className="space-y-1.5">
+                    <div className="space-y-1">
                       <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">
                         {t.trial.lastName}
                       </label>
@@ -323,13 +323,13 @@ export function ContactFormSection() {
                         value={formData.lastName}
                         onChange={handleChange}
                         placeholder="e.g. Al-Farsi"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-sm md:text-base text-slate-900 placeholder:text-slate-300"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-xs md:text-base text-slate-900 placeholder:text-slate-300"
                       />
                     </div>
                   </div>
-
-                  <div className="grid grid-cols-2 gap-3 md:gap-5">
-                    <div className="space-y-1.5">
+ 
+                  <div className="grid grid-cols-10 gap-2 md:gap-5">
+                    <div className="col-span-7 space-y-1">
                       <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">
                         {t.trial.email}
                       </label>
@@ -340,10 +340,10 @@ export function ContactFormSection() {
                         onChange={handleChange}
                         required
                         placeholder="hello@example.com"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-sm md:text-base text-slate-900 placeholder:text-slate-300"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-xs md:text-base text-slate-900 placeholder:text-slate-300"
                       />
                     </div>
-                    <div className="space-y-1.5">
+                    <div className="col-span-3 space-y-1">
                       <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-wider px-1">
                         {t.trial.age}
                       </label>
@@ -353,7 +353,7 @@ export function ContactFormSection() {
                         value={formData.age}
                         onChange={handleChange}
                         placeholder="25"
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-sm md:text-base text-slate-900 placeholder:text-slate-300"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-xs md:text-base text-slate-900 placeholder:text-slate-300"
                       />
                     </div>
                   </div>

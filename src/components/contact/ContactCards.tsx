@@ -96,7 +96,7 @@ export function ContactCards() {
                 duration: 0.6,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className={`group relative bg-white p-6 md:p-8 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col ${card.hoverBorder} ${card.hoverShadow}`}
+              className={`group relative bg-white p-5 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col ${card.hoverBorder} ${card.hoverShadow}`}
             >
               {/* Top gradient accent line */}
               <div className={`absolute top-0 inset-x-8 h-[2px] bg-gradient-to-r ${card.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full`} />
