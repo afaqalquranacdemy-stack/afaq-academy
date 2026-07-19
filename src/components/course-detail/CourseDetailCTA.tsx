@@ -62,7 +62,7 @@ export function CourseDetailCTA() {
             className="flex flex-col sm:flex-row items-center justify-center gap-3"
           >
             <Link 
-              href="https://wa.me/201061957018"
+              href="https://wa.me/201041213922"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto group relative px-6 py-3 md:px-8 md:py-4 bg-white rounded-full font-bold text-slate-900 overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] transition-all duration-300 hover:-translate-y-1 text-center text-sm md:text-base min-h-[44px] flex items-center justify-center"

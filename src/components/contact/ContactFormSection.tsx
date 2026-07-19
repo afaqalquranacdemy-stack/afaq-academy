@@ -114,7 +114,7 @@ export function ContactFormSection() {
     {
       icon: Phone,
       label: "WhatsApp",
-      value: "+20 10 6100 3860",
+      value: "+20 10 4121 3922",
       color: "bg-teal-50 text-teal-600",
     },
     {
@@ -469,7 +469,7 @@ export function ContactFormSection() {
                         value={formData.whatsapp}
                         onChange={handleChange}
                         required
-                        placeholder={`${locationData.code} 101 451 7018`}
+                        placeholder={`${locationData.code} 104 121 3922`}
                         className="flex-1 min-h-[50px] md:min-h-[56px] bg-slate-50 border border-slate-200 rounded-xl py-2.5 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-sm md:text-base text-slate-900 placeholder:text-slate-400"
                       />
                     </div>

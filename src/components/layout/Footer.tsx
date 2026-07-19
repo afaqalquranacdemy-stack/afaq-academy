@@ -32,13 +32,13 @@ const footerLinks = {
 const socialLinks = [
   {
     icon: Facebook,
-    href: "#",
+    href: "https://www.facebook.com/profile.php?id=61591918929725",
     label: "Facebook",
     hoverColor: "hover:text-blue-500 hover:border-blue-500/30 hover:bg-blue-50",
   },
   {
     icon: Instagram,
-    href: "#",
+    href: "https://www.instagram.com/afaqalquranacdemy",
     label: "Instagram",
     hoverColor: "hover:text-pink-500 hover:border-pink-500/30 hover:bg-pink-50",
   },
@@ -48,13 +48,13 @@ const socialLinks = [
         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.04-.1z"/>
       </svg>
     ),
-    href: "#",
+    href: "https://www.tiktok.com/@afaq_alquran_academy",
     label: "TikTok",
     hoverColor: "hover:text-black hover:border-black/30 hover:bg-slate-50",
   },
   {
     icon: Youtube,
-    href: "https://www.youtube.com/@walamnahoacademy",
+    href: "https://www.youtube.com/channel/UCPU1Ykn9uMVRZMWGCczkY4Q",
     label: "YouTube",
     hoverColor: "hover:text-red-500 hover:border-red-500/30 hover:bg-red-50",
   },
@@ -166,13 +166,13 @@ export function Footer() {
                 <span>info@afaqalquran.com</span>
               </a>
               <a
-                href="tel:+201061003860"
+                href="tel:+201041213922"
                 className="flex items-center gap-3 p-3 rounded-xl bg-[#0F172A] border border-slate-800 text-slate-300 hover:border-teal-500/50 hover:shadow-lg hover:shadow-teal-500/10 transition-all group"
               >
                 <div className="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center group-hover:bg-teal-500/20 transition-all">
                   <Phone className="w-4 h-4 text-teal-400" />
                 </div>
-                <span dir="ltr">+20 106 100 3860</span>
+                <span dir="ltr">+20 10 4121 3922</span>
               </a>
             </div>
 
@@ -192,7 +192,7 @@ export function Footer() {
                 </a>
               ))}
               <a
-                href="https://wa.me/201061003860"
+                href="https://wa.me/201041213922"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
