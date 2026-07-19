@@ -128,8 +128,8 @@ export function CoursesHero() {
       />
 
       {/* ═══ Main Content ═══ */}
-      <div className="container mx-auto px-4 md:px-8 relative z-30 flex-grow flex flex-col items-center justify-center pt-24 pb-52 md:pt-36 md:pb-12">
-        <div className="max-w-5xl mx-auto text-center -translate-y-[2vh] md:translate-y-0">
+      <div className="w-full container mx-auto px-4 md:px-8 relative z-30 flex-grow flex flex-col items-center justify-center pt-24 pb-52 md:pt-36 md:pb-12">
+        <div className="w-full max-w-5xl mx-auto text-center -translate-y-[2vh] md:translate-y-0">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
@@ -200,12 +200,12 @@ export function CoursesHero() {
               delay: 0.35,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="max-w-xl mx-auto mb-16"
+            className="w-full max-w-xl mx-auto mb-16 px-2 sm:px-0"
           >
-            <div className="relative group">
+            <div className="relative group w-full">
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-teal-500/30 via-indigo-500/20 to-teal-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative flex items-center bg-slate-950/40 backdrop-blur-xl border border-white/15 rounded-2xl overflow-hidden group-hover:border-teal-500/50 transition-all duration-500">
-                <Search className="w-5 h-5 text-slate-300 group-hover:text-teal-400 transition-colors duration-300 mx-4 shrink-0" />
+              <div className="relative flex items-center bg-slate-950/40 backdrop-blur-xl border border-white/15 rounded-2xl overflow-hidden group-hover:border-teal-500/50 transition-all duration-500 w-full">
+                <Search className="w-4 h-4 md:w-5 md:h-5 text-slate-300 group-hover:text-teal-400 transition-colors duration-300 mx-3 md:mx-4 shrink-0" />
                 <input
                   type="text"
                   placeholder={
@@ -213,9 +213,9 @@ export function CoursesHero() {
                       ? "ابحث عن كورس أو موضوع..."
                       : "Search for a course or topic..."
                   }
-                  className="flex-1 bg-transparent py-4 px-4 text-white placeholder:text-slate-300 outline-none text-base font-medium"
+                  className="flex-1 min-w-0 bg-transparent py-3 md:py-4 px-2 md:px-4 text-white placeholder:text-slate-300 outline-none text-sm md:text-base font-medium"
                 />
-                <button className="m-1.5 px-6 py-2.5 bg-gradient-to-r from-teal-600 to-teal-500 text-white font-bold text-sm rounded-xl hover:from-teal-500 hover:to-teal-400 transition-all duration-300 shadow-lg shadow-teal-500/20 min-h-[44px] flex items-center justify-center">
+                <button className="m-1.5 px-4 py-2 md:px-6 md:py-2.5 bg-gradient-to-r from-teal-600 to-teal-500 text-white font-bold text-xs md:text-sm rounded-xl hover:from-teal-500 hover:to-teal-400 transition-all duration-300 shadow-lg shadow-teal-500/20 min-h-[38px] md:min-h-[44px] flex items-center justify-center shrink-0">
                   {isRtl ? "بحث" : "Search"}
                 </button>
               </div>
