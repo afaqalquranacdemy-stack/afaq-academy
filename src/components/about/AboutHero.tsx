@@ -81,7 +81,8 @@ export function AboutHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-slate-900 tracking-tight leading-[1.1] mb-8 ${isRtl ? "font-cairo" : "font-serif"}`}
+            style={{ fontSize: "clamp(2rem, 8vw, 3.5rem)" }}
+            className={`md:!text-7xl lg:!text-8xl font-black text-slate-900 tracking-tight leading-[1.1] mb-8 ${isRtl ? "font-cairo" : "font-serif"}`}
           >
             {isRtl ? "تأصيل " : "Authentic "}
             <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">
@@ -94,7 +95,7 @@ export function AboutHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-12"
+            className="text-sm sm:text-base md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-10 px-2"
           >
             {t.aboutUs.subtitle}
           </motion.p>
@@ -124,7 +125,7 @@ export function AboutHero() {
             transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="w-full max-w-3xl relative"
           >
-            <div className="glass-card rounded-[2rem] p-4 md:p-6 border-slate-200/60 shadow-xl shadow-slate-200/50 bg-white/80">
+            <div className="glass-card rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-6 border-slate-200/60 shadow-xl shadow-slate-200/50 bg-white/80">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0">
                 {stats.map((stat, idx) => (
                   <div 

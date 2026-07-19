@@ -22,7 +22,7 @@ export function AboutCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative max-w-6xl mx-auto bg-[#05070A] rounded-sm p-10 md:p-20 overflow-hidden shadow-2xl"
+          className="relative max-w-6xl mx-auto bg-[#05070A] rounded-sm p-5 md:p-20 overflow-hidden shadow-2xl"
         >
           {/* Scientific Grid Inside CTA */}
           <div 
@@ -52,23 +52,23 @@ export function AboutCTA() {
               <span className="w-8 h-[1px] bg-teal-500" />
             </div>
 
-            <h2 className={`text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 leading-[1.2] tracking-tight ${isRtl ? "font-cairo" : "font-serif"}`}>
+            <h2 className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6 leading-[1.2] tracking-tight ${isRtl ? "font-cairo" : "font-serif"}`}>
               {isRtl ? "ابدأ رحلتك في طلب " : "Start your journey in seeking "}
               <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-300">
                 {isRtl ? "العلم الشرعي" : "sacred knowledge"}
               </span>
             </h2>
 
-            <p className="text-lg text-slate-400 mb-12 max-w-2xl font-light leading-relaxed">
+            <p className="text-sm sm:text-base md:text-xl text-slate-400 mb-10 max-w-2xl font-light leading-relaxed px-2">
               {isRtl 
                 ? "نقدم لك بيئة أكاديمية متكاملة تجمع بين أصالة المنهج وحداثة التقنية لتيسير طلب العلم عليك أينما كنت."
                 : "We provide an integrated academic environment combining authentic methodology with modern technology to facilitate your learning journey."}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center gap-6 mb-12">
+            <div className="flex flex-col sm:flex-row items-center gap-4 mb-10 w-full justify-center">
               <Link
                 href="/register"
-                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-[#05070A] text-sm md:text-base font-bold tracking-wide uppercase rounded-sm transition-colors hover:bg-slate-200 w-full sm:w-auto"
+                className="group relative inline-flex items-center justify-center gap-3 px-6 py-3.5 md:px-8 md:py-4 bg-white text-[#05070A] text-sm md:text-base font-bold tracking-wide uppercase rounded-sm transition-colors hover:bg-slate-200 w-full sm:w-auto"
               >
                 <span className={isRtl ? "font-cairo" : ""}>
                   {isRtl ? "سجل الآن" : "Register Now"}
@@ -78,7 +78,7 @@ export function AboutCTA() {
 
               <Link
                 href="/courses"
-                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent border border-white/20 text-white text-sm md:text-base font-bold tracking-wide uppercase rounded-sm hover:bg-white/5 hover:border-white/40 transition-all duration-300 w-full sm:w-auto"
+                className="group relative inline-flex items-center justify-center gap-3 px-6 py-3.5 md:px-8 md:py-4 bg-transparent border border-white/20 text-white text-sm md:text-base font-bold tracking-wide uppercase rounded-sm hover:bg-white/5 hover:border-white/40 transition-all duration-300 w-full sm:w-auto"
               >
                 <span className={isRtl ? "font-cairo" : ""}>
                   {isRtl ? "استكشف البرامج" : "Explore Programs"}

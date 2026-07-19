@@ -47,20 +47,20 @@ export function AboutStory() {
               </span>
             </div>
             
-            <h2 className={`text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight ${isRtl ? "font-cairo" : "font-serif"}`}>
+            <h2 className={`text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight ${isRtl ? "font-cairo" : "font-serif"}`}>
               {isRtl ? "نضيء دروب العلم برؤية " : "Illuminating Paths with "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">
                 {isRtl ? "معاصرة" : "Modern Vision"}
               </span>
             </h2>
             
-            <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
+            <div className="space-y-6 text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed">
               <p>
                 {t.aboutUs.description}
               </p>
               
               {/* Highlight Quote Block */}
-              <div className="relative p-6 rounded-3xl bg-slate-50 border border-slate-100 shadow-sm mt-8">
+              <div className="relative p-4 md:p-6 rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-100 shadow-sm mt-8">
                 <p className="text-slate-700 italic font-medium">
                   {isRtl 
                     ? "« لقد صممنا أكاديميتنا لتكون منصة عالمية تجمع بين أصالة العلم الشرعي المستمد من كبار علماء الأزهر الشريف، وبين أحدث تقنيات التعليم عن بعد. هدفنا هو تذليل كل الصعاب أمام طالب العلم. »"
@@ -106,9 +106,9 @@ export function AboutStory() {
             className="relative lg:ml-8 mt-10 lg:mt-0"
           >
             {/* Main Glass Frame */}
-            <div className="glass-card p-3 rounded-[3rem] bg-white/60 border border-white/80 shadow-2xl shadow-teal-900/5 backdrop-blur-xl">
+            <div className="glass-card p-2 md:p-3 rounded-[1.5rem] md:rounded-[3rem] bg-white/60 border border-white/80 shadow-2xl shadow-teal-900/5 backdrop-blur-xl">
               <div 
-                className="relative aspect-video w-full overflow-hidden rounded-[2.5rem] group bg-slate-900 cursor-pointer"
+                className="relative aspect-video w-full overflow-hidden rounded-[1.2rem] md:rounded-[2.5rem] group bg-slate-900 cursor-pointer"
                 onClick={handlePlayVideo}
               >
                 <video

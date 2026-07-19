@@ -76,7 +76,7 @@ export function AboutValues() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className={`text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
+            className={`text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
           >
             {isRtl ? "نبني جيلاً يعتز " : "Building a generation proud of "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">
@@ -88,7 +88,7 @@ export function AboutValues() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-slate-500 leading-relaxed max-w-2xl"
+            className="text-sm sm:text-base md:text-lg text-slate-500 leading-relaxed max-w-2xl px-2"
           >
             {isRtl 
               ? "نؤمن بأن العلم الشرعي هو الأساس المتين لبناء جيل واعي ومثقف، ولذلك سخرنا كل إمكانياتنا لتقديم تجربة تعليمية فريدة."
@@ -105,7 +105,7 @@ export function AboutValues() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: val.delay, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className={`group glass-card bg-white/80 p-6 sm:p-8 md:p-10 rounded-[2.5rem] border border-slate-100 hover:border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden ${val.colSpan}`}
+              className={`group glass-card bg-white/80 p-5 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] border border-slate-100 hover:border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden ${val.colSpan}`}
             >
               <div className="relative z-10 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-8">

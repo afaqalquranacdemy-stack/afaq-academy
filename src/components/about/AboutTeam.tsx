@@ -64,7 +64,7 @@ export function AboutTeam() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className={`text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
+            className={`text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
           >
             {isRtl ? "نخبة من " : "Elite "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">
@@ -76,7 +76,7 @@ export function AboutTeam() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-slate-500 leading-relaxed max-w-2xl mx-auto"
+            className="text-sm sm:text-base md:text-lg text-slate-500 leading-relaxed max-w-2xl mx-auto px-2"
           >
             {isRtl
               ? "يضم كادرنا الأكاديمي نخبة من العلماء المتخصصين والمجازين بأعلى الأسانيد لضمان جودة التعليم."
@@ -93,10 +93,10 @@ export function AboutTeam() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: idx * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="glass-card p-2 rounded-[2.5rem] bg-white border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group flex flex-col"
+              className="glass-card p-2 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border border-slate-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group flex flex-col"
             >
               {/* Image Container */}
-              <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden mb-6">
+              <div className="relative aspect-[4/5] rounded-[1.2rem] md:rounded-[2rem] overflow-hidden mb-6">
                 <Image
                   src={member.image}
                   alt={isRtl ? member.nameAr : member.nameEn}
