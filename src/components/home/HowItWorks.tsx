@@ -31,9 +31,9 @@ export function HowItWorks() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-teal-50 border border-teal-100 text-teal-600 text-sm font-bold tracking-widest uppercase mb-4 md:mb-8 shadow-sm"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-teal-50 border border-teal-100 text-teal-600 text-xs md:text-sm font-bold tracking-wider md:tracking-widest uppercase mb-4 md:mb-8 shadow-sm"
           >
-            <Sparkles className="w-4 h-4" />
+            <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4" />
             {t.howItWorks.title}
           </motion.div>
 
