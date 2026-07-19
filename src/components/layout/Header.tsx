@@ -30,12 +30,12 @@ export function Header() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] flex justify-center pt-6 px-4 md:px-8 pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-[100] flex justify-center pt-3 md:pt-6 px-3 md:px-8 pointer-events-none">
       <div 
-        className={`pointer-events-auto relative w-full max-w-7xl rounded-full border flex items-center px-6 md:px-10 transition-all duration-500 transform-gpu ${
+        className={`pointer-events-auto relative w-full max-w-7xl rounded-full border flex items-center px-4 md:px-10 transition-all duration-500 transform-gpu ${
           isScrolled 
-            ? "py-2 bg-white/95 backdrop-blur-[40px] shadow-xl border-slate-200" 
-            : "py-3 bg-white/90 backdrop-blur-[40px] shadow-lg border-[rgba(13,148,136,0.15)]"
+            ? "py-1.5 md:py-2 bg-white/95 backdrop-blur-[40px] shadow-xl border-slate-200" 
+            : "py-2 md:py-3 bg-white/90 backdrop-blur-[40px] shadow-lg border-[rgba(13,148,136,0.15)]"
         }`}
         style={{ isolation: 'isolate', WebkitBackdropFilter: 'blur(40px)', backfaceVisibility: 'hidden' }}
       >

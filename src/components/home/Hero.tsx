@@ -53,7 +53,7 @@ export function Hero() {
       </div>
 
       {/* Main Content Area - Balanced spacing for mobile/desktop */}
-      <div className="relative z-10 flex-grow flex flex-col items-center justify-center px-4 md:px-8 pt-24 pb-65 md:pt-[10vh] md:pb-48">
+      <div className="relative z-10 flex-grow flex flex-col items-center justify-center px-4 md:px-8 pt-28 pb-52 md:pt-[10vh] md:pb-48">
         <motion.div
           className="container mx-auto flex flex-col items-center text-center"
         >
@@ -103,7 +103,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className={`text-sm sm:text-base md:text-lg text-slate-200 w-full md:max-w-4xl mx-auto leading-relaxed mb-10 md:mb-16 font-medium text-center px-2 md:px-4`}
+            className={`text-[12px] sm:text-base md:text-lg text-slate-200 w-full md:max-w-4xl mx-auto leading-relaxed mb-6 md:mb-16 font-medium text-center px-2 md:px-4`}
           >
             {t.hero.description}
           </motion.p>
@@ -128,7 +128,7 @@ export function Hero() {
 
             <Link
               href="/courses"
-              className="group relative inline-flex items-center justify-center gap-2.5 md:gap-3 px-8 py-3.5 md:py-5 text-sm md:text-lg font-medium rounded-full text-white bg-white/10 border border-white/20 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:scale-105 hover:border-white/40 hover:bg-white/20 w-full shadow-xl"
+              className="group relative inline-flex items-center justify-center gap-2.5 md:gap-3 px-8 py-3.5 md:py-5 text-sm md:text-lg font-medium rounded-full text-white bg-white/10 border border-white/20 backdrop-blur-sm overflow-hidden transition-all duration-500 hover:scale-105 hover:border-white/40 hover:bg-white/20 w-full shadow-xl mb-[7vh] md:mb-0"
             >
               <Play className="relative z-10 w-4 h-4 md:w-5 md:h-5 text-teal-400" fill="currentColor" />
               <span className="relative z-10">{t.hero.buttons.explore}</span>
@@ -153,8 +153,8 @@ export function Hero() {
           {/* Bottom teal glow */}
           <div className="absolute -bottom-4 left-[20%] right-[20%] h-8 bg-teal-400/10 blur-2xl rounded-full z-0" />
 
-          <div className="relative z-10 px-3 py-4 md:px-4 lg:px-6 md:py-3">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-y-3 md:gap-y-0 relative">
+          <div className="relative z-10 px-3 py-2.5 md:px-4 lg:px-6 md:py-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-y-1.5 md:gap-y-0 relative">
 
               {/* ── Desktop vertical dividers ── */}
               <div className="hidden md:block absolute top-[20%] bottom-[20%] left-[25%] w-[1px] bg-slate-200/50" />
@@ -166,7 +166,7 @@ export function Hero() {
               <div className="block md:hidden absolute left-[10%] right-[10%] top-1/2 h-[1px] bg-slate-200/60" />
 
               {/* ─── Stat 1: Expert Tutors ─── */}
-              <div className="flex flex-col items-center gap-1 md:gap-2 px-2 md:px-4 py-2 md:py-1.5 group/s">
+              <div className="flex flex-col items-center gap-0.5 md:gap-2 px-2 md:px-4 py-1 md:py-1.5 group/s">
                 <div className="relative">
                   <div className="absolute inset-0 bg-teal-400/20 rounded-xl blur-lg scale-0 group-hover/s:scale-100 transition-transform duration-700" />
                   <div className="relative w-7 h-7 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-teal-50 via-teal-100/60 to-emerald-50 border border-teal-200/40 flex items-center justify-center group-hover/s:border-teal-300/60 group-hover/s:shadow-lg group-hover/s:shadow-teal-200/30 transition-all duration-500">
@@ -184,7 +184,7 @@ export function Hero() {
               </div>
 
               {/* ─── Stat 2: Active Courses ─── */}
-              <div className="flex flex-col items-center gap-1 md:gap-2 px-2 md:px-4 py-2 md:py-1.5 group/s">
+              <div className="flex flex-col items-center gap-0.5 md:gap-2 px-2 md:px-4 py-1 md:py-1.5 group/s">
                 <div className="relative">
                   <div className="absolute inset-0 bg-teal-400/20 rounded-xl blur-lg scale-0 group-hover/s:scale-100 transition-transform duration-700" />
                   <div className="relative w-7 h-7 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-teal-50 via-teal-100/60 to-emerald-50 border border-teal-200/40 flex items-center justify-center group-hover/s:border-teal-300/60 group-hover/s:shadow-lg group-hover/s:shadow-teal-200/30 transition-all duration-500">
@@ -202,7 +202,7 @@ export function Hero() {
               </div>
 
               {/* ─── Stat 3: Years Experience ─── */}
-              <div className="flex flex-col items-center gap-1 md:gap-2 px-2 md:px-4 py-2 md:py-1.5 group/s">
+              <div className="flex flex-col items-center gap-0.5 md:gap-2 px-2 md:px-4 py-1 md:py-1.5 group/s">
                 <div className="relative">
                   <div className="absolute inset-0 bg-teal-400/20 rounded-xl blur-lg scale-0 group-hover/s:scale-100 transition-transform duration-700" />
                   <div className="relative w-7 h-7 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-teal-50 via-teal-100/60 to-emerald-50 border border-teal-200/40 flex items-center justify-center group-hover/s:border-teal-300/60 group-hover/s:shadow-lg group-hover/s:shadow-teal-200/30 transition-all duration-500">
@@ -220,7 +220,7 @@ export function Hero() {
               </div>
 
               {/* ─── Stat 4: Countries ─── */}
-              <div className="flex flex-col items-center gap-1 md:gap-2 px-2 md:px-4 py-2 md:py-1.5 group/s">
+              <div className="flex flex-col items-center gap-0.5 md:gap-2 px-2 md:px-4 py-1 md:py-1.5 group/s">
                 <div className="relative">
                   <div className="absolute inset-0 bg-teal-400/20 rounded-xl blur-lg scale-0 group-hover/s:scale-100 transition-transform duration-700" />
                   <div className="relative w-7 h-7 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-gradient-to-br from-teal-50 via-teal-100/60 to-emerald-50 border border-teal-200/40 flex items-center justify-center group-hover/s:border-teal-300/60 group-hover/s:shadow-lg group-hover/s:shadow-teal-200/30 transition-all duration-500">
