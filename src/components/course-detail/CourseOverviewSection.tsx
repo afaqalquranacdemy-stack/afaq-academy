@@ -35,18 +35,18 @@ export function CourseOverviewSection({ course }: CourseOverviewSectionProps) {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-20 -mt-32 relative z-20"
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mb-10 md:mb-20 -mt-20 md:-mt-32 relative z-20"
           >
             {stats.map((stat, idx) => (
               <div 
                 key={idx} 
-                className="bg-white rounded-3xl p-6 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] border border-slate-100 flex flex-col items-center text-center group hover:shadow-[0_20px_50px_-10px_rgba(20,184,166,0.15)] hover:border-teal-100 transition-all duration-300"
+                className="bg-white rounded-[1.5rem] md:rounded-3xl p-4 sm:p-6 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)] border border-slate-100 flex flex-col items-center text-center group hover:shadow-[0_20px_50px_-10px_rgba(20,184,166,0.15)] hover:border-teal-100 transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-full bg-slate-50 text-teal-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-teal-50 transition-all duration-300">
-                  <stat.icon className="w-6 h-6" />
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-slate-50 text-teal-600 flex items-center justify-center mb-3 md:mb-4 group-hover:scale-110 group-hover:bg-teal-50 transition-all duration-300">
+                  <stat.icon className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
-                <div className="text-2xl font-black text-slate-900 mb-1">{stat.value}</div>
-                <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">{stat.label}</div>
+                <div className="text-xl md:text-2xl font-black text-slate-900 mb-1">{stat.value}</div>
+                <div className="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-slate-500">{stat.label}</div>
               </div>
             ))}
           </motion.div>
@@ -58,13 +58,13 @@ export function CourseOverviewSection({ course }: CourseOverviewSectionProps) {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="mb-16"
+                className="mb-10 md:mb-16"
               >
-                <h2 className={`text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3 ${isRtl ? "font-cairo" : "font-serif"}`}>
-                  <span className="w-8 h-1 rounded-full bg-teal-500 block"></span>
+                <h2 className={`text-2xl sm:text-3xl font-bold text-slate-900 mb-4 md:mb-6 flex items-center gap-2.5 ${isRtl ? "font-cairo text-right" : "font-serif"}`}>
+                  <span className="w-6 h-1 rounded-full bg-teal-500 block"></span>
                   {isRtl ? "نظرة عامة على الدورة" : "Course Overview"}
                 </h2>
-                <p className="text-lg text-slate-600 leading-relaxed font-medium">
+                <p className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed font-medium">
                   {overview}
                 </p>
               </motion.div>
@@ -74,21 +74,21 @@ export function CourseOverviewSection({ course }: CourseOverviewSectionProps) {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="bg-slate-50 rounded-[2.5rem] p-8 md:p-12 border border-slate-100 relative overflow-hidden"
+                className="bg-slate-50 rounded-[1.5rem] md:rounded-[2.5rem] p-5 sm:p-8 md:p-12 border border-slate-100 relative overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/5 rounded-full blur-[80px]" />
                 
-                <h3 className={`text-2xl font-bold text-slate-900 mb-8 relative z-10 ${isRtl ? "font-cairo" : "font-serif"}`}>
+                <h3 className={`text-xl sm:text-2xl font-bold text-slate-900 mb-6 md:mb-8 relative z-10 ${isRtl ? "font-cairo text-right" : "font-serif"}`}>
                   {isRtl ? "ماذا ستتعلم في هذه الدورة؟" : "What You'll Learn"}
                 </h3>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 md:gap-y-6 relative z-10">
                   {outcomes.map((outcome, idx) => (
-                    <div key={idx} className="flex gap-4 group">
+                    <div key={idx} className="flex gap-3 md:gap-4 group">
                       <div className="mt-1 shrink-0">
-                        <CheckCircle2 className="w-6 h-6 text-teal-500 group-hover:scale-110 transition-transform duration-300 drop-shadow-sm" />
+                        <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6 text-teal-500 group-hover:scale-110 transition-transform duration-300 drop-shadow-sm" />
                       </div>
-                      <p className="text-slate-700 font-medium leading-relaxed">
+                      <p className="text-sm sm:text-base md:text-lg text-slate-700 font-medium leading-relaxed">
                         {outcome}
                       </p>
                     </div>

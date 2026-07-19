@@ -64,20 +64,20 @@ export function CourseFAQ() {
           <div className="inline-flex items-center justify-center p-3 bg-teal-50 text-teal-600 rounded-2xl mb-4">
             <HelpCircle className="w-6 h-6" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-4 md:mb-6">
             {locale === "ar" ? "الأسئلة الشائعة" : "Frequently Asked Questions"}
           </h2>
-          <p className="text-lg text-slate-600">
+          <p className="text-sm sm:text-base md:text-lg text-slate-600 px-2">
             {locale === "ar"
               ? "كل ما تحتاج لمعرفته حول الدورة وطريقة سير الدروس"
               : "Everything you need to know about the course and how our classes work"}
           </p>
         </div>
-
+ 
         <div className="max-w-3xl mx-auto space-y-4">
           {currentFaqs.map((faq, index) => {
             const isOpen = openIndex === index;
-
+ 
             return (
               <motion.div
                 key={index}
@@ -91,20 +91,20 @@ export function CourseFAQ() {
               >
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between p-6 text-left"
+                  className="w-full flex items-center justify-between p-5 md:p-6 text-left rtl:text-right"
                 >
-                  <span className={`text-lg font-bold transition-colors duration-300 ${isOpen ? "text-teal-700" : "text-slate-800"}`}>
+                  <span className={`text-base md:text-lg font-bold transition-colors duration-300 ${isOpen ? "text-teal-700" : "text-slate-800"} flex-grow`}>
                     {faq.question}
                   </span>
                   <div
-                    className={`shrink-0 ml-4 flex items-center justify-center w-10 h-10 rounded-full transition-colors duration-300 ${
+                    className={`shrink-0 ml-4 rtl:mr-4 rtl:ml-0 flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full transition-colors duration-300 ${
                       isOpen ? "bg-teal-100 text-teal-600" : "bg-white text-slate-400 group-hover:text-teal-500 border border-slate-200"
                     }`}
                   >
-                    {isOpen ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+                    {isOpen ? <Minus className="w-4.5 h-4.5" /> : <Plus className="w-4.5 h-4.5" />}
                   </div>
                 </button>
-
+ 
                 <AnimatePresence>
                   {isOpen && (
                     <motion.div
@@ -114,7 +114,7 @@ export function CourseFAQ() {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="p-6 pt-0 text-slate-600 leading-relaxed border-t border-slate-100">
+                      <div className="p-5 md:p-6 pt-0 text-slate-600 text-xs sm:text-sm md:text-base leading-relaxed border-t border-slate-100">
                         {faq.answer}
                       </div>
                     </motion.div>

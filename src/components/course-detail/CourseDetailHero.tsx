@@ -91,67 +91,67 @@ export function CourseDetailHero({ course }: CourseDetailHeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-md ${isRtl ? "font-cairo" : "font-serif"}`}
+              className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight drop-shadow-md ${isRtl ? "font-cairo text-right" : "font-serif"}`}
             >
               {title}
             </motion.h1>
-
+ 
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-3xl"
+              className="text-sm sm:text-base md:text-xl text-slate-300 mb-8 md:mb-10 leading-relaxed max-w-3xl px-1"
             >
               {description}
             </motion.p>
-
+ 
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-wrap items-center gap-6 text-sm font-semibold text-slate-300 mb-12"
+              className="flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm font-semibold text-slate-300 mb-8 md:mb-12"
             >
-              <div className="flex items-center gap-2 bg-white/5 px-4 py-2.5 rounded-full border border-white/10 backdrop-blur-sm">
-                <Star className="w-5 h-5 text-amber-400" fill="currentColor" />
-                <span className="text-white text-base">{course.rating}</span>
-                <span className="text-slate-400 ml-1">({isRtl ? "تقييم" : "Rating"})</span>
+              <div className="flex items-center gap-1.5 bg-white/5 px-3 py-2 rounded-full border border-white/10 backdrop-blur-sm">
+                <Star className="w-4 h-4 text-amber-400" fill="currentColor" />
+                <span className="text-white text-sm">{course.rating}</span>
+                <span className="text-slate-400 ml-1 text-xs">({isRtl ? "تقييم" : "Rating"})</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/5 px-4 py-2.5 rounded-full border border-white/10 backdrop-blur-sm">
-                <Users className="w-5 h-5 text-indigo-400" />
-                <span className="text-white text-base">{course.students}+</span>
-                <span className="text-slate-400 ml-1">{isRtl ? "طالب" : "Students"}</span>
+              <div className="flex items-center gap-1.5 bg-white/5 px-3 py-2 rounded-full border border-white/10 backdrop-blur-sm">
+                <Users className="w-4 h-4 text-indigo-400" />
+                <span className="text-white text-sm">{course.students}+</span>
+                <span className="text-slate-400 ml-1 text-xs">{isRtl ? "طالب" : "Students"}</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/5 px-4 py-2.5 rounded-full border border-white/10 backdrop-blur-sm">
-                <Clock className="w-5 h-5 text-teal-400" />
-                <span className="text-white text-base">{duration}</span>
+              <div className="flex items-center gap-1.5 bg-white/5 px-3 py-2 rounded-full border border-white/10 backdrop-blur-sm">
+                <Clock className="w-4 h-4 text-teal-400" />
+                <span className="text-white text-sm">{duration}</span>
               </div>
             </motion.div>
-
+ 
             {/* CTA Buttons */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+              className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto"
             >
               <Link 
                 href="https://wa.me/201061957018"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto group relative px-8 py-4 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full font-bold text-white overflow-hidden shadow-[0_0_40px_rgba(20,184,166,0.3)] hover:shadow-[0_0_60px_rgba(20,184,166,0.5)] transition-all duration-300 hover:-translate-y-1"
+                className="w-full sm:w-auto group relative px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full font-bold text-white overflow-hidden shadow-[0_0_40px_rgba(20,184,166,0.3)] hover:shadow-[0_0_60px_rgba(20,184,166,0.5)] transition-all duration-300 hover:-translate-y-1 text-center text-sm md:text-base flex items-center justify-center min-h-[44px]"
               >
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
                 <span className="relative flex items-center justify-center gap-2">
-                  <MessageSquare className="w-5 h-5" />
+                  <MessageSquare className="w-4.5 h-4.5" />
                   {isRtl ? "احجز عبر الواتساب" : "Enroll via WhatsApp"}
                 </span>
               </Link>
               
               <Link 
                 href="/contact"
-                className="w-full sm:w-auto group px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/50 rounded-full font-bold text-white transition-all duration-300 backdrop-blur-md flex items-center justify-center gap-2"
+                className="w-full sm:w-auto group px-6 py-3 md:px-8 md:py-4 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-teal-500/50 rounded-full font-bold text-white transition-all duration-300 backdrop-blur-md flex items-center justify-center gap-2 text-sm md:text-base min-h-[44px]"
               >
-                <PlayCircle className="w-5 h-5 text-teal-400 group-hover:scale-110 transition-transform" />
+                <PlayCircle className="w-4.5 h-4.5 text-teal-400 group-hover:scale-110 transition-transform" />
                 {isRtl ? "احجز حصة تجريبية مجانية" : "Book Free Trial"}
               </Link>
             </motion.div>

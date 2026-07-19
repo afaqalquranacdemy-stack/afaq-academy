@@ -37,49 +37,49 @@ export function CourseDetailCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight ${isRtl ? "font-cairo" : "font-serif"}`}
+            className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight ${isRtl ? "font-cairo text-right" : "font-serif"}`}
           >
             {isRtl ? "جاهز لبدء رحلتك؟" : "Ready to Begin Your Journey?"}
           </motion.h2>
-
+ 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto leading-relaxed"
+            className="text-sm sm:text-base md:text-xl text-slate-300 mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed px-2"
           >
             {isRtl 
               ? "انضم إلى آلاف الطلاب الذين يدرسون معنا وتواصل مع أفضل العلماء المعتمدين من الأزهر الشريف."
               : "Join thousands of students learning with us and connect with top certified scholars from Al-Azhar."}
           </motion.p>
-
+ 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3"
           >
             <Link 
               href="https://wa.me/201061957018"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto group relative px-8 py-4 bg-white rounded-full font-bold text-slate-900 overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] transition-all duration-300 hover:-translate-y-1"
+              className="w-full sm:w-auto group relative px-6 py-3 md:px-8 md:py-4 bg-white rounded-full font-bold text-slate-900 overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] transition-all duration-300 hover:-translate-y-1 text-center text-sm md:text-base min-h-[44px] flex items-center justify-center"
             >
               <div className="absolute inset-0 bg-slate-100 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
               <span className="relative flex items-center justify-center gap-2">
-                <MessageSquare className="w-5 h-5 text-teal-600" />
+                <MessageSquare className="w-4.5 h-4.5 text-teal-600" />
                 {isRtl ? "احجز عبر الواتساب" : "Enroll via WhatsApp"}
               </span>
             </Link>
             
             <Link 
               href="/contact"
-              className="w-full sm:w-auto group px-8 py-4 bg-transparent border border-white/20 hover:border-white/50 rounded-full font-bold text-white transition-all duration-300 flex items-center justify-center gap-2"
+              className="w-full sm:w-auto group px-6 py-3 md:px-8 md:py-4 bg-transparent border border-white/20 hover:border-white/50 rounded-full font-bold text-white transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base min-h-[44px]"
             >
               {isRtl ? "المزيد من المعلومات" : "More Information"}
-              <ArrowRight className={`w-5 h-5 group-hover:translate-x-1 transition-transform ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+              <ArrowRight className={`w-4.5 h-4.5 group-hover:translate-x-1 transition-transform ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
             </Link>
           </motion.div>
         </div>

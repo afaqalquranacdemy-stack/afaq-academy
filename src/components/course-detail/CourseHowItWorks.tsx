@@ -56,7 +56,7 @@ export function CourseHowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className={`text-3xl md:text-5xl font-bold text-slate-900 ${isRtl ? "font-cairo" : "font-serif"}`}
+            className={`text-2xl sm:text-3xl md:text-5xl font-bold text-slate-900 ${isRtl ? "font-cairo text-right" : "font-serif"}`}
           >
             {isRtl ? "كيف تبدأ معنا؟" : "How to Start?"}
           </motion.h2>
@@ -77,9 +77,9 @@ export function CourseHowItWorks() {
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 className="relative group"
               >
-                <div className="bg-white rounded-3xl p-8 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(20,184,166,0.1)] transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center h-full">
+                <div className="bg-white rounded-[1.5rem] md:rounded-3xl p-6 md:p-8 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(20,184,166,0.1)] transition-all duration-300 hover:-translate-y-2 flex flex-col items-center text-center h-full">
                   {/* Step Number */}
-                  <div className="absolute -top-4 -right-4 w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold shadow-lg border-4 border-white z-20">
+                  <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center text-sm font-bold shadow-lg border-2 border-white z-20">
                     {index + 1}
                   </div>
 

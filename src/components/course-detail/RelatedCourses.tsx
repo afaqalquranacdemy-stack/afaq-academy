@@ -40,11 +40,11 @@ export function RelatedCourses({ currentCourse }: RelatedCoursesProps) {
               {isRtl ? "دورات ذات صلة" : "Related Courses"}
             </div>
             
-            <h2 className={`text-3xl md:text-4xl font-bold text-slate-900 ${isRtl ? "font-cairo" : "font-serif"}`}>
+            <h2 className={`text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 ${isRtl ? "font-cairo text-right" : "font-serif"}`}>
               {isRtl ? "قد يعجبك أيضاً" : "You Might Also Like"}
             </h2>
           </motion.div>
-
+ 
           <motion.div
             initial={{ opacity: 0, x: isRtl ? -20 : 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -59,7 +59,7 @@ export function RelatedCourses({ currentCourse }: RelatedCoursesProps) {
             </Link>
           </motion.div>
         </div>
-
+ 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {relatedCourses.map((course, index) => (
             <motion.div
@@ -71,7 +71,7 @@ export function RelatedCourses({ currentCourse }: RelatedCoursesProps) {
               className="h-full"
             >
               <Link href={`/courses/${course.slug}`} className="block h-full group">
-                <div className="bg-white rounded-[2rem] overflow-hidden h-full flex flex-col relative border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] group-hover:border-teal-100 group-hover:shadow-[0_20px_40px_rgba(20,184,166,0.08)] transition-all duration-500 hover:-translate-y-1">
+                <div className="bg-white rounded-[1.5rem] md:rounded-[2rem] overflow-hidden h-full flex flex-col relative border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] group-hover:border-teal-100 group-hover:shadow-[0_20px_40px_rgba(20,184,166,0.08)] transition-all duration-500 hover:-translate-y-1">
                   
                   {/* Image Container */}
                   <div className="relative aspect-[16/10] w-full overflow-hidden">
@@ -83,16 +83,16 @@ export function RelatedCourses({ currentCourse }: RelatedCoursesProps) {
                       fill
                       className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
                     />
-
+ 
                     <div className="absolute inset-0 flex items-center justify-center z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100">
                       <div className="w-14 h-14 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center border border-white/50">
                         <PlayCircle className="w-6 h-6 text-white" />
                       </div>
                     </div>
                   </div>
-
+ 
                   {/* Content */}
-                  <div className="p-6 flex flex-col flex-grow">
+                  <div className="p-5 md:p-6 flex flex-col flex-grow">
                     <div className="flex items-center gap-4 text-xs text-slate-500 mb-4 font-semibold">
                       <span className="flex items-center gap-1.5 bg-slate-50 px-2.5 py-1 rounded-md">
                         <Clock className="w-3.5 h-3.5 text-teal-500" /> {course.duration[locale as "ar" | "en"] || course.duration.en}
@@ -101,8 +101,8 @@ export function RelatedCourses({ currentCourse }: RelatedCoursesProps) {
                         <Star className="w-3.5 h-3.5 text-amber-500" fill="currentColor" /> {course.rating}
                       </span>
                     </div>
-
-                    <h3 className={`text-xl font-bold text-slate-900 mb-3 line-clamp-2 group-hover:text-teal-600 transition-colors ${isRtl ? "font-cairo" : ""}`}>
+ 
+                    <h3 className={`text-xl font-bold text-slate-900 mb-3 line-clamp-2 group-hover:text-teal-600 transition-colors ${isRtl ? "font-cairo text-right" : ""}`}>
                       {course.title[locale as "ar" | "en"] || course.title.en}
                     </h3>
                   </div>
