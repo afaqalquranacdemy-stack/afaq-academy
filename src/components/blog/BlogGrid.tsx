@@ -21,7 +21,7 @@ export function BlogGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:shadow-2xl hover:shadow-teal-900/5 transition-all duration-500 flex flex-col h-full"
+              className="group bg-white rounded-[1.5rem] md:rounded-3xl overflow-hidden border border-slate-100 hover:shadow-2xl hover:shadow-teal-900/5 transition-all duration-500 flex flex-col h-full"
             >
               {/* Image Container */}
               <div className="relative h-64 overflow-hidden">
@@ -42,7 +42,7 @@ export function BlogGrid() {
               </div>
 
               {/* Content */}
-              <div className="p-8 flex flex-col flex-grow">
+              <div className="p-5 md:p-8 flex flex-col flex-grow">
                 <div className="flex items-center gap-4 text-sm text-slate-500 font-medium mb-4">
                   <span>{post.date}</span>
                   <span className="w-1 h-1 rounded-full bg-slate-300" />

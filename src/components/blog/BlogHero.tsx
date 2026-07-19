@@ -22,7 +22,7 @@ export function BlogHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight ${
+            className={`text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight ${
               isRtl ? "font-cairo" : "font-serif"
             }`}
           >
@@ -33,7 +33,7 @@ export function BlogHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto"
+            className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto px-2"
           >
             {locale === "ar"
               ? "مقالات، وتأملات، وأخبار من علمائنا لإثراء رحلتك في طلب العلم."
