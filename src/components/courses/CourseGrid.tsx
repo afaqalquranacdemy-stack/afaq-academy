@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { courses, categories } from "@/data/courses";
+import { startingMonthlyPrice } from "@/data/pricing";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -295,7 +296,7 @@ function CourseGridContent() {
                   <div className="flex items-center justify-between pt-4 border-t border-slate-100">
                     <div>
                       <span className="text-xl font-black text-slate-900">
-                        {isRtl ? course.price.ar : course.price.en}
+                        {isRtl ? `يبدأ من ${startingMonthlyPrice}/شهرياً` : `Plans from ${startingMonthlyPrice}/mo`}
                       </span>
                     </div>
                     <Link
