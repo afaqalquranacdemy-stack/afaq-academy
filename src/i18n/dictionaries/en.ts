@@ -196,7 +196,7 @@ const en = {
       { title: "Cookies & Tracking", content: "Our website may use cookies and similar tracking technologies to enhance your browsing experience. You can choose to disable cookies through your browser settings, though this may affect some features of our website." },
       { title: "Children's Privacy", content: "Our services are designed for learners of all ages, including children. For students under the age of 13, we require parental consent before collecting any personal information. Parents can review, modify, or request deletion of their child's information at any time." },
       { title: "Your Rights", content: "You have the right to access, update, or delete your personal information at any time. You may also opt out of receiving promotional communications from us. To exercise these rights, please contact us using the information provided below." },
-      { title: "Contact Us", content: "If you have any questions about this Privacy Policy, please contact us at info@afaqalquran.com or through our contact page." },
+      { title: "Contact Us", content: "If you have any questions about this Privacy Policy, please contact us at afaqalquranacdemy@gmail.com or through our contact page." },
     ],
   },
   terms: {
@@ -213,7 +213,7 @@ const en = {
       { title: "Limitation of Liability", content: "Afaq Al-Quran Academy shall not be liable for any indirect, incidental, special, or consequential damages arising out of or in connection with the use of our services. Our total liability shall not exceed the amount paid by you for the services in question." },
       { title: "Modifications", content: "We reserve the right to modify these Terms and Conditions at any time. Changes will be effective upon posting on our website. Your continued use of our services after any changes constitutes acceptance of the new terms." },
       { title: "Governing Law", content: "These Terms and Conditions shall be governed by and construed in accordance with applicable international laws. Any disputes arising from these terms shall be resolved through good-faith negotiation." },
-      { title: "Contact", content: "For any questions regarding these Terms and Conditions, please contact us at info@afaqalquran.com." },
+      { title: "Contact", content: "For any questions regarding these Terms and Conditions, please contact us at afaqalquranacdemy@gmail.com." },
     ],
   },
 };

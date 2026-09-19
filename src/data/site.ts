@@ -9,8 +9,8 @@ export const academyStats = {
 export const academyStatSuffix = "+";
 
 export const academyContact = {
-  email: "info@afaqalquran.com",
-  emailUrl: "mailto:info@afaqalquran.com",
+  email: "afaqalquranacdemy@gmail.com",
+  emailUrl: "mailto:afaqalquranacdemy@gmail.com",
   phoneDisplay: "+20 10 4121 3922",
   phoneE164: "+201041213922",
   phoneUrl: "tel:+201041213922",
