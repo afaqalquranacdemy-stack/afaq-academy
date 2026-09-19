@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe, Instagram, Facebook, Home, BookOpen, Info, MessageSquare, CreditCard, ChevronRight, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
@@ -53,10 +52,10 @@ export function Header() {
               className="flex items-center gap-2 md:gap-2.5"
             >
               <img
-                src="/header-icon-final.png?v=20260919-3"
+                src="/header-icon.png"
                 alt=""
                 aria-hidden="true"
-                className="block h-[44px] sm:h-[48px] md:h-[56px] w-auto shrink-0 object-contain transition-transform duration-500 group-hover:scale-[1.035]"
+                className="block h-[44px] sm:h-[48px] md:h-[56px] w-auto shrink-0"
               />
 
               {locale === "ar" ? (
