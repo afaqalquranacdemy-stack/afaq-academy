@@ -46,14 +46,15 @@ export function Header() {
               initial={{ opacity: 0, x: isRtl ? 20 : -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
+              className="relative w-[122px] h-[35px] md:w-[180px] md:h-[50px] overflow-hidden"
             >
-              <Image 
-                src={locale === "ar" ? "/logo-ar.png" : "/logo.png"} 
-                alt="Afaq Al-Quran Academy" 
-                width={143} 
-                height={55}
-                className="object-contain w-[104px] h-[40px] md:w-[143px] md:h-[55px] group-hover:scale-105 transition-all duration-500" 
-                priority 
+              <Image
+                src={locale === "ar" ? "/logo-ar.png" : "/logo.png"}
+                alt="Afaq Al-Quran Academy"
+                width={360}
+                height={138}
+                className="absolute top-0 left-0 w-full h-auto object-contain object-top group-hover:scale-[1.03] origin-top transition-transform duration-500"
+                priority
               />
             </motion.div>
           </Link>
