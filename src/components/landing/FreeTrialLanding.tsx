@@ -366,10 +366,8 @@ export function FreeTrialLanding() {
   return (
     <div className="min-h-screen overflow-hidden bg-[#FCFBF7] text-slate-900">
       {/* HERO — academic editorial composition */}
-      <section className="relative min-h-[92svh] overflow-hidden bg-[#F8FAF7]">
+      <section className="relative overflow-hidden bg-[#F8FAF7]">
         <div className="absolute inset-x-0 top-0 h-[360px] bg-[radial-gradient(circle_at_70%_15%,rgba(200,155,60,.13),transparent_34%)]" />
-        <div className="absolute -left-24 top-32 h-72 w-72 rounded-full border border-[#0A6A5D]/8" />
-        <div className="absolute -right-20 top-16 h-[420px] w-[420px] rounded-full border border-[#C89B3C]/12" />
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C89B3C]/35 to-transparent" />
 
         <div className="relative z-10 mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-10">
@@ -403,7 +401,7 @@ export function FreeTrialLanding() {
             </div>
           </header>
 
-          <div className="grid min-h-[700px] items-center gap-10 pb-28 pt-12 md:grid-cols-[1.02fr_.98fr] md:pb-36 lg:gap-16">
+          <div className="grid items-center gap-8 pb-8 pt-10 md:grid-cols-[1.02fr_.98fr] md:gap-12 md:pb-10 md:pt-12 lg:gap-14">
             <div className={isRtl ? "text-right" : "text-left"}>
               <div className="mb-6 inline-flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.2em] text-[#A37B2C]">
                 <span className="h-px w-10 bg-[#C89B3C]" />
@@ -455,8 +453,8 @@ export function FreeTrialLanding() {
             </div>
 
             {/* Visual academy composition, not a card */}
-            <div className="relative mx-auto h-[520px] w-full max-w-[560px] md:h-[610px]">
-              <div className="absolute left-[13%] top-[5%] h-[80%] w-[64%] rounded-t-[180px] rounded-b-[38px] border border-[#C89B3C]/30 bg-white p-2 shadow-[0_36px_80px_-46px_rgba(15,23,42,.45)]">
+            <div className="relative mx-auto h-[470px] w-full max-w-[560px] md:h-[520px]">
+              <div className="absolute left-[10%] top-[2%] h-[82%] w-[66%] rounded-t-[170px] rounded-b-[34px] border border-[#C89B3C]/30 bg-white p-2 shadow-[0_32px_72px_-42px_rgba(15,23,42,.42)]">
                 <div className="relative h-full overflow-hidden rounded-t-[170px] rounded-b-[31px] bg-[#EAF1EC]">
                   <Image
                     src="/images/team/fatima.webp"
@@ -476,7 +474,7 @@ export function FreeTrialLanding() {
                 </div>
               </div>
 
-              <div className="absolute right-0 top-[22%] w-[42%] overflow-hidden rounded-[24px] border-4 border-[#FCFBF7] bg-white shadow-[0_24px_60px_-34px_rgba(15,23,42,.45)]">
+              <div className="absolute right-[1%] top-[19%] w-[41%] overflow-hidden rounded-[22px] border-4 border-[#FCFBF7] bg-white shadow-[0_22px_54px_-32px_rgba(15,23,42,.42)]">
                 <div className="relative aspect-[4/5]">
                   <Image
                     src="/images/team/ahmed.webp"
@@ -488,7 +486,7 @@ export function FreeTrialLanding() {
                 </div>
               </div>
 
-              <div className="absolute bottom-[3%] left-0 w-[46%] rounded-[22px] border border-slate-200 bg-white p-3 shadow-[0_22px_55px_-34px_rgba(15,23,42,.38)]">
+              <div className="absolute bottom-[1%] left-[1%] w-[46%] rounded-[20px] border border-slate-200 bg-white p-3 shadow-[0_20px_48px_-30px_rgba(15,23,42,.36)]">
                 <div className="relative aspect-[16/10] overflow-hidden rounded-[16px]">
                   <Image
                     src="/images/courses/quran-recitation1.webp"
@@ -504,19 +502,29 @@ export function FreeTrialLanding() {
                 </div>
               </div>
 
-              <div className="absolute right-[5%] bottom-[7%] rounded-full border border-[#C89B3C]/30 bg-[#FFFDF7] px-4 py-3 shadow-lg">
-                <div className="text-lg font-black text-[#075248]">{academyStats.students}+</div>
-                <div className="text-[8px] font-bold uppercase tracking-[.12em] text-slate-400">{text.statsStudents}</div>
+              <div className="absolute right-[4%] bottom-[5%] min-w-[118px] rounded-[14px] border border-[#C89B3C]/25 bg-[#FFFDF9]/95 px-4 py-3 shadow-[0_14px_30px_-20px_rgba(15,23,42,.35)] backdrop-blur">
+                <div className="flex items-end gap-1.5">
+                  <div className="text-xl font-black leading-none text-[#075248]">{academyStats.students}+</div>
+                  <div className="pb-0.5 text-[8px] font-bold uppercase tracking-[.12em] text-slate-400">{text.statsStudents}</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* horizontal admissions rail overlapping the hero */}
-        <div id="trial-form" className="absolute inset-x-0 bottom-0 z-20 translate-y-1/2 px-4">
-          <div className="mx-auto max-w-[1260px] rounded-[28px] border border-slate-200 bg-white p-4 shadow-[0_28px_70px_-36px_rgba(15,23,42,.38)] sm:p-5">
+        {/* horizontal admissions rail — part of the hero, fully visible */}
+        <div id="trial-form" className="relative z-20 px-4 pb-8 md:pb-10">
+          <div className="mx-auto max-w-[1260px] rounded-[24px] border border-slate-200/90 bg-white p-5 shadow-[0_24px_60px_-34px_rgba(15,23,42,.30)] sm:p-6">
             {!submitted ? (
-              <form onSubmit={handleSubmit} onFocus={startForm} className="grid gap-3 md:grid-cols-[1.1fr_1.1fr_1.15fr_1fr_auto] md:items-end">
+              <>
+                <div className="mb-4 flex flex-col justify-between gap-2 border-b border-slate-100 pb-4 sm:flex-row sm:items-end">
+                  <div>
+                    <div className="text-[9px] font-extrabold uppercase tracking-[.16em] text-[#A37B2C]">{text.formEyebrow}</div>
+                    <div className={`mt-1 text-lg font-bold text-[#0D2722] ${isRtl ? "font-elmessiri" : "font-serif"}`}>{text.formTitle}</div>
+                  </div>
+                  <div className="max-w-md text-xs leading-5 text-slate-500">{text.formText}</div>
+                </div>
+                <form onSubmit={handleSubmit} onFocus={startForm} className="grid gap-4 md:grid-cols-[1.05fr_1.1fr_1.15fr_1fr_auto] md:items-end">
                 <input
                   type="text"
                   name="website"
@@ -529,47 +537,47 @@ export function FreeTrialLanding() {
                 />
 
                 <label className="block">
-                  <span className="mb-1.5 block text-[9px] font-extrabold uppercase tracking-[.14em] text-slate-400">{text.name}</span>
+                  <span className="mb-2 block text-[10px] font-extrabold uppercase tracking-[.13em] text-slate-500">{text.name}</span>
                   <input
                     required
                     value={form.name}
                     onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
-                    className="h-12 w-full rounded-[14px] border border-slate-200 bg-slate-50 px-4 text-sm outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
+                    className="h-13 w-full rounded-[13px] border border-slate-200 bg-[#F8FAF9] px-4 text-sm text-slate-800 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
                   />
                 </label>
 
                 <label className="block">
-                  <span className="mb-1.5 block text-[9px] font-extrabold uppercase tracking-[.14em] text-slate-400">{text.email}</span>
+                  <span className="mb-2 block text-[10px] font-extrabold uppercase tracking-[.13em] text-slate-500">{text.email}</span>
                   <input
                     type="email"
                     required
                     value={form.email}
                     onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
-                    className="h-12 w-full rounded-[14px] border border-slate-200 bg-slate-50 px-4 text-sm outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
+                    className="h-13 w-full rounded-[13px] border border-slate-200 bg-[#F8FAF9] px-4 text-sm text-slate-800 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
                     dir="ltr"
                   />
                 </label>
 
                 <label className="block">
-                  <span className="mb-1.5 block text-[9px] font-extrabold uppercase tracking-[.14em] text-slate-400">{text.whatsappLabel}</span>
+                  <span className="mb-2 block text-[10px] font-extrabold uppercase tracking-[.13em] text-slate-500">{text.whatsappLabel}</span>
                   <input
                     type="tel"
                     required
                     value={form.whatsapp}
                     onChange={(e) => setForm((prev) => ({ ...prev, whatsapp: e.target.value }))}
                     placeholder={locationData.code ? `${locationData.code} 104 121 3922` : "+1 555 123 4567"}
-                    className="h-12 w-full rounded-[14px] border border-slate-200 bg-slate-50 px-4 text-sm outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
+                    className="h-13 w-full rounded-[13px] border border-slate-200 bg-[#F8FAF9] px-4 text-sm text-slate-800 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
                     dir="ltr"
                   />
                 </label>
 
                 <label className="block">
-                  <span className="mb-1.5 block text-[9px] font-extrabold uppercase tracking-[.14em] text-slate-400">{text.interest}</span>
+                  <span className="mb-2 block text-[10px] font-extrabold uppercase tracking-[.13em] text-slate-500">{text.interest}</span>
                   <select
                     required
                     value={form.course}
                     onChange={(e) => setForm((prev) => ({ ...prev, course: e.target.value }))}
-                    className="h-12 w-full appearance-none rounded-[14px] border border-slate-200 bg-slate-50 px-4 text-sm outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
+                    className="h-13 w-full appearance-none rounded-[13px] border border-slate-200 bg-[#F8FAF9] px-4 text-sm text-slate-800 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
                   >
                     <option value="">{text.choose}</option>
                     <option value="quran">{text.quran}</option>
@@ -581,12 +589,13 @@ export function FreeTrialLanding() {
 
                 <button
                   disabled={submitting}
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-[14px] bg-[#075248] px-5 text-[10px] font-extrabold uppercase tracking-[.08em] text-white shadow-sm transition hover:bg-[#096357] disabled:opacity-60"
+                  className="inline-flex h-13 min-w-[170px] items-center justify-center gap-2 rounded-[13px] bg-[#075248] px-6 text-[10px] font-extrabold uppercase tracking-[.08em] text-white shadow-[0_12px_28px_-18px_rgba(7,82,72,.7)] transition hover:bg-[#096357] disabled:opacity-60"
                 >
                   {submitting ? text.sending : text.submit}
                   {!submitting && <ArrowRight className={`h-4 w-4 ${isRtl ? "rotate-180" : ""}`} />}
                 </button>
               </form>
+              </>
             ) : (
               <div className="flex flex-col items-center justify-between gap-4 py-3 text-center sm:flex-row sm:text-left">
                 <div className="flex items-center gap-3">
@@ -615,7 +624,7 @@ export function FreeTrialLanding() {
       </section>
 
       {/* learning journey — connected, not cards */}
-      <section className="relative px-4 pb-24 pt-40 sm:pb-28 sm:pt-44">
+      <section className="relative px-4 pb-24 pt-24 sm:pb-28 sm:pt-28">
         <div className="mx-auto max-w-[1180px]">
           <div className="grid gap-10 lg:grid-cols-[.72fr_1.28fr] lg:gap-16">
             <div>
