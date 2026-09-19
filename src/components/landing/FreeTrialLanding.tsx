@@ -810,7 +810,7 @@ export function FreeTrialLanding() {
         </div>
       </section>
 
-      {/* programs mosaic */}
+      {/* programs mosaic — navigable academic pathways */}
       <section className="bg-white px-4 py-24 sm:py-28">
         <div className="mx-auto max-w-[1260px]">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
@@ -823,10 +823,22 @@ export function FreeTrialLanding() {
                 {text.programsTitle}
               </h2>
             </div>
-            <p className="max-w-xl text-sm leading-7 text-slate-500">{text.programsText}</p>
+
+            <div className="flex max-w-xl flex-col items-start gap-4 md:items-end">
+              <p className="text-sm leading-7 text-slate-500 md:text-right">{text.programsText}</p>
+              <Link
+                href="/courses"
+                className="group inline-flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-[.13em] text-[#075248]"
+              >
+                {isRtl ? "عرض جميع الدورات" : "View all courses"}
+                <span className="flex h-7 w-7 items-center justify-center rounded-full border border-teal-100 bg-teal-50 transition group-hover:border-teal-200 group-hover:bg-teal-100">
+                  <ArrowRight className={`h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 ${isRtl ? "rotate-180 group-hover:-translate-x-0.5" : ""}`} />
+                </span>
+              </Link>
+            </div>
           </div>
 
-          <div className="mt-10 grid auto-rows-[240px] gap-4 md:grid-cols-12 md:auto-rows-[220px]">
+          <div className="mt-10 grid auto-rows-[250px] gap-4 md:grid-cols-12 md:auto-rows-[225px]">
             {programs.map((program, index) => {
               const spans = [
                 "md:col-span-7 md:row-span-2",
@@ -834,27 +846,71 @@ export function FreeTrialLanding() {
                 "md:col-span-5",
                 "md:col-span-12",
               ];
+              const hrefs = [
+                "/courses?category=Quran#courses-grid",
+                "/courses?category=Arabic#courses-grid",
+                "/courses?category=Islamic%20Studies#courses-grid",
+                "/courses?category=Kids#courses-grid",
+              ];
+              const ctas = isRtl
+                ? ["استكشف دورات القرآن", "استكشف دورات العربية", "استكشف الدراسات الإسلامية", "استكشف برامج الأطفال"]
+                : ["Explore Quran courses", "Explore Arabic courses", "Explore Islamic Studies", "Explore Kids programs"];
+
               return (
-                <div key={program.title} className={`group relative overflow-hidden rounded-[28px] ${spans[index]}`}>
+                <Link
+                  key={program.title}
+                  href={hrefs[index]}
+                  className={`group relative overflow-hidden rounded-[28px] outline-none ring-offset-2 transition duration-500 focus-visible:ring-2 focus-visible:ring-teal-600 ${spans[index]}`}
+                  aria-label={ctas[index]}
+                >
                   <Image
                     src={programImages[index]}
                     alt=""
                     fill
                     sizes="(max-width: 768px) 100vw, 60vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#062B25]/92 via-[#062B25]/35 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-7">
-                    <div className="mb-2 flex items-center gap-2 text-[9px] font-black uppercase tracking-[.16em] text-[#E0C77F]">
-                      <span>0{index + 1}</span>
-                      <span className="h-px w-8 bg-[#E0C77F]/70" />
-                    </div>
-                    <h3 className="text-xl font-bold sm:text-2xl">{program.title}</h3>
-                    <p className={`mt-2 max-w-xl text-sm leading-6 text-white/72 ${index === 3 ? "md:max-w-2xl" : ""}`}>{program.body}</p>
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#052A24]/95 via-[#052A24]/38 to-transparent transition duration-500 group-hover:from-[#052A24]/98 group-hover:via-[#052A24]/46" />
+                  <div className="absolute inset-0 border border-white/0 transition duration-500 group-hover:border-[#E0C77F]/35" />
+
+                  <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/15 bg-black/10 px-3 py-1.5 text-[8px] font-extrabold uppercase tracking-[.14em] text-white/75 backdrop-blur-md sm:left-6 sm:top-6">
+                    <span className="text-[#E0C77F]">0{index + 1}</span>
+                    <span className="h-1 w-1 rounded-full bg-white/35" />
+                    {isRtl ? "مسار تعليمي" : "Learning path"}
                   </div>
-                </div>
+
+                  <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-7">
+                    <div className="max-w-2xl">
+                      <h3 className="text-xl font-bold sm:text-2xl lg:text-[1.65rem]">{program.title}</h3>
+                      <p className={`mt-2 text-sm leading-6 text-white/72 ${index === 3 ? "md:max-w-2xl" : "max-w-xl"}`}>
+                        {program.body}
+                      </p>
+                    </div>
+
+                    <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/18 bg-white/8 px-4 py-2 text-[9px] font-extrabold uppercase tracking-[.12em] text-white backdrop-blur-sm transition duration-300 group-hover:border-[#E0C77F]/40 group-hover:bg-[#E0C77F]/12 group-hover:text-[#F5E5B8]">
+                      {ctas[index]}
+                      <ArrowRight className={`h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+                    </div>
+                  </div>
+                </Link>
               );
             })}
+          </div>
+
+          <div className="mt-7 flex flex-col items-center justify-between gap-4 border-t border-slate-100 pt-6 sm:flex-row">
+            <p className="max-w-2xl text-xs leading-6 text-slate-500">
+              {isRtl
+                ? "يمكنك تصفح جميع الدورات داخل كل مسار، مقارنة المستويات، ثم اختيار نقطة البداية الأنسب لك."
+                : "Browse every course in each pathway, compare levels, and choose the starting point that fits you best."}
+            </p>
+            <Link
+              href="/courses"
+              className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border border-slate-200 bg-[#F8FAF9] px-5 text-[10px] font-extrabold uppercase tracking-[.1em] text-[#075248] transition hover:border-teal-200 hover:bg-teal-50"
+            >
+              {isRtl ? "تصفح مكتبة الدورات" : "Browse course library"}
+              <ArrowRight className={`h-3.5 w-3.5 ${isRtl ? "rotate-180" : ""}`} />
+            </Link>
           </div>
         </div>
       </section>
