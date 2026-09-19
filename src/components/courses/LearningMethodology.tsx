@@ -101,11 +101,6 @@ export function LearningMethodology() {
 
         {/* Timeline */}
         <div className="max-w-5xl mx-auto relative">
-          {/* Vertical line (desktop) */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] -translate-x-1/2">
-            <div className="h-full bg-gradient-to-b from-teal-500/30 via-indigo-500/30 to-rose-500/30 rounded-full" />
-          </div>
-
           {steps.map((step, idx) => {
             const isEven = idx % 2 === 0;
             return (
@@ -123,6 +118,18 @@ export function LearningMethodology() {
                   isEven ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
+                {/* Timeline line segment: starts at the first node and ends at the last node */}
+                <div
+                  aria-hidden="true"
+                  className={`hidden md:block absolute left-1/2 w-[2px] -translate-x-1/2 bg-gradient-to-b from-teal-500/30 via-indigo-500/30 to-rose-500/30 ${
+                    idx === 0
+                      ? "top-1/2 -bottom-16"
+                      : idx === steps.length - 1
+                        ? "top-0 bottom-1/2"
+                        : "top-0 -bottom-16"
+                  }`}
+                />
+
                 {/* Card */}
                 <div
                   className={`flex-1 ${isEven ? "md:text-right" : "md:text-left"}`}
