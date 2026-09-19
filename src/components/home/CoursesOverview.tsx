@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ArrowRight, BookOpen, Clock, Star, PlayCircle, Sparkles } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { courses } from "@/data/courses";
+import { startingMonthlyPrice } from "@/data/pricing";
 
 const categories = ["FEATURED", "Quran", "Arabic", "Islamic Studies", "Kids"];
 
@@ -104,7 +105,7 @@ function CourseCard({ course, index, locale, isRtl }: any) {
             <div className="pt-6 border-t border-slate-200/60 flex items-center justify-between mt-auto">
               <div className="flex flex-col">
                 <span className="text-[11px] text-slate-500 uppercase tracking-widest mb-1 font-bold">{isRtl ? "يبدأ من" : "Starts from"}</span>
-                <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-indigo-600">{course.price[locale as keyof typeof course.price] || course.price.en}</span>
+                <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-indigo-600">{isRtl ? `${startingMonthlyPrice}/شهرياً` : `${startingMonthlyPrice}/mo`}</span>
               </div>
               <div className="w-14 h-14 rounded-full border border-teal-100 flex items-center justify-center bg-teal-50 group-hover:bg-gradient-to-r group-hover:from-teal-500 group-hover:to-indigo-500 transition-all duration-500 shadow-sm group-hover:shadow-[0_8px_20px_rgba(20,184,166,0.3)] group-hover:scale-110 group-hover:-rotate-12">
                 <ArrowRight className={`w-6 h-6 text-teal-600 group-hover:text-white transition-all duration-300 ${isRtl ? "rotate-180" : ""}`} />
