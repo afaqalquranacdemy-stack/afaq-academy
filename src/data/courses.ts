@@ -62,7 +62,6 @@ export const courses: Course[] = [
     rating: 4.9,
     students: 120,
     image: "/images/courses/quran-recitation1.webp",
-    price: { ar: "$49/شهرياً", en: "$49/mo" },
     isFeatured: true,
   },
   {
@@ -104,7 +103,6 @@ export const courses: Course[] = [
     rating: 4.8,
     students: 85,
     image: "/images/courses/arabic-level11.webp",
-    price: { ar: "$59/شهرياً", en: "$59/mo" },
     isFeatured: true,
   },
   {
@@ -146,7 +144,6 @@ export const courses: Course[] = [
     rating: 5.0,
     students: 60,
     image: "/images/courses/fiqh-worship1.webp",
-    price: { ar: "$45/شهرياً", en: "$45/mo" },
     isFeatured: true,
   },
   {
@@ -188,7 +185,6 @@ export const courses: Course[] = [
     rating: 4.9,
     students: 200,
     image: "/images/courses/kids-qaida1.webp",
-    price: { ar: "$39/شهرياً", en: "$39/mo" },
     isFeatured: true,
   },
   {
@@ -230,7 +226,6 @@ export const courses: Course[] = [
     rating: 5.0,
     students: 150,
     image: "/images/courses/hifz1.webp",
-    price: { ar: "$55/شهرياً", en: "$55/mo" },
     isFeatured: true,
   },
   {
@@ -272,7 +267,6 @@ export const courses: Course[] = [
     rating: 4.9,
     students: 75,
     image: "/images/courses/hadith-40-nawawi.webp",
-    price: { ar: "$40/شهرياً", en: "$40/mo" },
     isFeatured: true,
   },
   {
@@ -302,7 +296,6 @@ export const courses: Course[] = [
     rating: 4.9,
     students: 90,
     image: "/images/courses/tafsir.webp",
-    price: { ar: "$55/شهرياً", en: "$55/mo" },
     isFeatured: false,
   },
   {
@@ -332,7 +325,6 @@ export const courses: Course[] = [
     rating: 5.0,
     students: 35,
     image: "/images/courses/qiraat.webp",
-    price: { ar: "$65/شهرياً", en: "$65/mo" },
     isFeatured: false,
   },
   {
@@ -362,7 +354,6 @@ export const courses: Course[] = [
     rating: 5.0,
     students: 25,
     image: "/images/courses/ijazah.webp",
-    price: { ar: "$75/شهرياً", en: "$75/mo" },
     isFeatured: true,
   },
   {
@@ -392,7 +383,6 @@ export const courses: Course[] = [
     rating: 4.8,
     students: 110,
     image: "/images/courses/nahw.webp",
-    price: { ar: "$49/شهرياً", en: "$49/mo" },
     isFeatured: false,
   },
   {
@@ -422,7 +412,6 @@ export const courses: Course[] = [
     rating: 4.7,
     students: 65,
     image: "/images/courses/sarf.webp",
-    price: { ar: "$49/شهرياً", en: "$49/mo" },
     isFeatured: false,
   },
   {
@@ -452,7 +441,6 @@ export const courses: Course[] = [
     rating: 4.9,
     students: 45,
     image: "/images/courses/balagha.webp",
-    price: { ar: "$55/شهرياً", en: "$55/mo" },
     isFeatured: false,
   },
   {
@@ -482,7 +470,6 @@ export const courses: Course[] = [
     rating: 4.9,
     students: 95,
     image: "/images/courses/quranic-arabic.webp",
-    price: { ar: "$52/شهرياً", en: "$52/mo" },
     isFeatured: true,
   },
   {
@@ -512,7 +499,6 @@ export const courses: Course[] = [
     rating: 4.8,
     students: 120,
     image: "/images/courses/aqeedah.webp",
-    price: { ar: "$45/شهرياً", en: "$45/mo" },
     isFeatured: false,
   },
   {
@@ -542,7 +528,6 @@ export const courses: Course[] = [
     rating: 4.9,
     students: 140,
     image: "/images/courses/seerah.webp",
-    price: { ar: "$45/شهرياً", en: "$45/mo" },
     isFeatured: true,
   },
   {
@@ -572,7 +557,6 @@ export const courses: Course[] = [
     rating: 4.8,
     students: 55,
     image: "/images/courses/usul-fiqh.webp",
-    price: { ar: "$55/شهرياً", en: "$55/mo" },
     isFeatured: false,
   },
   {
@@ -602,7 +586,6 @@ export const courses: Course[] = [
     rating: 4.9,
     students: 100,
     image: "/images/courses/akhlaq.webp",
-    price: { ar: "$40/شهرياً", en: "$40/mo" },
     isFeatured: false,
   },
   {
@@ -632,7 +615,6 @@ export const courses: Course[] = [
     rating: 4.9,
     students: 180,
     image: "/images/courses/kids-juz-amma.webp",
-    price: { ar: "$35/شهرياً", en: "$35/mo" },
     isFeatured: true,
   },
   {
@@ -662,7 +644,6 @@ export const courses: Course[] = [
     rating: 4.8,
     students: 150,
     image: "/images/courses/kids-manners.webp",
-    price: { ar: "$30/شهرياً", en: "$30/mo" },
     isFeatured: false,
   },
   {
@@ -692,7 +673,6 @@ export const courses: Course[] = [
     rating: 4.8,
     students: 160,
     image: "/images/courses/kids-arabic.webp",
-    price: { ar: "$35/شهرياً", en: "$35/mo" },
     isFeatured: false,
   },
 ];
