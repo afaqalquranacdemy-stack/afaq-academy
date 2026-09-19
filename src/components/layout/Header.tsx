@@ -59,20 +59,30 @@ export function Header() {
               />
 
               {locale === "ar" ? (
-                <span
-                  className="whitespace-nowrap font-elmessiri text-[15px] sm:text-[16px] md:text-[18px] lg:text-[19px] font-bold leading-none bg-gradient-to-l from-[#0B665B] via-[#075248] to-[#C89B3C] bg-clip-text text-transparent"
+                <div
+                  className="flex flex-col justify-center leading-none"
                   dir="rtl"
                   lang="ar"
                 >
-                  أَكَادِيمِيَّةُ آفَاقِ الْقُرْآنِ
-                </span>
+                  <span className="whitespace-nowrap font-elmessiri text-[15px] sm:text-[16px] md:text-[18px] lg:text-[20px] font-bold leading-[0.95] bg-gradient-to-l from-[#0A6A5D] via-[#075248] to-[#033D38] bg-clip-text text-transparent">
+                    آفَاقُ الْقُرْآنِ
+                  </span>
+                  <span className="mt-[3px] whitespace-nowrap font-elmessiri text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] font-bold leading-none tracking-[0.08em] text-[#B8892E]">
+                    أَكَادِيمِيَّة
+                  </span>
+                </div>
               ) : (
-                <span
-                  className="whitespace-nowrap font-serif text-[10px] sm:text-[11px] md:text-[13px] lg:text-[14px] font-extrabold leading-none tracking-[0.035em] bg-gradient-to-r from-[#064E46] via-[#0B665B] to-[#C89B3C] bg-clip-text text-transparent"
+                <div
+                  className="flex flex-col justify-center leading-none"
                   dir="ltr"
                 >
-                  AFAQ AL-QURAN ACADEMY
-                </span>
+                  <span className="whitespace-nowrap font-serif text-[11px] sm:text-[12px] md:text-[14px] lg:text-[15px] font-extrabold leading-[0.95] tracking-[0.015em] bg-gradient-to-r from-[#0A6A5D] via-[#075248] to-[#033D38] bg-clip-text text-transparent">
+                    AFAQ AL-QURAN
+                  </span>
+                  <span className="mt-[4px] whitespace-nowrap font-sans text-[7px] sm:text-[8px] md:text-[9px] lg:text-[10px] font-extrabold leading-none tracking-[0.28em] text-[#B8892E]">
+                    ACADEMY
+                  </span>
+                </div>
               )}
             </motion.div>
           </Link>
