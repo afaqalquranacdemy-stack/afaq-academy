@@ -15,41 +15,45 @@ export function Hero() {
 
   return (
     <section ref={ref} className="relative min-h-[100dvh] w-full overflow-hidden flex flex-col bg-slate-950">
-      {/* Background Premium Layers (Dark Cinematic) */}
-      <div className="absolute inset-0 z-0 select-none pointer-events-none">
-        {/* Subtle Dark Vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.03)_100%)]" />
-
-        {/* Dark Top/Bottom Gradients */}
-        <div className="absolute top-0 inset-x-0 h-40 bg-gradient-to-b from-black/[0.2] to-transparent" />
-        <div className="absolute bottom-0 inset-x-0 h-64 bg-gradient-to-t from-black/[0.05] to-transparent" />
-
-        {/* Noise Texture for Premium Feel */}
-        <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
-      </div>
-
-      {/* Pattern Overlay (Original Colors) */}
-      <div className="absolute inset-0 z-[1] select-none pointer-events-none">
-        {/* Desktop Background */}
+      {/* Cinematic hero artwork */}
+      <div className="absolute inset-0 z-0 select-none pointer-events-none overflow-hidden">
         <Image
           src="/hero-bg.webp"
-          alt="afaq alquran background desktop"
+          alt=""
           fill
           priority
-          // @ts-ignore
           fetchPriority="high"
           sizes="100vw"
-          className="hidden md:block object-fill opacity-[0.5] mix-blend-overlay"
+          className="hidden md:block object-cover object-center scale-[1.01] brightness-[0.78] saturate-[0.9] contrast-[1.05]"
         />
-        {/* Mobile Background */}
         <Image
           src="/hero-mobile-bg.webp"
-          alt="afaq alquran background mobile"
+          alt=""
           fill
           priority
           fetchPriority="high"
           sizes="100vw"
-          className="block md:hidden object-fill opacity-[0.5]"
+          className="block md:hidden object-cover object-center scale-[1.01] brightness-[0.72] saturate-[0.9] contrast-[1.04]"
+        />
+
+        {/* Mobile: keep the artwork visible while calming the center behind copy */}
+        <div className="absolute inset-0 md:hidden bg-[linear-gradient(180deg,rgba(3,12,11,0.72)_0%,rgba(4,20,18,0.46)_25%,rgba(4,20,18,0.48)_62%,rgba(2,10,9,0.82)_100%)]" />
+        <div className="absolute inset-0 md:hidden bg-[radial-gradient(ellipse_at_center,rgba(5,24,21,0.08)_0%,rgba(3,14,12,0.16)_42%,rgba(1,7,6,0.58)_100%)]" />
+
+        {/* Desktop: richer depth without washing out the image */}
+        <div className="absolute inset-0 hidden md:block bg-[linear-gradient(180deg,rgba(2,10,9,0.70)_0%,rgba(3,17,15,0.34)_30%,rgba(3,17,15,0.30)_58%,rgba(2,9,8,0.76)_100%)]" />
+        <div className="absolute inset-0 hidden md:block bg-[radial-gradient(ellipse_at_center,rgba(7,31,27,0.03)_0%,rgba(3,15,13,0.10)_46%,rgba(1,7,6,0.64)_100%)]" />
+
+        {/* Top protection for the floating header and bottom blend into the stats */}
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/35 via-black/10 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-[34%] bg-gradient-to-t from-[#03100e]/75 via-[#041713]/28 to-transparent" />
+
+        {/* Very light grain only; no blend mode on the artwork itself */}
+        <div
+          className="absolute inset-0 opacity-[0.018]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")`,
+          }}
         />
       </div>
 
@@ -104,7 +108,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className={`text-[12px] sm:text-base md:text-lg text-slate-200 w-full md:max-w-4xl mx-auto leading-relaxed mb-4 md:mb-16 font-medium text-center px-2 md:px-4`}
+            className={`text-[12px] sm:text-base md:text-lg text-white/85 w-full md:max-w-4xl mx-auto leading-relaxed mb-4 md:mb-16 font-medium text-center px-2 md:px-4 drop-shadow-[0_2px_14px_rgba(0,0,0,0.28)]`}
           >
             {t.hero.description}
           </motion.p>
