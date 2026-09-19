@@ -168,7 +168,7 @@ export function FeaturedCourses() {
               {/* Footer */}
               <div className="flex items-center justify-between pt-4 border-t border-slate-100">
                 <div className="text-2xl font-black text-slate-900">
-                  {isRtl ? `يبدأ من ${startingMonthlyPrice}/شهرياً` : `Plans from ${startingMonthlyPrice}/mo`}
+                  {isRtl ? `يبدأ من $${startingMonthlyPrice}/شهرياً` : `Plans from $${startingMonthlyPrice}/mo`}
                 </div>
                 <Link
                   href={`/courses/${featured[0].slug}`}
@@ -256,7 +256,7 @@ export function FeaturedCourses() {
                 <div className="flex items-center justify-between pt-3 border-t border-slate-100">
                   <div className="flex items-center gap-3">
                     <span className="text-xl font-black text-slate-900">
-                      {isRtl ? `يبدأ من ${startingMonthlyPrice}/شهرياً` : `Plans from ${startingMonthlyPrice}/mo`}
+                      {isRtl ? `يبدأ من $${startingMonthlyPrice}/شهرياً` : `Plans from $${startingMonthlyPrice}/mo`}
                     </span>
                     <span className="text-xs text-slate-400 flex items-center gap-1">
                       <Clock className="w-3 h-3" />
