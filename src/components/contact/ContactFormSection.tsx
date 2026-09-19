@@ -11,9 +11,10 @@ import {
   MessageCircle,
   Send,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import Image from "next/image";
+import { formatInternationalPhone, useCountryCallingCode } from "@/hooks/useCountryCallingCode";
 
 export function ContactFormSection() {
   const { t, locale, isRtl } = useLanguage();
@@ -30,29 +31,7 @@ export function ContactFormSection() {
     message: "",
   });
 
-  const [locationData, setLocationData] = useState({
-    code: "+20",
-    country: "Egypt",
-  });
-
-  useEffect(() => {
-    const detectCountry = async () => {
-      try {
-        const response = await fetch("https://ipapi.co/json/");
-        if (!response.ok) throw new Error("Network response was not ok");
-        const data = await response.json();
-        if (data.country_calling_code) {
-          setLocationData({
-            code: data.country_calling_code,
-            country: data.country_name,
-          });
-        }
-      } catch (error) {
-        console.warn("Country detection failed, using default (Egypt):", error);
-      }
-    };
-    detectCountry();
-  }, []);
+  const locationData = useCountryCallingCode();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -76,7 +55,7 @@ export function ContactFormSection() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           ...formData, 
-          whatsapp: `${locationData.code} ${formData.whatsapp}`,
+          whatsapp: formatInternationalPhone(formData.whatsapp, locationData.code),
           formType: 'Contact Page Registration'
         }),
       });
@@ -458,9 +437,7 @@ export function ContactFormSection() {
                     <div className="flex gap-2 md:gap-3">
                       <div className="w-[35%] md:w-[25%] min-h-[50px] md:min-h-[56px] px-2 md:px-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-center text-slate-600">
                         <span className="text-[10px] md:text-xs font-bold truncate text-center">
-                          {locationData.country === "Egypt"
-                            ? "EG Egypt"
-                            : locationData.country}
+                          {locationData.country || (isRtl ? "الدولة" : "Country")}
                         </span>
                       </div>
                       <input
@@ -469,7 +446,7 @@ export function ContactFormSection() {
                         value={formData.whatsapp}
                         onChange={handleChange}
                         required
-                        placeholder={`${locationData.code} 104 121 3922`}
+                        placeholder={locationData.code ? `${locationData.code} 104 121 3922` : "+1 555 123 4567"}
                         className="flex-1 min-h-[50px] md:min-h-[56px] bg-slate-50 border border-slate-200 rounded-xl py-2.5 md:py-3 px-3 md:px-4 outline-none focus:border-teal-500/50 focus:ring-4 focus:ring-teal-500/5 transition-all text-sm md:text-base text-slate-900 placeholder:text-slate-400"
                       />
                     </div>
