@@ -1023,47 +1023,148 @@ export function FreeTrialLanding() {
         </div>
       </section>
 
-      {/* integrated trust + price */}
-      <section className="px-4 py-24 sm:py-28">
-        <div className="mx-auto max-w-[1180px]">
-          <div className="grid overflow-hidden rounded-[34px] border border-slate-200 bg-white md:grid-cols-[.92fr_1.08fr]">
-            <div className="bg-[#075248] p-7 text-white sm:p-10 lg:p-12">
-              <div className="text-[10px] font-extrabold uppercase tracking-[.2em] text-[#E0C77F]">{text.pricingEyebrow}</div>
-              <h2 className={`mt-4 text-[2rem] font-bold leading-tight sm:text-4xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
-                {text.pricingTitle}
-              </h2>
-              <p className="mt-4 text-sm leading-7 text-white/65">{text.pricingText}</p>
+      {/* pricing + proof — premium asymmetric composition */}
+      <section className="relative overflow-hidden px-4 py-24 sm:py-28">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C89B3C]/25 to-transparent" />
+        <div className="mx-auto max-w-[1220px]">
+          <div className="grid overflow-hidden rounded-[36px] border border-slate-200/90 bg-white shadow-[0_34px_90px_-58px_rgba(15,23,42,.34)] lg:grid-cols-[.9fr_1.1fr]">
+            {/* Pricing side */}
+            <div className="relative overflow-hidden bg-[#075248] p-7 text-white sm:p-10 lg:p-12">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#E0C77F]/65 to-transparent" />
+              <div className="absolute -bottom-20 -right-16 h-56 w-56 bg-[radial-gradient(circle,rgba(224,199,127,.10)_0%,transparent_70%)]" />
 
-              <div className="mt-7 space-y-3">
-                {[text.pricingPoint1, text.pricingPoint2, text.pricingPoint3].map((item) => (
-                  <div key={item} className="flex items-center gap-3 text-sm font-semibold text-white/82">
-                    <CheckCircle2 className="h-4 w-4 shrink-0 text-[#E0C77F]" />
-                    {item}
+              <div className="relative">
+                <div className="flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.2em] text-[#E0C77F]">
+                  <span className="h-px w-8 bg-[#E0C77F]/70" />
+                  {text.pricingEyebrow}
+                </div>
+
+                <div className="mt-7 flex items-end gap-3">
+                  <div className={`text-[4.8rem] font-black leading-[.82] tracking-[-.06em] text-white sm:text-[5.6rem] ${isRtl ? "font-elmessiri" : "font-serif"}`}>
+                    <span className="mr-1 align-top text-[1.7rem] font-bold text-[#E0C77F]">$</span>{startingMonthlyPrice}
                   </div>
-                ))}
-              </div>
+                  <div className="pb-1.5">
+                    <div className="text-[10px] font-extrabold uppercase tracking-[.16em] text-white/40">
+                      {isRtl ? "يبدأ من" : "starting from"}
+                    </div>
+                    <div className="mt-1 text-sm font-bold text-white/85">
+                      {isRtl ? "شهريًا" : "/ month"}
+                    </div>
+                  </div>
+                </div>
 
-              <a
-                href="#trial-form"
-                className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-6 text-[11px] font-extrabold uppercase tracking-[.08em] text-[#075248]"
-              >
-                {text.primary}
-                <ArrowRight className={`h-4 w-4 ${isRtl ? "rotate-180" : ""}`} />
-              </a>
+                <h2 className={`mt-7 max-w-lg text-[1.65rem] font-bold leading-tight sm:text-[2rem] ${isRtl ? "font-elmessiri" : "font-serif"}`}>
+                  {isRtl ? "خطة مرنة تبدأ من احتياجاتك الحقيقية." : "A flexible plan built around your real learning needs."}
+                </h2>
+
+                <p className="mt-4 max-w-lg text-sm leading-7 text-white/62">{text.pricingText}</p>
+
+                <div className="mt-7 divide-y divide-white/10 border-y border-white/10">
+                  {[
+                    [CalendarClock, text.pricingPoint1],
+                    [BookOpen, text.pricingPoint2],
+                    [ShieldCheck, text.pricingPoint3],
+                  ].map(([Icon, item], index) => {
+                    const RowIcon = Icon as typeof CalendarClock;
+                    return (
+                      <div key={String(item)} className="grid grid-cols-[38px_1fr] items-center gap-3 py-3.5">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-[10px] border border-[#E0C77F]/20 bg-[#E0C77F]/8 text-[#E7D395]">
+                          <RowIcon className="h-4 w-4" strokeWidth={1.7} />
+                        </div>
+                        <div>
+                          <div className="text-[9px] font-black uppercase tracking-[.13em] text-[#E0C77F]/65">0{index + 1}</div>
+                          <div className="mt-0.5 text-sm font-semibold text-white/86">{String(item)}</div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <a
+                    href="#trial-form"
+                    className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 text-[10px] font-extrabold uppercase tracking-[.09em] text-[#075248] shadow-[0_14px_30px_-20px_rgba(0,0,0,.28)] transition hover:-translate-y-0.5"
+                  >
+                    {text.primary}
+                    <ArrowRight className={`h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 ${isRtl ? "rotate-180 group-hover:-translate-x-0.5" : ""}`} />
+                  </a>
+
+                  <div className="inline-flex items-center justify-center gap-2 text-[10px] font-bold text-white/52 sm:justify-start">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-[#E0C77F]" />
+                    {text.noCard}
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-2">
-              {[
-                [`${academyStats.students}+`, text.statsStudents],
-                [`${academyStats.countries}+`, text.statsCountries],
-                [`${academyStats.years}+`, text.statsYears],
-                [`${academyStats.tutors}+`, text.statsTutors],
-              ].map(([value, label], index) => (
-                <div key={label} className={`flex min-h-40 flex-col justify-end p-6 sm:p-8 ${index % 2 === 0 ? "border-r border-slate-200" : ""} ${index < 2 ? "border-b border-slate-200" : ""}`}>
-                  <div className="text-3xl font-black text-[#075248] sm:text-4xl">{value}</div>
-                  <div className="mt-2 text-[9px] font-bold uppercase tracking-[.14em] text-slate-400">{label}</div>
+            {/* Proof side */}
+            <div className="relative bg-[linear-gradient(145deg,#FFFFFF_0%,#F8FBF9_100%)] p-6 sm:p-8 lg:p-10">
+              <div className="mb-7 flex flex-col justify-between gap-3 border-b border-slate-100 pb-6 sm:flex-row sm:items-end">
+                <div>
+                  <div className="text-[9px] font-extrabold uppercase tracking-[.18em] text-[#A37B2C]">
+                    {isRtl ? "الثقة بالأرقام" : "Proof in numbers"}
+                  </div>
+                  <h3 className={`mt-2 text-[1.65rem] font-bold leading-tight text-[#0D2722] ${isRtl ? "font-elmessiri" : "font-serif"}`}>
+                    {isRtl ? "تعلم فردي مدعوم بخبرة حقيقية." : "Personal learning backed by real experience."}
+                  </h3>
                 </div>
-              ))}
+                <p className="max-w-[260px] text-xs leading-5 text-slate-500">
+                  {text.trustLabel}
+                </p>
+              </div>
+
+              {/* Primary proof */}
+              <div className="group relative overflow-hidden rounded-[26px] border border-teal-100/80 bg-[#F1F8F5] p-6 sm:p-7">
+                <div className="absolute right-0 top-0 h-full w-[44%] bg-[linear-gradient(135deg,transparent,rgba(7,82,72,.045))]" />
+                <div className="relative flex items-center justify-between gap-5">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-[14px] bg-white text-[#075248] shadow-sm">
+                        <UserRound className="h-5 w-5" strokeWidth={1.7} />
+                      </div>
+                      <div className="text-[9px] font-extrabold uppercase tracking-[.15em] text-slate-400">{text.statsStudents}</div>
+                    </div>
+                    <div className="mt-5 text-[3.4rem] font-black leading-none tracking-[-.045em] text-[#075248] sm:text-[4rem]">
+                      {academyStats.students}+
+                    </div>
+                    <p className="mt-2 max-w-sm text-xs leading-5 text-slate-500">
+                      {isRtl ? "طلاب بدأوا رحلتهم التعليمية معنا من دول مختلفة." : "Learners who have started their academic journey with Afaq from around the world."}
+                    </p>
+                  </div>
+                  <div className="hidden h-24 w-px bg-gradient-to-b from-transparent via-teal-200 to-transparent sm:block" />
+                  <Sparkles className="hidden h-9 w-9 text-[#C89B3C]/55 sm:block" strokeWidth={1.35} />
+                </div>
+              </div>
+
+              {/* Supporting proofs */}
+              <div className="mt-4 grid gap-4 sm:grid-cols-3">
+                {[
+                  [Globe2, `${academyStats.countries}+`, text.statsCountries],
+                  [GraduationCap, `${academyStats.tutors}+`, text.statsTutors],
+                  [CalendarClock, `${academyStats.years}+`, text.statsYears],
+                ].map(([Icon, value, label]) => {
+                  const StatIcon = Icon as typeof Globe2;
+                  return (
+                    <div key={String(label)} className="group rounded-[20px] border border-slate-200/90 bg-white p-5 transition duration-300 hover:-translate-y-0.5 hover:border-teal-100 hover:shadow-[0_14px_30px_-24px_rgba(15,23,42,.28)]">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-[11px] bg-[#F3F8F6] text-[#075248]">
+                        <StatIcon className="h-4.5 w-4.5" strokeWidth={1.7} />
+                      </div>
+                      <div className="mt-5 text-2xl font-black leading-none text-[#075248] sm:text-[1.7rem]">{String(value)}</div>
+                      <div className="mt-2 text-[8px] font-extrabold uppercase tracking-[.14em] text-slate-400">{String(label)}</div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="mt-6 flex items-center justify-between gap-4 rounded-[16px] border border-[#C89B3C]/18 bg-[#FFFCF5] px-4 py-3">
+                <div className="flex items-center gap-2 text-[10px] font-bold text-slate-500">
+                  <ShieldCheck className="h-4 w-4 text-[#A37B2C]" strokeWidth={1.7} />
+                  {isRtl ? "ابدأ بالتجربة المجانية قبل اختيار الباقة." : "Start with the free trial before choosing a plan."}
+                </div>
+                <a href="#trial-form" className="shrink-0 text-[9px] font-extrabold uppercase tracking-[.11em] text-[#075248]">
+                  {isRtl ? "ابدأ الآن" : "Start now"}
+                </a>
+              </div>
             </div>
           </div>
         </div>
