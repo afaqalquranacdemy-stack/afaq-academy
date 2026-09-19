@@ -184,7 +184,7 @@ export function CourseDetailHero({ course }: CourseDetailHeroProps) {
                 </p>
 
                 <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400 mb-8">
-                  {isRtl ? `يبدأ من ${startingMonthlyPrice}/شهرياً` : `Plans from ${startingMonthlyPrice}/mo`}
+                  {isRtl ? `يبدأ من $${startingMonthlyPrice}/شهرياً` : `Plans from $${startingMonthlyPrice}/mo`}
                 </div>
 
                 <div className="w-full space-y-3 text-sm text-slate-300 text-left rtl:text-right font-medium">
