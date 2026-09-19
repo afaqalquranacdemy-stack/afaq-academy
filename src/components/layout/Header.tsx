@@ -34,8 +34,8 @@ export function Header() {
       <div 
         className={`pointer-events-auto relative w-full max-w-7xl rounded-full border flex items-center px-4 md:px-10 transition-all duration-500 transform-gpu ${
           isScrolled 
-            ? "py-1.5 md:py-2 bg-white/95 backdrop-blur-[40px] shadow-xl border-slate-200" 
-            : "py-2 md:py-3 bg-white/90 backdrop-blur-[40px] shadow-lg border-[rgba(13,148,136,0.15)]"
+            ? "py-1.5 md:py-1.5 bg-white/95 backdrop-blur-[40px] shadow-xl border-slate-200" 
+            : "py-2 md:py-2 bg-white/90 backdrop-blur-[40px] shadow-lg border-[rgba(13,148,136,0.15)]"
         }`}
         style={{ isolation: 'isolate', WebkitBackdropFilter: 'blur(40px)', backfaceVisibility: 'hidden' }}
       >
@@ -50,22 +50,22 @@ export function Header() {
               initial={{ opacity: 0, x: isRtl ? 20 : -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex items-center gap-2 md:gap-2.5"
+              className="flex items-center gap-2.5 md:gap-3"
             >
-              <div className="relative w-9 h-9 md:w-12 md:h-12 shrink-0 transition-transform duration-500 group-hover:scale-[1.04]">
+              <div className="relative w-10 h-10 md:w-[46px] md:h-[46px] shrink-0 transition-transform duration-500 group-hover:scale-[1.04]">
                 <Image
                   src="/icon.png"
                   alt=""
                   fill
-                  sizes="48px"
-                  className="object-contain"
+                  sizes="46px"
+                  className="object-contain mix-blend-multiply"
                   priority
                 />
               </div>
 
-              <div className="flex min-w-0 flex-col justify-center leading-none">
+              <div className="flex min-w-0 flex-col justify-center py-0.5">
                 <span
-                  className="whitespace-nowrap font-serif text-[7px] sm:text-[8px] md:text-[9px] lg:text-[10px] font-bold tracking-[0.08em] text-emerald-950"
+                  className="whitespace-nowrap font-serif text-[7px] sm:text-[8px] md:text-[9px] lg:text-[10px] font-bold leading-none tracking-[0.075em] text-emerald-950"
                   dir="ltr"
                 >
                   AFAQ AL-QURAN ACADEMY
@@ -73,7 +73,7 @@ export function Header() {
 
                 <span
                   aria-hidden="true"
-                  className="my-1 flex items-center gap-1"
+                  className="my-[4px] flex items-center gap-1.5"
                 >
                   <span className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/80 to-amber-500/30" />
                   <span className="h-1 w-1 rotate-45 bg-amber-500" />
@@ -81,7 +81,7 @@ export function Header() {
                 </span>
 
                 <span
-                  className="whitespace-nowrap font-elmessiri text-[12px] sm:text-[13px] md:text-[15px] lg:text-[17px] font-bold text-emerald-950"
+                  className="whitespace-nowrap font-elmessiri text-[12px] sm:text-[13px] md:text-[15px] lg:text-[17px] font-bold leading-[1.05] text-emerald-950"
                   dir="rtl"
                   lang="ar"
                 >
