@@ -50,40 +50,35 @@ export function Header() {
               initial={{ opacity: 0, x: isRtl ? 20 : -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex items-center gap-1 md:gap-1.5"
+              className="flex items-center gap-2 md:gap-2.5"
             >
-              <div className="relative w-[28px] h-[42px] sm:w-[31px] sm:h-[46px] md:w-[36px] md:h-[54px] shrink-0 transition-transform duration-500 group-hover:scale-[1.035]">
+              <div className="relative w-[30px] h-[44px] sm:w-[33px] sm:h-[48px] md:w-[38px] md:h-[56px] shrink-0 transition-transform duration-500 group-hover:scale-[1.035]">
                 <Image
                   src="/header-icon-final.png"
                   alt=""
                   fill
-                  sizes="(max-width: 640px) 28px, (max-width: 768px) 31px, 36px"
+                  sizes="(max-width: 640px) 30px, (max-width: 768px) 33px, 38px"
                   className="object-contain"
                   priority
                 />
               </div>
 
-              <div className="flex min-w-0 flex-col justify-center">
+              {locale === "ar" ? (
                 <span
-                  className="whitespace-nowrap font-serif text-[8.5px] sm:text-[9.5px] md:text-[10.5px] lg:text-[11.5px] font-bold leading-none tracking-[0.03em] text-[#064E46]"
-                  dir="ltr"
-                >
-                  AFAQ AL-QURAN ACADEMY
-                </span>
-
-                <span
-                  aria-hidden="true"
-                  className="my-[3px] block h-px w-full bg-[#C89B3C]"
-                />
-
-                <span
-                  className="whitespace-nowrap font-elmessiri text-[12px] sm:text-[13px] md:text-[15px] lg:text-[16px] font-bold leading-none text-[#064E46]"
+                  className="whitespace-nowrap font-elmessiri text-[15px] sm:text-[16px] md:text-[18px] lg:text-[19px] font-bold leading-none bg-gradient-to-l from-[#0B665B] via-[#075248] to-[#C89B3C] bg-clip-text text-transparent"
                   dir="rtl"
                   lang="ar"
                 >
                   أَكَادِيمِيَّةُ آفَاقِ الْقُرْآنِ
                 </span>
-              </div>
+              ) : (
+                <span
+                  className="whitespace-nowrap font-serif text-[10px] sm:text-[11px] md:text-[13px] lg:text-[14px] font-extrabold leading-none tracking-[0.035em] bg-gradient-to-r from-[#064E46] via-[#0B665B] to-[#C89B3C] bg-clip-text text-transparent"
+                  dir="ltr"
+                >
+                  AFAQ AL-QURAN ACADEMY
+                </span>
+              )}
             </motion.div>
           </Link>
         </div>
