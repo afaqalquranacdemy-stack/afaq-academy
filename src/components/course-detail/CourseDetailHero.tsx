@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Star, Clock, Users, PlayCircle, ArrowRight, BookOpen, Sparkles, ChevronRight, MessageSquare } from "lucide-react";
 import { Course } from "@/data/courses";
 import { startingMonthlyPrice } from "@/data/pricing";
+import { academyOperations } from "@/data/site";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 interface CourseDetailHeroProps {
@@ -204,7 +205,7 @@ export function CourseDetailHero({ course }: CourseDetailHeroProps) {
                     <div className="w-5 h-5 rounded-full bg-teal-500/20 flex items-center justify-center shrink-0">
                       <div className="w-1.5 h-1.5 rounded-full bg-teal-400" />
                     </div>
-                    {isRtl ? "جدول زمني مرن 24/7" : "Flexible 24/7 scheduling"}
+                    {isRtl ? academyOperations.schedulingAr : academyOperations.schedulingEn}
                   </div>
                   <div className="flex items-center gap-3">
                     <div className="w-5 h-5 rounded-full bg-teal-500/20 flex items-center justify-center shrink-0">

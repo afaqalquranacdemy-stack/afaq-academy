@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import { academyContact } from "@/data/site";
 import {
   BookOpen,
   Mail,
@@ -157,22 +158,22 @@ export function Footer() {
             {/* Contact Items - styled as mini dark cards based on user preference */}
             <div className="space-y-3 text-sm mb-8">
               <a
-                href="mailto:afaqalquranacdemy@gmail.com"
+                href={academyContact.emailUrl}
                 className="flex items-center gap-3 p-3 rounded-xl bg-[#0F172A] border border-slate-800 text-slate-300 hover:border-teal-500/50 hover:shadow-lg hover:shadow-teal-500/10 transition-all group"
               >
                 <div className="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center group-hover:bg-teal-500/20 transition-all">
                    <Mail className="w-4 h-4 text-teal-400" />
                 </div>
-                <span>info@afaqalquran.com</span>
+                <span>{academyContact.email}</span>
               </a>
               <a
-                href="tel:+201041213922"
+                href={academyContact.phoneUrl}
                 className="flex items-center gap-3 p-3 rounded-xl bg-[#0F172A] border border-slate-800 text-slate-300 hover:border-teal-500/50 hover:shadow-lg hover:shadow-teal-500/10 transition-all group"
               >
                 <div className="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center group-hover:bg-teal-500/20 transition-all">
                   <Phone className="w-4 h-4 text-teal-400" />
                 </div>
-                <span dir="ltr">+20 10 4121 3922</span>
+                <span dir="ltr">{academyContact.phoneDisplay}</span>
               </a>
             </div>
 
@@ -192,7 +193,7 @@ export function Footer() {
                 </a>
               ))}
               <a
-                href="https://wa.me/201041213922"
+                href={academyContact.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"

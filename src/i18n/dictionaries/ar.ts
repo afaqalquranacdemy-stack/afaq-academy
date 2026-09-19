@@ -1,4 +1,4 @@
-import { academyStats } from "@/data/site";
+import { academyOperations, academyStats } from "@/data/site";
 
 const ar = {
   nav: {
@@ -167,7 +167,7 @@ const ar = {
       "إجابة على كافة استفساراتك بشكل مباشر"
     ],
     formTitle: "احجز حصتك المجانية",
-    formSubtitle: "املأ النموذج وسيتواصل معك فريقنا خلال 24 ساعة",
+    formSubtitle: `املأ النموذج وسيتواصل معك فريقنا خلال ${academyOperations.responseTimeHours} ساعة`,
     firstName: "الاسم الأول",
     lastName: "اسم العائلة",
     email: "البريد الإلكتروني",

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import { academyOperations, academyStats } from "@/data/site";
 import {
   BookOpen,
   Clock,
@@ -30,15 +31,15 @@ const features = [
   },
   {
     icon: Clock,
-    titleAr: "مرونة كاملة 24/7",
-    titleEn: "Full Flexibility 24/7",
+    titleAr: "مواعيد مرنة",
+    titleEn: "Flexible Scheduling",
     descAr:
-      "اختر أوقات الدراسة التي تناسب جدولك — نحن نعمل على مدار الساعة، كل أيام الأسبوع.",
+      "اختر أوقات الدراسة التي تناسب جدولك بالتنسيق مع المعلم.",
     descEn:
-      "Choose study times that fit your schedule — we operate around the clock, every day of the week.",
-    statValue: "24/7",
-    statLabelAr: "متاح دائماً",
-    statLabelEn: "Always Available",
+      "Choose study times that fit your schedule in coordination with your tutor.",
+    statValue: "Flexible",
+    statLabelAr: "جدولة مرنة",
+    statLabelEn: "Scheduling",
     gradient: "from-indigo-500 to-violet-500",
     glow: "group-hover:shadow-indigo-500/20",
   },
@@ -64,7 +65,7 @@ const features = [
       "نعتمد في تدريسنا على مناهج الأزهر الشريف الموثوقة والمعتمدة عالمياً.",
     descEn:
       "We rely on the globally trusted and accredited Al-Azhar curriculums.",
-    statValue: "50+",
+    statValue: `${academyStats.tutors}+`,
     statLabelAr: "عالم أزهري",
     statLabelEn: "Azhar Scholars",
     gradient: "from-rose-500 to-pink-500",
@@ -75,10 +76,10 @@ const features = [
     titleAr: "مجتمع عالمي",
     titleEn: "Global Community",
     descAr:
-      "طلاب من أكثر من 30 دولة — مجتمع متنوع يجمعه حب العلم والمعرفة.",
+      `طلاب من أكثر من ${academyStats.countries} دولة — مجتمع متنوع يجمعه حب العلم والمعرفة.`,
     descEn:
-      "Students from over 30 countries — a diverse community united by the love of knowledge.",
-    statValue: "30+",
+      `Students from over ${academyStats.countries} countries — a diverse community united by the love of knowledge.`,
+    statValue: `${academyStats.countries}+`,
     statLabelAr: "دولة",
     statLabelEn: "Countries",
     gradient: "from-cyan-500 to-blue-500",
@@ -89,10 +90,10 @@ const features = [
     titleAr: "دعم فني مستمر",
     titleEn: "Continuous Support",
     descAr:
-      "فريق دعم فني متخصص جاهز لمساعدتك في أي وقت عبر واتساب والبريد الإلكتروني.",
+      `فريق دعم متخصص عبر واتساب والبريد الإلكتروني، ونرد عادة خلال ${academyOperations.responseTimeHours} ساعة.`,
     descEn:
-      "A dedicated support team ready to help you anytime via WhatsApp and email.",
-    statValue: "<2h",
+      `A dedicated support team via WhatsApp and email, usually responding within ${academyOperations.responseTimeHours} hours.`,
+    statValue: `≤${academyOperations.responseTimeHours}h`,
     statLabelAr: "وقت الاستجابة",
     statLabelEn: "Response Time",
     gradient: "from-emerald-500 to-green-500",

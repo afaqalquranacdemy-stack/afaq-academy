@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Mail, MessageCircle, MapPin, Phone, ArrowRight, ExternalLink } from "lucide-react";
+import { academyContact, academyOperations } from "@/data/site";
 
 export function ContactCards() {
   const { isRtl } = useLanguage();
@@ -12,11 +13,11 @@ export function ContactCards() {
       icon: MessageCircle,
       titleAr: "واتساب",
       titleEn: "WhatsApp",
-      detailAr: "رد فوري خلال دقائق",
-      detailEn: "Instant reply within minutes",
-      valueAr: "+20 10 4121 3922",
-      valueEn: "+20 10 4121 3922",
-      link: "https://wa.me/201041213922",
+      detailAr: `نرد عادة خلال ${academyOperations.responseTimeHours} ساعة`,
+      detailEn: `We usually reply within ${academyOperations.responseTimeHours} hours`,
+      valueAr: academyContact.whatsappDisplay,
+      valueEn: academyContact.whatsappDisplay,
+      link: academyContact.whatsappUrl,
       actionAr: "ابدأ المحادثة",
       actionEn: "Start Chat",
       gradient: "from-green-500 to-emerald-600",
@@ -29,11 +30,11 @@ export function ContactCards() {
       icon: Mail,
       titleAr: "البريد الإلكتروني",
       titleEn: "Email",
-      detailAr: "رد خلال ساعة",
-      detailEn: "Reply within an hour",
-      valueAr: "info@afaqalquran.com",
-      valueEn: "info@afaqalquran.com",
-      link: "mailto:afaqalquranacdemy@gmail.com",
+      detailAr: `نرد عادة خلال ${academyOperations.responseTimeHours} ساعة`,
+      detailEn: `We usually reply within ${academyOperations.responseTimeHours} hours`,
+      valueAr: academyContact.email,
+      valueEn: academyContact.email,
+      link: academyContact.emailUrl,
       actionAr: "أرسل بريداً",
       actionEn: "Send Email",
       gradient: "from-indigo-500 to-violet-600",
@@ -46,11 +47,11 @@ export function ContactCards() {
       icon: Phone,
       titleAr: "اتصل بنا",
       titleEn: "Call Us",
-      detailAr: "متاح ٢٤ ساعة / ٧ أيام",
-      detailEn: "Available 24/7",
-      valueAr: "+20 10 4121 3922",
-      valueEn: "+20 10 4121 3922",
-      link: "tel:+201041213922",
+      detailAr: "اتصال مباشر بفريق الأكاديمية",
+      detailEn: "Direct academy phone support",
+      valueAr: academyContact.phoneDisplay,
+      valueEn: academyContact.phoneDisplay,
+      link: academyContact.phoneUrl,
       actionAr: "اتصل الآن",
       actionEn: "Call Now",
       gradient: "from-teal-500 to-cyan-600",

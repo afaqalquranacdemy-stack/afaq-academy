@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
+import { academyContact } from "@/data/site";
 
 export function FloatingWhatsApp() {
   const { isRtl } = useLanguage();
@@ -36,7 +37,7 @@ export function FloatingWhatsApp() {
       </AnimatePresence>
 
       <motion.a
-        href="https://wa.me/201041213922"
+        href={academyContact.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0 }}

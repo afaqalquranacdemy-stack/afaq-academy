@@ -7,6 +7,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import Image from "next/image";
 import { formatInternationalPhone, useCountryCallingCode } from "@/hooks/useCountryCallingCode";
+import { academyContact } from "@/data/site";
 
 export function TrialBooking() {
   const { t, locale, isRtl } = useLanguage();
@@ -82,8 +83,8 @@ export function TrialBooking() {
   ];
 
   const contactInfo = [
-    { icon: Phone, label: "WhatsApp", value: "+20 10 4121 3922", color: "bg-teal-50 text-teal-600" },
-    { icon: Mail, label: "Email", value: "info@afaqalquran.com", color: "bg-indigo-50 text-indigo-600" },
+    { icon: Phone, label: "WhatsApp", value: academyContact.whatsappDisplay, color: "bg-teal-50 text-teal-600" },
+    { icon: Mail, label: "Email", value: academyContact.email, color: "bg-indigo-50 text-indigo-600" },
   ];
 
   return (

@@ -15,6 +15,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import Image from "next/image";
 import { formatInternationalPhone, useCountryCallingCode } from "@/hooks/useCountryCallingCode";
+import { academyContact, academyOperations } from "@/data/site";
 
 export function ContactFormSection() {
   const { t, locale, isRtl } = useLanguage();
@@ -93,13 +94,13 @@ export function ContactFormSection() {
     {
       icon: Phone,
       label: "WhatsApp",
-      value: "+20 10 4121 3922",
+      value: academyContact.whatsappDisplay,
       color: "bg-teal-50 text-teal-600",
     },
     {
       icon: Mail,
       label: "Email",
-      value: "info@afaqalquran.com",
+      value: academyContact.email,
       color: "bg-indigo-50 text-indigo-600",
     },
   ];
@@ -171,8 +172,8 @@ export function ContactFormSection() {
             className="text-lg text-slate-500 leading-relaxed max-w-2xl mx-auto"
           >
             {isRtl
-              ? "سجّل بياناتك وسيتواصل معك فريقنا الأكاديمي خلال دقائق لمساعدتك في اختيار البرنامج المناسب."
-              : "Fill in your details and our academic team will contact you within minutes to help you choose the right program."}
+              ? `سجّل بياناتك وسيتواصل معك فريقنا الأكاديمي خلال ${academyOperations.responseTimeHours} ساعة لمساعدتك في اختيار البرنامج المناسب.`
+              : `Fill in your details and our academic team will contact you within ${academyOperations.responseTimeHours} hours to help you choose the right program.`}
           </motion.p>
         </div>
 

@@ -94,7 +94,7 @@ export const pricingData: PricingPlan[] = [
     },
     features: [
       { textAr: "شيخ مجاز", textEn: "Sheikh with Ijazah" },
-      { textAr: "دعم لكبار الشخصيات 24/7", textEn: "24/7 VIP Support" },
+      { textAr: "دعم ذو أولوية", textEn: "Priority Support" },
       { textAr: "ملاحظات يومية", textEn: "Daily Feedback" },
       { textAr: "شهادة إتمام", textEn: "Completion Certificate" },
     ],

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Headset, ShieldCheck, Sparkles, Clock, Users, Globe } from "lucide-react";
 import Image from "next/image";
-import { academyStats } from "@/data/site";
+import { academyStats, academyOperations } from "@/data/site";
 
 export function ContactHero() {
   const { isRtl } = useLanguage();
@@ -12,10 +12,10 @@ export function ContactHero() {
   const stats = [
     {
       icon: Clock,
-      valueAr: "24/7",
-      valueEn: "24/7",
-      labelAr: "دعم متواصل",
-      labelEn: "Support",
+      valueAr: `${academyOperations.responseTimeHours}h`,
+      valueEn: `${academyOperations.responseTimeHours}h`,
+      labelAr: "حد أقصى للرد",
+      labelEn: "Max Response",
     },
     {
       icon: Users,

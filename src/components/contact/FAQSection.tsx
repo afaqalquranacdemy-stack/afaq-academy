@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { ChevronDown, HelpCircle } from "lucide-react";
+import { academyOperations } from "@/data/site";
 
 export function FAQSection() {
   const { isRtl } = useLanguage();
@@ -19,8 +20,8 @@ export function FAQSection() {
     {
       qAr: "كيف يتم تحديد مواعيد الدروس؟",
       qEn: "How are lesson times scheduled?",
-      aAr: "بمرونة تامة. بعد الاشتراك، ستختار الأوقات والأيام التي تناسبك من جدول المعلم المتاح على مدار 24 ساعة.",
-      aEn: "With complete flexibility. After subscribing, you choose the times and days that suit you from the tutor's 24/7 available schedule.",
+      aAr: "بمرونة تامة. بعد الاشتراك، ستنسق مع المعلم لاختيار الأوقات والأيام المناسبة لك من المواعيد المتاحة.",
+      aEn: "With complete flexibility. After subscribing, you coordinate with your tutor to choose suitable times from the available schedule.",
     },
     {
       qAr: "هل الشهادات معتمدة؟",
@@ -37,8 +38,8 @@ export function FAQSection() {
     {
       qAr: "ما هي مدة الحصة الواحدة؟",
       qEn: "How long is each session?",
-      aAr: "مدة الحصة الواحدة ساعة كاملة (60 دقيقة) من التعليم المباشر والتفاعلي مع المعلم المتخصص.",
-      aEn: "Each session is a full hour (60 minutes) of direct, interactive teaching with the specialized instructor.",
+      aAr: `يمكنك اختيار مدة الحصة: ${academyOperations.sessionDurations.join(" أو ")} دقيقة حسب الباقة المناسبة لك.`,
+      aEn: `You can choose ${academyOperations.sessionDurations.join(", ")}-minute sessions depending on the plan that suits you.`,
     },
     {
       qAr: "هل يمكنني تغيير المعلم إذا لم أشعر بالارتياح؟",

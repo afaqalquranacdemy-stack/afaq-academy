@@ -1,4 +1,4 @@
-import { academyStats } from "@/data/site";
+import { academyOperations, academyStats } from "@/data/site";
 
 const en = {
   nav: {
@@ -167,7 +167,7 @@ const en = {
       "Get all your questions answered directly"
     ],
     formTitle: "Book Your Free Trial",
-    formSubtitle: "Fill out the form below and our team will contact you within 24 hours",
+    formSubtitle: `Fill out the form below and our team will contact you within ${academyOperations.responseTimeHours} hours`,
     firstName: "First Name",
     lastName: "Last Name",
     email: "Email Address",
