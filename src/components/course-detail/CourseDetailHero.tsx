@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Star, Clock, Users, PlayCircle, ArrowRight, BookOpen, Sparkles, ChevronRight, MessageSquare } from "lucide-react";
 import { Course } from "@/data/courses";
+import { startingMonthlyPrice } from "@/data/pricing";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 
 interface CourseDetailHeroProps {
@@ -16,7 +17,6 @@ export function CourseDetailHero({ course }: CourseDetailHeroProps) {
 
   const title = course.title[locale as "ar" | "en"] || course.title.en;
   const description = course.description[locale as "ar" | "en"] || course.description.en;
-  const price = course.price[locale as "ar" | "en"] || course.price.en;
   const duration = course.duration[locale as "ar" | "en"] || course.duration.en;
 
   const categoryAr = course.category === "Islamic Studies" ? "الدراسات الإسلامية" : 
@@ -184,7 +184,7 @@ export function CourseDetailHero({ course }: CourseDetailHeroProps) {
                 </p>
 
                 <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400 mb-8">
-                  {price}
+                  {isRtl ? `يبدأ من ${startingMonthlyPrice}/شهرياً` : `Plans from ${startingMonthlyPrice}/mo`}
                 </div>
 
                 <div className="w-full space-y-3 text-sm text-slate-300 text-left rtl:text-right font-medium">
