@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe, Instagram, Facebook, Home, BookOpen, Info, MessageSquare, CreditCard, ChevronRight, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
@@ -17,6 +18,7 @@ const navLinks = [
 
 export function Header() {
   const { t, locale, isRtl, switchLocale } = useLanguage();
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
@@ -28,16 +30,23 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] flex justify-center pt-3 md:pt-6 px-3 md:px-8 pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-[100] flex justify-center pt-3 md:pt-5 px-3 md:px-6 pointer-events-none">
       <div 
-        className={`pointer-events-auto relative w-full max-w-7xl rounded-full border flex items-center px-4 md:px-10 transition-all duration-500 transform-gpu ${
+        className={`pointer-events-auto relative w-full max-w-[1320px] rounded-[28px] md:rounded-[30px] border flex items-center px-4 md:px-7 lg:px-9 transition-all duration-500 transform-gpu overflow-visible ${
           isScrolled 
-            ? "py-1.5 md:py-1.5 bg-white/95 backdrop-blur-[40px] shadow-xl border-slate-200" 
-            : "py-2 md:py-2 bg-white/90 backdrop-blur-[40px] shadow-lg border-[rgba(13,148,136,0.15)]"
+            ? "py-1.5 bg-white/95 backdrop-blur-[28px] shadow-[0_16px_40px_-20px_rgba(15,23,42,0.38)] border-slate-200/80" 
+            : "py-2 bg-white/90 backdrop-blur-[28px] shadow-[0_18px_48px_-24px_rgba(15,23,42,0.34)] border-white/70"
         }`}
-        style={{ isolation: 'isolate', WebkitBackdropFilter: 'blur(40px)', backfaceVisibility: 'hidden' }}
+        style={{ isolation: 'isolate', WebkitBackdropFilter: 'blur(28px)', backfaceVisibility: 'hidden' }}
       >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute top-0 left-10 right-10 h-px bg-gradient-to-r from-transparent via-[#C89B3C]/45 to-transparent"
+        />
         {/* 1. Left Section: Logo */}
         <div className="flex-1 flex justify-start items-center">
           <Link
@@ -89,7 +98,7 @@ export function Header() {
         </div>
 
         {/* 2. Center Section: Navigation */}
-        <nav className="hidden md:flex items-center justify-center gap-1 lg:gap-2">
+        <nav className="hidden md:flex items-center justify-center gap-0.5 lg:gap-1 rounded-full border border-slate-200/70 bg-slate-50/65 p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
           {navLinks.map((link) => {
             if (link.key === "courses") {
               return (
@@ -101,11 +110,19 @@ export function Header() {
                 >
                   <Link
                     href={link.href}
-                    className="relative flex items-center gap-2 px-4 lg:px-5 py-2.5 text-[15px] font-bold text-slate-700 hover:text-teal-600 transition-all duration-300 rounded-full hover:bg-white/40 group whitespace-nowrap"
+                    aria-current={isActive(link.href) ? "page" : undefined}
+                    className={`relative flex items-center gap-2 px-4 lg:px-5 py-2.5 text-[15px] font-bold transition-all duration-300 rounded-full group whitespace-nowrap border ${
+                      isActive(link.href)
+                        ? "text-[#075248] bg-white border-teal-100 shadow-[0_6px_18px_-10px_rgba(13,148,136,0.55)]"
+                        : "text-slate-700 border-transparent hover:text-teal-700 hover:bg-white/75"
+                    }`}
                   >
-                    <link.icon className="w-4 h-4 text-slate-700 group-hover:text-teal-500 transition-colors duration-300" />
+                    <link.icon className={`w-4 h-4 transition-colors duration-300 ${isActive(link.href) ? "text-teal-600" : "text-slate-500 group-hover:text-teal-500"}`} />
                     {t.nav[link.key as keyof typeof t.nav]}
-                    <ChevronDown className={`w-3.5 h-3.5 text-slate-700 transition-transform duration-300 ${isMegaMenuOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-3.5 h-3.5 transition-all duration-300 ${isActive(link.href) ? "text-teal-600" : "text-slate-500"} ${isMegaMenuOpen ? "rotate-180" : ""}`} />
+                    {isActive(link.href) && (
+                      <span className="absolute -bottom-[5px] left-1/2 h-[2px] w-7 -translate-x-1/2 rounded-full bg-gradient-to-r from-[#0A6A5D] to-[#C89B3C]" />
+                    )}
                   </Link>
 
                   <AnimatePresence>
@@ -176,18 +193,26 @@ export function Header() {
               <Link
                 key={link.key}
                 href={link.href}
-                className="relative flex items-center gap-2 px-4 lg:px-5 py-2.5 text-[15px] font-bold text-slate-700 hover:text-teal-600 transition-all duration-300 rounded-full hover:bg-white/40 group whitespace-nowrap"
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={`relative flex items-center gap-2 px-4 lg:px-5 py-2.5 text-[15px] font-bold transition-all duration-300 rounded-full group whitespace-nowrap border ${
+                  isActive(link.href)
+                    ? "text-[#075248] bg-white border-teal-100 shadow-[0_6px_18px_-10px_rgba(13,148,136,0.55)]"
+                    : "text-slate-700 border-transparent hover:text-teal-700 hover:bg-white/75"
+                }`}
               >
-                <link.icon className="w-4 h-4 text-slate-700 group-hover:text-teal-500 transition-colors duration-300" />
+                <link.icon className={`w-4 h-4 transition-colors duration-300 ${isActive(link.href) ? "text-teal-600" : "text-slate-500 group-hover:text-teal-500"}`} />
                 {t.nav[link.key as keyof typeof t.nav]}
+                {isActive(link.href) && (
+                  <span className="absolute -bottom-[5px] left-1/2 h-[2px] w-7 -translate-x-1/2 rounded-full bg-gradient-to-r from-[#0A6A5D] to-[#C89B3C]" />
+                )}
               </Link>
             );
           })}
         </nav>
 
         {/* 3. Right Section: Actions */}
-        <div className="flex-1 flex justify-end items-center gap-4">
-          <div className="hidden lg:flex items-center gap-1.5 p-1 rounded-full border border-slate-200 bg-slate-50/50">
+        <div className="flex-1 flex justify-end items-center gap-2.5 lg:gap-3">
+          <div className="hidden lg:flex items-center gap-1 p-1 rounded-full border border-slate-200/80 bg-white/65 shadow-sm">
             <Link href="https://www.instagram.com/afaqalquranacdemy" target="_blank" rel="noopener noreferrer" className="p-1.5 text-slate-600 hover:text-teal-600 hover:bg-white rounded-full transition-all duration-300">
               <Instagram size={16} />
             </Link>
@@ -203,7 +228,7 @@ export function Header() {
 
           <button
             onClick={() => switchLocale(locale === "en" ? "ar" : "en")}
-            className="flex items-center justify-center min-h-[44px] gap-2 px-4 py-2 text-sm font-bold text-slate-700 hover:text-teal-600 transition-all duration-300 rounded-full hover:bg-white border border-slate-200 whitespace-nowrap"
+            className="flex items-center justify-center min-h-[42px] gap-2 px-4 py-2 text-sm font-bold text-slate-700 hover:text-teal-700 transition-all duration-300 rounded-full bg-white/65 hover:bg-white border border-slate-200/80 shadow-sm whitespace-nowrap"
           >
             <Globe className="w-4 h-4" />
             <span className="hidden sm:inline">{locale === "en" ? "العربية" : "EN"}</span>
@@ -242,10 +267,14 @@ export function Header() {
                     >
                       <button
                         onClick={() => setMobileCoursesOpen(!mobileCoursesOpen)}
-                        className="flex items-center justify-between px-5 py-4 text-slate-700 hover:text-teal-600 hover:bg-slate-50 rounded-xl transition-colors font-bold text-lg"
+                        className={`relative flex items-center justify-between px-5 py-4 rounded-xl transition-colors font-bold text-lg ${
+                          isActive(link.href)
+                            ? "text-teal-700 bg-teal-50 border border-teal-100"
+                            : "text-slate-700 hover:text-teal-600 hover:bg-slate-50"
+                        }`}
                       >
                         <div className="flex items-center gap-2">
-                          <link.icon className="w-5 h-5 text-slate-700" />
+                          <link.icon className={`w-5 h-5 ${isActive(link.href) ? "text-teal-600" : "text-slate-600"}`} />
                           {t.nav[link.key as keyof typeof t.nav]}
                         </div>
                         <ChevronRight className={`w-5 h-5 transition-transform ${mobileCoursesOpen ? (isRtl ? '-rotate-90' : 'rotate-90') : (isRtl ? 'rotate-180' : '')}`} />
@@ -305,10 +334,18 @@ export function Header() {
                     <Link
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className="flex items-center gap-2 px-5 py-4 text-slate-700 hover:text-teal-600 hover:bg-slate-50 rounded-xl transition-colors font-bold text-lg"
+                      aria-current={isActive(link.href) ? "page" : undefined}
+                      className={`relative flex items-center gap-2 px-5 py-4 rounded-xl transition-colors font-bold text-lg ${
+                        isActive(link.href)
+                          ? "text-teal-700 bg-teal-50 border border-teal-100"
+                          : "text-slate-700 hover:text-teal-600 hover:bg-slate-50"
+                      }`}
                     >
                       <link.icon className="w-5 h-5 text-slate-700" />
                       {t.nav[link.key as keyof typeof t.nav]}
+                      {isActive(link.href) && (
+                        <span className={`absolute top-1/2 h-7 w-[3px] -translate-y-1/2 rounded-full bg-gradient-to-b from-[#0A6A5D] to-[#C89B3C] ${isRtl ? "right-1.5" : "left-1.5"}`} />
+                      )}
                     </Link>
                   </motion.div>
                 );
