@@ -11,7 +11,6 @@ export interface Course {
   rating: number;
   students: number;
   image: string;
-  price: { ar: string; en: string };
   isFeatured?: boolean;
   durationDetails: {
     title: { ar: string; en: string };
