@@ -14,28 +14,39 @@ export const metadata: Metadata = {
     "Explore our comprehensive academic programs in Quran, Arabic, and Islamic Studies. Expert Al-Azhar scholars, personalized curriculum, and certified Ijazah tracks.",
 };
 
-export default function CoursesPage() {
+type CoursesPageProps = {
+  searchParams: Promise<{
+    q?: string | string[];
+    category?: string | string[];
+    level?: string | string[];
+  }>;
+};
+
+function firstParam(value?: string | string[]) {
+  return Array.isArray(value) ? value[0] ?? "" : value ?? "";
+}
+
+export default async function CoursesPage({ searchParams }: CoursesPageProps) {
+  const params = await searchParams;
+
   return (
     <main className="min-h-screen bg-[#F8FAFC]">
-      {/* 1. Cinematic Hero */}
       <CoursesHero />
 
-      {/* 2. Featured Programs Spotlight */}
       <FeaturedCourses />
 
-      {/* 3. Academic Departments */}
       <AcademicDepartments />
 
-      {/* 4. Complete Course Catalog */}
-      <CourseGrid />
+      <CourseGrid
+        initialQuery={firstParam(params.q)}
+        initialCategory={firstParam(params.category)}
+        initialLevel={firstParam(params.level)}
+      />
 
-      {/* 5. Learning Methodology */}
       <LearningMethodology />
 
-      {/* 6. Why Choose Us — Features */}
       <CoursesFeatures />
 
-      {/* 7. CTA Section */}
       <CoursesCTA />
     </main>
   );

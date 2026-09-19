@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { courses, categories } from "@/data/courses";
@@ -14,8 +13,6 @@ import {
   Users,
   ArrowRight,
   Filter,
-  LayoutGrid,
-  List,
   BookOpen,
   Award,
   GraduationCap,
@@ -51,29 +48,67 @@ const categoryGradients: Record<string, string> = {
   Kids: "from-rose-500 to-pink-500",
 };
 
-function CourseGridContent() {
+const categoryOptions = ["all", ...categories];
+const levelOptions = ["all", "Beginner", "Intermediate", "Advanced"];
+
+interface CourseGridProps {
+  initialQuery?: string;
+  initialCategory?: string;
+  initialLevel?: string;
+}
+
+function normalizeCategory(value = "") {
+  return categoryOptions.includes(value) ? value : "all";
+}
+
+function normalizeLevel(value = "") {
+  return levelOptions.includes(value) ? value : "all";
+}
+
+function CourseGridContent({
+  initialQuery = "",
+  initialCategory = "all",
+  initialLevel = "all",
+}: CourseGridProps) {
   const { isRtl } = useLanguage();
-  const searchParams = useSearchParams();
-  const [activeCategory, setActiveCategory] = useState("all");
-  const [activeLevel, setActiveLevel] = useState("all");
+  const [activeCategory, setActiveCategory] = useState(normalizeCategory(initialCategory));
+  const [activeLevel, setActiveLevel] = useState(normalizeLevel(initialLevel));
+  const [query, setQuery] = useState(initialQuery.trim());
 
   useEffect(() => {
-    const cat = searchParams.get("category");
-    const lvl = searchParams.get("level");
-    if (cat) setActiveCategory(cat);
-    if (lvl) setActiveLevel(lvl);
-  }, [searchParams]);
+    setActiveCategory(normalizeCategory(initialCategory));
+    setActiveLevel(normalizeLevel(initialLevel));
+    setQuery(initialQuery.trim());
+  }, [initialCategory, initialLevel, initialQuery]);
+
+  const normalizedQuery = query.toLocaleLowerCase();
 
   const filteredCourses = courses.filter((c) => {
     const catMatch = activeCategory === "all" || c.category === activeCategory;
-    const lvlMatch = activeLevel === "all" || c.level === activeLevel;
-    return catMatch && lvlMatch;
-  });
+    const lvlMatch =
+      activeLevel === "all" ||
+      c.level === activeLevel ||
+      c.level === "All Levels";
 
-  const uniqueLevels = [
-    "all",
-    ...Array.from(new Set(courses.map((c) => c.level))),
-  ];
+    const searchableText = [
+      c.title.ar,
+      c.title.en,
+      c.description.ar,
+      c.description.en,
+      c.overview.ar,
+      c.overview.en,
+      c.category,
+      c.level,
+      ...c.outcomes.ar,
+      ...c.outcomes.en,
+    ]
+      .join(" ")
+      .toLocaleLowerCase();
+
+    const queryMatch = !normalizedQuery || searchableText.includes(normalizedQuery);
+
+    return catMatch && lvlMatch && queryMatch;
+  });
 
   return (
     <section id="courses-grid" className="py-24 md:py-32 bg-[#F8FAFC] relative overflow-hidden">
@@ -156,7 +191,7 @@ function CourseGridContent() {
                   </span>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {uniqueLevels.map((lvl) => (
+                  {levelOptions.map((lvl) => (
                     <button
                       key={lvl}
                       onClick={() => setActiveLevel(lvl)}
@@ -175,12 +210,20 @@ function CourseGridContent() {
         </motion.div>
 
         {/* Results count */}
-        <div className="max-w-7xl mx-auto mb-8">
+        <div className="max-w-7xl mx-auto mb-8 flex flex-wrap items-center gap-3">
           <p className="text-sm text-slate-400">
             {isRtl
               ? `عرض ${filteredCourses.length} برنامج`
               : `Showing ${filteredCourses.length} programs`}
           </p>
+          {query && (
+            <Link
+              href="/courses#courses-grid"
+              className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-slate-600 hover:border-teal-300 hover:text-teal-700 transition-colors"
+            >
+              {isRtl ? `مسح البحث: ${query}` : `Clear search: ${query}`}
+            </Link>
+          )}
         </div>
 
         {/* ═══ Course Grid ═══ */}
@@ -206,7 +249,7 @@ function CourseGridContent() {
                     alt={isRtl ? course.title.ar : course.title.en}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-fill transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
@@ -335,10 +378,6 @@ function CourseGridContent() {
   );
 }
 
-export function CourseGrid() {
-  return (
-    <Suspense fallback={<div className="py-20 text-center">Loading...</div>}>
-      <CourseGridContent />
-    </Suspense>
-  );
+export function CourseGrid(props: CourseGridProps) {
+  return <CourseGridContent {...props} />;
 }

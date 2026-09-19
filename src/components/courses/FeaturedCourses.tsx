@@ -87,7 +87,7 @@ export function FeaturedCourses() {
                 alt={isRtl ? featured[0].title.ar : featured[0].title.en}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-fill transition-transform duration-700 group-hover:scale-102"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />

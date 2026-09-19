@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import {
   Sparkles,
@@ -16,7 +18,15 @@ import { academyStats } from "@/data/site";
 import Image from "next/image";
 
 export function CoursesHero() {
-  const { t, isRtl } = useLanguage();
+  const { isRtl } = useLanguage();
+  const router = useRouter();
+  const [query, setQuery] = useState("");
+
+  const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const value = query.trim();
+    router.push(value ? `/courses?q=${encodeURIComponent(value)}#courses-grid` : "/courses#courses-grid");
+  };
 
   const stats = [
     {
@@ -77,7 +87,7 @@ export function CoursesHero() {
           fill
           priority
           sizes="100vw"
-          className="hidden md:block object-fill opacity-[0.5] mix-blend-overlay"
+          className="hidden md:block object-cover opacity-[0.5] mix-blend-overlay"
         />
 
         {/* Mobile Hero Background Image */}
@@ -87,7 +97,7 @@ export function CoursesHero() {
           fill
           priority
           sizes="100vw"
-          className="block md:hidden object-fill opacity-[0.5] mix-blend-overlay"
+          className="block md:hidden object-cover opacity-[0.5] mix-blend-overlay"
         />
 
         {/* Subtle noise texture */}
@@ -203,12 +213,15 @@ export function CoursesHero() {
             }}
             className="w-full max-w-xl mx-auto mb-16 px-2 sm:px-0"
           >
-            <div className="relative group w-full">
+            <form onSubmit={handleSearch} className="relative group w-full" role="search">
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-teal-500/30 via-indigo-500/20 to-teal-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative flex items-center bg-slate-950/40 backdrop-blur-xl border border-white/15 rounded-2xl overflow-hidden group-hover:border-teal-500/50 transition-all duration-500 w-full">
                 <Search className="w-4 h-4 md:w-5 md:h-5 text-slate-300 group-hover:text-teal-400 transition-colors duration-300 mx-3 md:mx-4 shrink-0" />
                 <input
-                  type="text"
+                  type="search"
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                  aria-label={isRtl ? "البحث في البرامج" : "Search programs"}
                   placeholder={
                     isRtl
                       ? "ابحث عن كورس أو موضوع..."
@@ -216,11 +229,14 @@ export function CoursesHero() {
                   }
                   className="flex-1 min-w-0 bg-transparent py-3 md:py-4 px-2 md:px-4 text-white placeholder:text-slate-300 outline-none text-sm md:text-base font-medium"
                 />
-                <button className="m-1.5 px-4 py-2 md:px-6 md:py-2.5 bg-gradient-to-r from-teal-600 to-teal-500 text-white font-bold text-xs md:text-sm rounded-xl hover:from-teal-500 hover:to-teal-400 transition-all duration-300 shadow-lg shadow-teal-500/20 min-h-[38px] md:min-h-[44px] flex items-center justify-center shrink-0">
+                <button
+                  type="submit"
+                  className="m-1.5 px-4 py-2 md:px-6 md:py-2.5 bg-gradient-to-r from-teal-600 to-teal-500 text-white font-bold text-xs md:text-sm rounded-xl hover:from-teal-500 hover:to-teal-400 transition-all duration-300 shadow-lg shadow-teal-500/20 min-h-[38px] md:min-h-[44px] flex items-center justify-center shrink-0"
+                >
                   {isRtl ? "بحث" : "Search"}
                 </button>
               </div>
-            </div>
+            </form>
           </motion.div>
 
         </div>
