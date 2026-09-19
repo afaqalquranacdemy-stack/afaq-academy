@@ -55,7 +55,7 @@ export function Header() {
                 src="/header-icon.png"
                 alt=""
                 aria-hidden="true"
-                className="block h-[44px] sm:h-[48px] md:h-[56px] w-auto shrink-0"
+                className="block h-[48px] md:h-[56px] w-auto shrink-0"
               />
 
               {locale === "ar" ? (
