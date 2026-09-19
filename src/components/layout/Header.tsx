@@ -52,16 +52,11 @@ export function Header() {
               transition={{ duration: 0.5 }}
               className="flex items-center gap-2 md:gap-2.5"
             >
-              <div className="relative w-[30px] h-[44px] sm:w-[33px] sm:h-[48px] md:w-[38px] md:h-[56px] shrink-0 transition-transform duration-500 group-hover:scale-[1.035]">
-                <Image
-                  src="/header-icon-final.png"
-                  alt=""
-                  fill
-                  sizes="(max-width: 640px) 30px, (max-width: 768px) 33px, 38px"
-                  className="object-contain"
-                  priority
-                />
-              </div>
+              <div
+                aria-hidden="true"
+                className="w-[30px] h-[44px] sm:w-[33px] sm:h-[48px] md:w-[38px] md:h-[56px] shrink-0 bg-center bg-no-repeat bg-contain transition-transform duration-500 group-hover:scale-[1.035]"
+                style={{ backgroundImage: "url('/header-icon-final.png?v=20260919-2')" }}
+              />
 
               {locale === "ar" ? (
                 <span
