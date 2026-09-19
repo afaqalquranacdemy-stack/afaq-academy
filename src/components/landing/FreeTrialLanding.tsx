@@ -17,6 +17,9 @@ import {
   ShieldCheck,
   Sparkles,
   UserRound,
+  Send,
+  UserCheck,
+  Video,
 } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import {
@@ -669,11 +672,14 @@ export function FreeTrialLanding() {
             <div className="relative z-10 grid min-h-[395px] grid-cols-[1fr_.92fr_1fr] items-center gap-10">
               {/* Step 1 */}
               <div className="mx-auto w-full max-w-[285px] pt-2">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-[14px] border border-[#C89B3C]/35 bg-white text-[10px] font-black text-[#A37B2C] shadow-sm">
-                    {steps[0].number}
+                <div className="flex items-center gap-4">
+                  <div className="relative flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-[22px] border border-[#C89B3C]/28 bg-white shadow-[0_16px_34px_-24px_rgba(15,23,42,.28)]">
+                    <Send className="h-8 w-8 text-[#075248]" strokeWidth={1.65} />
+                    <span className="absolute -right-2 -top-2 flex h-7 min-w-7 items-center justify-center rounded-full border border-[#C89B3C]/35 bg-[#FFFDF8] px-1 text-[9px] font-black text-[#A37B2C] shadow-sm">
+                      {steps[0].number}
+                    </span>
                   </div>
-                  <div className="h-px flex-1 bg-gradient-to-r from-[#C89B3C]/45 to-transparent" />
+                  <div className="h-px flex-1 bg-gradient-to-r from-[#C89B3C]/50 to-transparent" />
                 </div>
                 <h3 className="mt-6 text-[1.55rem] font-bold leading-tight text-[#0D2722]">{steps[0].title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-500">{steps[0].body}</p>
@@ -682,8 +688,11 @@ export function FreeTrialLanding() {
               {/* Step 2 — portrait is the step, not an overlapping decoration */}
               <div className="flex flex-col items-center">
                 <div className="relative">
-                  <div className="absolute left-1/2 top-[-18px] z-20 flex h-11 w-11 -translate-x-1/2 items-center justify-center rounded-[14px] bg-[#075248] text-[10px] font-black text-white shadow-[0_12px_28px_-18px_rgba(7,82,72,.62)]">
-                    {steps[1].number}
+                  <div className="absolute left-1/2 top-[-30px] z-20 flex h-[64px] w-[64px] -translate-x-1/2 items-center justify-center rounded-[20px] border-4 border-white bg-[#075248] text-white shadow-[0_16px_34px_-22px_rgba(7,82,72,.68)]">
+                    <UserCheck className="h-7 w-7" strokeWidth={1.7} />
+                    <span className="absolute -right-2 -top-2 flex h-7 min-w-7 items-center justify-center rounded-full border border-[#C89B3C]/35 bg-[#FFFDF8] px-1 text-[9px] font-black text-[#A37B2C] shadow-sm">
+                      {steps[1].number}
+                    </span>
                   </div>
                   <div className="relative h-[245px] w-[190px] overflow-hidden rounded-t-[96px] rounded-b-[24px] border-[6px] border-white bg-slate-100 shadow-[0_24px_60px_-36px_rgba(15,23,42,.34)]">
                     <Image
@@ -707,10 +716,13 @@ export function FreeTrialLanding() {
 
               {/* Step 3 */}
               <div className="mx-auto w-full max-w-[285px] pt-2">
-                <div className="flex items-center gap-3">
-                  <div className="h-px flex-1 bg-gradient-to-l from-[#C89B3C]/45 to-transparent" />
-                  <div className="flex h-11 w-11 items-center justify-center rounded-[14px] border border-[#C89B3C]/35 bg-white text-[10px] font-black text-[#A37B2C] shadow-sm">
-                    {steps[2].number}
+                <div className="flex items-center gap-4">
+                  <div className="h-px flex-1 bg-gradient-to-l from-[#C89B3C]/50 to-transparent" />
+                  <div className="relative flex h-[72px] w-[72px] shrink-0 items-center justify-center rounded-[22px] border border-[#C89B3C]/28 bg-white shadow-[0_16px_34px_-24px_rgba(15,23,42,.28)]">
+                    <Video className="h-8 w-8 text-[#075248]" strokeWidth={1.65} />
+                    <span className="absolute -right-2 -top-2 flex h-7 min-w-7 items-center justify-center rounded-full border border-[#C89B3C]/35 bg-[#FFFDF8] px-1 text-[9px] font-black text-[#A37B2C] shadow-sm">
+                      {steps[2].number}
+                    </span>
                   </div>
                 </div>
                 <h3 className="mt-6 text-[1.55rem] font-bold leading-tight text-[#0D2722]">{steps[2].title}</h3>
@@ -733,15 +745,24 @@ export function FreeTrialLanding() {
 
           {/* Mobile */}
           <div className="relative mt-10 space-y-0 md:hidden">
-            <div className="absolute bottom-5 left-[19px] top-5 w-px bg-gradient-to-b from-[#C89B3C]/35 via-[#0A6A5D]/28 to-[#C89B3C]/35" />
+            <div className="absolute bottom-5 left-[23px] top-5 w-px bg-gradient-to-b from-[#C89B3C]/35 via-[#0A6A5D]/28 to-[#C89B3C]/35" />
             {steps.map((step, index) => (
-              <div key={step.number} className="relative grid grid-cols-[40px_1fr] gap-4 pb-8 last:pb-0">
-                <div className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-[13px] text-[10px] font-black shadow-sm ${
+              <div key={step.number} className="relative grid grid-cols-[48px_1fr] gap-4 pb-8 last:pb-0">
+                <div className={`relative z-10 flex h-12 w-12 items-center justify-center rounded-[15px] shadow-sm ${
                   index === 1
                     ? "bg-[#075248] text-white"
-                    : "border border-[#C89B3C]/35 bg-white text-[#A37B2C]"
+                    : "border border-[#C89B3C]/30 bg-white text-[#075248]"
                 }`}>
-                  {step.number}
+                  {index === 0 ? (
+                    <Send className="h-5 w-5" strokeWidth={1.7} />
+                  ) : index === 1 ? (
+                    <UserCheck className="h-5 w-5" strokeWidth={1.7} />
+                  ) : (
+                    <Video className="h-5 w-5" strokeWidth={1.7} />
+                  )}
+                  <span className="absolute -right-1.5 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full border border-[#C89B3C]/35 bg-[#FFFDF8] px-1 text-[7px] font-black text-[#A37B2C]">
+                    {step.number}
+                  </span>
                 </div>
                 <div className="rounded-[22px] border border-slate-200 bg-white p-5 shadow-[0_18px_44px_-34px_rgba(15,23,42,.25)]">
                   {index === 1 && (
