@@ -52,12 +52,12 @@ export function Header() {
               transition={{ duration: 0.5 }}
               className="flex items-center gap-2.5 md:gap-3"
             >
-              <div className="relative w-10 h-10 md:w-[46px] md:h-[46px] shrink-0 transition-transform duration-500 group-hover:scale-[1.04]">
+              <div className="relative w-[30px] h-[42px] sm:w-[32px] sm:h-[46px] md:w-[38px] md:h-[54px] shrink-0 transition-transform duration-500 group-hover:scale-[1.04]">
                 <Image
-                  src="/header-icon.svg"
+                  src="/icon.png"
                   alt=""
                   fill
-                  sizes="46px"
+                  sizes="(max-width: 640px) 30px, (max-width: 768px) 32px, 38px"
                   className="object-contain"
                   priority
                 />
