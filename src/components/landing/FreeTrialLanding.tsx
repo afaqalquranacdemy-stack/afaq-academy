@@ -623,7 +623,7 @@ export function FreeTrialLanding() {
         </div>
       </section>
 
-      {/* learning journey — immersive connected composition */}
+      {/* learning journey — refined connected composition */}
       <section className="relative overflow-hidden px-4 pb-24 pt-24 sm:pb-28 sm:pt-28">
         <div className="mx-auto max-w-[1240px]">
           <div className="mx-auto max-w-3xl text-center">
@@ -638,100 +638,105 @@ export function FreeTrialLanding() {
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-slate-500">{text.formText}</p>
           </div>
 
-          {/* Desktop journey canvas */}
-          <div className="relative mt-14 hidden h-[520px] overflow-hidden rounded-[38px] border border-slate-200/80 bg-[linear-gradient(145deg,#FFFFFF_0%,#F8FBF9_54%,#F4F8F5_100%)] shadow-[0_34px_90px_-55px_rgba(15,23,42,.28)] md:block">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C89B3C]/50 to-transparent" />
-            <div className="absolute -left-24 -top-24 h-64 w-64 bg-[radial-gradient(circle,rgba(10,106,93,.07)_0%,transparent_68%)]" />
-            <div className="absolute -bottom-24 right-[8%] h-72 w-72 bg-[radial-gradient(circle,rgba(200,155,60,.08)_0%,transparent_70%)]" />
+          {/* Desktop */}
+          <div className="relative mt-14 hidden overflow-hidden rounded-[36px] border border-slate-200/80 bg-[linear-gradient(145deg,#FFFFFF_0%,#F8FBF9_55%,#F6F8F6_100%)] px-8 py-12 shadow-[0_30px_80px_-55px_rgba(15,23,42,.28)] md:block">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C89B3C]/45 to-transparent" />
+            <div className="absolute left-1/2 top-0 h-44 w-[520px] -translate-x-1/2 bg-[radial-gradient(ellipse,rgba(200,155,60,.08)_0%,transparent_70%)]" />
 
-            {/* central academic image */}
-            <div className="absolute left-1/2 top-1/2 h-[320px] w-[235px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-t-[120px] rounded-b-[28px] border-[7px] border-white bg-slate-100 shadow-[0_28px_70px_-38px_rgba(15,23,42,.35)]">
-              <Image
-                src="/images/team/fatima.webp"
-                alt=""
-                fill
-                sizes="235px"
-                className="object-cover object-top"
-              />
-              <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-[#063C34]/70 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 text-center">
-                <div className="text-[9px] font-extrabold uppercase tracking-[.16em] text-[#F0DDA6]">{text.oneToOne}</div>
-              </div>
-            </div>
-
-            {/* continuous curved path */}
+            {/* connector line lives above content, never across the portrait/text */}
             <svg
               aria-hidden="true"
-              className="absolute inset-0 h-full w-full"
-              viewBox="0 0 1240 520"
-              fill="none"
+              className="pointer-events-none absolute left-[8%] right-[8%] top-[42px] h-[90px] w-[84%]"
+              viewBox="0 0 1000 100"
               preserveAspectRatio="none"
+              fill="none"
             >
               <path
-                d="M150 155 C 295 65, 410 85, 505 190 S 690 390, 805 295 S 1010 145, 1095 190"
-                stroke="url(#journeyLine)"
-                strokeWidth="2"
+                d="M90 72 C 230 18, 360 18, 500 54 C 640 18, 770 18, 910 72"
+                stroke="url(#journeyRefined)"
+                strokeWidth="1.8"
                 strokeLinecap="round"
-                strokeDasharray="7 9"
-                opacity="0.75"
               />
               <defs>
-                <linearGradient id="journeyLine" x1="150" y1="155" x2="1095" y2="190" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#0A6A5D" stopOpacity="0.22" />
-                  <stop offset="0.5" stopColor="#C89B3C" stopOpacity="0.75" />
-                  <stop offset="1" stopColor="#0A6A5D" stopOpacity="0.35" />
+                <linearGradient id="journeyRefined" x1="90" y1="50" x2="910" y2="50" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#0A6A5D" stopOpacity=".18" />
+                  <stop offset=".5" stopColor="#C89B3C" stopOpacity=".68" />
+                  <stop offset="1" stopColor="#0A6A5D" stopOpacity=".18" />
                 </linearGradient>
               </defs>
             </svg>
 
-            {/* Step 1 */}
-            <div className="absolute left-[7%] top-[18%] w-[26%]">
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[16px] border border-[#C89B3C]/35 bg-white text-[10px] font-black text-[#A37B2C] shadow-sm">
-                  {steps[0].number}
+            <div className="relative z-10 grid min-h-[395px] grid-cols-[1fr_.92fr_1fr] items-center gap-10">
+              {/* Step 1 */}
+              <div className="mx-auto w-full max-w-[285px] pt-2">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-[14px] border border-[#C89B3C]/35 bg-white text-[10px] font-black text-[#A37B2C] shadow-sm">
+                    {steps[0].number}
+                  </div>
+                  <div className="h-px flex-1 bg-gradient-to-r from-[#C89B3C]/45 to-transparent" />
                 </div>
-                <div className="h-px flex-1 bg-gradient-to-r from-[#C89B3C]/45 to-transparent" />
+                <h3 className="mt-6 text-[1.55rem] font-bold leading-tight text-[#0D2722]">{steps[0].title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-500">{steps[0].body}</p>
               </div>
-              <h3 className="mt-5 text-2xl font-bold leading-tight text-[#0D2722]">{steps[0].title}</h3>
-              <p className="mt-3 max-w-[290px] text-sm leading-7 text-slate-500">{steps[0].body}</p>
+
+              {/* Step 2 — portrait is the step, not an overlapping decoration */}
+              <div className="flex flex-col items-center">
+                <div className="relative">
+                  <div className="absolute left-1/2 top-[-18px] z-20 flex h-11 w-11 -translate-x-1/2 items-center justify-center rounded-[14px] bg-[#075248] text-[10px] font-black text-white shadow-[0_12px_28px_-18px_rgba(7,82,72,.62)]">
+                    {steps[1].number}
+                  </div>
+                  <div className="relative h-[245px] w-[190px] overflow-hidden rounded-t-[96px] rounded-b-[24px] border-[6px] border-white bg-slate-100 shadow-[0_24px_60px_-36px_rgba(15,23,42,.34)]">
+                    <Image
+                      src="/images/team/fatima.webp"
+                      alt=""
+                      fill
+                      sizes="190px"
+                      className="object-cover object-top"
+                    />
+                    <div className="absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-t from-[#063C34]/72 to-transparent" />
+                    <div className="absolute inset-x-4 bottom-3 text-center text-[8px] font-extrabold uppercase tracking-[.14em] text-[#F0DDA6]">
+                      {text.oneToOne}
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-5 max-w-[300px] text-center">
+                  <h3 className="text-[1.5rem] font-bold leading-tight text-[#0D2722]">{steps[1].title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-500">{steps[1].body}</p>
+                </div>
+              </div>
+
+              {/* Step 3 */}
+              <div className="mx-auto w-full max-w-[285px] pt-2">
+                <div className="flex items-center gap-3">
+                  <div className="h-px flex-1 bg-gradient-to-l from-[#C89B3C]/45 to-transparent" />
+                  <div className="flex h-11 w-11 items-center justify-center rounded-[14px] border border-[#C89B3C]/35 bg-white text-[10px] font-black text-[#A37B2C] shadow-sm">
+                    {steps[2].number}
+                  </div>
+                </div>
+                <h3 className="mt-6 text-[1.55rem] font-bold leading-tight text-[#0D2722]">{steps[2].title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-500">{steps[2].body}</p>
+              </div>
             </div>
 
-            {/* Step 2 */}
-            <div className="absolute bottom-[12%] left-[57%] w-[24%]">
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[16px] border border-[#0A6A5D]/25 bg-[#075248] text-[10px] font-black text-white shadow-[0_12px_28px_-18px_rgba(7,82,72,.55)]">
-                  {steps[1].number}
-                </div>
-                <div className="h-px flex-1 bg-gradient-to-r from-[#0A6A5D]/35 to-transparent" />
+            <div className="relative z-10 mt-2 grid grid-cols-3 border-t border-slate-200/70 pt-5">
+              <div className="text-left text-[9px] font-extrabold uppercase tracking-[.14em] text-slate-400">
+                {text.step1}
               </div>
-              <h3 className="mt-5 text-2xl font-bold leading-tight text-[#0D2722]">{steps[1].title}</h3>
-              <p className="mt-3 max-w-[280px] text-sm leading-7 text-slate-500">{steps[1].body}</p>
-            </div>
-
-            {/* Step 3 */}
-            <div className="absolute right-[6%] top-[14%] w-[24%]">
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[16px] border border-[#C89B3C]/35 bg-white text-[10px] font-black text-[#A37B2C] shadow-sm">
-                  {steps[2].number}
-                </div>
-                <div className="h-px flex-1 bg-gradient-to-r from-[#C89B3C]/45 to-transparent" />
+              <div className="text-center text-[9px] font-extrabold uppercase tracking-[.14em] text-[#A37B2C]">
+                {text.oneToOne}
               </div>
-              <h3 className="mt-5 text-2xl font-bold leading-tight text-[#0D2722]">{steps[2].title}</h3>
-              <p className="mt-3 max-w-[270px] text-sm leading-7 text-slate-500">{steps[2].body}</p>
-            </div>
-
-            <div className="absolute bottom-7 left-[8%] flex items-center gap-3 text-[9px] font-extrabold uppercase tracking-[.16em] text-slate-400">
-              <span className="h-px w-8 bg-[#0A6A5D]/35" />
-              {text.oneToOne}
+              <div className="text-right text-[9px] font-extrabold uppercase tracking-[.14em] text-slate-400">
+                {text.step3}
+              </div>
             </div>
           </div>
 
-          {/* Mobile journey */}
+          {/* Mobile */}
           <div className="relative mt-10 space-y-0 md:hidden">
-            <div className="absolute bottom-5 left-[19px] top-5 w-px bg-gradient-to-b from-[#C89B3C]/35 via-[#0A6A5D]/25 to-[#C89B3C]/35" />
+            <div className="absolute bottom-5 left-[19px] top-5 w-px bg-gradient-to-b from-[#C89B3C]/35 via-[#0A6A5D]/28 to-[#C89B3C]/35" />
             {steps.map((step, index) => (
               <div key={step.number} className="relative grid grid-cols-[40px_1fr] gap-4 pb-8 last:pb-0">
-                <div className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-[14px] text-[10px] font-black shadow-sm ${
+                <div className={`relative z-10 flex h-10 w-10 items-center justify-center rounded-[13px] text-[10px] font-black shadow-sm ${
                   index === 1
                     ? "bg-[#075248] text-white"
                     : "border border-[#C89B3C]/35 bg-white text-[#A37B2C]"
@@ -739,6 +744,17 @@ export function FreeTrialLanding() {
                   {step.number}
                 </div>
                 <div className="rounded-[22px] border border-slate-200 bg-white p-5 shadow-[0_18px_44px_-34px_rgba(15,23,42,.25)]">
+                  {index === 1 && (
+                    <div className="relative mb-4 aspect-[16/10] overflow-hidden rounded-[16px]">
+                      <Image
+                        src="/images/team/fatima.webp"
+                        alt=""
+                        fill
+                        sizes="80vw"
+                        className="object-cover object-top"
+                      />
+                    </div>
+                  )}
                   <h3 className="text-lg font-bold text-[#0D2722]">{step.title}</h3>
                   <p className="mt-2 text-sm leading-7 text-slate-500">{step.body}</p>
                 </div>
