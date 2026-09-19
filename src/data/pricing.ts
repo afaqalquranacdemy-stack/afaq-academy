@@ -100,3 +100,11 @@ export const pricingData: PricingPlan[] = [
     ],
   },
 ];
+
+
+// Single source of truth for "starting from" pricing across the site.
+export const startingMonthlyPrice = Math.min(
+  ...pricingData.flatMap((plan) =>
+    Object.values(plan.prices).map((price) => price.monthly),
+  ),
+);
