@@ -41,21 +41,53 @@ export function Header() {
       >
         {/* 1. Left Section: Logo */}
         <div className="flex-1 flex justify-start items-center">
-          <Link href="/" className="relative z-10 flex items-center group">
+          <Link
+            href="/"
+            className="relative z-10 flex items-center group shrink-0"
+            aria-label="Afaq Al-Quran Academy"
+          >
             <motion.div
               initial={{ opacity: 0, x: isRtl ? 20 : -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="relative w-[122px] h-[35px] md:w-[180px] md:h-[50px] overflow-hidden"
+              className="flex items-center gap-2 md:gap-2.5"
             >
-              <Image
-                src={locale === "ar" ? "/logo-ar.png" : "/logo.png"}
-                alt="Afaq Al-Quran Academy"
-                width={360}
-                height={138}
-                className="absolute top-0 left-0 w-full h-auto object-contain object-top group-hover:scale-[1.03] origin-top transition-transform duration-500"
-                priority
-              />
+              <div className="relative w-9 h-9 md:w-12 md:h-12 shrink-0 transition-transform duration-500 group-hover:scale-[1.04]">
+                <Image
+                  src="/icon.png"
+                  alt=""
+                  fill
+                  sizes="48px"
+                  className="object-contain"
+                  priority
+                />
+              </div>
+
+              <div className="flex min-w-0 flex-col justify-center leading-none">
+                <span
+                  className="whitespace-nowrap font-serif text-[7px] sm:text-[8px] md:text-[9px] lg:text-[10px] font-bold tracking-[0.08em] text-emerald-950"
+                  dir="ltr"
+                >
+                  AFAQ AL-QURAN ACADEMY
+                </span>
+
+                <span
+                  aria-hidden="true"
+                  className="my-1 flex items-center gap-1"
+                >
+                  <span className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/80 to-amber-500/30" />
+                  <span className="h-1 w-1 rotate-45 bg-amber-500" />
+                  <span className="h-px flex-1 bg-gradient-to-l from-transparent via-amber-500/80 to-amber-500/30" />
+                </span>
+
+                <span
+                  className="whitespace-nowrap font-elmessiri text-[12px] sm:text-[13px] md:text-[15px] lg:text-[17px] font-bold text-emerald-950"
+                  dir="rtl"
+                  lang="ar"
+                >
+                  أَكَادِيمِيَّةُ آفَاقِ الْقُرْآنِ
+                </span>
+              </div>
             </motion.div>
           </Link>
         </div>
