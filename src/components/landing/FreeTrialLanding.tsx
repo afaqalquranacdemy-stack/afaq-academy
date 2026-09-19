@@ -6,6 +6,9 @@ import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
 import {
   ArrowRight,
+  Award,
+  BadgeCheck,
+  BookMarked,
   BookOpen,
   CalendarClock,
   Check,
@@ -16,10 +19,10 @@ import {
   MessageCircle,
   Mail,
   ShieldCheck,
-  Sparkles,
   UserRound,
   Send,
   UserCheck,
+  Users,
   Video,
 } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
@@ -118,19 +121,35 @@ const copy = {
     pricingPoint3: "No need to choose a plan before the trial",
     faqEyebrow: "FAQ",
     faqTitle: "Questions before you book?",
+    faqIntro:
+      "Everything you need to know about starting your free trial, tutor selection, and flexible scheduling with zero obligation.",
+    faqStillQuestion: "Still have a question?",
+    faqStillText:
+      "Our academic advisors are ready on WhatsApp to answer your inquiries and help choose your ideal pathway.",
+    faqStillCta: "Chat on WhatsApp",
     faq1: "Is the trial really free?",
-    ans1: "Yes. You can request the trial without entering payment details.",
+    ans1: "Yes, 100% free. You can experience a complete 1-to-1 live lesson without entering any credit card or payment details.",
     faq2: "Do you teach adults and children?",
-    ans2: "Yes. Programs are available for different ages and levels, including dedicated learning paths for children.",
+    ans2: "Yes. We provide tailored programs for children, youth, and adults of all proficiency levels with certified male and female tutors.",
     faq3: "How long is each lesson?",
-    ans3: `Paid plans offer ${academyOperations.sessionDurations.join(", ")}-minute session options. The team will explain the best fit after your trial request.`,
+    ans3: `The trial session gives you full insight into our interactive method. Enrolled plans offer ${academyOperations.sessionDurations.join(", ")}-minute sessions tailored to your pace.`,
     faq4: "Can I choose a suitable time?",
-    ans4: "Yes. Scheduling is coordinated according to tutor availability and your preferred times.",
+    ans4: "Yes. We accommodate your family's schedule across all time zones with 24/7 flexible lesson timing.",
     faq5: "What happens after I submit the form?",
-    ans5: `Our team reviews your request and usually contacts you within ${academyOperations.responseTimeHours} hours to arrange the trial.`,
+    ans5: `Our team reviews your preferences and contacts you via WhatsApp within ${academyOperations.responseTimeHours} hours to coordinate your preferred day and time.`,
+    finalEyebrow: "Start Your Journey Today",
     finalTitle: "Your first lesson can start with one simple step.",
-    finalText: "Book the free trial and see whether the teaching style, tutor and program are right for you.",
+    finalText:
+      "Experience personalized 1-on-1 Quranic learning tailored to your level and goals with certified Azhari tutors. Zero commitment, no payment required.",
     finalCta: "Book My Free Trial",
+    finalTrust1: "Free 1-to-1 Trial",
+    finalTrust2: "No Payment Required",
+    finalTrust3: `Reply within ${academyOperations.responseTimeHours} hours`,
+    finalPanelTitle: "What you will experience in your trial:",
+    finalPanel1: "1-on-1 live interactive session with an Azhari certified tutor",
+    finalPanel2: "Accurate assessment of your level & custom learning plan",
+    finalPanel3: "Complete freedom to choose your schedule or continue",
+    finalPanelBadge: "100% Free · No Obligation",
     footer: "Afaq Al-Quran Academy",
     footerText: "Online Quran, Arabic & Islamic Studies",
   },
@@ -209,23 +228,113 @@ const copy = {
     pricingPoint3: "لا تحتاج لاختيار الباقة قبل التجربة",
     faqEyebrow: "الأسئلة الشائعة",
     faqTitle: "عندك سؤال قبل الحجز؟",
+    faqIntro:
+      "كل ما تود معرفته عن الحصة التجريبية، اختيار المعلم، وتنسيق المواعيد بكل سهولة وبدون أي التزام.",
+    faqStillQuestion: "هل لديك سؤال آخر؟",
+    faqStillText:
+      "فريقنا الأكاديمي متواجد على مدار اليوم عبر واتساب لمساعدتك واختيار المسار المناسب لك أو لأطفالك.",
+    faqStillCta: "تواصل معنا عبر واتساب",
     faq1: "هل التجربة مجانية فعلًا؟",
-    ans1: "نعم. يمكنك طلب التجربة بدون إدخال أي بيانات دفع.",
+    ans1: "نعم، مجانية 100%. يمكنك حضور حصة فردية كاملة وتجربة أسلوب التدريس بدون إدخال أي بيانات دفع أو بطاقة بنكية.",
     faq2: "هل تقدمون برامج للكبار والأطفال؟",
-    ans2: "نعم. توجد برامج لمراحل عمرية ومستويات مختلفة، بالإضافة إلى مسارات مخصصة للأطفال.",
+    ans2: "نعم. نوفر برامج مخصصة للأطفال والناشئة والكبار مع نخبة من المعلمين والمعلمات الأزهريين المجازين ذوي الخبرة والأسلوب المحبب.",
     faq3: "ما مدة الحصة؟",
-    ans3: `الباقات المدفوعة تتضمن خيارات ${academyOperations.sessionDurations.join(" أو ")} دقيقة. يساعدك الفريق في اختيار الأنسب بعد طلب التجربة.`,
-    faq4: "هل يمكنني اختيار الموعد؟",
-    ans4: "نعم. يتم تنسيق المواعيد بناءً على الأوقات المناسبة لك وتوفر المعلم.",
+    ans3: `الحصة التجريبية تمنحك فكرة كاملة عن التعليم التفاعلي، بينما توفر الخطط الدراسية خيارات ${academyOperations.sessionDurations.join(" أو ")} دقيقة حسب رغبتك.`,
+    faq4: "هل يمكنني اختيار الموعد المناسب؟",
+    ans4: "نعم تماماً. نوفر مرونة كاملة في المواعيد على مدار 24 ساعة لتتناسب مع أوقات فراغك وفارق التوقيت في أي دولة بالعالم.",
     faq5: "ماذا يحدث بعد إرسال النموذج؟",
-    ans5: `يراجع الفريق الطلب ويتواصل معك عادة خلال ${academyOperations.responseTimeHours} ساعة لترتيب التجربة.`,
-    finalTitle: "أول حصة تبدأ بخطوة بسيطة.",
-    finalText: "احجز التجربة المجانية وتأكد بنفسك من أسلوب التدريس والمعلم والبرنامج المناسب لك.",
+    ans5: `يقوم فريقنا بمراجعة رغباتك والتواصل معك عبر واتساب خلال ${academyOperations.responseTimeHours} ساعة لتحديد الموعد الأنسب لبدء الحصة.`,
+    finalEyebrow: "ابدأ رحلتك المباركة الآن",
+    finalTitle: "خطوتك الأولى تبدأ بحصة تجريبية مخصصة بالكامل.",
+    finalText:
+      "جرّب التعليم الفردي المباشر المخصص لمستواك وهدفك مع نخبة من معلمي الأزهر الشريف، دون أي التزام مالي أو بطاقة بنكية.",
     finalCta: "احجز تجربتي المجانية",
+    finalTrust1: "حصة تجريبية مجانية 1-إلى-1",
+    finalTrust2: "بدون أي بيانات دفع أو بطاقة",
+    finalTrust3: `تنسيق وتواصل خلال ${academyOperations.responseTimeHours} ساعة`,
+    finalPanelTitle: "ماذا ينتظرك في حصتك التجريبية؟",
+    finalPanel1: "لقاء مباشر 1-إلى-1 مع معلّم أزهري متخصص ومعتمد",
+    finalPanel2: "تحديد دقيق لمستواك وتصميم خطة دراسية تناسب وقتك",
+    finalPanel3: "تجربة بيئة التعلم التفاعلية بحرية تامة دون أي التزام",
+    finalPanelBadge: "مجانية تماماً · بدون أي التزام",
     footer: "أكاديمية آفاق القرآن",
     footerText: "تعليم القرآن واللغة العربية والعلوم الإسلامية",
   },
 } as const;
+
+function AfaqBrandSeal({ className = "h-12 w-auto" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="38 0 180 256"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      role="img"
+      aria-label="Afaq Al-Quran Academy Emblem"
+    >
+      <defs>
+        <linearGradient id="sealGreen" x1="42" y1="24" x2="196" y2="223" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#0B665B" />
+          <stop offset="0.52" stopColor="#075248" />
+          <stop offset="1" stopColor="#033B36" />
+        </linearGradient>
+        <linearGradient id="sealGreenLight" x1="93" y1="81" x2="159" y2="187" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#149985" />
+          <stop offset="1" stopColor="#075248" />
+        </linearGradient>
+        <linearGradient id="sealGold" x1="77" y1="42" x2="177" y2="207" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#F2D27D" />
+          <stop offset="0.46" stopColor="#C8972C" />
+          <stop offset="1" stopColor="#9B6715" />
+        </linearGradient>
+        <linearGradient id="sealPaper" x1="55" y1="174" x2="199" y2="218" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#FFFDF6" />
+          <stop offset="0.6" stopColor="#F6E7BE" />
+          <stop offset="1" stopColor="#E5C56C" />
+        </linearGradient>
+      </defs>
+      <g>
+        <path
+          d="M128 18C109 43 87 54 68 76C51 96 43 119 43 148V184H61V149C61 124 68 105 82 88C95 72 112 62 128 42C144 62 161 72 174 88C188 105 195 124 195 149V184H213V148C213 119 205 96 188 76C169 54 147 43 128 18Z"
+          fill="url(#sealGreen)"
+        />
+        <path
+          d="M128 29C111 50 94 59 79 77C62 96 55 117 55 146V179"
+          stroke="url(#sealGold)"
+          strokeWidth="4.5"
+          strokeLinecap="round"
+        />
+        <path
+          d="M128 29C145 50 162 59 177 77C194 96 201 117 201 146V179"
+          stroke="url(#sealGold)"
+          strokeWidth="4.5"
+          strokeLinecap="round"
+        />
+        <path d="M128 51L134 61L128 71L122 61L128 51Z" fill="url(#sealGold)" />
+        <circle cx="128" cy="75" r="5" fill="url(#sealGreen)" />
+        <path
+          d="M128 78C118 92 107 98 99 109C89 121 84 135 84 151V183H172V151C172 135 167 121 157 109C149 98 138 92 128 78Z"
+          fill="url(#sealGreenLight)"
+        />
+        <path
+          d="M128 106C120 117 112 122 106 130C99 138 96 148 96 159V183H160V159C160 148 157 138 150 130C144 122 136 117 128 106Z"
+          fill="#F9F4E7"
+        />
+        <path
+          d="M128 116C122 124 116 128 112 134C107 141 105 148 105 157V183H151V157C151 148 149 141 144 134C140 128 134 124 128 116Z"
+          fill="url(#sealGreen)"
+        />
+        <path d="M126 183C107 171 84 168 58 174C73 183 91 193 126 207V183Z" fill="url(#sealPaper)" />
+        <path d="M130 183C149 171 172 168 198 174C183 183 165 193 130 207V183Z" fill="url(#sealPaper)" />
+        <path d="M126 190C105 180 86 178 67 181C82 188 99 196 126 207V190Z" fill="url(#sealGold)" />
+        <path d="M130 190C151 180 170 178 189 181C174 188 157 196 130 207V190Z" fill="url(#sealGold)" />
+        <path d="M126 208C102 207 80 201 59 190C70 208 88 218 113 220L126 208Z" fill="url(#sealGreen)" />
+        <path d="M130 208C154 207 176 201 197 190C186 208 168 218 143 220L130 208Z" fill="url(#sealGreen)" />
+        <path d="M128 211L136 226L128 241L120 226L128 211Z" fill="url(#sealGreen)" />
+      </g>
+    </svg>
+  );
+}
 
 function pushEvent(event: string, data: Record<string, unknown> = {}) {
   if (typeof window === "undefined") return;
@@ -250,6 +359,7 @@ export function FreeTrialLanding() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [started, setStarted] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   const startForm = () => {
     if (started) return;
@@ -342,7 +452,7 @@ export function FreeTrialLanding() {
   const programs = [
     { title: text.programQuran, body: text.programQuranText, icon: BookOpen },
     { title: text.programArabic, body: text.programArabicText, icon: GraduationCap },
-    { title: text.programIslamic, body: text.programIslamicText, icon: Sparkles },
+    { title: text.programIslamic, body: text.programIslamicText, icon: BookMarked },
     { title: text.programKids, body: text.programKidsText, icon: UserRound },
   ];
 
@@ -353,11 +463,31 @@ export function FreeTrialLanding() {
   ];
 
   const faqs = [
-    [text.faq1, text.ans1],
-    [text.faq2, text.ans2],
-    [text.faq3, text.ans3],
-    [text.faq4, text.ans4],
-    [text.faq5, text.ans5],
+    {
+      icon: BadgeCheck,
+      question: text.faq1,
+      answer: text.ans1,
+    },
+    {
+      icon: Users,
+      question: text.faq2,
+      answer: text.ans2,
+    },
+    {
+      icon: CalendarClock,
+      question: text.faq3,
+      answer: text.ans3,
+    },
+    {
+      icon: Globe2,
+      question: text.faq4,
+      answer: text.ans4,
+    },
+    {
+      icon: Send,
+      question: text.faq5,
+      answer: text.ans5,
+    },
   ];
 
   const programImages = [
@@ -407,9 +537,9 @@ export function FreeTrialLanding() {
 
           <div className="grid items-center gap-8 pb-8 pt-10 md:grid-cols-[1.02fr_.98fr] md:gap-12 md:pb-10 md:pt-12 lg:gap-14">
             <div className={isRtl ? "text-right" : "text-left"}>
-              <div className="mb-6 inline-flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.2em] text-[#A37B2C]">
-                <span className="h-px w-10 bg-[#C89B3C]" />
-                {text.badge}
+              <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-[#C89B3C]/35 bg-[#FFFDF8] px-3.5 py-1.5 text-[10px] font-extrabold uppercase tracking-[.16em] text-[#A37B2C] shadow-sm">
+                <AfaqBrandSeal className="h-4 w-auto inline-block shrink-0" />
+                <span>{text.badge}</span>
               </div>
 
               <h1 className={`max-w-[760px] font-bold tracking-[-.025em] text-[#0D2722] ${isRtl ? "font-elmessiri text-[2.55rem] leading-[1.28] sm:text-5xl lg:text-[4.5rem]" : "font-serif text-[2.8rem] leading-[1.01] sm:text-6xl lg:text-[4.9rem]"}`}>
@@ -445,14 +575,30 @@ export function FreeTrialLanding() {
               </div>
 
               <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 text-[11px] font-semibold text-slate-500">
-                {[text.noCard, text.flexible, text.oneToOne, text.response].map((item) => (
-                  <span key={item} className="inline-flex items-center gap-2">
-                    <span className="flex h-4 w-4 items-center justify-center rounded-full bg-teal-50">
-                      <Check className="h-2.5 w-2.5 text-teal-700" />
-                    </span>
-                    {item}
+                <span className="inline-flex items-center gap-2">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-teal-50 text-[#075248]">
+                    <ShieldCheck className="h-3 w-3" strokeWidth={2.2} />
                   </span>
-                ))}
+                  {text.noCard}
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-teal-50 text-[#075248]">
+                    <CalendarClock className="h-3 w-3" strokeWidth={2.2} />
+                  </span>
+                  {text.flexible}
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-teal-50 text-[#075248]">
+                    <UserCheck className="h-3 w-3" strokeWidth={2.2} />
+                  </span>
+                  {text.oneToOne}
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-teal-50 text-[#075248]">
+                    <BadgeCheck className="h-3 w-3" strokeWidth={2.2} />
+                  </span>
+                  {text.response}
+                </span>
               </div>
             </div>
 
@@ -1132,7 +1278,12 @@ export function FreeTrialLanding() {
                     </p>
                   </div>
                   <div className="hidden h-24 w-px bg-gradient-to-b from-transparent via-teal-200 to-transparent sm:block" />
-                  <Sparkles className="hidden h-9 w-9 text-[#C89B3C]/55 sm:block" strokeWidth={1.35} />
+                  <div className="hidden sm:flex flex-col items-center gap-2 rounded-2xl border border-[#C89B3C]/25 bg-white/80 p-3.5 shadow-sm backdrop-blur-sm transition duration-300 group-hover:scale-105">
+                    <AfaqBrandSeal className="h-14 w-auto" />
+                    <span className="text-[8px] font-black uppercase tracking-[.18em] text-[#A37B2C]">
+                      {isRtl ? "مُعْتَمَد" : "CERTIFIED"}
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -1170,48 +1321,250 @@ export function FreeTrialLanding() {
         </div>
       </section>
 
-      {/* FAQ as editorial split */}
-      <section className="bg-[#F8FAF7] px-4 py-24 sm:py-28">
-        <div className="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[.7fr_1.3fr] lg:gap-16">
-          <div>
-            <div className="flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.2em] text-[#A37B2C]">
-              <span className="h-px w-9 bg-[#C89B3C]" />
+      {/* FAQ Section */}
+      <section className="relative overflow-hidden bg-[#F8FAF7] px-4 py-20 sm:py-28">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C89B3C]/20 to-transparent" />
+
+        <div className="relative mx-auto max-w-4xl">
+          {/* Header */}
+          <div className="text-center">
+            <div className="inline-flex items-center justify-center gap-3 text-[10px] font-extrabold uppercase tracking-[.2em] text-[#A37B2C]">
+              <span className="h-px w-8 bg-[#C89B3C]" />
               {text.faqEyebrow}
+              <span className="h-px w-8 bg-[#C89B3C]" />
             </div>
-            <h2 className={`mt-4 text-[2.15rem] font-bold leading-tight text-[#0D2722] sm:text-5xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
+            <h2 className={`mt-3.5 text-[2.2rem] font-bold leading-tight text-[#0D2722] sm:text-4xl lg:text-[2.65rem] ${isRtl ? "font-elmessiri" : "font-serif"}`}>
               {text.faqTitle}
             </h2>
+            <p className="mx-auto mt-3.5 max-w-xl text-sm sm:text-[15px] leading-relaxed text-slate-500">
+              {text.faqIntro}
+            </p>
           </div>
-          <div className="divide-y divide-slate-200 border-y border-slate-200">
-            {faqs.map(([question, answer]) => (
-              <details key={question} className="group py-5">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-[15px] font-bold text-[#0D2722]">
-                  {question}
-                  <ChevronDown className="h-4 w-4 shrink-0 text-[#A37B2C] transition group-open:rotate-180" />
-                </summary>
-                <p className="max-w-2xl pt-3 text-sm leading-7 text-slate-500">{answer}</p>
-              </details>
-            ))}
+
+          {/* FAQ Rows */}
+          <div className="mt-10 space-y-3.5 sm:mt-12 sm:space-y-4">
+            {faqs.map((item, index) => {
+              const isOpen = openFaqIndex === index;
+              const FaqIcon = item.icon;
+
+              return (
+                <div
+                  key={item.question}
+                  className={`group rounded-[20px] transition-all duration-300 border ${
+                    isOpen
+                      ? `bg-[#F2F8F5] border-[#C89B3C]/45 shadow-[0_12px_28px_-18px_rgba(7,82,72,.18)] ${
+                          isRtl ? "border-r-[3.5px] border-r-[#C89B3C]" : "border-l-[3.5px] border-l-[#C89B3C]"
+                        }`
+                      : "bg-white border-slate-200/85 hover:border-teal-200 hover:bg-[#FAFDFB] hover:shadow-[0_4px_16px_-8px_rgba(15,23,42,.06)]"
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                    aria-expanded={isOpen}
+                    className="flex w-full cursor-pointer items-center justify-between gap-4 p-5 text-start focus:outline-none focus-visible:ring-2 focus-visible:ring-[#075248] rounded-[20px] sm:p-6"
+                  >
+                    <div className="flex items-center gap-3.5 sm:gap-4">
+                      <div
+                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px] transition-all duration-300 ${
+                          isOpen
+                            ? "bg-[#075248] text-[#E0C77F] shadow-sm"
+                            : "bg-[#F0F6F3] text-[#075248] group-hover:bg-[#075248]/10"
+                        }`}
+                      >
+                        <FaqIcon className="h-5 w-5" strokeWidth={1.8} />
+                      </div>
+                      <span className="text-[15px] sm:text-[1.08rem] font-bold text-[#0D2722] leading-snug">
+                        {item.question}
+                      </span>
+                    </div>
+
+                    <div
+                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300 ${
+                        isOpen
+                          ? "bg-[#075248]/10 text-[#075248] rotate-180"
+                          : "bg-slate-100 text-slate-400 group-hover:bg-teal-50 group-hover:text-[#075248]"
+                      }`}
+                    >
+                      <ChevronDown className="h-4 w-4" strokeWidth={2.2} />
+                    </div>
+                  </button>
+
+                  {isOpen && (
+                    <div
+                      className={`px-5 pb-5 sm:px-6 sm:pb-6 pt-0 ${
+                        isRtl ? "pr-[62px] sm:pr-[72px]" : "pl-[62px] sm:pl-[72px]"
+                      }`}
+                    >
+                      <p className="text-sm sm:text-[15px] leading-7 text-slate-600 font-normal">
+                        {item.answer}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Still have questions bar */}
+          <div className="mt-10 flex flex-col items-center justify-between gap-5 rounded-[24px] border border-[#075248]/12 bg-white p-6 shadow-[0_16px_40px_-24px_rgba(7,82,72,.12)] sm:flex-row sm:p-7">
+            <div className="flex items-center gap-4 text-center sm:text-start">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#E8F5E9] text-[#1E7E34]">
+                <MessageCircle className="h-6 w-6" strokeWidth={1.8} />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-[#0D2722] sm:text-lg">
+                  {text.faqStillQuestion}
+                </h3>
+                <p className="mt-0.5 max-w-xl text-xs sm:text-sm text-slate-500 leading-relaxed">
+                  {text.faqStillText}
+                </p>
+              </div>
+            </div>
+
+            <a
+              href={academyContact.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-[#1FAF59] px-6 py-3 text-xs font-black uppercase tracking-wider text-white shadow-[0_12px_28px_-12px_rgba(31,175,89,.55)] transition-all duration-200 hover:bg-[#19984C] hover:-translate-y-0.5"
+            >
+              <MessageCircle className="h-4 w-4 fill-white text-transparent" />
+              <span>{text.faqStillCta}</span>
+              <ArrowRight className={`h-3.5 w-3.5 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+            </a>
           </div>
         </div>
       </section>
 
-      {/* final editorial CTA */}
-      <section className="relative overflow-hidden bg-white px-4 py-24 sm:py-28">
-        <div className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#C89B3C]/12" />
-        <div className="relative mx-auto max-w-4xl text-center">
-          <div className="mx-auto h-px w-14 bg-[#C89B3C]" />
-          <h2 className={`mt-6 text-[2.2rem] font-bold leading-tight text-[#0D2722] sm:text-5xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
-            {text.finalTitle}
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-500">{text.finalText}</p>
-          <a
-            href="#trial-form"
-            className="mt-8 inline-flex min-h-14 items-center gap-2 rounded-full bg-[#075248] px-8 text-[11px] font-extrabold uppercase tracking-[.08em] text-white shadow-[0_18px_40px_-24px_rgba(7,82,72,.75)]"
-          >
-            {text.finalCta}
-            <ArrowRight className={`h-4 w-4 ${isRtl ? "rotate-180" : ""}`} />
-          </a>
+      {/* Final Conversion Scene - Replaces the old weak CTA with NO circles */}
+      <section className="relative overflow-hidden bg-[#052721] px-4 py-20 sm:py-28 text-white">
+        {/* Top gold border line */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#E0C77F]/45 to-transparent" />
+
+        {/* Subtle branded grid texture & ambient lighting (ZERO circles) */}
+        <div className="pointer-events-none absolute inset-0 opacity-[0.035] [background-image:linear-gradient(rgba(224,199,127,1)_1px,transparent_1px),linear-gradient(90deg,rgba(224,199,127,1)_1px,transparent_1px)] [background-size:40px_40px]" />
+        <div className="pointer-events-none absolute -bottom-28 -left-20 h-80 w-80 rounded-3xl bg-[#08483D] opacity-35 blur-[90px]" />
+        <div className="pointer-events-none absolute -top-28 -right-20 h-80 w-80 rounded-3xl bg-[#0A574A] opacity-30 blur-[80px]" />
+
+        <div className="relative mx-auto max-w-[1240px]">
+          <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14 lg:items-center">
+            {/* Text & Primary Value Proposition */}
+            <div>
+              <div className="flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.22em] text-[#E0C77F]">
+                <span className="h-px w-9 bg-[#E0C77F]/80" />
+                {text.finalEyebrow}
+              </div>
+
+              <h2 className={`mt-5 text-[2.2rem] font-bold leading-[1.14] tracking-tight text-white sm:text-4xl lg:text-[2.85rem] ${isRtl ? "font-elmessiri leading-[1.25]" : "font-serif"}`}>
+                {text.finalTitle}
+              </h2>
+
+              <p className="mt-5 max-w-xl text-sm sm:text-base leading-7 text-white/75">
+                {text.finalText}
+              </p>
+
+              {/* 3 Trust Points with SVG icons */}
+              <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.05] p-3.5 backdrop-blur-sm">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#E0C77F]/15 text-[#E0C77F]">
+                    <Award className="h-4.5 w-4.5" strokeWidth={1.75} />
+                  </div>
+                  <span className="text-xs font-semibold leading-snug text-white/90">
+                    {text.finalTrust1}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.05] p-3.5 backdrop-blur-sm">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#E0C77F]/15 text-[#E0C77F]">
+                    <ShieldCheck className="h-4.5 w-4.5" strokeWidth={1.75} />
+                  </div>
+                  <span className="text-xs font-semibold leading-snug text-white/90">
+                    {text.finalTrust2}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.05] p-3.5 backdrop-blur-sm">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#E0C77F]/15 text-[#E0C77F]">
+                    <CalendarClock className="h-4.5 w-4.5" strokeWidth={1.75} />
+                  </div>
+                  <span className="text-xs font-semibold leading-snug text-white/90">
+                    {text.finalTrust3}
+                  </span>
+                </div>
+              </div>
+
+              {/* Dual Action Buttons */}
+              <div className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center">
+                <a
+                  href="#trial-form"
+                  className="group inline-flex min-h-13 items-center justify-center gap-2.5 rounded-full bg-[#E0C77F] px-8 text-xs font-black uppercase tracking-[.09em] text-[#052721] shadow-[0_16px_36px_-12px_rgba(224,199,127,.4)] transition duration-200 hover:bg-[#ebd9a6] hover:-translate-y-0.5"
+                >
+                  <span>{text.finalCta}</span>
+                  <ArrowRight className={`h-4 w-4 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
+                </a>
+
+                <a
+                  href={academyContact.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex min-h-13 items-center justify-center gap-2.5 rounded-full border border-white/20 bg-white/[0.07] px-7 text-xs font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm transition duration-200 hover:border-[#25D366]/60 hover:bg-[#25D366]/15 hover:text-white"
+                >
+                  <MessageCircle className="h-4 w-4 text-[#25D366]" />
+                  <span>{text.whatsapp}</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Conversion Guarantee Panel */}
+            <div className="relative rounded-[30px] border border-[#E0C77F]/25 bg-gradient-to-b from-white/[0.11] to-white/[0.04] p-7 sm:p-9 shadow-[0_30px_70px_-25px_rgba(0,0,0,.6)] backdrop-blur-md">
+              <div className="flex items-center justify-between gap-3 border-b border-white/10 pb-5">
+                <div>
+                  <div className="text-[9px] font-extrabold uppercase tracking-[.18em] text-[#E0C77F]">
+                    {text.finalPanelBadge}
+                  </div>
+                  <h3 className={`mt-1 text-lg font-bold text-white sm:text-xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
+                    {text.finalPanelTitle}
+                  </h3>
+                </div>
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-[#E0C77F]/30 bg-[#E0C77F]/10 text-[#E0C77F]">
+                  <BadgeCheck className="h-5 w-5" strokeWidth={1.8} />
+                </div>
+              </div>
+
+              <div className="mt-6 space-y-4">
+                {[text.finalPanel1, text.finalPanel2, text.finalPanel3].map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-3.5">
+                    <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#E0C77F]/20 text-[#E0C77F]">
+                      <Check className="h-3.5 w-3.5" strokeWidth={2.5} />
+                    </div>
+                    <p className="text-sm font-medium leading-relaxed text-white/85">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-7 rounded-2xl border border-white/10 bg-black/20 p-4">
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <div className="flex items-center gap-1 text-[#E0C77F] text-xs">
+                      {"★".repeat(5)}
+                      <span className="ms-1.5 font-bold text-white text-xs">4.9/5</span>
+                    </div>
+                    <div className="mt-1 text-[11px] text-white/60">
+                      {isRtl ? "أكثر من 500 طالب مستمر من 30 دولة" : "Trusted by 500+ learners across 30+ countries"}
+                    </div>
+                  </div>
+                  <a
+                    href="#trial-form"
+                    className="shrink-0 text-[10px] font-extrabold uppercase tracking-wider text-[#E0C77F] hover:underline"
+                  >
+                    {isRtl ? "ابدأ الآن" : "Start Now"}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1233,7 +1586,7 @@ export function FreeTrialLanding() {
           href="#trial-form"
           className="flex min-h-13 items-center justify-center gap-2 rounded-full bg-[#075248]/95 px-5 text-[11px] font-extrabold uppercase tracking-[.08em] text-white shadow-[0_18px_45px_-20px_rgba(15,23,42,.65)] backdrop-blur-xl"
         >
-          <Sparkles className="h-4 w-4 text-[#E0C77F]" />
+          <GraduationCap className="h-4 w-4 text-[#E0C77F]" />
           {text.primary}
         </a>
       </div>
