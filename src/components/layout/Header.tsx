@@ -54,11 +54,11 @@ export function Header() {
             >
               <div className="relative w-10 h-10 md:w-[46px] md:h-[46px] shrink-0 transition-transform duration-500 group-hover:scale-[1.04]">
                 <Image
-                  src="/icon.png"
+                  src="/header-icon.svg"
                   alt=""
                   fill
                   sizes="46px"
-                  className="object-contain mix-blend-multiply"
+                  className="object-contain"
                   priority
                 />
               </div>

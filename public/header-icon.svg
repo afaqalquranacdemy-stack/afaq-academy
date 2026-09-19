@@ -1,0 +1,58 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">Afaq Al-Quran Academy emblem</title>
+  <defs>
+    <linearGradient id="green" x1="42" y1="24" x2="196" y2="223" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B665B"/>
+      <stop offset="0.52" stop-color="#075248"/>
+      <stop offset="1" stop-color="#033B36"/>
+    </linearGradient>
+    <linearGradient id="greenLight" x1="93" y1="81" x2="159" y2="187" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#149985"/>
+      <stop offset="1" stop-color="#075248"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="77" y1="42" x2="177" y2="207" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2D27D"/>
+      <stop offset="0.46" stop-color="#C8972C"/>
+      <stop offset="1" stop-color="#9B6715"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="55" y1="174" x2="199" y2="218" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFDF6"/>
+      <stop offset="0.6" stop-color="#F6E7BE"/>
+      <stop offset="1" stop-color="#E5C56C"/>
+    </linearGradient>
+    <filter id="soft" x="12" y="9" width="232" height="242" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#0A3E39" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#soft)">
+    <!-- outer mihrab -->
+    <path d="M128 18C109 43 87 54 68 76C51 96 43 119 43 148V184H61V149C61 124 68 105 82 88C95 72 112 62 128 42C144 62 161 72 174 88C188 105 195 124 195 149V184H213V148C213 119 205 96 188 76C169 54 147 43 128 18Z" fill="url(#green)"/>
+    <path d="M128 29C111 50 94 59 79 77C62 96 55 117 55 146V179" stroke="url(#gold)" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M128 29C145 50 162 59 177 77C194 96 201 117 201 146V179" stroke="url(#gold)" stroke-width="4.5" stroke-linecap="round"/>
+
+    <!-- finial -->
+    <path d="M128 51L134 61L128 71L122 61L128 51Z" fill="url(#gold)"/>
+    <circle cx="128" cy="75" r="5" fill="url(#green)"/>
+
+    <!-- inner dome / mihrab -->
+    <path d="M128 78C118 92 107 98 99 109C89 121 84 135 84 151V183H172V151C172 135 167 121 157 109C149 98 138 92 128 78Z" fill="url(#greenLight)"/>
+    <path d="M128 106C120 117 112 122 106 130C99 138 96 148 96 159V183H160V159C160 148 157 138 150 130C144 122 136 117 128 106Z" fill="#F9F4E7"/>
+    <path d="M128 116C122 124 116 128 112 134C107 141 105 148 105 157V183H151V157C151 148 149 141 144 134C140 128 134 124 128 116Z" fill="url(#green)"/>
+
+    <!-- open Quran -->
+    <path d="M126 183C107 171 84 168 58 174C73 183 91 193 126 207V183Z" fill="url(#paper)"/>
+    <path d="M130 183C149 171 172 168 198 174C183 183 165 193 130 207V183Z" fill="url(#paper)"/>
+    <path d="M126 190C105 180 86 178 67 181C82 188 99 196 126 207V190Z" fill="url(#gold)"/>
+    <path d="M130 190C151 180 170 178 189 181C174 188 157 196 130 207V190Z" fill="url(#gold)"/>
+    <path d="M126 197C104 188 89 187 76 189C90 195 105 201 126 209V197Z" fill="#FFFDF8"/>
+    <path d="M130 197C152 188 167 187 180 189C166 195 151 201 130 209V197Z" fill="#FFFDF8"/>
+
+    <!-- lower emerald leaves -->
+    <path d="M126 208C102 207 80 201 59 190C70 208 88 218 113 220L126 208Z" fill="url(#green)"/>
+    <path d="M130 208C154 207 176 201 197 190C186 208 168 218 143 220L130 208Z" fill="url(#green)"/>
+
+    <!-- bottom diamond -->
+    <path d="M128 211L136 226L128 241L120 226L128 211Z" fill="url(#green)"/>
+  </g>
+</svg>
