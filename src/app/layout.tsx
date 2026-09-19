@@ -71,9 +71,7 @@ export const metadata: Metadata = {
   },
 };
 
-import { Header } from "../components/layout/Header";
-import { Footer } from "../components/layout/Footer";
-import { FloatingWhatsApp } from "../components/layout/FloatingWhatsApp";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 import { Toaster } from "react-hot-toast";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import { cookies } from "next/headers";
@@ -97,10 +95,7 @@ export default async function RootLayout({
       >
         <LanguageProvider initialLocale={locale}>
           <Toaster position="top-center" reverseOrder={false} />
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <FloatingWhatsApp />
-          <Footer />
+          <SiteChrome>{children}</SiteChrome>
         </LanguageProvider>
       </body>
     </html>
