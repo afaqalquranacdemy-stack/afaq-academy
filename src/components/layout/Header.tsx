@@ -50,22 +50,22 @@ export function Header() {
               initial={{ opacity: 0, x: isRtl ? 20 : -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex items-center gap-2.5 md:gap-3"
+              className="flex items-center gap-1.5 md:gap-2"
             >
-              <div className="relative w-[30px] h-[42px] sm:w-[32px] sm:h-[46px] md:w-[38px] md:h-[54px] shrink-0 transition-transform duration-500 group-hover:scale-[1.04]">
+              <div className="relative w-[36px] h-[42px] sm:w-[39px] sm:h-[46px] md:w-[46px] md:h-[54px] shrink-0 transition-transform duration-500 group-hover:scale-[1.035]">
                 <Image
-                  src="/header-icon.svg"
+                  src="/header-icon.png"
                   alt=""
                   fill
-                  sizes="(max-width: 640px) 30px, (max-width: 768px) 32px, 38px"
+                  sizes="(max-width: 640px) 36px, (max-width: 768px) 39px, 46px"
                   className="object-contain"
                   priority
                 />
               </div>
 
-              <div className="flex min-w-0 flex-col justify-center py-0.5">
+              <div className="flex min-w-0 flex-col justify-center">
                 <span
-                  className="whitespace-nowrap font-serif text-[7px] sm:text-[8px] md:text-[9px] lg:text-[10px] font-bold leading-none tracking-[0.075em] text-emerald-950"
+                  className="whitespace-nowrap font-serif text-[8px] sm:text-[9px] md:text-[10px] lg:text-[11px] font-extrabold leading-none tracking-[0.025em] text-[#064E46]"
                   dir="ltr"
                 >
                   AFAQ AL-QURAN ACADEMY
@@ -73,15 +73,11 @@ export function Header() {
 
                 <span
                   aria-hidden="true"
-                  className="my-[4px] flex items-center gap-1.5"
-                >
-                  <span className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-500/80 to-amber-500/30" />
-                  <span className="h-1 w-1 rotate-45 bg-amber-500" />
-                  <span className="h-px flex-1 bg-gradient-to-l from-transparent via-amber-500/80 to-amber-500/30" />
-                </span>
+                  className="my-[3px] block h-px w-full bg-gradient-to-r from-[#B8892E]/35 via-[#C89B3C] to-[#B8892E]/35"
+                />
 
                 <span
-                  className="whitespace-nowrap font-elmessiri text-[12px] sm:text-[13px] md:text-[15px] lg:text-[17px] font-bold leading-[1.05] text-emerald-950"
+                  className="whitespace-nowrap font-elmessiri text-[12px] sm:text-[13px] md:text-[15px] lg:text-[16px] font-bold leading-none text-[#064E46]"
                   dir="rtl"
                   lang="ar"
                 >
