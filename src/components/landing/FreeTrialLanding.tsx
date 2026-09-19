@@ -356,46 +356,31 @@ export function FreeTrialLanding() {
     [text.faq5, text.ans5],
   ];
 
+  const programImages = [
+    "/images/courses/quran-recitation1.webp",
+    "/images/courses/quranic-arabic.webp",
+    "/images/courses/tafsir.webp",
+    "/images/courses/kids-qaida1.webp",
+  ];
+
   return (
-    <div className="min-h-screen overflow-hidden bg-[#F5F0E6] text-[#10211E]">
-      {/* HERO */}
-      <section className="relative min-h-[100svh] overflow-hidden bg-[#061713] text-white">
-        <Image
-          src="/hero-bg.webp"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="hidden md:block object-cover object-[72%_center] opacity-[0.52] saturate-[0.86] contrast-[1.05]"
-        />
-        <Image
-          src="/hero-mobile-bg.webp"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="block md:hidden object-cover object-center opacity-[0.46] saturate-[0.84]"
-        />
-
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,18,15,.97)_0%,rgba(3,20,16,.94)_38%,rgba(3,20,16,.68)_66%,rgba(3,16,13,.86)_100%)] md:block hidden" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,18,15,.94)_0%,rgba(3,20,16,.82)_52%,rgba(3,16,13,.96)_100%)] md:hidden" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_35%,rgba(205,168,86,.14)_0%,transparent_34%)]" />
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/35 to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#061713] via-[#061713]/80 to-transparent" />
-
-        {/* decorative arch */}
-        <div aria-hidden="true" className="pointer-events-none absolute right-[5%] top-[14%] hidden h-[68%] w-[34%] rounded-t-[180px] border border-[#D5B76A]/15 lg:block" />
-        <div aria-hidden="true" className="pointer-events-none absolute right-[8%] top-[18%] hidden h-[60%] w-[28%] rounded-t-[150px] border border-white/5 lg:block" />
+    <div className="min-h-screen overflow-hidden bg-[#FCFBF7] text-slate-900">
+      {/* HERO — academic editorial composition */}
+      <section className="relative min-h-[92svh] overflow-hidden bg-[#F8FAF7]">
+        <div className="absolute inset-x-0 top-0 h-[360px] bg-[radial-gradient(circle_at_70%_15%,rgba(200,155,60,.13),transparent_34%)]" />
+        <div className="absolute -left-24 top-32 h-72 w-72 rounded-full border border-[#0A6A5D]/8" />
+        <div className="absolute -right-20 top-16 h-[420px] w-[420px] rounded-full border border-[#C89B3C]/12" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C89B3C]/35 to-transparent" />
 
         <div className="relative z-10 mx-auto max-w-[1380px] px-4 sm:px-6 lg:px-10">
-          <header className="flex h-20 items-center justify-between border-b border-white/10">
+          <header className="flex h-20 items-center justify-between border-b border-slate-200/70">
             <Link href="/" className="flex items-center gap-2.5" aria-label="Afaq Al-Quran Academy">
               <img src="/header-icon.png" alt="" className="h-12 w-auto" />
               <div className="leading-none">
-                <div className={`font-bold text-white ${isRtl ? "font-elmessiri text-[17px]" : "font-serif text-[15px] tracking-[.03em]"}`}>
+                <div className={`font-bold bg-gradient-to-r from-[#0A6A5D] via-[#075248] to-[#033D38] bg-clip-text text-transparent ${isRtl ? "font-elmessiri text-[17px]" : "font-serif text-[15px] tracking-[.03em]"}`}>
                   {isRtl ? "آفَاقُ الْقُرْآنِ" : "AFAQ AL-QURAN"}
                 </div>
-                <div className={`mt-1 text-[#D4B261] ${isRtl ? "font-elmessiri text-[10px]" : "text-[9px] font-bold tracking-[.28em]"}`}>
+                <div className={`mt-1 text-[#B8892E] ${isRtl ? "font-elmessiri text-[10px]" : "text-[9px] font-bold tracking-[.28em]"}`}>
                   {isRtl ? "أَكَادِيمِيَّة" : "ACADEMY"}
                 </div>
               </div>
@@ -404,43 +389,43 @@ export function FreeTrialLanding() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => switchLocale(locale === "en" ? "ar" : "en")}
-                className="inline-flex h-10 items-center gap-2 rounded-full border border-white/12 bg-white/[0.045] px-3 text-xs font-bold text-white/80 backdrop-blur-xl transition hover:border-[#D4B261]/30 hover:bg-white/[0.07]"
+                className="inline-flex h-10 items-center gap-2 rounded-full border border-slate-200 bg-white/85 px-3 text-xs font-bold text-slate-700 shadow-sm transition hover:border-teal-200 hover:text-teal-700"
               >
-                <Globe2 className="h-4 w-4 text-[#D4B261]" />
+                <Globe2 className="h-4 w-4 text-teal-700" />
                 {locale === "en" ? "العربية" : "EN"}
               </button>
               <a
                 href="#trial-form"
-                className="hidden h-10 items-center rounded-full border border-[#D4B261]/35 bg-[#D4B261] px-5 text-[11px] font-extrabold uppercase tracking-[.08em] text-[#0B231E] shadow-[0_10px_30px_-16px_rgba(212,178,97,.8)] transition hover:-translate-y-0.5 sm:inline-flex"
+                className="hidden h-10 items-center rounded-full bg-[#075248] px-5 text-[11px] font-extrabold uppercase tracking-[.08em] text-white shadow-[0_12px_28px_-16px_rgba(7,82,72,.75)] transition hover:-translate-y-0.5 sm:inline-flex"
               >
                 {text.navCta}
               </a>
             </div>
           </header>
 
-          <div className="grid items-center gap-12 pb-16 pt-10 md:grid-cols-[1.02fr_.78fr] md:gap-14 md:pb-20 md:pt-14 lg:gap-20">
+          <div className="grid min-h-[700px] items-center gap-10 pb-28 pt-12 md:grid-cols-[1.02fr_.98fr] md:pb-36 lg:gap-16">
             <div className={isRtl ? "text-right" : "text-left"}>
-              <div className="mb-6 flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.24em] text-[#D6BD79]">
-                <span className="h-px w-9 bg-[#D6BD79]/65" />
+              <div className="mb-6 inline-flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.2em] text-[#A37B2C]">
+                <span className="h-px w-10 bg-[#C89B3C]" />
                 {text.badge}
               </div>
 
-              <h1 className={`max-w-[820px] font-bold tracking-[-.025em] ${isRtl ? "font-elmessiri text-[2.45rem] leading-[1.28] sm:text-5xl lg:text-[4.4rem]" : "font-serif text-[2.7rem] leading-[1.02] sm:text-6xl lg:text-[4.9rem]"}`}>
-                <span className="text-[#FFFDF8]">{text.titleA}</span>
-                <span className="block bg-gradient-to-r from-[#F4E2A5] via-[#D4B261] to-[#9ACDBF] bg-clip-text text-transparent">
+              <h1 className={`max-w-[760px] font-bold tracking-[-.025em] text-[#0D2722] ${isRtl ? "font-elmessiri text-[2.55rem] leading-[1.28] sm:text-5xl lg:text-[4.5rem]" : "font-serif text-[2.8rem] leading-[1.01] sm:text-6xl lg:text-[4.9rem]"}`}>
+                <span>{text.titleA}</span>
+                <span className="block bg-gradient-to-r from-[#0A6A5D] via-[#087063] to-[#C89B3C] bg-clip-text text-transparent">
                   {text.titleB}
                 </span>
-                <span className="mt-2 block text-[#FFFDF8]/92">{text.titleC}</span>
+                <span className="mt-2 block text-[#0D2722]/90">{text.titleC}</span>
               </h1>
 
-              <p className="mt-6 max-w-[680px] text-[15px] font-medium leading-7 text-white/66 sm:text-[17px]">
+              <p className="mt-6 max-w-[660px] text-[15px] font-medium leading-7 text-slate-600 sm:text-[17px]">
                 {text.heroText}
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
                   href="#trial-form"
-                  className="group inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#D4B261] px-7 text-[12px] font-extrabold uppercase tracking-[.08em] text-[#09241E] shadow-[0_20px_50px_-22px_rgba(212,178,97,.75)] transition hover:-translate-y-0.5 hover:bg-[#E4C775]"
+                  className="group inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#075248] px-7 text-[12px] font-extrabold uppercase tracking-[.08em] text-white shadow-[0_18px_42px_-24px_rgba(7,82,72,.8)] transition hover:-translate-y-0.5"
                 >
                   {text.primary}
                   <ArrowRight className={`h-4 w-4 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
@@ -450,18 +435,18 @@ export function FreeTrialLanding() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => pushEvent("whatsapp_click", { page: "/free-trial", location: "hero" })}
-                  className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-white/14 bg-white/[0.045] px-7 text-[12px] font-bold text-white/82 backdrop-blur-xl transition hover:border-[#D4B261]/30 hover:bg-white/[0.07]"
+                  className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-7 text-[12px] font-bold text-[#075248] shadow-sm transition hover:border-teal-200"
                 >
-                  <MessageCircle className="h-4 w-4 text-[#D4B261]" />
+                  <MessageCircle className="h-4 w-4" />
                   {text.whatsapp}
                 </a>
               </div>
 
-              <div className="mt-7 grid max-w-2xl grid-cols-2 gap-x-5 gap-y-3 text-[11px] font-semibold text-white/55 sm:flex sm:flex-wrap">
+              <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 text-[11px] font-semibold text-slate-500">
                 {[text.noCard, text.flexible, text.oneToOne, text.response].map((item) => (
                   <span key={item} className="inline-flex items-center gap-2">
-                    <span className="flex h-4 w-4 items-center justify-center rounded-full border border-[#D4B261]/35 bg-[#D4B261]/10">
-                      <Check className="h-2.5 w-2.5 text-[#D4B261]" />
+                    <span className="flex h-4 w-4 items-center justify-center rounded-full bg-teal-50">
+                      <Check className="h-2.5 w-2.5 text-teal-700" />
                     </span>
                     {item}
                   </span>
@@ -469,322 +454,383 @@ export function FreeTrialLanding() {
               </div>
             </div>
 
-            {/* Premium enquiry panel */}
-            <div id="trial-form" className="relative scroll-mt-6">
-              <div className="absolute -inset-6 rounded-[42px] bg-[#D4B261]/8 blur-3xl" />
-              <div className="relative rounded-[34px] border border-[#D4B261]/35 bg-[linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.035))] p-[1px] shadow-[0_45px_100px_-35px_rgba(0,0,0,.78)] backdrop-blur-xl">
-                <div className="relative overflow-hidden rounded-[33px] bg-[#FBF7EC] p-5 text-[#14231F] sm:p-7 lg:p-8">
-                  <div aria-hidden="true" className="absolute left-8 right-8 top-0 h-px bg-gradient-to-r from-transparent via-[#CDAA58] to-transparent" />
-                  <div aria-hidden="true" className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-[#D4B261]/12 blur-3xl" />
-
-                  {!submitted ? (
-                    <>
-                      <div className="relative mb-6">
-                        <div className="flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-[.22em] text-[#A57B26]">
-                          <span className="h-px w-7 bg-[#CDAA58]" />
-                          {text.formEyebrow}
-                        </div>
-                        <h2 className={`mt-3 text-[1.75rem] font-bold leading-tight text-[#0C211C] ${isRtl ? "font-elmessiri" : "font-serif"}`}>
-                          {text.formTitle}
-                        </h2>
-                        <p className="mt-2 max-w-sm text-[13px] leading-6 text-[#68736E]">{text.formText}</p>
-                      </div>
-
-                      <form onSubmit={handleSubmit} onFocus={startForm} className="relative space-y-4">
-                        <input
-                          type="text"
-                          name="website"
-                          value={form.website}
-                          onChange={(e) => setForm((prev) => ({ ...prev, website: e.target.value }))}
-                          tabIndex={-1}
-                          autoComplete="off"
-                          className="hidden"
-                          aria-hidden="true"
-                        />
-
-                        {[
-                          [text.name, "text", form.name, (value: string) => setForm((prev) => ({ ...prev, name: value }))],
-                          [text.email, "email", form.email, (value: string) => setForm((prev) => ({ ...prev, email: value }))],
-                        ].map(([label, type, value, setter]) => (
-                          <label key={String(label)} className="block">
-                            <span className="mb-1.5 block text-[10px] font-extrabold uppercase tracking-[.12em] text-[#66716C]">{String(label)}</span>
-                            <input
-                              type={String(type)}
-                              required
-                              value={String(value)}
-                              onChange={(e) => (setter as (v: string) => void)(e.target.value)}
-                              className="h-12 w-full rounded-[14px] border border-[#DCD6C8] bg-white/75 px-4 text-sm text-[#152620] outline-none transition placeholder:text-slate-300 focus:border-[#B99645] focus:bg-white focus:ring-4 focus:ring-[#D4B261]/10"
-                              dir={type === "email" ? "ltr" : undefined}
-                            />
-                          </label>
-                        ))}
-
-                        <label className="block">
-                          <span className="mb-1.5 block text-[10px] font-extrabold uppercase tracking-[.12em] text-[#66716C]">{text.whatsappLabel}</span>
-                          <div className="flex gap-2">
-                            {locationData.country && (
-                              <div className="flex h-12 max-w-[34%] items-center rounded-[14px] border border-[#DCD6C8] bg-white/70 px-3 text-[9px] font-bold text-[#6F7773]">
-                                {locationData.country}
-                              </div>
-                            )}
-                            <input
-                              type="tel"
-                              required
-                              value={form.whatsapp}
-                              onChange={(e) => setForm((prev) => ({ ...prev, whatsapp: e.target.value }))}
-                              placeholder={locationData.code ? `${locationData.code} 104 121 3922` : "+1 555 123 4567"}
-                              className="h-12 min-w-0 flex-1 rounded-[14px] border border-[#DCD6C8] bg-white/75 px-4 text-sm outline-none transition focus:border-[#B99645] focus:bg-white focus:ring-4 focus:ring-[#D4B261]/10"
-                              dir="ltr"
-                            />
-                          </div>
-                        </label>
-
-                        <label className="block">
-                          <span className="mb-1.5 block text-[10px] font-extrabold uppercase tracking-[.12em] text-[#66716C]">{text.interest}</span>
-                          <select
-                            required
-                            value={form.course}
-                            onChange={(e) => setForm((prev) => ({ ...prev, course: e.target.value }))}
-                            className="h-12 w-full appearance-none rounded-[14px] border border-[#DCD6C8] bg-white/75 px-4 text-sm text-[#152620] outline-none transition focus:border-[#B99645] focus:bg-white focus:ring-4 focus:ring-[#D4B261]/10"
-                          >
-                            <option value="">{text.choose}</option>
-                            <option value="quran">{text.quran}</option>
-                            <option value="arabic">{text.arabic}</option>
-                            <option value="islamic">{text.islamic}</option>
-                            <option value="kids">{text.kids}</option>
-                          </select>
-                        </label>
-
-                        <button
-                          disabled={submitting}
-                          className="group mt-1 inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-[14px] bg-[#0B3D35] px-5 text-[12px] font-extrabold uppercase tracking-[.08em] text-white shadow-[0_18px_40px_-24px_rgba(11,61,53,.8)] transition hover:bg-[#0D4D42] disabled:cursor-not-allowed disabled:opacity-60"
-                        >
-                          {submitting ? text.sending : text.submit}
-                          {!submitting && <ArrowRight className={`h-4 w-4 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />}
-                        </button>
-
-                        <p className="text-center text-[9px] leading-4 text-[#8A928E]">{text.privacy}</p>
-                      </form>
-                    </>
-                  ) : (
-                    <div className="flex min-h-[430px] flex-col items-center justify-center text-center">
-                      <div className="flex h-16 w-16 items-center justify-center rounded-full border border-[#D4B261]/35 bg-[#D4B261]/10">
-                        <CheckCircle2 className="h-8 w-8 text-[#A77B23]" />
-                      </div>
-                      <h2 className={`mt-5 text-2xl font-bold text-[#0C211C] ${isRtl ? "font-elmessiri" : "font-serif"}`}>
-                        {text.successTitle}
-                      </h2>
-                      <p className="mt-3 max-w-sm text-sm leading-6 text-[#68736E]">{text.successText}</p>
-                      <a
-                        href={academyContact.whatsappUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => pushEvent("whatsapp_click", { page: "/free-trial", location: "success" })}
-                        className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-full bg-[#0B3D35] px-6 text-sm font-bold text-white"
-                      >
-                        <MessageCircle className="h-4 w-4 text-[#D4B261]" />
-                        {text.successWhatsapp}
-                      </a>
+            {/* Visual academy composition, not a card */}
+            <div className="relative mx-auto h-[520px] w-full max-w-[560px] md:h-[610px]">
+              <div className="absolute left-[13%] top-[5%] h-[80%] w-[64%] rounded-t-[180px] rounded-b-[38px] border border-[#C89B3C]/30 bg-white p-2 shadow-[0_36px_80px_-46px_rgba(15,23,42,.45)]">
+                <div className="relative h-full overflow-hidden rounded-t-[170px] rounded-b-[31px] bg-[#EAF1EC]">
+                  <Image
+                    src="/images/team/fatima.webp"
+                    alt=""
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 80vw, 34vw"
+                    className="object-cover object-top"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#072F29]/70 via-[#072F29]/10 to-transparent" />
+                  <div className="absolute bottom-5 left-5 right-5 text-white">
+                    <div className="text-[10px] font-extrabold uppercase tracking-[.18em] text-[#E6CF91]">
+                      {text.oneToOne}
                     </div>
-                  )}
+                    <div className="mt-1 text-sm font-bold">{text.benefit1}</div>
+                  </div>
                 </div>
+              </div>
+
+              <div className="absolute right-0 top-[22%] w-[42%] overflow-hidden rounded-[24px] border-4 border-[#FCFBF7] bg-white shadow-[0_24px_60px_-34px_rgba(15,23,42,.45)]">
+                <div className="relative aspect-[4/5]">
+                  <Image
+                    src="/images/team/ahmed.webp"
+                    alt=""
+                    fill
+                    sizes="220px"
+                    className="object-cover object-top"
+                  />
+                </div>
+              </div>
+
+              <div className="absolute bottom-[3%] left-0 w-[46%] rounded-[22px] border border-slate-200 bg-white p-3 shadow-[0_22px_55px_-34px_rgba(15,23,42,.38)]">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-[16px]">
+                  <Image
+                    src="/images/courses/quran-recitation1.webp"
+                    alt=""
+                    fill
+                    sizes="240px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="px-1 pb-1 pt-3">
+                  <div className="text-[9px] font-extrabold uppercase tracking-[.14em] text-[#A37B2C]">{text.programQuran}</div>
+                  <div className="mt-1 text-xs font-bold text-[#0D2722]">{text.programQuranText}</div>
+                </div>
+              </div>
+
+              <div className="absolute right-[5%] bottom-[7%] rounded-full border border-[#C89B3C]/30 bg-[#FFFDF7] px-4 py-3 shadow-lg">
+                <div className="text-lg font-black text-[#075248]">{academyStats.students}+</div>
+                <div className="text-[8px] font-bold uppercase tracking-[.12em] text-slate-400">{text.statsStudents}</div>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* integrated trust rail */}
-          <div className="grid grid-cols-2 border-t border-white/10 sm:grid-cols-4">
-            {[
-              [`${academyStats.students}+`, text.statsStudents],
-              [`${academyStats.tutors}+`, text.statsTutors],
-              [`${academyStats.countries}+`, text.statsCountries],
-              [`${academyStats.years}+`, text.statsYears],
-            ].map(([value, label], index) => (
-              <div key={label} className={`relative px-4 py-5 sm:py-6 ${index > 0 ? "sm:border-l sm:border-white/10" : ""}`}>
-                <div className="text-xl font-black text-[#F3E4B2] sm:text-2xl">{value}</div>
-                <div className="mt-1 text-[9px] font-bold uppercase tracking-[.16em] text-white/42">{label}</div>
+        {/* horizontal admissions rail overlapping the hero */}
+        <div id="trial-form" className="absolute inset-x-0 bottom-0 z-20 translate-y-1/2 px-4">
+          <div className="mx-auto max-w-[1260px] rounded-[28px] border border-slate-200 bg-white p-4 shadow-[0_28px_70px_-36px_rgba(15,23,42,.38)] sm:p-5">
+            {!submitted ? (
+              <form onSubmit={handleSubmit} onFocus={startForm} className="grid gap-3 md:grid-cols-[1.1fr_1.1fr_1.15fr_1fr_auto] md:items-end">
+                <input
+                  type="text"
+                  name="website"
+                  value={form.website}
+                  onChange={(e) => setForm((prev) => ({ ...prev, website: e.target.value }))}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                  aria-hidden="true"
+                />
+
+                <label className="block">
+                  <span className="mb-1.5 block text-[9px] font-extrabold uppercase tracking-[.14em] text-slate-400">{text.name}</span>
+                  <input
+                    required
+                    value={form.name}
+                    onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
+                    className="h-12 w-full rounded-[14px] border border-slate-200 bg-slate-50 px-4 text-sm outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
+                  />
+                </label>
+
+                <label className="block">
+                  <span className="mb-1.5 block text-[9px] font-extrabold uppercase tracking-[.14em] text-slate-400">{text.email}</span>
+                  <input
+                    type="email"
+                    required
+                    value={form.email}
+                    onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
+                    className="h-12 w-full rounded-[14px] border border-slate-200 bg-slate-50 px-4 text-sm outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
+                    dir="ltr"
+                  />
+                </label>
+
+                <label className="block">
+                  <span className="mb-1.5 block text-[9px] font-extrabold uppercase tracking-[.14em] text-slate-400">{text.whatsappLabel}</span>
+                  <input
+                    type="tel"
+                    required
+                    value={form.whatsapp}
+                    onChange={(e) => setForm((prev) => ({ ...prev, whatsapp: e.target.value }))}
+                    placeholder={locationData.code ? `${locationData.code} 104 121 3922` : "+1 555 123 4567"}
+                    className="h-12 w-full rounded-[14px] border border-slate-200 bg-slate-50 px-4 text-sm outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
+                    dir="ltr"
+                  />
+                </label>
+
+                <label className="block">
+                  <span className="mb-1.5 block text-[9px] font-extrabold uppercase tracking-[.14em] text-slate-400">{text.interest}</span>
+                  <select
+                    required
+                    value={form.course}
+                    onChange={(e) => setForm((prev) => ({ ...prev, course: e.target.value }))}
+                    className="h-12 w-full appearance-none rounded-[14px] border border-slate-200 bg-slate-50 px-4 text-sm outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
+                  >
+                    <option value="">{text.choose}</option>
+                    <option value="quran">{text.quran}</option>
+                    <option value="arabic">{text.arabic}</option>
+                    <option value="islamic">{text.islamic}</option>
+                    <option value="kids">{text.kids}</option>
+                  </select>
+                </label>
+
+                <button
+                  disabled={submitting}
+                  className="inline-flex h-12 items-center justify-center gap-2 rounded-[14px] bg-[#075248] px-5 text-[10px] font-extrabold uppercase tracking-[.08em] text-white shadow-sm transition hover:bg-[#096357] disabled:opacity-60"
+                >
+                  {submitting ? text.sending : text.submit}
+                  {!submitting && <ArrowRight className={`h-4 w-4 ${isRtl ? "rotate-180" : ""}`} />}
+                </button>
+              </form>
+            ) : (
+              <div className="flex flex-col items-center justify-between gap-4 py-3 text-center sm:flex-row sm:text-left">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-teal-50">
+                    <CheckCircle2 className="h-5 w-5 text-teal-700" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-[#0D2722]">{text.successTitle}</div>
+                    <div className="mt-1 text-xs text-slate-500">{text.successText}</div>
+                  </div>
+                </div>
+                <a
+                  href={academyContact.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => pushEvent("whatsapp_click", { page: "/free-trial", location: "success" })}
+                  className="inline-flex h-11 items-center gap-2 rounded-full bg-[#075248] px-5 text-xs font-bold text-white"
+                >
+                  <MessageCircle className="h-4 w-4" />
+                  {text.successWhatsapp}
+                </a>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
 
-      {/* EDITORIAL BENEFITS */}
-      <section className="relative px-4 py-24 sm:py-32">
-        <div className="mx-auto grid max-w-[1320px] gap-12 lg:grid-cols-[.78fr_1.22fr] lg:gap-20">
-          <div className="lg:sticky lg:top-24 lg:self-start">
-            <div className="flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.22em] text-[#9B772D]">
-              <span className="h-px w-8 bg-[#B99645]" />
-              {text.benefitsEyebrow}
-            </div>
-            <h2 className={`mt-5 max-w-xl text-[2.15rem] font-bold leading-[1.08] tracking-[-.02em] text-[#10211E] sm:text-5xl ${isRtl ? "font-elmessiri leading-[1.25]" : "font-serif"}`}>
-              {text.benefitsTitle}
-            </h2>
-            <p className="mt-6 max-w-md text-sm leading-7 text-[#6F7773]">{text.heroText}</p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2">
-            {benefits.map((item, index) => (
-              <div
-                key={item.title}
-                className={`group relative overflow-hidden rounded-[28px] border p-6 sm:p-7 ${
-                  index === 0
-                    ? "border-[#C9AE68]/35 bg-[#0B3D35] text-white sm:row-span-2"
-                    : "border-[#D8D2C4] bg-[#FBF8F0]"
-                }`}
-              >
-                <div className={`flex h-11 w-11 items-center justify-center rounded-full border ${
-                  index === 0
-                    ? "border-[#D4B261]/40 bg-[#D4B261]/10 text-[#E7CD84]"
-                    : "border-[#D5C79F]/60 bg-[#F1E8D0] text-[#8B6721]"
-                }`}>
-                  <item.icon className="h-5 w-5" />
-                </div>
-                <div className={`mt-10 text-[10px] font-black uppercase tracking-[.18em] ${index === 0 ? "text-white/35" : "text-[#A08E68]"}`}>
-                  0{index + 1}
-                </div>
-                <h3 className={`mt-2 text-xl font-bold ${index === 0 ? "text-white" : "text-[#10211E]"}`}>{item.title}</h3>
-                <p className={`mt-3 text-sm leading-7 ${index === 0 ? "text-white/58" : "text-[#6F7773]"}`}>{item.body}</p>
-                {index === 0 && (
-                  <div aria-hidden="true" className="absolute -bottom-20 -right-16 h-44 w-44 rounded-full border border-[#D4B261]/15" />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PROGRAMS */}
-      <section className="border-y border-[#D8D2C4] bg-[#FBF8F0] px-4 py-24 sm:py-32">
-        <div className="mx-auto max-w-[1320px]">
-          <div className="grid gap-8 md:grid-cols-[.8fr_1.2fr] md:items-end">
+      {/* learning journey — connected, not cards */}
+      <section className="relative px-4 pb-24 pt-40 sm:pb-28 sm:pt-44">
+        <div className="mx-auto max-w-[1180px]">
+          <div className="grid gap-10 lg:grid-cols-[.72fr_1.28fr] lg:gap-16">
             <div>
-              <div className="flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.22em] text-[#9B772D]">
-                <span className="h-px w-8 bg-[#B99645]" />
+              <div className="flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.2em] text-[#A37B2C]">
+                <span className="h-px w-9 bg-[#C89B3C]" />
+                {text.howEyebrow}
+              </div>
+              <h2 className={`mt-4 text-[2.2rem] font-bold leading-tight text-[#0D2722] sm:text-5xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
+                {text.howTitle}
+              </h2>
+              <p className="mt-4 max-w-md text-sm leading-7 text-slate-500">{text.formText}</p>
+            </div>
+
+            <div className="relative pt-2">
+              <div className="absolute bottom-8 left-5 top-8 w-px bg-gradient-to-b from-[#C89B3C]/10 via-[#C89B3C]/55 to-[#0A6A5D]/20 md:left-1/2 md:bottom-auto md:right-0 md:top-7 md:h-px md:w-auto" />
+              <div className="grid gap-9 md:grid-cols-3 md:gap-6">
+                {steps.map((step, index) => (
+                  <div key={step.number} className="relative pl-14 md:pl-0 md:pt-10">
+                    <div className="absolute left-0 top-0 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-[#C89B3C]/45 bg-[#FCFBF7] text-[10px] font-black text-[#A37B2C] md:left-1/2 md:-translate-x-1/2">
+                      {step.number}
+                    </div>
+                    <div className="md:text-center">
+                      <h3 className="text-lg font-bold text-[#0D2722]">{step.title}</h3>
+                      <p className="mt-2 text-sm leading-7 text-slate-500">{step.body}</p>
+                    </div>
+                    {index < steps.length - 1 && (
+                      <div className="absolute hidden md:block right-[-14px] top-[26px] h-1.5 w-1.5 rounded-full bg-[#C89B3C]" />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* programs mosaic */}
+      <section className="bg-white px-4 py-24 sm:py-28">
+        <div className="mx-auto max-w-[1260px]">
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.2em] text-[#A37B2C]">
+                <span className="h-px w-9 bg-[#C89B3C]" />
                 {text.programsEyebrow}
               </div>
-              <h2 className={`mt-4 text-[2.15rem] font-bold leading-tight text-[#10211E] sm:text-5xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
+              <h2 className={`mt-4 text-[2.2rem] font-bold leading-tight text-[#0D2722] sm:text-5xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
                 {text.programsTitle}
               </h2>
             </div>
-            <p className="max-w-2xl text-sm leading-7 text-[#6F7773] md:justify-self-end">{text.programsText}</p>
+            <p className="max-w-xl text-sm leading-7 text-slate-500">{text.programsText}</p>
           </div>
 
-          <div className="mt-12 divide-y divide-[#DCD6C8] border-y border-[#DCD6C8]">
-            {programs.map((program, index) => (
-              <div key={program.title} className="group grid gap-5 py-7 transition md:grid-cols-[80px_1fr_1.2fr] md:items-center md:py-8">
-                <div className="text-sm font-black text-[#B99645]">0{index + 1}</div>
-                <div className="flex items-center gap-4">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#D5C79F] bg-[#F5EBD3] text-[#8B6721] transition group-hover:bg-[#0B3D35] group-hover:text-[#E7CD84]">
-                    <program.icon className="h-5 w-5" />
+          <div className="mt-10 grid auto-rows-[240px] gap-4 md:grid-cols-12 md:auto-rows-[220px]">
+            {programs.map((program, index) => {
+              const spans = [
+                "md:col-span-7 md:row-span-2",
+                "md:col-span-5",
+                "md:col-span-5",
+                "md:col-span-12",
+              ];
+              return (
+                <div key={program.title} className={`group relative overflow-hidden rounded-[28px] ${spans[index]}`}>
+                  <Image
+                    src={programImages[index]}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, 60vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.035]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#062B25]/92 via-[#062B25]/35 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-7">
+                    <div className="mb-2 flex items-center gap-2 text-[9px] font-black uppercase tracking-[.16em] text-[#E0C77F]">
+                      <span>0{index + 1}</span>
+                      <span className="h-px w-8 bg-[#E0C77F]/70" />
+                    </div>
+                    <h3 className="text-xl font-bold sm:text-2xl">{program.title}</h3>
+                    <p className={`mt-2 max-w-xl text-sm leading-6 text-white/72 ${index === 3 ? "md:max-w-2xl" : ""}`}>{program.body}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-[#10211E]">{program.title}</h3>
                 </div>
-                <p className="text-sm leading-7 text-[#6F7773]">{program.body}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="px-4 py-24 sm:py-32">
-        <div className="mx-auto max-w-[1180px]">
-          <div className="mx-auto max-w-2xl text-center">
-            <div className="text-[10px] font-extrabold uppercase tracking-[.22em] text-[#9B772D]">{text.howEyebrow}</div>
-            <h2 className={`mt-4 text-[2.1rem] font-bold text-[#10211E] sm:text-5xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
-              {text.howTitle}
-            </h2>
-          </div>
-
-          <div className="relative mt-14 grid gap-8 md:grid-cols-3">
-            <div aria-hidden="true" className="absolute left-[16%] right-[16%] top-5 hidden h-px bg-gradient-to-r from-transparent via-[#C9AE68] to-transparent md:block" />
-            {steps.map((step) => (
-              <div key={step.number} className="relative text-center">
-                <div className="relative z-10 mx-auto flex h-10 w-10 items-center justify-center rounded-full border border-[#C9AE68] bg-[#F5F0E6] text-[10px] font-black text-[#9B772D]">
-                  {step.number}
-                </div>
-                <h3 className="mt-6 text-lg font-bold text-[#10211E]">{step.title}</h3>
-                <p className="mx-auto mt-2 max-w-xs text-sm leading-7 text-[#6F7773]">{step.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PRICE FRAME */}
-      <section className="px-4 pb-24 sm:pb-32">
-        <div className="relative mx-auto max-w-[1180px] overflow-hidden rounded-[34px] border border-[#C8AA5D]/25 bg-[#08231E] p-7 text-white shadow-[0_40px_100px_-55px_rgba(6,23,19,.95)] sm:p-10 lg:p-14">
-          <div aria-hidden="true" className="absolute -right-24 -top-24 h-64 w-64 rounded-full border border-[#D4B261]/15" />
-          <div aria-hidden="true" className="absolute -left-16 -bottom-24 h-56 w-56 rounded-full bg-[#D4B261]/5 blur-2xl" />
-          <div className="relative grid gap-10 md:grid-cols-[1.05fr_.95fr] md:items-center">
-            <div>
-              <div className="text-[10px] font-extrabold uppercase tracking-[.22em] text-[#D4B261]">{text.pricingEyebrow}</div>
-              <h2 className={`mt-4 max-w-xl text-[2rem] font-bold leading-tight sm:text-4xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
-                {text.pricingTitle}
-              </h2>
-              <p className="mt-4 max-w-xl text-sm leading-7 text-white/55">{text.pricingText}</p>
+      {/* teachers + benefits fused into one composition */}
+      <section className="relative overflow-hidden bg-[#EEF5F1] px-4 py-24 sm:py-32">
+        <div className="absolute -right-32 top-20 h-[420px] w-[420px] rounded-full border border-[#0A6A5D]/8" />
+        <div className="mx-auto grid max-w-[1260px] gap-12 lg:grid-cols-[1.02fr_.98fr] lg:items-center lg:gap-16">
+          <div className="relative h-[560px]">
+            <div className="absolute left-0 top-0 h-[78%] w-[62%] overflow-hidden rounded-[34px] bg-white shadow-[0_30px_70px_-42px_rgba(15,23,42,.4)]">
+              <Image src="/images/team/omar.webp" alt="" fill sizes="40vw" className="object-cover object-top" />
             </div>
-            <div className="space-y-3">
-              {[text.pricingPoint1, text.pricingPoint2, text.pricingPoint3].map((item) => (
-                <div key={item} className="flex items-center gap-3 border-b border-white/9 pb-3 text-sm font-semibold text-white/75">
-                  <CheckCircle2 className="h-4 w-4 shrink-0 text-[#D4B261]" />
-                  {item}
+            <div className="absolute bottom-0 right-0 h-[62%] w-[54%] overflow-hidden rounded-[34px] border-[8px] border-[#EEF5F1] bg-white shadow-[0_30px_70px_-42px_rgba(15,23,42,.4)]">
+              <Image src="/images/team/ahmed.webp" alt="" fill sizes="34vw" className="object-cover object-top" />
+            </div>
+            <div className="absolute left-[48%] top-[38%] flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#C89B3C]/35 bg-[#FFFDF8]/95 text-center shadow-xl backdrop-blur">
+              <div>
+                <div className="text-xl font-black text-[#075248]">{academyStats.tutors}+</div>
+                <div className="text-[8px] font-bold uppercase tracking-[.12em] text-slate-400">{text.statsTutors}</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.2em] text-[#A37B2C]">
+              <span className="h-px w-9 bg-[#C89B3C]" />
+              {text.benefitsEyebrow}
+            </div>
+            <h2 className={`mt-4 text-[2.2rem] font-bold leading-tight text-[#0D2722] sm:text-5xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
+              {text.benefitsTitle}
+            </h2>
+
+            <div className="mt-8 divide-y divide-slate-200/80 border-y border-slate-200/80">
+              {benefits.map((item, index) => (
+                <div key={item.title} className="grid grid-cols-[44px_1fr] gap-4 py-5">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#075248] shadow-sm">
+                    <item.icon className="h-4.5 w-4.5" />
+                  </div>
+                  <div>
+                    <div className="text-[9px] font-black uppercase tracking-[.14em] text-[#A37B2C]">0{index + 1}</div>
+                    <h3 className="mt-1 text-base font-bold text-[#0D2722]">{item.title}</h3>
+                    <p className="mt-1.5 text-sm leading-6 text-slate-500">{item.body}</p>
+                  </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* integrated trust + price */}
+      <section className="px-4 py-24 sm:py-28">
+        <div className="mx-auto max-w-[1180px]">
+          <div className="grid overflow-hidden rounded-[34px] border border-slate-200 bg-white md:grid-cols-[.92fr_1.08fr]">
+            <div className="bg-[#075248] p-7 text-white sm:p-10 lg:p-12">
+              <div className="text-[10px] font-extrabold uppercase tracking-[.2em] text-[#E0C77F]">{text.pricingEyebrow}</div>
+              <h2 className={`mt-4 text-[2rem] font-bold leading-tight sm:text-4xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
+                {text.pricingTitle}
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-white/65">{text.pricingText}</p>
+
+              <div className="mt-7 space-y-3">
+                {[text.pricingPoint1, text.pricingPoint2, text.pricingPoint3].map((item) => (
+                  <div key={item} className="flex items-center gap-3 text-sm font-semibold text-white/82">
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-[#E0C77F]" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+
               <a
                 href="#trial-form"
-                className="mt-5 inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-full bg-[#D4B261] px-6 text-[11px] font-extrabold uppercase tracking-[.09em] text-[#09241E]"
+                className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-6 text-[11px] font-extrabold uppercase tracking-[.08em] text-[#075248]"
               >
                 {text.primary}
                 <ArrowRight className={`h-4 w-4 ${isRtl ? "rotate-180" : ""}`} />
               </a>
             </div>
+
+            <div className="grid grid-cols-2">
+              {[
+                [`${academyStats.students}+`, text.statsStudents],
+                [`${academyStats.countries}+`, text.statsCountries],
+                [`${academyStats.years}+`, text.statsYears],
+                [`${academyStats.tutors}+`, text.statsTutors],
+              ].map(([value, label], index) => (
+                <div key={label} className={`flex min-h-40 flex-col justify-end p-6 sm:p-8 ${index % 2 === 0 ? "border-r border-slate-200" : ""} ${index < 2 ? "border-b border-slate-200" : ""}`}>
+                  <div className="text-3xl font-black text-[#075248] sm:text-4xl">{value}</div>
+                  <div className="mt-2 text-[9px] font-bold uppercase tracking-[.14em] text-slate-400">{label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="border-t border-[#D8D2C4] bg-[#FBF8F0] px-4 py-24 sm:py-32">
-        <div className="mx-auto grid max-w-[1180px] gap-12 lg:grid-cols-[.72fr_1.28fr] lg:gap-20">
+      {/* FAQ as editorial split */}
+      <section className="bg-[#F8FAF7] px-4 py-24 sm:py-28">
+        <div className="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[.7fr_1.3fr] lg:gap-16">
           <div>
-            <div className="flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.22em] text-[#9B772D]">
-              <span className="h-px w-8 bg-[#B99645]" />
+            <div className="flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.2em] text-[#A37B2C]">
+              <span className="h-px w-9 bg-[#C89B3C]" />
               {text.faqEyebrow}
             </div>
-            <h2 className={`mt-4 text-[2.1rem] font-bold leading-tight text-[#10211E] sm:text-5xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
+            <h2 className={`mt-4 text-[2.15rem] font-bold leading-tight text-[#0D2722] sm:text-5xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
               {text.faqTitle}
             </h2>
           </div>
-
-          <div className="divide-y divide-[#DCD6C8] border-y border-[#DCD6C8]">
+          <div className="divide-y divide-slate-200 border-y border-slate-200">
             {faqs.map(([question, answer]) => (
               <details key={question} className="group py-5">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-[15px] font-bold text-[#10211E]">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-[15px] font-bold text-[#0D2722]">
                   {question}
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#D5C79F] text-[#9B772D]">
-                    <ChevronDown className="h-3.5 w-3.5 transition group-open:rotate-180" />
-                  </span>
+                  <ChevronDown className="h-4 w-4 shrink-0 text-[#A37B2C] transition group-open:rotate-180" />
                 </summary>
-                <p className="max-w-2xl pt-3 text-sm leading-7 text-[#6F7773]">{answer}</p>
+                <p className="max-w-2xl pt-3 text-sm leading-7 text-slate-500">{answer}</p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="relative overflow-hidden bg-[#061713] px-4 py-24 text-white sm:py-28">
-        <div aria-hidden="true" className="absolute left-1/2 top-[-180px] h-[360px] w-[360px] -translate-x-1/2 rounded-full border border-[#D4B261]/15" />
+      {/* final editorial CTA */}
+      <section className="relative overflow-hidden bg-white px-4 py-24 sm:py-28">
+        <div className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#C89B3C]/12" />
         <div className="relative mx-auto max-w-4xl text-center">
-          <div className="mx-auto mb-5 h-px w-14 bg-[#D4B261]" />
-          <h2 className={`text-[2.15rem] font-bold leading-tight sm:text-5xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
+          <div className="mx-auto h-px w-14 bg-[#C89B3C]" />
+          <h2 className={`mt-6 text-[2.2rem] font-bold leading-tight text-[#0D2722] sm:text-5xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
             {text.finalTitle}
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-white/55">{text.finalText}</p>
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-500">{text.finalText}</p>
           <a
             href="#trial-form"
-            className="mt-8 inline-flex min-h-14 items-center gap-2 rounded-full bg-[#D4B261] px-8 text-[11px] font-extrabold uppercase tracking-[.09em] text-[#09241E] shadow-[0_20px_50px_-22px_rgba(212,178,97,.72)]"
+            className="mt-8 inline-flex min-h-14 items-center gap-2 rounded-full bg-[#075248] px-8 text-[11px] font-extrabold uppercase tracking-[.08em] text-white shadow-[0_18px_40px_-24px_rgba(7,82,72,.75)]"
           >
             {text.finalCta}
             <ArrowRight className={`h-4 w-4 ${isRtl ? "rotate-180" : ""}`} />
@@ -792,28 +838,25 @@ export function FreeTrialLanding() {
         </div>
       </section>
 
-      <footer className="border-t border-white/8 bg-[#061713] px-4 py-7 text-white">
-        <div className="mx-auto flex max-w-[1320px] flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
+      <footer className="border-t border-slate-200 bg-white px-4 py-7">
+        <div className="mx-auto flex max-w-[1260px] flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
           <div className="flex items-center gap-2">
             <img src="/header-icon.png" alt="" className="h-9 w-auto" />
             <div>
-              <div className="text-sm font-bold text-white">{text.footer}</div>
-              <div className="mt-0.5 text-[9px] uppercase tracking-[.12em] text-white/35">{text.footerText}</div>
+              <div className="text-sm font-bold text-[#075248]">{text.footer}</div>
+              <div className="mt-0.5 text-[9px] uppercase tracking-[.12em] text-slate-400">{text.footerText}</div>
             </div>
           </div>
-          <div className="text-[10px] text-white/30">
-            © {new Date().getFullYear()} Afaq Al-Quran Academy
-          </div>
+          <div className="text-[10px] text-slate-400">© {new Date().getFullYear()} Afaq Al-Quran Academy</div>
         </div>
       </footer>
 
-      {/* mobile conversion bar */}
       <div className="fixed inset-x-3 bottom-3 z-50 md:hidden">
         <a
           href="#trial-form"
-          className="flex min-h-13 items-center justify-center gap-2 rounded-full border border-[#E4C775]/40 bg-[#0B3D35]/95 px-5 text-[11px] font-extrabold uppercase tracking-[.08em] text-white shadow-[0_18px_50px_-20px_rgba(0,0,0,.75)] backdrop-blur-xl"
+          className="flex min-h-13 items-center justify-center gap-2 rounded-full bg-[#075248]/95 px-5 text-[11px] font-extrabold uppercase tracking-[.08em] text-white shadow-[0_18px_45px_-20px_rgba(15,23,42,.65)] backdrop-blur-xl"
         >
-          <Sparkles className="h-4 w-4 text-[#D4B261]" />
+          <Sparkles className="h-4 w-4 text-[#E0C77F]" />
           {text.primary}
         </a>
       </div>
