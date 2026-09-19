@@ -54,7 +54,7 @@ export function Header() {
             >
               <div className="relative w-[30px] h-[42px] sm:w-[32px] sm:h-[46px] md:w-[38px] md:h-[54px] shrink-0 transition-transform duration-500 group-hover:scale-[1.04]">
                 <Image
-                  src="/icon.png"
+                  src="/header-icon.svg"
                   alt=""
                   fill
                   sizes="(max-width: 640px) 30px, (max-width: 768px) 32px, 38px"
