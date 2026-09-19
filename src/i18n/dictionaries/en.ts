@@ -1,3 +1,5 @@
+import { academyStats } from "@/data/site";
+
 const en = {
   nav: {
     home: "Home",
@@ -16,7 +18,7 @@ const en = {
       highlight: "Islamic Sciences",
     },
     description:
-      "Join thousands of students worldwide in a premium learning experience. Expert scholars, personalized sessions, and a curriculum that transforms your connection with sacred knowledge.",
+      `Join ${academyStats.students}+ students worldwide in a premium learning experience. Expert scholars, personalized sessions, and a curriculum that transforms your connection with sacred knowledge.`,
     buttons: {
       start: "Book Free Trial",
       explore: "Explore Courses",
@@ -62,11 +64,11 @@ const en = {
       description: "To be the premier global destination for rigorous and reliable Islamic education."
     },
     stats: {
-      students: "+500",
+      students: `+${academyStats.students}`,
       studentsLabel: "Global Students",
-      scholars: "+50",
+      scholars: `+${academyStats.tutors}`,
       scholarsLabel: "Azhar Scholars",
-      years: "+10",
+      years: `+${academyStats.years}`,
       yearsLabel: "Years of Excellence"
     }
   },
@@ -124,7 +126,7 @@ const en = {
   },
   cta: {
     title: "Ready to Begin Your Journey?",
-    subtitle: "Join thousands of students who transformed their lives through sacred knowledge.",
+    subtitle: `Join ${academyStats.students}+ students learning Quran, Arabic, and Islamic studies with us.`,
     button: "Book Your Free Trial Now",
   },
   form: {

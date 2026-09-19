@@ -12,6 +12,7 @@ import {
   Search,
 } from "lucide-react";
 import { CountUp } from "@/components/effects/CountUp";
+import { academyStats } from "@/data/site";
 import Image from "next/image";
 
 export function CoursesHero() {
@@ -20,7 +21,7 @@ export function CoursesHero() {
   const stats = [
     {
       icon: BookOpen,
-      value: 20,
+      value: academyStats.courses,
       suffix: "+",
       labelAr: "كورس متاح",
       labelEn: "Active Courses",
@@ -31,7 +32,7 @@ export function CoursesHero() {
     },
     {
       icon: Users,
-      value: 500,
+      value: academyStats.students,
       suffix: "+",
       labelAr: "طالب نشط",
       labelEn: "Active Students",
@@ -42,7 +43,7 @@ export function CoursesHero() {
     },
     {
       icon: GraduationCap,
-      value: 50,
+      value: academyStats.tutors,
       suffix: "+",
       labelAr: "معلم أزهري",
       labelEn: "Azhar Scholars",
@@ -53,7 +54,7 @@ export function CoursesHero() {
     },
     {
       icon: Globe,
-      value: 30,
+      value: academyStats.countries,
       suffix: "+",
       labelAr: "دولة",
       labelEn: "Countries",

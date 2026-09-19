@@ -1,3 +1,5 @@
+import { academyStats } from "@/data/site";
+
 const ar = {
   nav: {
     home: "الرئيسية",
@@ -16,7 +18,7 @@ const ar = {
       highlight: "والعلوم الشرعية",
     },
     description:
-      "انضم إلى آلاف الطلاب حول العالم في تجربة تعليمية متميزة. علماء متخصصون، حصص فردية، ومنهج يحوّل علاقتك بالعلم الشرعي.",
+      `انضم إلى أكثر من ${academyStats.students} طالب حول العالم في تجربة تعليمية متميزة. علماء متخصصون، حصص فردية، ومنهج يحوّل علاقتك بالعلم الشرعي.`,
     buttons: {
       start: "احجز حصة مجانية",
       explore: "تصفح الدورات",
@@ -62,11 +64,11 @@ const ar = {
       description: "أن نكون الوجهة الأولى عالمياً للتعليم الإسلامي الرصين والموثوق."
     },
     stats: {
-      students: "+500",
+      students: `+${academyStats.students}`,
       studentsLabel: "طالب حول العالم",
-      scholars: "+50",
+      scholars: `+${academyStats.tutors}`,
       scholarsLabel: "عالم ومعلم أزهري",
-      years: "+10",
+      years: `+${academyStats.years}`,
       yearsLabel: "سنوات من العطاء"
     }
   },
@@ -124,7 +126,7 @@ const ar = {
   },
   cta: {
     title: "مستعد لبدء رحلتك؟",
-    subtitle: "انضم إلى آلاف الطلاب الذين غيّروا حياتهم من خلال العلم الشرعي.",
+    subtitle: `انضم إلى أكثر من ${academyStats.students} طالب يتعلمون القرآن والعربية والعلوم الشرعية معنا.`,
     button: "احجز حصتك المجانية الآن",
   },
   form: {

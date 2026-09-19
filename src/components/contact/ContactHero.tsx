@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Headset, ShieldCheck, Sparkles, Clock, Users, Globe } from "lucide-react";
 import Image from "next/image";
+import { academyStats } from "@/data/site";
 
 export function ContactHero() {
   const { isRtl } = useLanguage();
@@ -18,15 +19,15 @@ export function ContactHero() {
     },
     {
       icon: Users,
-      valueAr: "500+",
-      valueEn: "500+",
+      valueAr: `${academyStats.students}+`,
+      valueEn: `${academyStats.students}+`,
       labelAr: "طالب حول العالم",
       labelEn: "Students Worldwide",
     },
     {
       icon: Globe,
-      valueAr: "30+",
-      valueEn: "30+",
+      valueAr: `${academyStats.countries}+`,
+      valueEn: `${academyStats.countries}+`,
       labelAr: "دولة",
       labelEn: "Countries",
     },

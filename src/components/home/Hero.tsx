@@ -7,6 +7,7 @@ import Image from "next/image";
 import { ArrowRight, Play, Sparkles, GraduationCap, Award, Globe, BookOpen } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { CountUp } from "@/components/effects/CountUp";
+import { academyStats } from "@/data/site";
 
 export function Hero() {
   const { t, isRtl } = useLanguage();
@@ -175,7 +176,7 @@ export function Hero() {
                 </div>
                 <div className="text-center">
                   <h4 className="text-xl md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
-                    <CountUp end={50} suffix="+" className="font-black text-slate-900" />
+                    <CountUp end={academyStats.tutors} suffix="+" className="font-black text-slate-900" />
                   </h4>
                   <p className={`text-slate-600 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
                     {isRtl ? "معلم خبير" : "Expert Tutors"}
@@ -193,7 +194,7 @@ export function Hero() {
                 </div>
                 <div className="text-center">
                   <h4 className="text-xl md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
-                    <CountUp end={20} suffix="+" className="font-black text-slate-900" />
+                    <CountUp end={academyStats.courses} suffix="+" className="font-black text-slate-900" />
                   </h4>
                   <p className={`text-slate-600 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
                     {isRtl ? "كورس متاح" : "Active Courses"}
@@ -211,7 +212,7 @@ export function Hero() {
                 </div>
                 <div className="text-center">
                   <h4 className="text-xl md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
-                    <CountUp end={10} suffix="+" className="font-black text-slate-900" />
+                    <CountUp end={academyStats.years} suffix="+" className="font-black text-slate-900" />
                   </h4>
                   <p className={`text-slate-600 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
                     {isRtl ? "سنوات خبرة" : "Years Experience"}
@@ -229,7 +230,7 @@ export function Hero() {
                 </div>
                 <div className="text-center">
                   <h4 className="text-xl md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
-                    <CountUp end={30} suffix="+" className="font-black text-slate-900" />
+                    <CountUp end={academyStats.countries} suffix="+" className="font-black text-slate-900" />
                   </h4>
                   <p className={`text-slate-600 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
                     {isRtl ? "دولة" : "Countries"}

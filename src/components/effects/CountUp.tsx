@@ -42,14 +42,20 @@ export function CountUp({
   }, [springValue]);
 
   return (
-    <motion.span
-      ref={ref}
-      className={className}
-      initial={{ opacity: 0, y: 10 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5 }}
-    >
-      {prefix}{display}{suffix}
-    </motion.span>
+    <>
+      <span className="sr-only">
+        {prefix}{end}{suffix}
+      </span>
+      <motion.span
+        ref={ref}
+        aria-hidden="true"
+        className={className}
+        initial={{ opacity: 0, y: 10 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5 }}
+      >
+        {prefix}{display}{suffix}
+      </motion.span>
+    </>
   );
 }
