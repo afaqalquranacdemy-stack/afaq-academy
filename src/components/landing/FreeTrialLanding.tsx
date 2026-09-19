@@ -14,6 +14,7 @@ import {
   Globe2,
   GraduationCap,
   MessageCircle,
+  Mail,
   ShieldCheck,
   Sparkles,
   UserRound,
@@ -539,55 +540,79 @@ export function FreeTrialLanding() {
                   aria-hidden="true"
                 />
 
-                <label className="block">
+                <label className="group/field block">
                   <span className="mb-2 block text-[10px] font-extrabold uppercase tracking-[.13em] text-slate-500">{text.name}</span>
-                  <input
-                    required
-                    value={form.name}
-                    onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
-                    className="h-13 w-full rounded-[13px] border border-slate-200 bg-[#F8FAF9] px-4 text-sm text-slate-800 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
-                  />
+                  <div className="relative">
+                    <span className="pointer-events-none absolute left-2.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-[9px] border border-teal-100 bg-teal-50/80 text-[#075248] transition group-focus-within/field:border-teal-200 group-focus-within/field:bg-teal-100/70">
+                      <UserRound className="h-4 w-4" strokeWidth={1.8} />
+                    </span>
+                    <input
+                      required
+                      value={form.name}
+                      onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
+                      className="h-13 w-full rounded-[13px] border border-slate-200 bg-[#F8FAF9] pl-12 pr-4 text-sm text-slate-800 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8 rtl:pl-4 rtl:pr-12"
+                    />
+                    <span className="pointer-events-none absolute right-3 top-1/2 hidden h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[#C89B3C]/70 group-focus-within/field:block rtl:left-3 rtl:right-auto" />
+                  </div>
                 </label>
 
-                <label className="block">
+                <label className="group/field block">
                   <span className="mb-2 block text-[10px] font-extrabold uppercase tracking-[.13em] text-slate-500">{text.email}</span>
-                  <input
-                    type="email"
-                    required
-                    value={form.email}
-                    onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
-                    className="h-13 w-full rounded-[13px] border border-slate-200 bg-[#F8FAF9] px-4 text-sm text-slate-800 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
-                    dir="ltr"
-                  />
+                  <div className="relative" dir="ltr">
+                    <span className="pointer-events-none absolute left-2.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-[9px] border border-teal-100 bg-teal-50/80 text-[#075248] transition group-focus-within/field:border-teal-200 group-focus-within/field:bg-teal-100/70">
+                      <Mail className="h-4 w-4" strokeWidth={1.8} />
+                    </span>
+                    <input
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
+                      className="h-13 w-full rounded-[13px] border border-slate-200 bg-[#F8FAF9] pl-12 pr-4 text-sm text-slate-800 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
+                      dir="ltr"
+                    />
+                    <span className="pointer-events-none absolute right-3 top-1/2 hidden h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[#C89B3C]/70 group-focus-within/field:block" />
+                  </div>
                 </label>
 
-                <label className="block">
+                <label className="group/field block">
                   <span className="mb-2 block text-[10px] font-extrabold uppercase tracking-[.13em] text-slate-500">{text.whatsappLabel}</span>
-                  <input
-                    type="tel"
-                    required
-                    value={form.whatsapp}
-                    onChange={(e) => setForm((prev) => ({ ...prev, whatsapp: e.target.value }))}
-                    placeholder={locationData.code ? `${locationData.code} 104 121 3922` : "+1 555 123 4567"}
-                    className="h-13 w-full rounded-[13px] border border-slate-200 bg-[#F8FAF9] px-4 text-sm text-slate-800 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
-                    dir="ltr"
-                  />
+                  <div className="relative" dir="ltr">
+                    <span className="pointer-events-none absolute left-2.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-[9px] border border-teal-100 bg-teal-50/80 text-[#075248] transition group-focus-within/field:border-teal-200 group-focus-within/field:bg-teal-100/70">
+                      <MessageCircle className="h-4 w-4" strokeWidth={1.8} />
+                    </span>
+                    <input
+                      type="tel"
+                      required
+                      value={form.whatsapp}
+                      onChange={(e) => setForm((prev) => ({ ...prev, whatsapp: e.target.value }))}
+                      placeholder={locationData.code ? `${locationData.code} 104 121 3922` : "+1 555 123 4567"}
+                      className="h-13 w-full rounded-[13px] border border-slate-200 bg-[#F8FAF9] pl-12 pr-4 text-sm text-slate-800 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
+                      dir="ltr"
+                    />
+                    <span className="pointer-events-none absolute right-3 top-1/2 hidden h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[#C89B3C]/70 group-focus-within/field:block" />
+                  </div>
                 </label>
 
-                <label className="block">
+                <label className="group/field block">
                   <span className="mb-2 block text-[10px] font-extrabold uppercase tracking-[.13em] text-slate-500">{text.interest}</span>
-                  <select
-                    required
-                    value={form.course}
-                    onChange={(e) => setForm((prev) => ({ ...prev, course: e.target.value }))}
-                    className="h-13 w-full appearance-none rounded-[13px] border border-slate-200 bg-[#F8FAF9] px-4 text-sm text-slate-800 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
-                  >
-                    <option value="">{text.choose}</option>
-                    <option value="quran">{text.quran}</option>
-                    <option value="arabic">{text.arabic}</option>
-                    <option value="islamic">{text.islamic}</option>
-                    <option value="kids">{text.kids}</option>
-                  </select>
+                  <div className="relative">
+                    <span className="pointer-events-none absolute left-2.5 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-[9px] border border-teal-100 bg-teal-50/80 text-[#075248] transition group-focus-within/field:border-teal-200 group-focus-within/field:bg-teal-100/70">
+                      <BookOpen className="h-4 w-4" strokeWidth={1.8} />
+                    </span>
+                    <select
+                      required
+                      value={form.course}
+                      onChange={(e) => setForm((prev) => ({ ...prev, course: e.target.value }))}
+                      className="h-13 w-full appearance-none rounded-[13px] border border-slate-200 bg-[#F8FAF9] pl-12 pr-10 text-sm text-slate-800 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8 rtl:pl-10 rtl:pr-12"
+                    >
+                      <option value="">{text.choose}</option>
+                      <option value="quran">{text.quran}</option>
+                      <option value="arabic">{text.arabic}</option>
+                      <option value="islamic">{text.islamic}</option>
+                      <option value="kids">{text.kids}</option>
+                    </select>
+                    <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 transition group-focus-within/field:text-[#075248] rtl:left-3 rtl:right-auto" strokeWidth={1.8} />
+                  </div>
                 </label>
 
                 <button
