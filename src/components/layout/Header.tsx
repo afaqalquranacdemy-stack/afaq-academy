@@ -50,14 +50,14 @@ export function Header() {
               initial={{ opacity: 0, x: isRtl ? 20 : -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex items-center gap-1.5 md:gap-2"
+              className="flex items-center gap-1 md:gap-1.5"
             >
-              <div className="relative w-[36px] h-[42px] sm:w-[39px] sm:h-[46px] md:w-[46px] md:h-[54px] shrink-0 transition-transform duration-500 group-hover:scale-[1.035]">
+              <div className="relative w-[28px] h-[42px] sm:w-[31px] sm:h-[46px] md:w-[36px] md:h-[54px] shrink-0 transition-transform duration-500 group-hover:scale-[1.035]">
                 <Image
-                  src="/header-icon.png"
+                  src="/header-icon-final.png"
                   alt=""
                   fill
-                  sizes="(max-width: 640px) 36px, (max-width: 768px) 39px, 46px"
+                  sizes="(max-width: 640px) 28px, (max-width: 768px) 31px, 36px"
                   className="object-contain"
                   priority
                 />
@@ -65,7 +65,7 @@ export function Header() {
 
               <div className="flex min-w-0 flex-col justify-center">
                 <span
-                  className="whitespace-nowrap font-serif text-[8px] sm:text-[9px] md:text-[10px] lg:text-[11px] font-extrabold leading-none tracking-[0.025em] text-[#064E46]"
+                  className="whitespace-nowrap font-serif text-[8.5px] sm:text-[9.5px] md:text-[10.5px] lg:text-[11.5px] font-bold leading-none tracking-[0.03em] text-[#064E46]"
                   dir="ltr"
                 >
                   AFAQ AL-QURAN ACADEMY
@@ -73,7 +73,7 @@ export function Header() {
 
                 <span
                   aria-hidden="true"
-                  className="my-[3px] block h-px w-full bg-gradient-to-r from-[#B8892E]/35 via-[#C89B3C] to-[#B8892E]/35"
+                  className="my-[3px] block h-px w-full bg-[#C89B3C]"
                 />
 
                 <span
