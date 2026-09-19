@@ -915,47 +915,109 @@ export function FreeTrialLanding() {
         </div>
       </section>
 
-      {/* teachers + benefits fused into one composition */}
+      {/* teachers + benefits — editorial academic composition */}
       <section className="relative overflow-hidden bg-[#EEF5F1] px-4 py-24 sm:py-32">
-        <div className="absolute -right-32 top-20 h-[420px] w-[420px] rounded-full border border-[#0A6A5D]/8" />
-        <div className="mx-auto grid max-w-[1260px] gap-12 lg:grid-cols-[1.02fr_.98fr] lg:items-center lg:gap-16">
-          <div className="relative h-[560px]">
-            <div className="absolute left-0 top-0 h-[78%] w-[62%] overflow-hidden rounded-[34px] bg-white shadow-[0_30px_70px_-42px_rgba(15,23,42,.4)]">
-              <Image src="/images/team/omar.webp" alt="" fill sizes="40vw" className="object-cover object-top" />
-            </div>
-            <div className="absolute bottom-0 right-0 h-[62%] w-[54%] overflow-hidden rounded-[34px] border-[8px] border-[#EEF5F1] bg-white shadow-[0_30px_70px_-42px_rgba(15,23,42,.4)]">
-              <Image src="/images/team/ahmed.webp" alt="" fill sizes="34vw" className="object-cover object-top" />
-            </div>
-            <div className="absolute left-[48%] top-[38%] flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#C89B3C]/35 bg-[#FFFDF8]/95 text-center shadow-xl backdrop-blur">
-              <div>
-                <div className="text-xl font-black text-[#075248]">{academyStats.tutors}+</div>
-                <div className="text-[8px] font-bold uppercase tracking-[.12em] text-slate-400">{text.statsTutors}</div>
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#C89B3C]/30 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 opacity-[0.28] [background-image:linear-gradient(rgba(7,82,72,.035)_1px,transparent_1px),linear-gradient(90deg,rgba(7,82,72,.035)_1px,transparent_1px)] [background-size:48px_48px]" />
+
+        <div className="relative mx-auto grid max-w-[1260px] gap-14 lg:grid-cols-[.96fr_1.04fr] lg:items-center lg:gap-20">
+          {/* Faculty visual */}
+          <div className="relative min-h-[560px]">
+            <div className="absolute left-0 top-0 h-[82%] w-[64%] overflow-hidden rounded-[30px] bg-white shadow-[0_30px_70px_-42px_rgba(15,23,42,.38)]">
+              <Image
+                src="/images/team/omar.webp"
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 80vw, 38vw"
+                className="object-cover object-top"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-t from-[#052D27]/76 to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 text-white">
+                <div className="text-[9px] font-extrabold uppercase tracking-[.16em] text-[#E7CF8A]">
+                  {text.oneToOne}
+                </div>
+                <div className="mt-1 text-sm font-bold">{text.benefit1}</div>
               </div>
+            </div>
+
+            <div className="absolute bottom-[2%] right-[2%] h-[58%] w-[52%] overflow-hidden rounded-[28px] border-[7px] border-[#EEF5F1] bg-white shadow-[0_26px_60px_-38px_rgba(15,23,42,.36)]">
+              <Image
+                src="/images/team/ahmed.webp"
+                alt=""
+                fill
+                sizes="(max-width: 1024px) 70vw, 31vw"
+                className="object-cover object-top"
+              />
+            </div>
+
+            <div className="absolute left-[46%] top-[39%] min-w-[122px] -translate-x-1/2 -translate-y-1/2 rounded-[16px] border border-[#C89B3C]/25 bg-[#FFFDF9]/95 px-4 py-3 shadow-[0_16px_36px_-24px_rgba(15,23,42,.35)] backdrop-blur">
+              <div className="flex items-end gap-2">
+                <div className="text-2xl font-black leading-none text-[#075248]">{academyStats.tutors}+</div>
+                <div className="pb-0.5 text-[8px] font-bold uppercase tracking-[.12em] text-slate-400">{text.statsTutors}</div>
+              </div>
+            </div>
+
+            <div className="absolute bottom-[9%] left-[2%] max-w-[220px] rounded-[18px] border border-white/80 bg-white/90 p-4 shadow-[0_18px_44px_-32px_rgba(15,23,42,.28)] backdrop-blur">
+              <div className="flex items-center gap-2 text-[9px] font-extrabold uppercase tracking-[.14em] text-[#A37B2C]">
+                <span className="h-px w-7 bg-[#C89B3C]" />
+                {text.trustLabel}
+              </div>
+              <p className="mt-2 text-xs leading-5 text-slate-500">{text.heroText}</p>
             </div>
           </div>
 
+          {/* Benefits */}
           <div>
             <div className="flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[.2em] text-[#A37B2C]">
               <span className="h-px w-9 bg-[#C89B3C]" />
               {text.benefitsEyebrow}
             </div>
-            <h2 className={`mt-4 text-[2.2rem] font-bold leading-tight text-[#0D2722] sm:text-5xl ${isRtl ? "font-elmessiri" : "font-serif"}`}>
+
+            <h2 className={`mt-4 max-w-2xl text-[2.2rem] font-bold leading-[1.08] text-[#0D2722] sm:text-5xl ${isRtl ? "font-elmessiri leading-[1.24]" : "font-serif"}`}>
               {text.benefitsTitle}
             </h2>
 
-            <div className="mt-8 divide-y divide-slate-200/80 border-y border-slate-200/80">
+            <div className="mt-8 space-y-2">
               {benefits.map((item, index) => (
-                <div key={item.title} className="grid grid-cols-[44px_1fr] gap-4 py-5">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#075248] shadow-sm">
-                    <item.icon className="h-4.5 w-4.5" />
+                <div
+                  key={item.title}
+                  className="group grid grid-cols-[58px_1fr_auto] items-start gap-4 rounded-[18px] border border-transparent px-3 py-4 transition duration-300 hover:border-white/80 hover:bg-white/55 hover:shadow-[0_14px_32px_-28px_rgba(15,23,42,.32)]"
+                >
+                  <div className="relative flex h-12 w-12 items-center justify-center rounded-[15px] border border-white bg-white text-[#075248] shadow-sm transition duration-300 group-hover:-translate-y-0.5 group-hover:border-teal-100 group-hover:bg-teal-50">
+                    <item.icon className="h-5 w-5" strokeWidth={1.75} />
+                    <span className="absolute -right-1.5 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full border border-[#C89B3C]/30 bg-[#FFFDF8] px-1 text-[7px] font-black text-[#A37B2C]">
+                      0{index + 1}
+                    </span>
                   </div>
+
                   <div>
-                    <div className="text-[9px] font-black uppercase tracking-[.14em] text-[#A37B2C]">0{index + 1}</div>
-                    <h3 className="mt-1 text-base font-bold text-[#0D2722]">{item.title}</h3>
-                    <p className="mt-1.5 text-sm leading-6 text-slate-500">{item.body}</p>
+                    <h3 className="text-[1.05rem] font-extrabold text-[#0D2722]">{item.title}</h3>
+                    <p className="mt-1.5 max-w-xl text-sm leading-6 text-slate-500">{item.body}</p>
+                  </div>
+
+                  <div className="mt-1 hidden h-8 w-8 items-center justify-center rounded-full border border-slate-200 bg-white/70 text-slate-300 transition group-hover:border-teal-100 group-hover:text-[#075248] sm:flex">
+                    <Check className="h-3.5 w-3.5" strokeWidth={2} />
                   </div>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3 border-t border-[#075248]/10 pt-6 sm:flex-row">
+              <a
+                href="#trial-form"
+                className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#075248] px-6 text-[10px] font-extrabold uppercase tracking-[.09em] text-white shadow-[0_14px_30px_-20px_rgba(7,82,72,.65)] transition hover:bg-[#096357]"
+              >
+                {text.primary}
+                <ArrowRight className={`h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 ${isRtl ? "rotate-180 group-hover:-translate-x-0.5" : ""}`} />
+              </a>
+
+              <Link
+                href="/courses"
+                className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-[#075248]/15 bg-white/65 px-6 text-[10px] font-extrabold uppercase tracking-[.09em] text-[#075248] transition hover:border-teal-200 hover:bg-white"
+              >
+                {isRtl ? "استكشف الدورات" : "Explore courses"}
+                <ArrowRight className={`h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 ${isRtl ? "rotate-180 group-hover:-translate-x-0.5" : ""}`} />
+              </Link>
             </div>
           </div>
         </div>
