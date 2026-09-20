@@ -18,7 +18,7 @@ export function AboutTeam() {
       roleEn: "Professor of Tafseer",
       descAr: "دكتوراه في التفسير وعلوم القرآن من جامعة الأزهر. أكثر من ٢٠ عاماً في التدريس.",
       descEn: "PhD in Tafseer & Quranic Sciences from Al-Azhar University. Over 20 years of teaching.",
-      image: "/images/team/ahmed.webp",
+      image: "/images/team/teacher-ahmed.webp",
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ export function AboutTeam() {
       roleEn: "Professor of Qira'at",
       descAr: "مجازة بالقراءات العشر المتواترة من أعلى الأسانيد. أشرفت على أكثر من ١٠٠٠ طالبة.",
       descEn: "Certified in 10 Qira'at with high Isnad. Supervised over 1000 students globally.",
-      image: "/images/team/fatima.webp",
+      image: "/images/team/teacher-fatima.webp",
     },
     {
       id: 3,
@@ -38,7 +38,7 @@ export function AboutTeam() {
       roleEn: "Prof. of Comparative Fiqh",
       descAr: "متخصص في الفقه المقارن والسياسة الشرعية. له العديد من المؤلفات والأبحاث المحكمة.",
       descEn: "Specialist in Comparative Fiqh. Author of numerous peer-reviewed research papers.",
-      image: "/images/team/omar.webp",
+      image: "/images/team/teacher-omar.webp",
     }
   ];
 
@@ -101,7 +101,7 @@ export function AboutTeam() {
                   src={member.image}
                   alt={isRtl ? member.nameAr : member.nameEn}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-80" />
 

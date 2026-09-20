@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X } from "lucide-react";
+import { X } from "lucide-react";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { academyContact } from "@/data/site";
 
@@ -52,7 +53,7 @@ export function FloatingWhatsApp() {
         {/* Orbital pulse ring */}
         <div className="absolute -inset-1.5 md:-inset-2 rounded-full border-2 border-green-400/30 animate-glow-ring" />
         <div className="absolute -inset-3 md:-inset-4 rounded-full border border-green-400/10 animate-glow-ring [animation-delay:-1.2s]" />
-        <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-white relative z-10" />
+        <WhatsAppIcon className="w-6 h-6 md:w-7 md:h-7 text-white relative z-10" />
       </motion.a>
     </div>
   );

@@ -34,7 +34,7 @@ export function CourseInstructor() {
                   <div className="w-64 h-64 md:w-80 md:h-80 rounded-[2.5rem] overflow-hidden relative shadow-2xl border-2 border-white/10">
                     <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
                     <Image
-                      src="/images/team/dr-ahmed.jpg" // Using a dummy image path
+                      src="/images/team/teacher-ahmed.webp"
                       alt={isRtl ? "د. أحمد خليل" : "Dr. Ahmed Khalil"}
                       fill
                       className="object-cover"

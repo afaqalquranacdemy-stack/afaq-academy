@@ -36,6 +36,7 @@ import {
   academyStats,
 } from "@/data/site";
 import { startingMonthlyPrice } from "@/data/pricing";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 
 type LeadForm = {
   name: string;
@@ -64,7 +65,9 @@ const copy = {
     formTitle: "Book your free trial",
     formText: "Tell us how to reach you. Our team will help you choose the right program.",
     name: "Full name",
+    namePlaceholder: "e.g. Abdullah Ahmed",
     email: "Email address",
+    emailPlaceholder: "name@example.com",
     whatsappLabel: "WhatsApp number",
     interest: "I'm interested in",
     choose: "Choose a program",
@@ -171,7 +174,9 @@ const copy = {
     formTitle: "احجز تجربتك المجانية",
     formText: "أرسل بيانات التواصل وسنساعدك في اختيار البرنامج المناسب.",
     name: "الاسم الكامل",
+    namePlaceholder: "مثال: عبد الله أحمد",
     email: "البريد الإلكتروني",
+    emailPlaceholder: "name@example.com",
     whatsappLabel: "رقم واتساب",
     interest: "أرغب في دراسة",
     choose: "اختر البرنامج",
@@ -535,29 +540,33 @@ export function FreeTrialLanding() {
             </div>
           </header>
 
-          <div className="grid items-center gap-8 pb-8 pt-10 md:grid-cols-[1.02fr_.98fr] md:gap-12 md:pb-10 md:pt-12 lg:gap-14">
-            <div className={isRtl ? "text-right" : "text-left"}>
-              <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-[#C89B3C]/35 bg-[#FFFDF8] px-3.5 py-1.5 text-[10px] font-extrabold uppercase tracking-[.16em] text-[#A37B2C] shadow-sm">
+          <div className="grid items-center gap-8 pb-8 pt-8 md:grid-cols-[1.02fr_.98fr] md:gap-12 md:pb-10 md:pt-12 lg:gap-14">
+            <div className="flex flex-col items-center text-center md:items-start md:text-left rtl:md:items-start rtl:md:text-right">
+              <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-[#C89B3C]/35 bg-[#FFFDF8] px-3.5 py-1.5 text-[10px] font-extrabold uppercase tracking-[.16em] text-[#A37B2C] shadow-sm md:mb-6">
                 <AfaqBrandSeal className="h-4 w-auto inline-block shrink-0" />
                 <span>{text.badge}</span>
               </div>
 
-              <h1 className={`max-w-[760px] font-bold tracking-[-.025em] text-[#0D2722] ${isRtl ? "font-elmessiri text-[2.55rem] leading-[1.28] sm:text-5xl lg:text-[4.5rem]" : "font-serif text-[2.8rem] leading-[1.01] sm:text-6xl lg:text-[4.9rem]"}`}>
-                <span>{text.titleA}</span>
-                <span className="block bg-gradient-to-r from-[#0A6A5D] via-[#087063] to-[#C89B3C] bg-clip-text text-transparent">
+              <h1 className={`max-w-[760px] font-bold tracking-[-.025em] text-[#0D2722] text-center md:text-left rtl:md:text-right mx-auto md:mx-0 ${
+                isRtl
+                  ? "font-elmessiri text-[1.85rem] leading-[1.24] xs:text-[2.15rem] sm:text-4xl md:text-5xl lg:text-[4.5rem]"
+                  : "font-serif text-[1.7rem] leading-[1.12] xs:text-[1.95rem] sm:text-4xl md:text-5xl lg:text-[4.75rem]"
+              }`}>
+                <span>{text.titleA} </span>
+                <span className="inline md:block bg-gradient-to-r from-[#0A6A5D] via-[#087063] to-[#C89B3C] bg-clip-text text-transparent">
                   {text.titleB}
                 </span>
-                <span className="mt-2 block text-[#0D2722]/90">{text.titleC}</span>
+                <span className="mt-1.5 block text-[#0D2722]/90 sm:mt-2">{text.titleC}</span>
               </h1>
 
-              <p className="mt-6 max-w-[660px] text-[15px] font-medium leading-7 text-slate-600 sm:text-[17px]">
+              <p className="mt-4 max-w-[620px] text-[14px] font-medium leading-6 text-slate-600 sm:mt-6 sm:text-[17px] sm:leading-7 mx-auto md:mx-0 text-center md:text-left rtl:md:text-right">
                 {text.heroText}
               </p>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-6 flex w-full max-w-md flex-col gap-3 sm:mt-8 sm:w-auto sm:max-w-none sm:flex-row justify-center md:justify-start">
                 <a
                   href="#trial-form"
-                  className="group inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#075248] px-7 text-[12px] font-extrabold uppercase tracking-[.08em] text-white shadow-[0_18px_42px_-24px_rgba(7,82,72,.8)] transition hover:-translate-y-0.5"
+                  className="group inline-flex min-h-13 sm:min-h-14 items-center justify-center gap-2 rounded-full bg-[#075248] px-7 text-[12px] font-extrabold uppercase tracking-[.08em] text-white shadow-[0_18px_42px_-24px_rgba(7,82,72,.8)] transition hover:-translate-y-0.5"
                 >
                   {text.primary}
                   <ArrowRight className={`h-4 w-4 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
@@ -567,14 +576,14 @@ export function FreeTrialLanding() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => pushEvent("whatsapp_click", { page: "/free-trial", location: "hero" })}
-                  className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-7 text-[12px] font-bold text-[#075248] shadow-sm transition hover:border-teal-200"
+                  className="inline-flex min-h-13 sm:min-h-14 items-center justify-center gap-2.5 rounded-full border border-slate-200 bg-white px-7 text-[12px] font-bold text-[#075248] shadow-sm transition hover:border-[#25D366]/50 hover:bg-emerald-50/40"
                 >
-                  <MessageCircle className="h-4 w-4" />
+                  <WhatsAppIcon className="h-4.5 w-4.5 text-[#25D366]" />
                   {text.whatsapp}
                 </a>
               </div>
 
-              <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 text-[11px] font-semibold text-slate-500">
+              <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2.5 text-[10px] sm:text-[11px] font-semibold text-slate-500 md:justify-start sm:mt-7 sm:gap-x-5 sm:gap-y-3">
                 <span className="inline-flex items-center gap-2">
                   <span className="flex h-5 w-5 items-center justify-center rounded-full bg-teal-50 text-[#075248]">
                     <ShieldCheck className="h-3 w-3" strokeWidth={2.2} />
@@ -607,7 +616,7 @@ export function FreeTrialLanding() {
               <div className="absolute left-[10%] top-[2%] h-[82%] w-[66%] rounded-t-[170px] rounded-b-[34px] border border-[#C89B3C]/30 bg-white p-2 shadow-[0_32px_72px_-42px_rgba(15,23,42,.42)]">
                 <div className="relative h-full overflow-hidden rounded-t-[170px] rounded-b-[31px] bg-[#EAF1EC]">
                   <Image
-                    src="/images/team/fatima.webp"
+                    src="/images/team/teacher-fatima.webp"
                     alt=""
                     fill
                     priority
@@ -627,7 +636,7 @@ export function FreeTrialLanding() {
               <div className="absolute right-[1%] top-[19%] w-[41%] overflow-hidden rounded-[22px] border-4 border-[#FCFBF7] bg-white shadow-[0_22px_54px_-32px_rgba(15,23,42,.42)]">
                 <div className="relative aspect-[4/5]">
                   <Image
-                    src="/images/team/ahmed.webp"
+                    src="/images/team/teacher-ahmed.webp"
                     alt=""
                     fill
                     sizes="220px"
@@ -696,7 +705,8 @@ export function FreeTrialLanding() {
                       required
                       value={form.name}
                       onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
-                      className="h-13 w-full rounded-[13px] border border-slate-200 bg-[#F8FAF9] pl-12 pr-4 text-sm text-slate-800 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8 rtl:pl-4 rtl:pr-12"
+                      placeholder={text.namePlaceholder}
+                      className="h-13 w-full rounded-[13px] border border-slate-200 bg-[#F8FAF9] pl-12 pr-4 text-sm text-slate-800 placeholder:text-slate-400 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8 rtl:pl-4 rtl:pr-12"
                     />
                     <span className="pointer-events-none absolute right-3 top-1/2 hidden h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[#C89B3C]/70 group-focus-within/field:block rtl:left-3 rtl:right-auto" />
                   </div>
@@ -713,7 +723,8 @@ export function FreeTrialLanding() {
                       required
                       value={form.email}
                       onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
-                      className="h-13 w-full rounded-[13px] border border-slate-200 bg-[#F8FAF9] pl-12 pr-4 text-sm text-slate-800 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
+                      placeholder={text.emailPlaceholder}
+                      className="h-13 w-full rounded-[13px] border border-slate-200 bg-[#F8FAF9] pl-12 pr-4 text-sm text-slate-800 placeholder:text-slate-400 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
                       dir="ltr"
                     />
                     <span className="pointer-events-none absolute right-3 top-1/2 hidden h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[#C89B3C]/70 group-focus-within/field:block" />
@@ -723,8 +734,8 @@ export function FreeTrialLanding() {
                 <label className="group/field block">
                   <span className="mb-2 block text-[10px] font-extrabold uppercase tracking-[.13em] text-slate-500">{text.whatsappLabel}</span>
                   <div className="relative" dir="ltr">
-                    <span className="pointer-events-none absolute left-2.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-[9px] border border-teal-100 bg-teal-50/80 text-[#075248] transition group-focus-within/field:border-teal-200 group-focus-within/field:bg-teal-100/70">
-                      <MessageCircle className="h-4 w-4" strokeWidth={1.8} />
+                    <span className="pointer-events-none absolute left-2.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-[9px] border border-emerald-100 bg-emerald-50/90 text-[#25D366] transition group-focus-within/field:border-emerald-200 group-focus-within/field:bg-emerald-100/80">
+                      <WhatsAppIcon className="h-4 w-4 text-[#25D366]" />
                     </span>
                     <input
                       type="tel"
@@ -732,7 +743,7 @@ export function FreeTrialLanding() {
                       value={form.whatsapp}
                       onChange={(e) => setForm((prev) => ({ ...prev, whatsapp: e.target.value }))}
                       placeholder={locationData.code ? `${locationData.code} 104 121 3922` : "+1 555 123 4567"}
-                      className="h-13 w-full rounded-[13px] border border-slate-200 bg-[#F8FAF9] pl-12 pr-4 text-sm text-slate-800 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
+                      className="h-13 w-full rounded-[13px] border border-slate-200 bg-[#F8FAF9] pl-12 pr-4 text-sm text-slate-800 placeholder:text-slate-400 outline-none transition focus:border-teal-400 focus:bg-white focus:ring-4 focus:ring-teal-500/8"
                       dir="ltr"
                     />
                     <span className="pointer-events-none absolute right-3 top-1/2 hidden h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[#C89B3C]/70 group-focus-within/field:block" />
@@ -786,9 +797,9 @@ export function FreeTrialLanding() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => pushEvent("whatsapp_click", { page: "/free-trial", location: "success" })}
-                  className="inline-flex h-11 items-center gap-2 rounded-full bg-[#075248] px-5 text-xs font-bold text-white"
+                  className="inline-flex h-11 items-center gap-2 rounded-full bg-[#25D366] px-5 text-xs font-bold text-white shadow-sm transition hover:bg-[#20ba59]"
                 >
-                  <MessageCircle className="h-4 w-4" />
+                  <WhatsAppIcon className="h-4 w-4 text-white" />
                   {text.successWhatsapp}
                 </a>
               </div>
@@ -867,7 +878,7 @@ export function FreeTrialLanding() {
                   </div>
                   <div className="relative h-[245px] w-[190px] overflow-hidden rounded-t-[96px] rounded-b-[24px] border-[6px] border-white bg-slate-100 shadow-[0_24px_60px_-36px_rgba(15,23,42,.34)]">
                     <Image
-                      src="/images/team/fatima.webp"
+                      src="/images/team/teacher-fatima.webp"
                       alt=""
                       fill
                       sizes="190px"
@@ -916,30 +927,41 @@ export function FreeTrialLanding() {
 
           {/* Mobile */}
           <div className="relative mt-10 space-y-0 md:hidden">
-            <div className="absolute bottom-5 left-[23px] top-5 w-px bg-gradient-to-b from-[#C89B3C]/35 via-[#0A6A5D]/28 to-[#C89B3C]/35" />
             {steps.map((step, index) => (
               <div key={step.number} className="relative grid grid-cols-[48px_1fr] gap-4 pb-8 last:pb-0">
-                <div className={`relative z-10 flex h-12 w-12 items-center justify-center rounded-[15px] shadow-sm ${
-                  index === 1
-                    ? "bg-[#075248] text-white"
-                    : "border border-[#C89B3C]/30 bg-white text-[#075248]"
-                }`}>
-                  {index === 0 ? (
-                    <Send className="h-5 w-5" strokeWidth={1.7} />
-                  ) : index === 1 ? (
-                    <UserCheck className="h-5 w-5" strokeWidth={1.7} />
-                  ) : (
-                    <Video className="h-5 w-5" strokeWidth={1.7} />
-                  )}
-                  <span className="absolute -right-1.5 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full border border-[#C89B3C]/35 bg-[#FFFDF8] px-1 text-[7px] font-black text-[#A37B2C]">
-                    {step.number}
-                  </span>
+                {/* Connecting Line between steps - seamlessly spans from icon center to next icon center */}
+                {index < steps.length - 1 && (
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute start-[23px] top-6 -bottom-6 w-0.5 bg-[#C89B3C]/45"
+                  />
+                )}
+
+                {/* Timeline icon column */}
+                <div className="relative flex flex-col items-center">
+                  <div className={`relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-[15px] shadow-sm ${
+                    index === 1
+                      ? "bg-[#075248] text-white"
+                      : "border border-[#C89B3C]/30 bg-white text-[#075248]"
+                  }`}>
+                    {index === 0 ? (
+                      <Send className="h-5 w-5" strokeWidth={1.7} />
+                    ) : index === 1 ? (
+                      <UserCheck className="h-5 w-5" strokeWidth={1.7} />
+                    ) : (
+                      <Video className="h-5 w-5" strokeWidth={1.7} />
+                    )}
+                    <span className="absolute -right-1.5 -top-1.5 flex h-5 min-w-5 items-center justify-center rounded-full border border-[#C89B3C]/35 bg-[#FFFDF8] px-1 text-[7px] font-black text-[#A37B2C]">
+                      {step.number}
+                    </span>
+                  </div>
                 </div>
+
                 <div className="rounded-[22px] border border-slate-200 bg-white p-5 shadow-[0_18px_44px_-34px_rgba(15,23,42,.25)]">
                   {index === 1 && (
                     <div className="relative mb-4 aspect-[16/10] overflow-hidden rounded-[16px]">
                       <Image
-                        src="/images/team/fatima.webp"
+                        src="/images/team/teacher-fatima.webp"
                         alt=""
                         fill
                         sizes="80vw"
@@ -1071,7 +1093,7 @@ export function FreeTrialLanding() {
           <div className="relative min-h-[560px]">
             <div className="absolute left-0 top-0 h-[82%] w-[64%] overflow-hidden rounded-[30px] bg-white shadow-[0_30px_70px_-42px_rgba(15,23,42,.38)]">
               <Image
-                src="/images/team/omar.webp"
+                src="/images/team/teacher-omar.webp"
                 alt=""
                 fill
                 sizes="(max-width: 1024px) 80vw, 38vw"
@@ -1088,7 +1110,7 @@ export function FreeTrialLanding() {
 
             <div className="absolute bottom-[2%] right-[2%] h-[58%] w-[52%] overflow-hidden rounded-[28px] border-[7px] border-[#EEF5F1] bg-white shadow-[0_26px_60px_-38px_rgba(15,23,42,.36)]">
               <Image
-                src="/images/team/ahmed.webp"
+                src="/images/team/teacher-ahmed.webp"
                 alt=""
                 fill
                 sizes="(max-width: 1024px) 70vw, 31vw"
@@ -1426,9 +1448,9 @@ export function FreeTrialLanding() {
               href={academyContact.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-[#1FAF59] px-6 py-3 text-xs font-black uppercase tracking-wider text-white shadow-[0_12px_28px_-12px_rgba(31,175,89,.55)] transition-all duration-200 hover:bg-[#19984C] hover:-translate-y-0.5"
+              className="group inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-xs font-black uppercase tracking-wider text-white shadow-[0_12px_28px_-12px_rgba(37,211,102,.55)] transition-all duration-200 hover:bg-[#20ba59] hover:-translate-y-0.5"
             >
-              <MessageCircle className="h-4 w-4 fill-white text-transparent" />
+              <WhatsAppIcon className="h-4 w-4 text-white" />
               <span>{text.faqStillCta}</span>
               <ArrowRight className={`h-3.5 w-3.5 transition-transform group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
             </a>
@@ -1509,7 +1531,7 @@ export function FreeTrialLanding() {
                   rel="noopener noreferrer"
                   className="group inline-flex min-h-13 items-center justify-center gap-2.5 rounded-full border border-white/20 bg-white/[0.07] px-7 text-xs font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm transition duration-200 hover:border-[#25D366]/60 hover:bg-[#25D366]/15 hover:text-white"
                 >
-                  <MessageCircle className="h-4 w-4 text-[#25D366]" />
+                  <WhatsAppIcon className="h-4.5 w-4.5 text-[#25D366]" />
                   <span>{text.whatsapp}</span>
                 </a>
               </div>
@@ -1589,6 +1611,38 @@ export function FreeTrialLanding() {
           <GraduationCap className="h-4 w-4 text-[#E0C77F]" />
           {text.primary}
         </a>
+      </div>
+
+      {/* Floating Eye-Catching WhatsApp Action Button */}
+      <div
+        aria-label={isRtl ? "تواصل عبر واتساب" : "WhatsApp Quick Contact"}
+        className="fixed bottom-[74px] end-4 z-40 h-13 w-13 md:bottom-7 md:start-7 md:end-auto md:h-14 md:w-14"
+      >
+        <div className="relative flex h-full w-full items-center justify-center group">
+          {/* Animated pulse halo - strictly circular and bounded to button */}
+          <span className="pointer-events-none absolute inset-0 rounded-full bg-[#25D366]/40 animate-ping opacity-75" />
+          <span className="pointer-events-none absolute -inset-1 rounded-full border border-[#25D366]/50 animate-pulse" />
+
+          {/* Desktop Tooltip */}
+          <div className="pointer-events-none absolute bottom-full mb-3 hidden -translate-x-1/2 whitespace-nowrap rounded-xl bg-slate-900/95 px-3.5 py-1.5 text-xs font-semibold text-white shadow-xl backdrop-blur transition-all duration-300 group-hover:opacity-100 md:block opacity-0 start-1/2 rtl:translate-x-1/2">
+            <span className="flex items-center gap-1.5">
+              <span className="h-2 w-2 rounded-full bg-[#25D366] animate-pulse" />
+              {isRtl ? "تواصل معنا مباشرة عبر واتساب" : "Chat with us on WhatsApp"}
+            </span>
+            <div className="absolute -bottom-1 start-1/2 h-2 w-2 -translate-x-1/2 rotate-45 bg-slate-900/95" />
+          </div>
+
+          <a
+            href={academyContact.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => pushEvent("whatsapp_click", { page: "/free-trial", location: "floating_fab" })}
+            aria-label={isRtl ? "تواصل عبر واتساب" : "Chat on WhatsApp"}
+            className="relative flex h-full w-full items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_26px_rgba(37,211,102,.5)] transition-all duration-300 hover:scale-110 hover:bg-[#20ba59] hover:shadow-[0_14px_35px_rgba(37,211,102,.65)] focus:outline-none focus:ring-4 focus:ring-[#25D366]/30 active:scale-95"
+          >
+            <WhatsAppIcon className="h-7 w-7 text-white drop-shadow-sm" />
+          </a>
+        </div>
       </div>
     </div>
   );
