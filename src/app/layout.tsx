@@ -40,6 +40,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Afaq Al-Quran Academy" }],
   creator: "Afaq Al-Quran",
+  verification: {
+    google: "tT3qWROf1T5KT3uuHML2VYWHoXeUTAghkrLwjx2htJY",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
