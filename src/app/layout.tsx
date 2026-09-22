@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter, El_Messiri, Tajawal } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -93,6 +94,18 @@ export default async function RootLayout({
         suppressHydrationWarning
         className={`${playfair.variable} ${inter.variable} ${elMessiri.variable} ${tajawal.variable} font-sans antialiased bg-slate-50 text-slate-900`}
       >
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18440732535"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-tag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+            window.gtag('js', new Date());
+            window.gtag('config', 'AW-18440732535');
+          `}
+        </Script>
         <LanguageProvider initialLocale={locale}>
           <Toaster position="top-center" reverseOrder={false} />
           <SiteChrome>{children}</SiteChrome>

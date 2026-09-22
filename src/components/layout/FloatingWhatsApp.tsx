@@ -6,6 +6,7 @@ import { X } from "lucide-react";
 import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { academyContact } from "@/data/site";
+import { trackWhatsAppContact } from "@/lib/googleAds";
 
 export function FloatingWhatsApp() {
   const { isRtl } = useLanguage();
@@ -41,6 +42,7 @@ export function FloatingWhatsApp() {
         href={academyContact.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => trackWhatsAppContact("site_floating_button")}
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20, delay: 1 }}

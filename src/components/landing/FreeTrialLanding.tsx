@@ -37,6 +37,7 @@ import {
 } from "@/data/site";
 import { startingMonthlyPrice } from "@/data/pricing";
 import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
+import { trackWhatsAppContact } from "@/lib/googleAds";
 
 type LeadForm = {
   name: string;
@@ -575,7 +576,7 @@ export function FreeTrialLanding() {
                   href={academyContact.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => pushEvent("whatsapp_click", { page: "/free-trial", location: "hero" })}
+                  onClick={() => trackWhatsAppContact("hero", "/free-trial")}
                   className="inline-flex min-h-13 sm:min-h-14 items-center justify-center gap-2.5 rounded-full border border-slate-200 bg-white px-7 text-[12px] font-bold text-[#075248] shadow-sm transition hover:border-[#25D366]/50 hover:bg-emerald-50/40"
                 >
                   <WhatsAppIcon className="h-4.5 w-4.5 text-[#25D366]" />
@@ -796,7 +797,7 @@ export function FreeTrialLanding() {
                   href={academyContact.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => pushEvent("whatsapp_click", { page: "/free-trial", location: "success" })}
+                  onClick={() => trackWhatsAppContact("success", "/free-trial")}
                   className="inline-flex h-11 items-center gap-2 rounded-full bg-[#25D366] px-5 text-xs font-bold text-white shadow-sm transition hover:bg-[#20ba59]"
                 >
                   <WhatsAppIcon className="h-4 w-4 text-white" />
@@ -1448,6 +1449,7 @@ export function FreeTrialLanding() {
               href={academyContact.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackWhatsAppContact("faq", "/free-trial")}
               className="group inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-xs font-black uppercase tracking-wider text-white shadow-[0_12px_28px_-12px_rgba(37,211,102,.55)] transition-all duration-200 hover:bg-[#20ba59] hover:-translate-y-0.5"
             >
               <WhatsAppIcon className="h-4 w-4 text-white" />
@@ -1529,6 +1531,7 @@ export function FreeTrialLanding() {
                   href={academyContact.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppContact("final_cta", "/free-trial")}
                   className="group inline-flex min-h-13 items-center justify-center gap-2.5 rounded-full border border-white/20 bg-white/[0.07] px-7 text-xs font-bold uppercase tracking-[.08em] text-white backdrop-blur-sm transition duration-200 hover:border-[#25D366]/60 hover:bg-[#25D366]/15 hover:text-white"
                 >
                   <WhatsAppIcon className="h-4.5 w-4.5 text-[#25D366]" />
@@ -1636,7 +1639,7 @@ export function FreeTrialLanding() {
             href={academyContact.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => pushEvent("whatsapp_click", { page: "/free-trial", location: "floating_fab" })}
+            onClick={() => trackWhatsAppContact("floating_fab", "/free-trial")}
             aria-label={isRtl ? "تواصل عبر واتساب" : "Chat on WhatsApp"}
             className="relative flex h-full w-full items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_26px_rgba(37,211,102,.5)] transition-all duration-300 hover:scale-110 hover:bg-[#20ba59] hover:shadow-[0_14px_35px_rgba(37,211,102,.65)] focus:outline-none focus:ring-4 focus:ring-[#25D366]/30 active:scale-95"
           >
