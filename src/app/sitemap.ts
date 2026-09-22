@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contact',
     '/courses',
     '/pricing',
+    '/free-trial',
     '/blog',
     '/privacy',
     '/terms',
