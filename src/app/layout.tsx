@@ -98,14 +98,19 @@ export default async function RootLayout({
         className={`${playfair.variable} ${inter.variable} ${elMessiri.variable} ${tajawal.variable} font-sans antialiased bg-slate-50 text-slate-900`}
       >
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-18440732535"
+          src="https://www.googletagmanager.com/gtag/js?id=G-J3KX3TZ4F2"
           strategy="afterInteractive"
         />
-        <Script id="google-ads-tag" strategy="afterInteractive">
+        <Script id="google-tag" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
             window.gtag('js', new Date());
+
+            // Google Analytics 4
+            window.gtag('config', 'G-J3KX3TZ4F2');
+
+            // Google Ads
             window.gtag('config', 'AW-18440732535');
           `}
         </Script>
