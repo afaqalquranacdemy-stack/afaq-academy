@@ -423,6 +423,17 @@ export function FreeTrialLanding() {
 
       if (!response.ok) throw new Error("Lead submission failed");
 
+      // Send the lead event to GA4 only after the API confirms a successful submission.
+      const analyticsTarget = window as typeof window & {
+        gtag?: (...args: unknown[]) => void;
+      };
+      analyticsTarget.gtag?.("event", "free_trial_lead", {
+        send_to: "G-J3KX3TZ4F2",
+        page: "/free-trial",
+        course: form.course,
+        form_type: "trial_booking",
+      });
+
       pushEvent("free_trial_lead", {
         page: "/free-trial",
         course: form.course,
