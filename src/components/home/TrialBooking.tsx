@@ -55,6 +55,17 @@ export function TrialBooking() {
 
       if (!response.ok) throw new Error('Failed to send');
 
+      // Track a real lead only after the backend confirms the form was sent successfully.
+      const analyticsTarget = window as typeof window & {
+        gtag?: (...args: unknown[]) => void;
+      };
+      analyticsTarget.gtag?.("event", "free_trial_lead", {
+        send_to: "G-J3KX3TZ4F2",
+        page: window.location.pathname || "/",
+        course: formData.course,
+        form_type: "home_trial_booking",
+      });
+
       toast.success(isRtl ? "تم إرسال طلبك بنجاح! سنتواصل معك قريباً." : "Request sent successfully! We will contact you soon.", { id: loadingToast });
       setFormData({
         firstName: "",
