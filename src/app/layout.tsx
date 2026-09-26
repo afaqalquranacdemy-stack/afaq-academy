@@ -78,17 +78,25 @@ export const metadata: Metadata = {
 import { SiteChrome } from "@/components/layout/SiteChrome";
 import { Toaster } from "react-hot-toast";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
-import { cookies } from "next/headers";
-import { Locale, defaultLocale, isRtl } from "@/i18n/config";
+import { cookies, headers } from "next/headers";
+import { Locale, defaultLocale, isRtl, locales } from "@/i18n/config";
+
+function resolveLocale(value: string | undefined | null): Locale | null {
+  return locales.includes(value as Locale) ? (value as Locale) : null;
+}
 
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = await cookies();
+  const [cookieStore, headerStore] = await Promise.all([cookies(), headers()]);
+
   const locale =
-    (cookieStore.get("NEXT_LOCALE")?.value as Locale) || defaultLocale;
+    resolveLocale(headerStore.get("x-afaq-locale")) ??
+    resolveLocale(cookieStore.get("NEXT_LOCALE")?.value) ??
+    defaultLocale;
+
   const dir = isRtl(locale) ? "rtl" : "ltr";
 
   return (
