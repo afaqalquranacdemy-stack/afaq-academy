@@ -49,6 +49,29 @@ const metadataByLanding: Record<string, { title: string; description: string }> 
   },
 };
 
+const landingHeroTitleByLanding: Record<string, { ar: string; en: string }> = {
+  Arabic: {
+    ar: "تعلم العربية أونلاين مع معلمين متخصصين",
+    en: "Learn Arabic Online with Expert Tutors",
+  },
+  Quran: {
+    ar: "تعلم القرآن أونلاين مع معلمين مؤهلين",
+    en: "Learn Quran Online with Qualified Tutors",
+  },
+  tajweed: {
+    ar: "تعلم التجويد أونلاين مع معلمي قرآن متخصصين",
+    en: "Learn Tajweed Online with Expert Quran Tutors",
+  },
+  Kids: {
+    ar: "دروس قرآن وعربية أونلاين للأطفال",
+    en: "Online Quran & Arabic Classes for Kids",
+  },
+  "Islamic Studies": {
+    ar: "تعلم الدراسات الإسلامية أونلاين",
+    en: "Learn Islamic Studies Online",
+  },
+};
+
 export async function generateMetadata({ searchParams }: CoursesPageProps): Promise<Metadata> {
   const params = await searchParams;
   const category = firstParam(params.category);
@@ -72,10 +95,14 @@ export async function generateMetadata({ searchParams }: CoursesPageProps): Prom
 
 export default async function CoursesPage({ searchParams }: CoursesPageProps) {
   const params = await searchParams;
+  const category = firstParam(params.category);
+  const intent = firstParam(params.intent).toLowerCase();
+  const landingKey = category === "Quran" && intent === "tajweed" ? "tajweed" : category;
+  const landingTitle = landingHeroTitleByLanding[landingKey];
 
   return (
     <main className="min-h-screen bg-[#F8FAFC]">
-      <CoursesHero />
+      <CoursesHero landingTitle={landingTitle} />
 
       <FeaturedCourses />
 
@@ -83,7 +110,7 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
 
       <CourseGrid
         initialQuery={firstParam(params.q)}
-        initialCategory={firstParam(params.category)}
+        initialCategory={category}
         initialLevel={firstParam(params.level)}
         initialIntent={firstParam(params.intent)}
       />
