@@ -51,10 +51,66 @@ const categoryGradients: Record<string, string> = {
 const categoryOptions = ["all", ...categories];
 const levelOptions = ["all", "Beginner", "Intermediate", "Advanced"];
 
+type LandingCopy = {
+  eyebrow: { ar: string; en: string };
+  title: { ar: string; en: string };
+  description: { ar: string; en: string };
+  cta: { ar: string; en: string };
+};
+
+const landingCopy: Record<string, LandingCopy> = {
+  Arabic: {
+    eyebrow: { ar: "دروس عربية مباشرة 1 إلى 1", en: "Private 1-to-1 Arabic Lessons" },
+    title: { ar: "تعلم العربية أونلاين مع معلمين متخصصين", en: "Learn Arabic Online with Expert Tutors" },
+    description: {
+      ar: "طوّر القراءة والتحدث والقواعد والعربية القرآنية من خلال دروس مباشرة مخصصة لمستواك مع مواعيد مرنة وخطة تعلم شخصية.",
+      en: "Build your Arabic reading, speaking, grammar and Quranic Arabic skills through personalized live lessons, flexible schedules and a study plan built around your level.",
+    },
+    cta: { ar: "احجز تجربة عربية مجانية", en: "Book Free Arabic Trial" },
+  },
+  Quran: {
+    eyebrow: { ar: "دروس قرآن مباشرة 1 إلى 1", en: "Private 1-to-1 Quran Lessons" },
+    title: { ar: "تعلم القرآن أونلاين مع معلمين مؤهلين", en: "Learn Quran Online with Qualified Tutors" },
+    description: {
+      ar: "حسّن التلاوة والحفظ والفهم من خلال دروس قرآن مباشرة فردية، وخطة تعلم تناسب مستواك ووقتك.",
+      en: "Improve Quran recitation, memorization and understanding through private live lessons with qualified tutors and a learning plan tailored to your level and schedule.",
+    },
+    cta: { ar: "احجز تجربة قرآن مجانية", en: "Book Free Quran Trial" },
+  },
+  tajweed: {
+    eyebrow: { ar: "دروس تجويد مباشرة 1 إلى 1", en: "Private 1-to-1 Tajweed Lessons" },
+    title: { ar: "تعلم التجويد أونلاين مع معلمي قرآن متخصصين", en: "Learn Tajweed Online with Expert Quran Tutors" },
+    description: {
+      ar: "أتقن مخارج الحروف وأحكام التجويد وصحح تلاوتك من خلال دروس مباشرة فردية وخطة تناسب مستواك.",
+      en: "Master pronunciation, Tajweed rules and accurate Quran recitation through private live lessons with expert tutors and a personalized learning plan.",
+    },
+    cta: { ar: "احجز تجربة تجويد مجانية", en: "Book Free Tajweed Trial" },
+  },
+  Kids: {
+    eyebrow: { ar: "تعليم إسلامي ممتع للأطفال", en: "Engaging 1-to-1 Lessons for Kids" },
+    title: { ar: "دروس قرآن وعربية أونلاين للأطفال", en: "Online Quran & Arabic Classes for Kids" },
+    description: {
+      ar: "ساعد طفلك على بناء أساس قوي في القرآن والعربية والدراسات الإسلامية من خلال دروس فردية مناسبة لعمره مع معلمين صبورين.",
+      en: "Help your child build strong Quran, Arabic and Islamic foundations through engaging private lessons, patient tutors and age-appropriate learning plans.",
+    },
+    cta: { ar: "احجز تجربة مجانية لطفلك", en: "Book Kids Free Trial" },
+  },
+  "Islamic Studies": {
+    eyebrow: { ar: "دروس إسلامية مباشرة 1 إلى 1", en: "Private 1-to-1 Islamic Lessons" },
+    title: { ar: "تعلم الدراسات الإسلامية أونلاين", en: "Learn Islamic Studies Online" },
+    description: {
+      ar: "ادرس الفقه والعقيدة والحديث والسيرة والمعارف الإسلامية الأساسية من خلال دروس منظمة مع معلمين مؤهلين لمستويات مختلفة.",
+      en: "Study Fiqh, Aqeedah, Hadith, Seerah and essential Islamic knowledge through structured live lessons with qualified teachers for different learning levels.",
+    },
+    cta: { ar: "احجز تجربة إسلامية مجانية", en: "Book Free Islamic Trial" },
+  },
+};
+
 interface CourseGridProps {
   initialQuery?: string;
   initialCategory?: string;
   initialLevel?: string;
+  initialIntent?: string;
 }
 
 function normalizeCategory(value = "") {
@@ -69,6 +125,7 @@ function CourseGridContent({
   initialQuery = "",
   initialCategory = "all",
   initialLevel = "all",
+  initialIntent = "",
 }: CourseGridProps) {
   const { isRtl } = useLanguage();
   const [activeCategory, setActiveCategory] = useState(normalizeCategory(initialCategory));
@@ -82,6 +139,12 @@ function CourseGridContent({
   }, [initialCategory, initialLevel, initialQuery]);
 
   const normalizedQuery = query.toLocaleLowerCase();
+  const normalizedIntent = initialIntent.trim().toLocaleLowerCase();
+  const landingKey =
+    activeCategory === "Quran" && normalizedIntent === "tajweed"
+      ? "tajweed"
+      : activeCategory;
+  const activeLanding = activeCategory === "all" ? null : landingCopy[landingKey];
 
   const filteredCourses = courses.filter((c) => {
     const catMatch = activeCategory === "all" || c.category === activeCategory;
@@ -111,37 +174,71 @@ function CourseGridContent({
   });
 
   return (
-    <section id="courses-grid" className="py-24 md:py-32 bg-[#F8FAFC] relative overflow-hidden">
+    <section id="courses-grid" className="py-24 md:py-32 bg-[#F8FAFC] relative overflow-hidden scroll-mt-20">
       {/* Background */}
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-teal-500/[0.02] blur-[180px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-indigo-500/[0.02] blur-[180px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 md:px-8">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center max-w-3xl mx-auto mb-12"
-        >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-widest mb-6">
-            <BookOpen className="w-3.5 h-3.5 inline mr-1 -mt-0.5" />
-            {isRtl ? "كتالوج البرامج" : "Program Catalog"}
-          </span>
-          <h2
-            className={`text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
+        {activeLanding ? (
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-5xl mx-auto mb-10 md:mb-12"
           >
-            {isRtl
-              ? "جميع البرامج الأكاديمية"
-              : "All Academic Programs"}
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg text-slate-500 leading-relaxed">
-            {isRtl
-              ? "تصفح جميع برامجنا الأكاديمية واختر ما يناسب مستواك وأهدافك"
-              : "Browse all our academic programs and choose what fits your level and goals"}
-          </p>
-        </motion.div>
+            <div className="relative overflow-hidden rounded-[1.75rem] md:rounded-[2.25rem] bg-slate-950 px-6 py-8 md:px-10 md:py-10 shadow-2xl shadow-slate-900/10">
+              <div className="absolute -top-24 -right-20 h-64 w-64 rounded-full bg-teal-500/15 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none" />
+              <div className="relative z-10 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                <div className="max-w-3xl">
+                  <span className="inline-flex rounded-full border border-teal-400/20 bg-teal-400/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-teal-200 mb-4">
+                    {isRtl ? activeLanding.eyebrow.ar : activeLanding.eyebrow.en}
+                  </span>
+                  <h2 className={`text-3xl md:text-5xl font-bold tracking-tight text-white mb-4 ${isRtl ? "font-cairo leading-[1.35]" : "font-serif"}`}>
+                    {isRtl ? activeLanding.title.ar : activeLanding.title.en}
+                  </h2>
+                  <p className="max-w-2xl text-sm md:text-lg leading-relaxed text-slate-300">
+                    {isRtl ? activeLanding.description.ar : activeLanding.description.en}
+                  </p>
+                </div>
+                <div className="shrink-0">
+                  <Link
+                    href={`/free-trial?lang=${isRtl ? "ar" : "en"}`}
+                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-teal-500 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-teal-500/20 transition-all duration-300 hover:bg-teal-400 hover:-translate-y-0.5"
+                  >
+                    {isRtl ? activeLanding.cta.ar : activeLanding.cta.en}
+                    <ArrowRight className={`h-4 w-4 ${isRtl ? "rotate-180" : ""}`} />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-center max-w-3xl mx-auto mb-12"
+          >
+            <span className="inline-block px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-widest mb-6">
+              <BookOpen className="w-3.5 h-3.5 inline mr-1 -mt-0.5" />
+              {isRtl ? "كتالوج البرامج" : "Program Catalog"}
+            </span>
+            <h2
+              className={`text-2xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4 ${isRtl ? "font-cairo" : "font-serif"}`}
+            >
+              {isRtl ? "جميع البرامج الأكاديمية" : "All Academic Programs"}
+            </h2>
+            <p className="text-sm sm:text-base md:text-lg text-slate-500 leading-relaxed">
+              {isRtl
+                ? "تصفح جميع برامجنا الأكاديمية واختر ما يناسب مستواك وأهدافك"
+                : "Browse all our academic programs and choose what fits your level and goals"}
+            </p>
+          </motion.div>
+        )}
 
         {/* ═══ Filter Bar ═══ */}
         <motion.div
