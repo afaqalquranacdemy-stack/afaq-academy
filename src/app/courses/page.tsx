@@ -19,6 +19,7 @@ type CoursesPageProps = {
     q?: string | string[];
     category?: string | string[];
     level?: string | string[];
+    intent?: string | string[];
   }>;
 };
 
@@ -41,6 +42,7 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
         initialQuery={firstParam(params.q)}
         initialCategory={firstParam(params.category)}
         initialLevel={firstParam(params.level)}
+        initialIntent={firstParam(params.intent)}
       />
 
       <LearningMethodology />
