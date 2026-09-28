@@ -17,7 +17,14 @@ import { CountUp } from "@/components/effects/CountUp";
 import { academyStats } from "@/data/site";
 import Image from "next/image";
 
-export function CoursesHero() {
+type CoursesHeroProps = {
+  landingTitle?: {
+    ar: string;
+    en: string;
+  };
+};
+
+export function CoursesHero({ landingTitle }: CoursesHeroProps) {
   const { isRtl } = useLanguage();
   const router = useRouter();
   const [query, setQuery] = useState("");
@@ -171,19 +178,25 @@ export function CoursesHero() {
             style={{ fontSize: "clamp(1.15rem, 5.5vw, 2.1rem)" }}
             className={`md:!text-5xl lg:!text-[52px] font-bold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-400 tracking-tight leading-[1.25] mb-6 ${isRtl ? "font-cairo leading-[1.4]" : "font-serif"}`}
           >
-            {isRtl ? "استكشف " : "Explore "}
-            <span className="relative inline-block">
-              <div className="absolute inset-0 bg-teal-500/20 blur-[80px] z-[-1] animate-breathe" />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-emerald-300 to-teal-500 animate-gradient bg-[length:200%_200%]">
-                {isRtl ? "مسارات العلم" : "Sacred Knowledge"}
-              </span>
-            </span>
-            <br className="hidden md:block" />
-            <span className="text-[18px] sm:text-[28px] md:text-5xl lg:text-6xl block mt-2 md:inline">
-              {isRtl
-                ? " واختر رحلتك الأكاديمية"
-                : " & Choose Your Path"}
-            </span>
+            {landingTitle ? (
+              isRtl ? landingTitle.ar : landingTitle.en
+            ) : (
+              <>
+                {isRtl ? "استكشف " : "Explore "}
+                <span className="relative inline-block">
+                  <div className="absolute inset-0 bg-teal-500/20 blur-[80px] z-[-1] animate-breathe" />
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-emerald-300 to-teal-500 animate-gradient bg-[length:200%_200%]">
+                    {isRtl ? "مسارات العلم" : "Sacred Knowledge"}
+                  </span>
+                </span>
+                <br className="hidden md:block" />
+                <span className="text-[18px] sm:text-[28px] md:text-5xl lg:text-6xl block mt-2 md:inline">
+                  {isRtl
+                    ? " واختر رحلتك الأكاديمية"
+                    : " & Choose Your Path"}
+                </span>
+              </>
+            )}
           </motion.h1>
 
           {/* Subtitle */}
