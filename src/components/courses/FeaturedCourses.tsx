@@ -1,6 +1,3 @@
-"use client";
-
-import { useLanguage } from "@/components/providers/LanguageProvider";
 import { courses } from "@/data/courses";
 import { startingMonthlyPrice } from "@/data/pricing";
 import Image from "next/image";
@@ -14,8 +11,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 
-export function FeaturedCourses() {
-  const { isRtl } = useLanguage();
+export function FeaturedCourses({ isRtl }: { isRtl: boolean }) {
   const featured = courses.filter((c) => c.isFeatured).slice(0, 3);
 
   const levelColors: Record<string, string> = {

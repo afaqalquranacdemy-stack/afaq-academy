@@ -1,6 +1,3 @@
-"use client";
-
-import { useLanguage } from "@/components/providers/LanguageProvider";
 import {
   ClipboardCheck,
   UserCheck,
@@ -64,8 +61,7 @@ const steps = [
   },
 ];
 
-export function LearningMethodology() {
-  const { isRtl } = useLanguage();
+export function LearningMethodology({ isRtl }: { isRtl: boolean }) {
 
   return (
     <section data-reveal="true" className="py-24 md:py-32 bg-white relative section-divider overflow-hidden">

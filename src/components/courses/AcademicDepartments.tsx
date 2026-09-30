@@ -1,6 +1,3 @@
-"use client";
-
-import { useLanguage } from "@/components/providers/LanguageProvider";
 import { megaMenuData } from "@/data/megaMenu";
 import { courses } from "@/data/courses";
 import { ArrowRight } from "lucide-react";
@@ -59,8 +56,7 @@ const departmentMeta: Record<
   },
 };
 
-export function AcademicDepartments() {
-  const { isRtl } = useLanguage();
+export function AcademicDepartments({ isRtl }: { isRtl: boolean }) {
 
   return (
     <section data-reveal="true" className="py-24 md:py-32 bg-white relative section-divider overflow-hidden">

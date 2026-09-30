@@ -8,6 +8,7 @@ import { CoursesCTA } from "@/components/courses/CoursesCTA";
 import { CourseLandingView } from "@/components/courses/CourseLandingView";
 
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 
 type CoursesPageProps = {
   searchParams: Promise<{
@@ -102,6 +103,9 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
   const landingKey = category === "Quran" && intent === "tajweed" ? "tajweed" : category;
   const landingTitle = landingHeroTitleByLanding[landingKey];
   const lang = firstParam(params.lang);
+  const requestHeaders = await headers();
+  const resolvedLang = lang || requestHeaders.get("x-afaq-locale") || "en";
+  const sectionIsRtl = resolvedLang === "ar";
 
   // Paid-search category URLs get a lightweight server-rendered landing view.
   // This avoids hydrating the full course catalogue and its animation-heavy
@@ -111,7 +115,7 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
       <CourseLandingView
         category={category}
         intent={intent}
-        lang={lang}
+        lang={resolvedLang}
       />
     );
   }
@@ -120,9 +124,9 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
     <main className="min-h-screen bg-[#F8FAFC]">
       <CoursesHero landingTitle={landingTitle} />
 
-      <div className="course-defer-section"><FeaturedCourses /></div>
+      <div className="course-defer-section"><FeaturedCourses isRtl={sectionIsRtl} /></div>
 
-      <div className="course-defer-section"><AcademicDepartments /></div>
+      <div className="course-defer-section"><AcademicDepartments isRtl={sectionIsRtl} /></div>
 
       <div className="course-defer-section">
         <CourseGrid
@@ -133,11 +137,11 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
         />
       </div>
 
-      <div className="course-defer-section"><LearningMethodology /></div>
+      <div className="course-defer-section"><LearningMethodology isRtl={sectionIsRtl} /></div>
 
-      <div className="course-defer-section"><CoursesFeatures /></div>
+      <div className="course-defer-section"><CoursesFeatures isRtl={sectionIsRtl} /></div>
 
-      <div className="course-defer-section"><CoursesCTA /></div>
+      <div className="course-defer-section"><CoursesCTA isRtl={sectionIsRtl} /></div>
     </main>
   );
 }

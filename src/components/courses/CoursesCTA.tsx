@@ -1,11 +1,7 @@
-"use client";
-
-import { useLanguage } from "@/components/providers/LanguageProvider";
 import Link from "next/link";
 import { ArrowRight, Sparkles, MessageCircle } from "lucide-react";
 
-export function CoursesCTA() {
-  const { isRtl } = useLanguage();
+export function CoursesCTA({ isRtl }: { isRtl: boolean }) {
 
   return (
     <section data-reveal="true" className="py-24 md:py-32 bg-white relative section-divider overflow-hidden">

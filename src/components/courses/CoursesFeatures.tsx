@@ -1,6 +1,3 @@
-"use client";
-
-import { useLanguage } from "@/components/providers/LanguageProvider";
 import { academyOperations, academyStats } from "@/data/site";
 import {
   BookOpen,
@@ -100,8 +97,7 @@ const features = [
   },
 ];
 
-export function CoursesFeatures() {
-  const { isRtl } = useLanguage();
+export function CoursesFeatures({ isRtl }: { isRtl: boolean }) {
 
   return (
     <section data-reveal="true" className="py-24 md:py-32 bg-[#F8FAFC] relative section-divider overflow-hidden">
