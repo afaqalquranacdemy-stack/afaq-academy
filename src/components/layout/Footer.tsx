@@ -97,6 +97,8 @@ export function Footer() {
                 alt="Afaq Al-Quran Academy"
                 width={160}
                 height={80}
+                sizes="160px"
+                quality={60}
                 className="object-contain w-auto h-16 md:h-20 opacity-90 group-hover:opacity-100 transition-all duration-500"
               />
             </Link>

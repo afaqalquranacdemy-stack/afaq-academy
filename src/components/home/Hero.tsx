@@ -1,40 +1,20 @@
 "use client";
 
-import { useRef } from "react";
-import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight, Play, Sparkles, GraduationCap, Award, Globe, BookOpen } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
-import { CountUp } from "@/components/effects/CountUp";
 import { academyStats } from "@/data/site";
 
 export function Hero() {
   const { t, isRtl } = useLanguage();
-  const ref = useRef<HTMLDivElement>(null);
-
-  return (
-    <section ref={ref} className="relative min-h-[100dvh] w-full overflow-hidden flex flex-col bg-slate-950">
+return (
+    <section className="relative min-h-[100dvh] w-full overflow-hidden flex flex-col bg-slate-950">
       {/* Cinematic hero artwork */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none overflow-hidden">
-        <Image
-          src="/hero-bg.webp"
-          alt=""
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          className="hidden md:block object-cover object-center scale-[1.01] brightness-[0.78] saturate-[0.9] contrast-[1.05]"
-        />
-        <Image
-          src="/hero-mobile-bg.webp"
-          alt=""
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          className="block md:hidden object-cover object-center scale-[1.01] brightness-[0.72] saturate-[0.9] contrast-[1.04]"
-        />
+        <picture className="absolute inset-0 block h-full w-full">
+          <source media="(max-width: 767px)" srcSet="/hero-mobile-bg.webp" type="image/webp" />
+          <img src="/hero-bg.webp" alt="" aria-hidden="true" loading="eager" fetchPriority="high" decoding="async" className="h-full w-full object-cover object-center scale-[1.01] brightness-[0.72] md:brightness-[0.78] saturate-[0.9] contrast-[1.04] md:contrast-[1.05]" />
+        </picture>
 
         {/* Mobile: keep the artwork visible while calming the center behind copy */}
         <div className="absolute inset-0 md:hidden bg-[linear-gradient(180deg,rgba(3,12,11,0.72)_0%,rgba(4,20,18,0.46)_25%,rgba(4,20,18,0.48)_62%,rgba(2,10,9,0.82)_100%)]" />
@@ -59,14 +39,11 @@ export function Hero() {
 
       {/* Main Content Area - Balanced spacing for mobile/desktop */}
       <div className="relative z-10 flex-grow flex flex-col items-center justify-center px-4 md:px-8 pt-22 pb-52 md:pt-[10vh] md:pb-48">
-        <motion.div
+        <div data-hero-animate="true"
           className="container mx-auto flex flex-col items-center text-center"
         >
           {/* Animated Badge with shimmer and subtle mobile margin */}
-          <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          <div data-hero-animate="true"
             className="relative inline-flex items-center gap-2 md:gap-2.5 px-4 md:px-6 py-2 md:py-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 shadow-lg mb-3.5 md:mb-10 mt-1 md:mt-0 overflow-hidden group hover:border-teal-500/50 transition-all duration-700 cursor-default"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-teal-500/0 via-teal-500/20 to-teal-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
@@ -74,13 +51,10 @@ export function Hero() {
             <span className="text-xs md:text-base text-teal-50 font-semibold tracking-wide">
               {t.hero.badge}
             </span>
-          </motion.div>
+          </div>
 
           {/* Massive Premium Typography */}
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          <div data-hero-animate="true"
             className="relative max-w-5xl mx-auto mb-2 md:mb-8"
           >
             <h1
@@ -101,23 +75,17 @@ export function Hero() {
                 </span>
               </span>
             </h1>
-          </motion.div>
+          </div>
 
           {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          <p data-hero-animate="true"
             className={`text-[12px] sm:text-base md:text-lg text-white/85 w-full md:max-w-4xl mx-auto leading-relaxed mb-4 md:mb-16 font-medium text-center px-2 md:px-4 drop-shadow-[0_2px_14px_rgba(0,0,0,0.28)]`}
           >
             {t.hero.description}
-          </motion.p>
+          </p>
 
           {/* Buttons - Controlled width on mobile */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          <div data-hero-animate="true"
             className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5 w-full max-w-[85%] sm:max-w-xl mx-auto"
           >
             <Link
@@ -138,14 +106,11 @@ export function Hero() {
               <Play className="relative z-10 w-4 h-4 md:w-5 md:h-5 text-teal-400" fill="currentColor" />
               <span className="relative z-10">{t.hero.buttons.explore}</span>
             </Link>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 60, scale: 0.97 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 1.2, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+      <div data-hero-animate="true"
         className="absolute bottom-[calc(1.5rem+5vh)] md:bottom-[calc(3rem+2vh)] inset-x-0 w-full max-w-[90%] md:max-w-4xl mx-auto z-40 mb-0"
       >
         {/* Animated gradient border */}
@@ -180,7 +145,7 @@ export function Hero() {
                 </div>
                 <div className="text-center">
                   <h4 className="text-xl md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
-                    <CountUp end={academyStats.tutors} suffix="+" className="font-black text-slate-900" />
+                    <span className="font-black text-slate-900">{academyStats.tutors}+</span>
                   </h4>
                   <p className={`text-slate-600 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
                     {isRtl ? "معلم خبير" : "Expert Tutors"}
@@ -198,7 +163,7 @@ export function Hero() {
                 </div>
                 <div className="text-center">
                   <h4 className="text-xl md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
-                    <CountUp end={academyStats.courses} suffix="+" className="font-black text-slate-900" />
+                    <span className="font-black text-slate-900">{academyStats.courses}+</span>
                   </h4>
                   <p className={`text-slate-600 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
                     {isRtl ? "كورس متاح" : "Active Courses"}
@@ -216,7 +181,7 @@ export function Hero() {
                 </div>
                 <div className="text-center">
                   <h4 className="text-xl md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
-                    <CountUp end={academyStats.years} suffix="+" className="font-black text-slate-900" />
+                    <span className="font-black text-slate-900">{academyStats.years}+</span>
                   </h4>
                   <p className={`text-slate-600 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
                     {isRtl ? "سنوات خبرة" : "Years Experience"}
@@ -234,7 +199,7 @@ export function Hero() {
                 </div>
                 <div className="text-center">
                   <h4 className="text-xl md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
-                    <CountUp end={academyStats.countries} suffix="+" className="font-black text-slate-900" />
+                    <span className="font-black text-slate-900">{academyStats.countries}+</span>
                   </h4>
                   <p className={`text-slate-600 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-0.5 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}>
                     {isRtl ? "دولة" : "Countries"}
@@ -244,7 +209,7 @@ export function Hero() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* ═══ Ultra Premium Dark-to-Light Divider ═══ */}
       <div className="absolute bottom-0 left-0 right-0 z-30 pointer-events-none">
@@ -258,11 +223,7 @@ export function Hero() {
           <div className="absolute inset-x-[20%] h-[1px] bg-gradient-to-r from-transparent via-indigo-400/30 to-transparent blur-[2px]" />
 
           {/* Centered Premium Capsule */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
+          <div data-hero-animate="true"
             className="relative flex items-center justify-center -translate-y-1/2"
           >
             {/* Background Glow */}
@@ -274,7 +235,7 @@ export function Hero() {
               <Sparkles className="w-4 h-4 text-teal-300" />
               <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse shadow-[0_0_8px_rgba(129,140,248,0.6)]" />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

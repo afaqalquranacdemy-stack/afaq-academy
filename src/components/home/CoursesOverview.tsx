@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, MouseEvent } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BookOpen, Clock, Star, PlayCircle, Sparkles } from "lucide-react";
@@ -35,13 +34,7 @@ function CourseCard({ course, index, locale, isRtl }: any) {
   };
 
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0, scale: 0.9, y: 40 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-      transition={{ duration: 0.6, delay: index * 0.06 }}
-      className="h-full"
+    <div data-reveal="true"className="h-full"
     >
       <Link href={`/courses/${course.slug}`} className="block h-full group">
         <div
@@ -64,7 +57,7 @@ function CourseCard({ course, index, locale, isRtl }: any) {
               src={course.image}
               alt={course.title[locale as keyof typeof course.title] || course.title.en}
               fill
-              className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
+              sizes="(max-width: 768px) calc(100vw - 2rem), (max-width: 1024px) 50vw, 33vw" quality={60} className="object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-105"
             />
 
             {/* Floating Play Icon */}
@@ -114,7 +107,7 @@ function CourseCard({ course, index, locale, isRtl }: any) {
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }
 
@@ -144,32 +137,22 @@ export function CoursesOverview() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="max-w-2xl">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+            <div data-reveal="true"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-teal-200 bg-teal-50 text-teal-700 text-sm font-bold tracking-wider uppercase mb-8 shadow-sm"
             >
               <BookOpen className="w-4 h-4" />
               {t.courses.title}
-            </motion.div>
+            </div>
 
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+            <h2 data-reveal="true"
               className={`text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-slate-900 via-slate-800 to-slate-600 tracking-tight ${isRtl ? "font-cairo leading-[1.4]" : "font-serif"}`}
             >
               {t.courses.subtitle}
-            </motion.h2>
+            </h2>
           </div>
 
           {/* View All Button */}
-          <motion.div
-            initial={{ opacity: 0, x: isRtl ? -20 : 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+          <div data-reveal="true"
           >
             <Link
               href="/courses"
@@ -178,15 +161,11 @@ export function CoursesOverview() {
               {t.courses.viewAll}
               <ArrowRight className={`w-5 h-5 transition-transform duration-500 group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
             </Link>
-          </motion.div>
+          </div>
         </div>
 
         {/* Categories */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
+        <div data-reveal="true"
           className="flex flex-row overflow-x-auto flex-nowrap gap-3 mb-16 pb-4 scrollbar-none -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap md:overflow-visible md:pb-0"
         >
           {categories.map((category) => (
@@ -206,16 +185,16 @@ export function CoursesOverview() {
                    category === "Kids" && isRtl ? "للأطفال" : category)}
             </button>
           ))}
-        </motion.div>
+        </div>
 
         {/* Course Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <AnimatePresence mode="popLayout">
+        <div data-reveal="true"className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <>
             {filteredCourses.map((course, index) => (
               <CourseCard key={course.id} course={course} index={index} locale={locale} isRtl={isRtl} />
             ))}
-          </AnimatePresence>
-        </motion.div>
+          </>
+        </div>
       </div>
 
       {/* ═══ Ultra Premium Section Divider ═══ */}
@@ -230,11 +209,7 @@ export function CoursesOverview() {
           <div className="absolute inset-x-[20%] h-[1px] bg-gradient-to-r from-transparent via-indigo-400/30 to-transparent blur-[2px]" />
 
           {/* Centered Premium Capsule */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
+          <div data-reveal="true"
             className="relative flex items-center justify-center -translate-y-1/2"
           >
             {/* Background Glow */}
@@ -246,7 +221,7 @@ export function CoursesOverview() {
               <Sparkles className="w-4 h-4 text-teal-300" />
               <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse shadow-[0_0_8px_rgba(129,140,248,0.6)]" />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

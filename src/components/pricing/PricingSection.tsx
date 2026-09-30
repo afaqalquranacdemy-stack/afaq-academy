@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { pricingData, Duration } from "@/data/pricing";
 import { CheckCircle2, Star, Clock, Zap, Crown, ShieldCheck, CreditCard, RotateCcw } from "lucide-react";
@@ -37,10 +36,7 @@ export function PricingSection({ showViewAllButton = false }: PricingSectionProp
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         
         {/* Apple-style Segmented Control */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <div data-reveal="true"
           className="flex justify-center mb-16"
         >
           <div className="relative flex items-center w-full max-w-[90vw] sm:max-w-md p-1 bg-white/60 backdrop-blur-xl rounded-full border border-slate-200 shadow-xl shadow-slate-200/50 overflow-hidden mx-auto">
@@ -53,32 +49,26 @@ export function PricingSection({ showViewAllButton = false }: PricingSectionProp
                 }`}
               >
                 {duration === d.value && (
-                  <motion.div
-                    layoutId="duration-indicator-premium"
+                  <div data-reveal="true"
                     className="absolute inset-0 bg-slate-900 rounded-full -z-10 shadow-lg shadow-slate-900/20"
-                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
                   />
                 )}
                 <span className="relative z-10">{isRtl ? d.labelAr : d.labelEn}</span>
               </button>
             ))}
           </div>
-        </motion.div>
+        </div>
 
         {/* Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto mb-20">
-          <AnimatePresence>
+          <>
             {pricingData.map((plan, idx) => {
               const isPopular = plan.isPopular;
               const Icon = icons[plan.id as keyof typeof icons] || Star;
               
               return (
-                <motion.div
+                <div data-reveal="true"
                   key={`${plan.id}-${duration}`}
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ delay: idx * 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   className={`relative flex flex-col p-8 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2 group ${
                     isPopular 
                       ? "bg-[#0B1120] text-white shadow-2xl shadow-emerald-900/20 z-10 lg:scale-105" 
@@ -147,17 +137,14 @@ export function PricingSection({ showViewAllButton = false }: PricingSectionProp
                   }`}>
                     {isPopular ? (isRtl ? "اشترك الآن" : "Subscribe Now") : (isRtl ? "اختر الباقة" : "Choose Plan")}
                   </button>
-                </motion.div>
+                </div>
               );
             })}
-          </AnimatePresence>
+          </>
         </div>
 
         {/* ═══ Trust Signals ═══ */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+        <div data-reveal="true"
           className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 border-t border-slate-200/60"
         >
           {[
@@ -173,14 +160,11 @@ export function PricingSection({ showViewAllButton = false }: PricingSectionProp
               <p className="text-xs text-slate-500">{isRtl ? signal.descAr : signal.descEn}</p>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* View All Pricing Button (Optional) */}
         {showViewAllButton && (
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <div data-reveal="true"
             className="mt-16 text-center"
           >
             <Link 
@@ -189,7 +173,7 @@ export function PricingSection({ showViewAllButton = false }: PricingSectionProp
             >
               {isRtl ? "شاهد التفاصيل الكاملة" : "View Full Details"}
             </Link>
-          </motion.div>
+          </div>
         )}
 
       </div>

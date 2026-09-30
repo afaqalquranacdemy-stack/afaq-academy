@@ -104,7 +104,7 @@ export function CoursesFeatures() {
   const { isRtl } = useLanguage();
 
   return (
-    <section className="py-24 md:py-32 bg-[#F8FAFC] relative section-divider overflow-hidden">
+    <section data-reveal="true" className="py-24 md:py-32 bg-[#F8FAFC] relative section-divider overflow-hidden">
       {/* Background */}
       <div className="absolute top-40 right-0 w-[500px] h-[500px] bg-teal-500/[0.02] blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-20 left-0 w-[400px] h-[400px] bg-indigo-500/[0.02] blur-[120px] rounded-full pointer-events-none" />

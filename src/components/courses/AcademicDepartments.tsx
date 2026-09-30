@@ -63,7 +63,7 @@ export function AcademicDepartments() {
   const { isRtl } = useLanguage();
 
   return (
-    <section className="py-24 md:py-32 bg-white relative section-divider overflow-hidden">
+    <section data-reveal="true" className="py-24 md:py-32 bg-white relative section-divider overflow-hidden">
       {/* Background decorative */}
       <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-teal-500/[0.02] blur-[150px] rounded-full pointer-events-none" />
 

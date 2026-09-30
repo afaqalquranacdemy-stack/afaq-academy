@@ -16,12 +16,12 @@ export default function Home() {
       <ValueProposition />
       <AboutUs />
       <CoursesOverview />
-      <HowItWorks />
-      <Testimonials />
-      <PricingSection showViewAllButton={true} />
-      <PaymentMarquee />
-      <LatestBlogs />
-      <FinalCTA />
+      <div className="home-defer-section"><HowItWorks /></div>
+      <div className="home-defer-section"><Testimonials /></div>
+      <div className="home-defer-section home-defer-section-tall"><PricingSection showViewAllButton={true} /></div>
+      <div className="home-defer-section home-defer-section-small"><PaymentMarquee /></div>
+      <div className="home-defer-section home-defer-section-tall"><LatestBlogs /></div>
+      <div className="home-defer-section"><FinalCTA /></div>
     </div>
   );
 }

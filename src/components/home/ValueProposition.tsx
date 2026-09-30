@@ -1,9 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
-import Image from "next/image";
 import { Sparkles, Users, Calendar, Award } from "lucide-react";
 
 const icons = {
@@ -24,11 +21,7 @@ function FeatureCard({ item, index, isRtl, bgImage }: any) {
   const Icon = icons[index as keyof typeof icons] || Sparkles;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+    <div data-reveal="true"
       className={`group relative h-full ${bentoClasses[index % bentoClasses.length] || ""}`}
     >
       <div 
@@ -37,12 +30,7 @@ function FeatureCard({ item, index, isRtl, bgImage }: any) {
         {/* Premium Background Image for card 01 */}
         {bgImage && (
           <div className="absolute inset-0 z-0">
-            <Image 
-              src={bgImage} 
-              alt="" 
-              fill
-              className="object-cover opacity-95 group-hover:scale-110 transition-transform duration-[2s] ease-out"
-            />
+            <img src={bgImage} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover opacity-95 group-hover:scale-110 transition-transform duration-[2s] ease-out" />
             {/* Overlay to ensure text readability - Clearer & More Defined */}
             <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-900/30 to-slate-950/60" />
             <div className="absolute inset-0 bg-slate-950/20 backdrop-blur-[0.5px]" />
@@ -74,16 +62,14 @@ function FeatureCard({ item, index, isRtl, bgImage }: any) {
           0{index + 1}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 export function ValueProposition() {
   const { t, isRtl } = useLanguage();
-  const ref = useRef<HTMLElement>(null);
-  
-  return (
-    <section ref={ref} className="relative py-20 md:py-28 bg-white overflow-hidden section-divider">
+return (
+    <section className="relative py-20 md:py-28 bg-white overflow-hidden section-divider">
       {/* Background Decor - Extremely Soft & Fine */}
       <div className="absolute inset-0 z-0 opacity-[0.25] pointer-events-none">
         <div className="absolute top-[2%] left-[2%] w-[600px] h-[600px] bg-teal-50/40 rounded-full blur-[18px] will-change-transform" />
@@ -96,26 +82,18 @@ export function ValueProposition() {
       <div className="container mx-auto px-2 md:px-4 relative z-10">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+          <div data-reveal="true"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-50 border border-slate-200 text-teal-700 text-sm font-bold tracking-widest uppercase mb-8 shadow-sm"
           >
             <Sparkles className="w-4 h-4" />
             {t.value.title}
-          </motion.div>
+          </div>
           
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          <h2 data-reveal="true"
             className={`text-4xl md:text-6xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-slate-900 to-slate-600 mb-8 ${isRtl ? "font-cairo leading-relaxed" : "font-serif"}`}
           >
             {t.value.subtitle}
-          </motion.h2>
+          </h2>
         </div>
 
         {/* Feature Grid */}
@@ -144,11 +122,7 @@ export function ValueProposition() {
           <div className="absolute inset-x-[20%] h-[1px] bg-gradient-to-r from-transparent via-indigo-400/30 to-transparent blur-[2px]" />
           
           {/* Centered Premium Capsule */}
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
+          <div data-reveal="true"
             className="relative flex items-center justify-center -translate-y-1/2"
           >
              {/* Background Glow */}
@@ -160,7 +134,7 @@ export function ValueProposition() {
                <Sparkles className="w-4 h-4 text-teal-300" />
                <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse shadow-[0_0_8px_rgba(129,140,248,0.6)]" />
              </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

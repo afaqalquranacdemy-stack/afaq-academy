@@ -1,26 +1,13 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Target, Globe, Shield, Sparkles, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export function AboutUs() {
   const { t, isRtl } = useLanguage();
-  const ref = useRef<HTMLElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
-
-
-
-  return (
-    <section ref={ref} className="relative py-24 md:py-32 bg-slate-50 overflow-hidden section-divider">
+return (
+    <section className="relative py-24 md:py-32 bg-slate-50 overflow-hidden section-divider">
       {/* Premium Light Background Decor */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-teal-100/50 rounded-full blur-[120px] mix-blend-multiply" />
@@ -33,11 +20,7 @@ export function AboutUs() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
           {/* Text Content */}
-          <motion.div 
-            initial={{ opacity: 0, x: isRtl ? 40 : -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+          <div data-reveal="true"
             className="flex flex-col relative"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 text-teal-600 w-fit mb-8 shadow-sm">
@@ -59,11 +42,7 @@ export function AboutUs() {
             </p>
 
             {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+            <div data-reveal="true"
               className="mb-12"
             >
               <Link
@@ -73,7 +52,7 @@ export function AboutUs() {
                 {isRtl ? "اكتشف المزيد عنا" : "Discover More About Us"}
                 <ArrowRight className={`w-5 h-5 transition-transform duration-500 group-hover:translate-x-1 ${isRtl ? "rotate-180 group-hover:-translate-x-1" : ""}`} />
               </Link>
-            </motion.div>
+            </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-3 md:gap-6 pt-8 border-t border-slate-200">
@@ -90,18 +69,14 @@ export function AboutUs() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Premium Cards / Visuals */}
           <div className="relative h-[600px] w-full hidden lg:block">
-            <motion.div style={{ y: y1 }} className="absolute inset-0 flex flex-col gap-6 justify-center">
+            <div data-reveal="true" className="absolute inset-0 flex flex-col gap-6 justify-center">
               
               {/* Mission Card */}
-              <motion.div 
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.2 }}
+              <div data-reveal="true"
                 className={`relative p-8 rounded-3xl overflow-hidden group ml-0 lg:${isRtl ? 'ml-12' : 'mr-12'} shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/60`}
               >
                 {/* Full Image Background */}
@@ -120,14 +95,10 @@ export function AboutUs() {
                     <p className="text-slate-700 leading-relaxed font-semibold drop-shadow-sm">{t.aboutUs.mission.description}</p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Vision Card */}
-              <motion.div 
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.4 }}
+              <div data-reveal="true"
                 className={`relative p-8 rounded-3xl overflow-hidden group mt-0 lg:mt-8 ml-0 lg:${isRtl ? 'mr-12' : 'ml-12'} shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-white/60`}
               >
                 {/* Premium Gradient Background */}
@@ -143,9 +114,9 @@ export function AboutUs() {
                     <p className="text-slate-700 leading-relaxed font-semibold drop-shadow-sm">{t.aboutUs.vision.description}</p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
-            </motion.div>
+            </div>
           </div>
 
           {/* Mobile version of Cards (without parallax) */}
@@ -194,11 +165,7 @@ export function AboutUs() {
         <div className="absolute inset-x-0 bottom-0 h-12 bg-white/[0.5] backdrop-blur-[3px] border-t border-slate-200/60" />
         <div className="relative w-full flex items-center justify-center">
           <div className="absolute inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-teal-500/30 to-transparent" />
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
+          <div data-reveal="true"
             className="relative flex items-center justify-center -translate-y-1/2"
           >
              <div className="absolute inset-0 bg-teal-500/10 blur-xl rounded-full scale-[1.5]" />
@@ -207,7 +174,7 @@ export function AboutUs() {
                <Sparkles className="w-3 h-3 text-teal-600/70 mx-1" />
                <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse shadow-[0_0_8px_rgba(129,140,248,0.3)]" />
              </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { academyContact } from "@/data/site";
@@ -31,6 +32,41 @@ export function SiteChrome({
   locale = "en",
 }: SiteChromeProps) {
   const pathname = usePathname();
+
+  useEffect(() => {
+    document.documentElement.classList.add("reveal-ready");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+    );
+
+    const observeTree = (node: ParentNode) => {
+      node.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-visible)").forEach((element) => observer.observe(element));
+    };
+
+    observeTree(document);
+    const mutationObserver = new MutationObserver((records) => {
+      for (const record of records) {
+        for (const node of Array.from(record.addedNodes)) {
+          if (!(node instanceof HTMLElement)) continue;
+          if (node.matches("[data-reveal]:not(.is-visible)")) observer.observe(node);
+          observeTree(node);
+        }
+      }
+    });
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      mutationObserver.disconnect();
+      observer.disconnect();
+    };
+  }, [pathname]);
   const isFreeTrial =
     pathname === "/free-trial" || pathname.startsWith("/free-trial/");
 

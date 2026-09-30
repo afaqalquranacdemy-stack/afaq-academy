@@ -1,7 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { ClipboardList, Video, Rocket, Sparkles } from "lucide-react";
 import { MeshGradient } from "@/components/effects/MeshGradient";
@@ -9,53 +7,32 @@ import { TrialBooking } from "./TrialBooking";
 
 export function HowItWorks() {
   const { t, isRtl } = useLanguage();
-  const ref = useRef<HTMLElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "center center"],
-  });
-
-  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const opacityGradient = useTransform(scrollYProgress, [0, 1], [0, 1]);
-
-  const icons = [ClipboardList, Video, Rocket];
+const icons = [ClipboardList, Video, Rocket];
 
   return (
-    <section ref={ref} className="relative py-20 md:py-48 bg-slate-50/50 overflow-hidden">
+    <section className="relative py-20 md:py-48 bg-slate-50/50 overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 relative z-10 w-full max-w-7xl">
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-32">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+          <div data-reveal="true"
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-teal-50 border border-teal-100 text-teal-600 text-xs md:text-sm font-bold tracking-wider md:tracking-widest uppercase mb-4 md:mb-8 shadow-sm"
           >
             <Sparkles className="w-3.5 h-3.5 md:w-4 md:h-4" />
             {t.howItWorks.title}
-          </motion.div>
+          </div>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+          <h2 data-reveal="true"
             className={`text-2xl sm:text-4xl md:text-6xl font-bold tracking-tight text-slate-900 mb-4 md:mb-6 ${isRtl ? "font-cairo" : "font-serif"}`}
           >
             {t.howItWorks.title}
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+          <p data-reveal="true"
             className="text-slate-500 text-sm sm:text-base md:text-xl font-light leading-relaxed max-w-2xl mx-auto"
           >
             {t.howItWorks.subtitle}
-          </motion.p>
+          </p>
         </div>
 
         {/* Steps */}
@@ -63,9 +40,8 @@ export function HowItWorks() {
           {/* Animated Connecting Line - Simplified & Elegant */}
           <div className="hidden md:block absolute top-[110px] left-[15%] w-[70%] h-[2px] pointer-events-none z-0">
             <div className="w-full h-full bg-slate-200/50 relative">
-              <motion.div
+              <div data-reveal="true"
                 className="absolute inset-0 bg-gradient-to-r from-teal-500/0 via-teal-500 to-teal-500/0"
-                style={{ scaleX: pathLength, originX: isRtl ? 1 : 0 }}
               />
             </div>
           </div>
@@ -75,12 +51,8 @@ export function HowItWorks() {
               const Icon = icons[i];
 
               return (
-                <motion.div
+                <div data-reveal="true"
                   key={i}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: i * 0.1 }}
                   className="flex flex-col items-center text-center w-full relative group"
                 >
                   {/* Icon Area with Large Number Backdrop */}
@@ -90,12 +62,11 @@ export function HowItWorks() {
                       0{i + 1}
                     </div>
 
-                    <motion.div
+                    <div data-reveal="true"
                       className="relative w-24 h-24 rounded-3xl bg-white border border-slate-100 flex items-center justify-center shadow-lg group-hover:shadow-2xl group-hover:border-teal-500/20 transition-all duration-500 z-10"
-                      whileHover={{ y: -5 }}
                     >
                       <Icon className="w-10 h-10 text-slate-400 group-hover:text-teal-600 transition-colors duration-500" />
-                    </motion.div>
+                    </div>
                   </div>
 
                   {/* Text Card */}
@@ -107,7 +78,7 @@ export function HowItWorks() {
                       {step.description}
                     </p>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>
@@ -128,11 +99,7 @@ export function HowItWorks() {
           <div className="absolute inset-x-[20%] h-[1px] bg-gradient-to-r from-transparent via-indigo-400/30 to-transparent blur-[2px]" />
 
           {/* Centered Premium Capsule */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
+          <div data-reveal="true"
             className="relative flex items-center justify-center -translate-y-1/2"
           >
             {/* Background Glow */}
@@ -144,7 +111,7 @@ export function HowItWorks() {
               <Sparkles className="w-4 h-4 text-teal-300" />
               <div className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse shadow-[0_0_8px_rgba(129,140,248,0.6)]" />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -37,7 +37,7 @@ export function FeaturedCourses() {
   };
 
   return (
-    <section className="py-24 md:py-32 bg-[#F8FAFC] relative overflow-hidden">
+    <section data-reveal="true" className="py-24 md:py-32 bg-[#F8FAFC] relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/[0.03] blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-500/[0.03] blur-[120px] rounded-full pointer-events-none" />

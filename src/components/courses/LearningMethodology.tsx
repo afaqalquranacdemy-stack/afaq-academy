@@ -68,7 +68,7 @@ export function LearningMethodology() {
   const { isRtl } = useLanguage();
 
   return (
-    <section className="py-24 md:py-32 bg-white relative section-divider overflow-hidden">
+    <section data-reveal="true" className="py-24 md:py-32 bg-white relative section-divider overflow-hidden">
       {/* Background */}
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-500/[0.02] blur-[150px] rounded-full pointer-events-none" />
 
