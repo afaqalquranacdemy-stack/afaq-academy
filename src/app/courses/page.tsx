@@ -1,7 +1,7 @@
 import { CoursesHero } from "@/components/courses/CoursesHero";
 import { FeaturedCourses } from "@/components/courses/FeaturedCourses";
 import { AcademicDepartments } from "@/components/courses/AcademicDepartments";
-import { CourseGrid } from "@/components/courses/CourseGrid";
+import { DeferredCourseGrid } from "@/components/courses/DeferredCourseGrid";
 import { LearningMethodology } from "@/components/courses/LearningMethodology";
 import { CoursesFeatures } from "@/components/courses/CoursesFeatures";
 import { CoursesCTA } from "@/components/courses/CoursesCTA";
@@ -129,7 +129,7 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
       <div className="course-defer-section"><AcademicDepartments isRtl={sectionIsRtl} /></div>
 
       <div className="course-defer-section">
-        <CourseGrid
+        <DeferredCourseGrid
           initialQuery={firstParam(params.q)}
           initialCategory={category}
           initialLevel={firstParam(params.level)}
