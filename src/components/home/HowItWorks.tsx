@@ -3,7 +3,7 @@
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { ClipboardList, Video, Rocket, Sparkles } from "lucide-react";
 import { MeshGradient } from "@/components/effects/MeshGradient";
-import { TrialBooking } from "./TrialBooking";
+import { DeferredTrialBooking } from "./DeferredTrialBooking";
 
 export function HowItWorks() {
   const { t, isRtl } = useLanguage();
@@ -84,7 +84,7 @@ const icons = [ClipboardList, Video, Rocket];
           </div>
         </div>
 
-        <TrialBooking />
+        <DeferredTrialBooking />
       </div>
 
       {/* ═══ Ultra Premium Bottom Divider ═══ */}
