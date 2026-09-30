@@ -28,7 +28,7 @@ export function PricingSection({ showViewAllButton = false }: PricingSectionProp
   ];
 
   return (
-    <section className="pb-32 bg-[#F8FAFC] relative overflow-hidden pt-10">
+    <section data-reveal="true" className="pb-32 bg-[#F8FAFC] relative overflow-hidden pt-10">
       {/* Background Decorative Glows */}
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-teal-500/5 blur-[150px] rounded-full pointer-events-none -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 blur-[150px] rounded-full pointer-events-none translate-x-1/2 translate-y-1/2" />
@@ -36,7 +36,7 @@ export function PricingSection({ showViewAllButton = false }: PricingSectionProp
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         
         {/* Apple-style Segmented Control */}
-        <div data-reveal="true"
+        <div
           className="flex justify-center mb-16"
         >
           <div className="relative flex items-center w-full max-w-[90vw] sm:max-w-md p-1 bg-white/60 backdrop-blur-xl rounded-full border border-slate-200 shadow-xl shadow-slate-200/50 overflow-hidden mx-auto">
@@ -49,7 +49,7 @@ export function PricingSection({ showViewAllButton = false }: PricingSectionProp
                 }`}
               >
                 {duration === d.value && (
-                  <div data-reveal="true"
+                  <div
                     className="absolute inset-0 bg-slate-900 rounded-full -z-10 shadow-lg shadow-slate-900/20"
                   />
                 )}
@@ -67,7 +67,7 @@ export function PricingSection({ showViewAllButton = false }: PricingSectionProp
               const Icon = icons[plan.id as keyof typeof icons] || Star;
               
               return (
-                <div data-reveal="true"
+                <div
                   key={`${plan.id}-${duration}`}
                   className={`relative flex flex-col p-8 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2 group ${
                     isPopular 
@@ -144,7 +144,7 @@ export function PricingSection({ showViewAllButton = false }: PricingSectionProp
         </div>
 
         {/* ═══ Trust Signals ═══ */}
-        <div data-reveal="true"
+        <div
           className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 border-t border-slate-200/60"
         >
           {[
@@ -164,7 +164,7 @@ export function PricingSection({ showViewAllButton = false }: PricingSectionProp
 
         {/* View All Pricing Button (Optional) */}
         {showViewAllButton && (
-          <div data-reveal="true"
+          <div
             className="mt-16 text-center"
           >
             <Link 

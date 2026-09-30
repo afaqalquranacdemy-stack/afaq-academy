@@ -34,7 +34,7 @@ function CourseCard({ course, index, locale, isRtl }: any) {
   };
 
   return (
-    <div data-reveal="true"className="h-full"
+    <divclassName="h-full"
     >
       <Link href={`/courses/${course.slug}`} className="block h-full group">
         <div
@@ -124,7 +124,7 @@ export function CoursesOverview() {
     .slice(0, 6);
 
   return (
-    <section className="relative py-32 md:py-48 bg-slate-50 overflow-hidden section-divider">
+    <section data-reveal="true" className="relative py-32 md:py-48 bg-slate-50 overflow-hidden section-divider">
       {/* Premium Light Background Decor */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-teal-100/50 rounded-full blur-[120px] mix-blend-multiply" />
@@ -137,14 +137,14 @@ export function CoursesOverview() {
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="max-w-2xl">
-            <div data-reveal="true"
+            <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-teal-200 bg-teal-50 text-teal-700 text-sm font-bold tracking-wider uppercase mb-8 shadow-sm"
             >
               <BookOpen className="w-4 h-4" />
               {t.courses.title}
             </div>
 
-            <h2 data-reveal="true"
+            <h2
               className={`text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-slate-900 via-slate-800 to-slate-600 tracking-tight ${isRtl ? "font-cairo leading-[1.4]" : "font-serif"}`}
             >
               {t.courses.subtitle}
@@ -152,7 +152,7 @@ export function CoursesOverview() {
           </div>
 
           {/* View All Button */}
-          <div data-reveal="true"
+          <div
           >
             <Link
               href="/courses"
@@ -165,7 +165,7 @@ export function CoursesOverview() {
         </div>
 
         {/* Categories */}
-        <div data-reveal="true"
+        <div
           className="flex flex-row overflow-x-auto flex-nowrap gap-3 mb-16 pb-4 scrollbar-none -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap md:overflow-visible md:pb-0"
         >
           {categories.map((category) => (
@@ -188,7 +188,7 @@ export function CoursesOverview() {
         </div>
 
         {/* Course Grid */}
-        <div data-reveal="true"className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <divclassName="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <>
             {filteredCourses.map((course, index) => (
               <CourseCard key={course.id} course={course} index={index} locale={locale} isRtl={isRtl} />
@@ -209,7 +209,7 @@ export function CoursesOverview() {
           <div className="absolute inset-x-[20%] h-[1px] bg-gradient-to-r from-transparent via-indigo-400/30 to-transparent blur-[2px]" />
 
           {/* Centered Premium Capsule */}
-          <div data-reveal="true"
+          <div
             className="relative flex items-center justify-center -translate-y-1/2"
           >
             {/* Background Glow */}
