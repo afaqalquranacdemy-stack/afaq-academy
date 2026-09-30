@@ -15,16 +15,14 @@ const inter = Inter({
 
 const elMessiri = El_Messiri({
   subsets: ["arabic", "latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["700"],
   variable: "--font-elmessiri",
-  preload: false,
 });
 
 const tajawal = Tajawal({
   subsets: ["arabic", "latin"],
-  weight: ["300", "400", "500", "700", "800", "900"],
+  weight: ["400", "700", "900"],
   variable: "--font-tajawal",
-  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -104,7 +102,9 @@ export default async function RootLayout({
   const useSystemFonts = focusedLanding && locale === "en";
   const fontVariables = useSystemFonts
     ? ""
-    : `${playfair.variable} ${inter.variable} ${elMessiri.variable} ${tajawal.variable}`;
+    : locale === "ar"
+      ? `${elMessiri.variable} ${tajawal.variable}`
+      : `${playfair.variable} ${inter.variable}`;
 
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning>
