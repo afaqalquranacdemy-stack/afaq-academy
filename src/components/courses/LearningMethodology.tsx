@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import {
   ClipboardCheck,
@@ -75,7 +74,7 @@ export function LearningMethodology() {
 
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -97,14 +96,14 @@ export function LearningMethodology() {
               ? "منهجية تعليمية مُثبتة تجمع بين التقليد والابتكار لتحقيق أفضل النتائج"
               : "A proven educational methodology that blends tradition with innovation for the best outcomes"}
           </p>
-        </motion.div>
+        </div>
 
         {/* Timeline */}
         <div className="max-w-5xl mx-auto relative">
           {steps.map((step, idx) => {
             const isEven = idx % 2 === 0;
             return (
-              <motion.div
+              <div
                 key={idx}
                 initial={{ opacity: 0, x: isEven ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -171,7 +170,7 @@ export function LearningMethodology() {
 
                 {/* Spacer for opposite side */}
                 <div className="flex-1 hidden md:block" />
-              </motion.div>
+              </div>
             );
           })}
         </div>

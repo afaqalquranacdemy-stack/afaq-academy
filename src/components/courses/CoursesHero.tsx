@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/components/providers/LanguageProvider";
@@ -13,7 +12,6 @@ import {
   Award,
   Search,
 } from "lucide-react";
-import { CountUp } from "@/components/effects/CountUp";
 import { academyStats } from "@/data/site";
 
 type CoursesHeroProps = {
@@ -112,7 +110,7 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
       </div>
 
       {/* ═══ Animated Gradient Orbs ═══ */}
-      <motion.div
+      <div
         animate={{
           y: [0, -40, 0],
           opacity: [0.15, 0.3, 0.15],
@@ -120,7 +118,7 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-[-15%] right-[-10%] w-[60vw] h-[60vw] bg-teal-500/15 blur-[150px] rounded-full pointer-events-none"
       />
-      <motion.div
+      <div
         animate={{
           y: [0, 40, 0],
           opacity: [0.1, 0.25, 0.1],
@@ -128,7 +126,7 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
         transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
         className="absolute bottom-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-indigo-500/15 blur-[150px] rounded-full pointer-events-none"
       />
-      <motion.div
+      <div
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.05, 0.15, 0.05],
@@ -141,7 +139,7 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
       <div className="w-full container mx-auto px-4 md:px-8 relative z-30 flex-grow flex flex-col items-center justify-center pt-24 pb-52 md:pt-36 md:pb-12">
         <div className="w-full max-w-5xl mx-auto text-center -translate-y-[2vh] md:translate-y-0">
           {/* Badge */}
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
@@ -156,10 +154,10 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
                   : "Academic Programs & Pathways"}
               </span>
             </div>
-          </motion.div>
+          </div>
 
           {/* Title */}
-          <motion.h1
+          <h1
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -189,10 +187,10 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
                 </span>
               </>
             )}
-          </motion.h1>
+          </h1>
 
           {/* Subtitle */}
-          <motion.p
+          <p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -205,10 +203,10 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
             {isRtl
               ? "برامج أكاديمية معتمدة بإشراف نخبة من علماء الأزهر الشريف. مناهج متكاملة تجمع بين الأصالة والمعاصرة، مصممة لتحقيق أعلى مستويات التميز العلمي."
               : "Accredited academic programs supervised by elite Al-Azhar scholars. Comprehensive curricula blending tradition and modernity, designed to achieve the highest levels of scholarly excellence."}
-          </motion.p>
+          </p>
 
           {/* Search Bar */}
-          <motion.div
+          <div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -242,13 +240,13 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
                 </button>
               </div>
             </form>
-          </motion.div>
+          </div>
 
         </div>
       </div>
 
       {/* ═══ Stats Cards ═══ */}
-      <motion.div
+      <div
         initial={{ opacity: 0, y: 50, scale: 0.97 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{
@@ -297,11 +295,7 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
                     </div>
                     <div className="text-center">
                       <h4 className="text-[18px] md:text-[26px] font-black text-slate-900 leading-none tracking-tight tabular-nums">
-                        <CountUp
-                          end={stat.value}
-                          suffix={stat.suffix}
-                          className="font-black text-slate-900"
-                        />
+                        {stat.value}{stat.suffix}
                       </h4>
                       <p
                         className={`text-slate-600 text-[9px] md:text-[11px] font-bold uppercase tracking-[0.12em] mt-1 md:mt-1.5 ${isRtl ? "font-cairo tracking-wide" : ""}`}
@@ -315,7 +309,7 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* ═══ Bottom Transition ═══ */}
       <div className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">

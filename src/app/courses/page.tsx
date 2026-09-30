@@ -120,16 +120,18 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
     <main className="min-h-screen bg-[#F8FAFC]">
       <CoursesHero landingTitle={landingTitle} />
 
-      <FeaturedCourses />
+      <div className="course-defer-section"><FeaturedCourses /></div>
 
-      <AcademicDepartments />
+      <div className="course-defer-section"><AcademicDepartments /></div>
 
-      <CourseGrid
-        initialQuery={firstParam(params.q)}
-        initialCategory={category}
-        initialLevel={firstParam(params.level)}
-        initialIntent={firstParam(params.intent)}
-      />
+      <div className="course-defer-section">
+        <CourseGrid
+          initialQuery={firstParam(params.q)}
+          initialCategory={category}
+          initialLevel={firstParam(params.level)}
+          initialIntent={firstParam(params.intent)}
+        />
+      </div>
 
       <div className="course-defer-section"><LearningMethodology /></div>
 

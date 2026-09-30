@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { megaMenuData } from "@/data/megaMenu";
 import { courses } from "@/data/courses";
@@ -70,7 +69,7 @@ export function AcademicDepartments() {
 
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -92,7 +91,7 @@ export function AcademicDepartments() {
               ? "أربعة أقسام أكاديمية متكاملة تغطي جميع جوانب العلم الشرعي واللغة العربية"
               : "Four comprehensive academic departments covering all aspects of Islamic scholarship and Arabic language"}
           </p>
-        </motion.div>
+        </div>
 
         {/* Department Cards */}
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -102,7 +101,7 @@ export function AcademicDepartments() {
             const coursesCount = courses.filter(c => c.category === meta.category).length;
 
             return (
-              <motion.div
+              <div
                 key={dept.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -178,7 +177,7 @@ export function AcademicDepartments() {
                     />
                   </Link>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

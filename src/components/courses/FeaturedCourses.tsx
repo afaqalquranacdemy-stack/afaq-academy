@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { courses } from "@/data/courses";
 import { startingMonthlyPrice } from "@/data/pricing";
@@ -45,7 +44,7 @@ export function FeaturedCourses() {
 
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -68,12 +67,12 @@ export function FeaturedCourses() {
               ? "برامج مختارة بعناية حققت أعلى تقييمات من طلابنا حول العالم"
               : "Handpicked programs that earned the highest ratings from our global students"}
           </p>
-        </motion.div>
+        </div>
 
         {/* Featured Grid — 1 Large + 2 Stacked */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* ── Large Featured Card ── */}
-          <motion.div
+          <div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -86,7 +85,7 @@ export function FeaturedCourses() {
                 src={featured[0].image}
                 alt={isRtl ? featured[0].title.ar : featured[0].title.en}
                 fill
-                sizes="(max-width: 1024px) 100vw, 50vw" quality={65}
+                sizes="(max-width: 1024px) 100vw, 50vw" quality={60}
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Overlay */}
@@ -181,11 +180,11 @@ export function FeaturedCourses() {
                 </Link>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* ── Two Stacked Cards ── */}
           {featured.slice(1, 3).map((course, idx) => (
-            <motion.div
+            <div
               key={course.id}
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -203,7 +202,7 @@ export function FeaturedCourses() {
                   src={course.image}
                   alt={isRtl ? course.title.ar : course.title.en}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 50vw" quality={65}
+                  sizes="(max-width: 1024px) 100vw, 50vw" quality={60}
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 to-transparent" />
@@ -274,7 +273,7 @@ export function FeaturedCourses() {
                   </Link>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

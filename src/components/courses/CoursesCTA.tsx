@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import Link from "next/link";
 import { ArrowRight, Sparkles, MessageCircle } from "lucide-react";
@@ -11,7 +10,7 @@ export function CoursesCTA() {
   return (
     <section className="py-24 md:py-32 bg-white relative section-divider overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -119,7 +118,7 @@ export function CoursesCTA() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

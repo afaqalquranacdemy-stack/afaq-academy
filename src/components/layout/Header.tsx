@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe, Instagram, Facebook, Home, BookOpen, Info, MessageSquare, CreditCard, ChevronRight, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { megaMenuData } from "@/data/megaMenu";
@@ -54,7 +53,7 @@ export function Header() {
             className="relative z-10 flex items-center group shrink-0"
             aria-label="Afaq Al-Quran Academy"
           >
-            <motion.div
+            <div
               initial={{ opacity: 0, x: isRtl ? 20 : -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -93,7 +92,7 @@ export function Header() {
                   </span>
                 </div>
               )}
-            </motion.div>
+            </div>
           </Link>
         </div>
 
@@ -125,9 +124,9 @@ export function Header() {
                     )}
                   </Link>
 
-                  <AnimatePresence>
+                  <>
                     {isMegaMenuOpen && (
-                      <motion.div
+                      <div
                         initial={{ opacity: 0, y: 15, scale: 0.98 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.98 }}
@@ -182,9 +181,9 @@ export function Header() {
                             </Link>
                           </div>
                         </div>
-                      </motion.div>
+                      </div>
                     )}
-                  </AnimatePresence>
+                  </>
                 </div>
               );
             }
@@ -245,9 +244,9 @@ export function Header() {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
+      <>
         {mobileOpen && (
-          <motion.div
+          <div
             initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
@@ -258,7 +257,7 @@ export function Header() {
               {navLinks.map((link, i) => {
                 if (link.key === "courses") {
                   return (
-                    <motion.div
+                    <div
                       key={link.key}
                       initial={{ opacity: 0, x: isRtl ? 20 : -20 }}
                       animate={{ opacity: 1, x: 0 }}
@@ -280,9 +279,9 @@ export function Header() {
                         <ChevronRight className={`w-5 h-5 transition-transform ${mobileCoursesOpen ? (isRtl ? '-rotate-90' : 'rotate-90') : (isRtl ? 'rotate-180' : '')}`} />
                       </button>
                       
-                      <AnimatePresence>
+                      <>
                         {mobileCoursesOpen && (
-                          <motion.div
+                          <div
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
@@ -317,15 +316,15 @@ export function Header() {
                                 {t.courses.viewAll}
                               </Link>
                             </div>
-                          </motion.div>
+                          </div>
                         )}
-                      </AnimatePresence>
-                    </motion.div>
+                      </>
+                    </div>
                   );
                 }
 
                 return (
-                  <motion.div
+                  <div
                     key={link.key}
                     initial={{ opacity: 0, x: isRtl ? 20 : -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -347,7 +346,7 @@ export function Header() {
                         <span className={`absolute top-1/2 h-7 w-[3px] -translate-y-1/2 rounded-full bg-gradient-to-b from-[#0A6A5D] to-[#C89B3C] ${isRtl ? "right-1.5" : "left-1.5"}`} />
                       )}
                     </Link>
-                  </motion.div>
+                  </div>
                 );
               })}
               
@@ -364,9 +363,9 @@ export function Header() {
                 </button>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
+      </>
     </header>
   );
 }
