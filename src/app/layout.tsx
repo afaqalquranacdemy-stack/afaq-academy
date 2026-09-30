@@ -17,12 +17,14 @@ const elMessiri = El_Messiri({
   subsets: ["arabic", "latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-elmessiri",
+  preload: false,
 });
 
 const tajawal = Tajawal({
   subsets: ["arabic", "latin"],
   weight: ["300", "400", "500", "700", "800", "900"],
   variable: "--font-tajawal",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -111,23 +113,19 @@ export default async function RootLayout({
         className={`${fontVariables} font-sans antialiased bg-slate-50 text-slate-900`}
         style={useSystemFonts ? { fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" } : undefined}
       >
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-J3KX3TZ4F2"
-          strategy="afterInteractive"
-        />
-        <Script id="google-tag" strategy="afterInteractive">
+        <Script id="google-tag-bootstrap" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
             window.gtag('js', new Date());
-
-            // Google Analytics 4
             window.gtag('config', 'G-J3KX3TZ4F2');
-
-            // Google Ads
             window.gtag('config', 'AW-18440732535');
           `}
         </Script>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-J3KX3TZ4F2"
+          strategy="lazyOnload"
+        />
         {focusedLanding ? (
           <SiteChrome focusedLanding locale={locale}>{children}</SiteChrome>
         ) : (

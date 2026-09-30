@@ -13,9 +13,9 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Hero />
-      <ValueProposition />
-      <AboutUs />
-      <CoursesOverview />
+      <div className="home-defer-section"><ValueProposition /></div>
+      <div className="home-defer-section"><AboutUs /></div>
+      <div className="home-defer-section"><CoursesOverview /></div>
       <div className="home-defer-section"><HowItWorks /></div>
       <div className="home-defer-section"><Testimonials /></div>
       <div className="home-defer-section home-defer-section-tall"><PricingSection showViewAllButton={true} /></div>

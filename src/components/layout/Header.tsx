@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Globe, Instagram, Facebook, Home, BookOpen, Info, MessageSquare, CreditCard, ChevronRight, ChevronDown } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
@@ -56,10 +57,14 @@ export function Header() {
             <div
               className="flex items-center gap-2 md:gap-2.5"
             >
-              <img
+              <Image
                 src="/header-icon.png"
                 alt=""
                 aria-hidden="true"
+                width={40}
+                height={60}
+                sizes="(max-width: 767px) 32px, 40px"
+                quality={60}
                 className="block h-[48px] md:h-[56px] w-auto shrink-0"
               />
 

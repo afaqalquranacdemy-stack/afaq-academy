@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { getImageProps } from "next/image";
 import { useRouter } from "next/navigation";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import {
@@ -20,6 +21,26 @@ type CoursesHeroProps = {
     en: string;
   };
 };
+
+const { props: desktopCoursesHeroImage } = getImageProps({
+  src: "/images/courses/courses-bg.webp",
+  alt: "",
+  width: 1600,
+  height: 900,
+  sizes: "100vw",
+  quality: 60,
+  loading: "eager",
+});
+
+const { props: mobileCoursesHeroImage } = getImageProps({
+  src: "/images/courses/courses-bg-mobail.webp",
+  alt: "",
+  width: 1027,
+  height: 2048,
+  sizes: "100vw",
+  quality: 60,
+  loading: "eager",
+});
 
 export function CoursesHero({ landingTitle }: CoursesHeroProps) {
   const { isRtl } = useLanguage();
@@ -85,12 +106,10 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
         {/* Hero Background Image: a single responsive request, not two priority preloads. */}
         <picture className="absolute inset-0 block h-full w-full">
-          <source media="(max-width: 767px)" srcSet="/images/courses/courses-bg-mobail.webp" />
+          <source media="(max-width: 767px)" srcSet={mobileCoursesHeroImage.srcSet} />
           <img
-            src="/images/courses/courses-bg.webp"
-            alt=""
+            {...desktopCoursesHeroImage}
             aria-hidden="true"
-            loading="eager"
             fetchPriority="high"
             decoding="async"
             className="h-full w-full object-cover opacity-50 mix-blend-overlay"

@@ -1,9 +1,30 @@
 "use client";
 
 import Link from "next/link";
+import { getImageProps } from "next/image";
 import { ArrowRight, Play, Sparkles, GraduationCap, Award, Globe, BookOpen } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { academyStats } from "@/data/site";
+
+const { props: desktopHeroImage } = getImageProps({
+  src: "/hero-bg.webp",
+  alt: "",
+  width: 1600,
+  height: 900,
+  sizes: "100vw",
+  quality: 60,
+  loading: "eager",
+});
+
+const { props: mobileHeroImage } = getImageProps({
+  src: "/hero-mobile-bg.webp",
+  alt: "",
+  width: 1027,
+  height: 2048,
+  sizes: "100vw",
+  quality: 60,
+  loading: "eager",
+});
 
 export function Hero() {
   const { t, isRtl } = useLanguage();
@@ -12,8 +33,14 @@ return (
       {/* Cinematic hero artwork */}
       <div className="absolute inset-0 z-0 select-none pointer-events-none overflow-hidden">
         <picture className="absolute inset-0 block h-full w-full">
-          <source media="(max-width: 767px)" srcSet="/hero-mobile-bg.webp" type="image/webp" />
-          <img src="/hero-bg.webp" alt="" aria-hidden="true" loading="eager" fetchPriority="high" decoding="async" className="h-full w-full object-cover object-center scale-[1.01] brightness-[0.72] md:brightness-[0.78] saturate-[0.9] contrast-[1.04] md:contrast-[1.05]" />
+          <source media="(max-width: 767px)" srcSet={mobileHeroImage.srcSet} />
+          <img
+            {...desktopHeroImage}
+            aria-hidden="true"
+            fetchPriority="high"
+            decoding="async"
+            className="h-full w-full object-cover object-center scale-[1.01] brightness-[0.72] md:brightness-[0.78] saturate-[0.9] contrast-[1.04] md:contrast-[1.05]"
+          />
         </picture>
 
         {/* Mobile: keep the artwork visible while calming the center behind copy */}

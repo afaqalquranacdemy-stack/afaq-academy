@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { Sparkles, Users, Calendar, Award } from "lucide-react";
 
@@ -30,7 +31,14 @@ function FeatureCard({ item, index, isRtl, bgImage }: any) {
         {/* Premium Background Image for card 01 */}
         {bgImage && (
           <div className="absolute inset-0 z-0">
-            <img src={bgImage} alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover opacity-95 group-hover:scale-110 transition-transform duration-[2s] ease-out" />
+            <Image
+              src={bgImage}
+              alt=""
+              fill
+              quality={60}
+              sizes="(max-width: 767px) calc(100vw - 2rem), (max-width: 1024px) 50vw, 50vw"
+              className="object-cover opacity-95 group-hover:scale-110 transition-transform duration-[2s] ease-out"
+            />
             {/* Overlay to ensure text readability - Clearer & More Defined */}
             <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-900/30 to-slate-950/60" />
             <div className="absolute inset-0 bg-slate-950/20 backdrop-blur-[0.5px]" />
