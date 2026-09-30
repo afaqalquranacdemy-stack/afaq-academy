@@ -111,27 +111,12 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
 
       {/* ═══ Animated Gradient Orbs ═══ */}
       <div
-        animate={{
-          y: [0, -40, 0],
-          opacity: [0.15, 0.3, 0.15],
-        }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-[-15%] right-[-10%] w-[60vw] h-[60vw] bg-teal-500/15 blur-[150px] rounded-full pointer-events-none"
       />
       <div
-        animate={{
-          y: [0, 40, 0],
-          opacity: [0.1, 0.25, 0.1],
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
         className="absolute bottom-[-20%] left-[-10%] w-[50vw] h-[50vw] bg-indigo-500/15 blur-[150px] rounded-full pointer-events-none"
       />
       <div
-        animate={{
-          scale: [1, 1.1, 1],
-          opacity: [0.05, 0.15, 0.05],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-[20%] left-[30%] w-[30vw] h-[30vw] bg-amber-500/10 blur-[120px] rounded-full pointer-events-none"
       />
 
@@ -140,9 +125,6 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
         <div className="w-full max-w-5xl mx-auto text-center -translate-y-[2vh] md:translate-y-0">
           {/* Badge */}
           <div
-            initial={{ opacity: 0, y: 30, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="flex justify-center mb-8"
           >
             <div className="relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white/5 backdrop-blur-md border border-white/10 shadow-lg overflow-hidden group hover:border-teal-500/50 transition-all duration-700 cursor-default">
@@ -158,13 +140,6 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
 
           {/* Title */}
           <h1
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1,
-              delay: 0.1,
-              ease: [0.16, 1, 0.3, 1],
-            }}
             style={{ fontSize: "clamp(1.15rem, 5.5vw, 2.1rem)" }}
             className={`md:!text-5xl lg:!text-[52px] font-bold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-100 to-slate-400 tracking-tight leading-[1.25] mb-6 ${isRtl ? "font-cairo leading-[1.4]" : "font-serif"}`}
           >
@@ -191,13 +166,6 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
 
           {/* Subtitle */}
           <p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: 0.25,
-              ease: [0.16, 1, 0.3, 1],
-            }}
             className="text-sm sm:text-base md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-10 font-medium text-center px-2"
           >
             {isRtl
@@ -207,13 +175,6 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
 
           {/* Search Bar */}
           <div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.8,
-              delay: 0.35,
-              ease: [0.16, 1, 0.3, 1],
-            }}
             className="w-full max-w-xl mx-auto mb-16 px-2 sm:px-0"
           >
             <form onSubmit={handleSearch} className="relative group w-full" role="search">
@@ -247,13 +208,6 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
 
       {/* ═══ Stats Cards ═══ */}
       <div
-        initial={{ opacity: 0, y: 50, scale: 0.97 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{
-          duration: 1,
-          delay: 0.5,
-          ease: [0.16, 1, 0.3, 1],
-        }}
         className="absolute bottom-[5vh] inset-x-4 md:inset-x-0 w-auto md:w-full max-w-4xl mx-auto z-40 mb-0"
       >
         {/* Animated gradient border */}

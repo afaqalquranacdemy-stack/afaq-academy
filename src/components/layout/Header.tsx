@@ -54,9 +54,6 @@ export function Header() {
             aria-label="Afaq Al-Quran Academy"
           >
             <div
-              initial={{ opacity: 0, x: isRtl ? 20 : -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
               className="flex items-center gap-2 md:gap-2.5"
             >
               <img
@@ -127,10 +124,6 @@ export function Header() {
                   <>
                     {isMegaMenuOpen && (
                       <div
-                        initial={{ opacity: 0, y: 15, scale: 0.98 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                        transition={{ duration: 0.2, ease: "easeOut" }}
                         className={`absolute top-[160%] left-1/2 -translate-x-1/2 w-[800px] z-[200]`}
                       >
                         <div className="bg-slate-100/95 backdrop-blur-3xl border border-slate-200 shadow-[0_40px_100px_-20px_rgba(0,215,159,0.2),inset_0_0_0_1px_rgba(255,255,255,1)] rounded-3xl overflow-hidden p-8 relative">
@@ -247,10 +240,6 @@ export function Header() {
       <>
         {mobileOpen && (
           <div
-            initial={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
             className="absolute top-[100px] left-4 right-4 md:hidden overflow-hidden bg-white/95 backdrop-blur-lg border border-slate-200 rounded-3xl shadow-xl pointer-events-auto z-50"
           >
             <div className="px-4 py-8 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
@@ -259,9 +248,6 @@ export function Header() {
                   return (
                     <div
                       key={link.key}
-                      initial={{ opacity: 0, x: isRtl ? 20 : -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: i * 0.05 }}
                       className="flex flex-col"
                     >
                       <button
@@ -282,9 +268,6 @@ export function Header() {
                       <>
                         {mobileCoursesOpen && (
                           <div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
                             className="overflow-hidden"
                           >
                             <div className="flex flex-col gap-4 p-4 mt-2 mb-2 bg-slate-50/80 rounded-2xl border border-slate-100">
@@ -326,9 +309,6 @@ export function Header() {
                 return (
                   <div
                     key={link.key}
-                    initial={{ opacity: 0, x: isRtl ? 20 : -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
                   >
                     <Link
                       href={link.href}

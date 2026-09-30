@@ -75,10 +75,6 @@ export function LearningMethodology() {
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-amber-50 border border-amber-100 text-amber-700 text-xs font-bold uppercase tracking-widest mb-6">
@@ -105,14 +101,6 @@ export function LearningMethodology() {
             return (
               <div
                 key={idx}
-                initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  duration: 0.7,
-                  delay: idx * 0.1,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
                 className={`relative flex flex-col md:flex-row items-center gap-8 mb-16 last:mb-0 ${
                   isEven ? "md:flex-row" : "md:flex-row-reverse"
                 }`}

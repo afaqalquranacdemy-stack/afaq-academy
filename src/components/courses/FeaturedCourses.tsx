@@ -45,10 +45,6 @@ export function FeaturedCourses() {
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-100 text-teal-700 text-xs font-bold uppercase tracking-widest mb-6">
@@ -73,10 +69,6 @@ export function FeaturedCourses() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* ── Large Featured Card ── */}
           <div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="glass-card p-2 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500 group flex flex-col lg:row-span-2"
           >
             {/* Image */}
@@ -186,14 +178,6 @@ export function FeaturedCourses() {
           {featured.slice(1, 3).map((course, idx) => (
             <div
               key={course.id}
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{
-                duration: 0.8,
-                delay: idx * 0.15,
-                ease: [0.16, 1, 0.3, 1],
-              }}
               className="glass-card p-2 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500 group flex flex-col md:flex-row"
             >
               {/* Image */}

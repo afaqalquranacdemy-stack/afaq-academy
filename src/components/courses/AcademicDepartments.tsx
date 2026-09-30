@@ -70,10 +70,6 @@ export function AcademicDepartments() {
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-xs font-bold uppercase tracking-widest mb-6">
@@ -103,14 +99,6 @@ export function AcademicDepartments() {
             return (
               <div
                 key={dept.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{
-                  delay: idx * 0.1,
-                  duration: 0.7,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
                 className="glass-card p-5 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] bg-[#F8FAFC] border border-slate-100 hover:shadow-2xl transition-all duration-500 group relative overflow-hidden"
               >
                 {/* Decorative glow */}

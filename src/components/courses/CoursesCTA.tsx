@@ -11,10 +11,6 @@ export function CoursesCTA() {
     <section className="py-24 md:py-32 bg-white relative section-divider overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
         <div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="relative max-w-5xl mx-auto"
         >
           {/* Outer glow */}
