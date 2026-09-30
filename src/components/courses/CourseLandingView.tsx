@@ -135,7 +135,7 @@ export function CourseLandingView({ category, intent = "", lang = "en" }: Course
                     src={course.image}
                     alt={isRtl ? course.title.ar : course.title.en}
                     fill
-                    quality={65}
+                    quality={60}
                     sizes="(max-width: 768px) calc(100vw - 2rem), (max-width: 1024px) 50vw, 33vw"
                     className="object-cover"
                   />

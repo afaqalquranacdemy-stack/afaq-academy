@@ -252,7 +252,7 @@ function CourseGridContent({
             {filteredCourses.map((course) => (
               <div key={course.id} className="glass-card p-2 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500 group flex flex-col">
                 <div className="relative h-52 rounded-[1.2rem] md:rounded-[2rem] overflow-hidden">
-                  <Image src={course.image} alt={isRtl ? course.title.ar : course.title.en} fill sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) 50vw, 33vw" quality={65} className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <Image src={course.image} alt={isRtl ? course.title.ar : course.title.en} fill sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) 50vw, 33vw" quality={60} className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                   <div className="absolute top-3 left-3 right-3 flex justify-between items-start">
                     <div className={`px-3 py-1.5 rounded-full bg-gradient-to-r ${categoryGradients[course.category]} text-white text-[10px] font-bold shadow-lg`}>{isRtl ? categoryLabels[course.category]?.ar : course.category}</div>

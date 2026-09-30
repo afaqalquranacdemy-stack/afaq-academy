@@ -12,13 +12,21 @@ export function proxy(request: NextRequest) {
   const urlLocale = resolveLocale(request.nextUrl.searchParams.get("lang"));
   const cookieLocale = resolveLocale(request.cookies.get(LOCALE_COOKIE)?.value);
   const locale = urlLocale ?? cookieLocale;
+  const isFocusedCourseLanding =
+    request.nextUrl.pathname === "/courses" &&
+    Boolean(request.nextUrl.searchParams.get("category"));
 
-  if (!locale) {
+  if (!locale && !isFocusedCourseLanding) {
     return NextResponse.next();
   }
 
   const requestHeaders = new Headers(request.headers);
-  requestHeaders.set(LOCALE_HEADER, locale);
+  if (locale) {
+    requestHeaders.set(LOCALE_HEADER, locale);
+  }
+  if (isFocusedCourseLanding) {
+    requestHeaders.set("x-afaq-focused-landing", "1");
+  }
 
   const response = NextResponse.next({
     request: {

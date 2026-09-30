@@ -98,6 +98,7 @@ export default async function RootLayout({
     defaultLocale;
 
   const dir = isRtl(locale) ? "rtl" : "ltr";
+  const focusedLanding = headerStore.get("x-afaq-focused-landing") === "1";
 
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning>
@@ -124,7 +125,7 @@ export default async function RootLayout({
         </Script>
         <LanguageProvider initialLocale={locale}>
           <Toaster position="top-center" reverseOrder={false} />
-          <SiteChrome>{children}</SiteChrome>
+          <SiteChrome focusedLanding={focusedLanding} locale={locale}>{children}</SiteChrome>
         </LanguageProvider>
       </body>
     </html>
