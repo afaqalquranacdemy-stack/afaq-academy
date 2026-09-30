@@ -3,7 +3,9 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FloatingWhatsApp } from "@/components/layout/FloatingWhatsApp";
+import { academyContact } from "@/data/site";
+import { WhatsAppIcon } from "@/components/shared/WhatsAppIcon";
+import { trackWhatsAppContact } from "@/lib/googleAds";
 
 const Header = dynamic(() =>
   import("@/components/layout/Header").then((module) => module.Header)
@@ -11,6 +13,10 @@ const Header = dynamic(() =>
 
 const Footer = dynamic(() =>
   import("@/components/layout/Footer").then((module) => module.Footer)
+);
+
+const FloatingWhatsApp = dynamic(() =>
+  import("@/components/layout/FloatingWhatsApp").then((module) => module.FloatingWhatsApp)
 );
 
 type SiteChromeProps = {
@@ -40,7 +46,7 @@ export function SiteChrome({
         <header className="fixed inset-x-0 top-0 z-[100] px-3 pt-3 md:px-6 md:pt-5">
           <div className="mx-auto flex min-h-[64px] w-full max-w-[1120px] items-center justify-between rounded-[24px] border border-slate-200/80 bg-white/95 px-4 shadow-[0_14px_40px_-24px_rgba(15,23,42,0.4)] backdrop-blur-md md:px-6">
             <Link href={`/?lang=${isArabic ? "ar" : "en"}`} className="flex flex-col leading-none" aria-label="Afaq Al-Quran Academy">
-              <span className={`font-bold text-[#075248] ${isArabic ? "font-elmessiri text-base" : "font-serif text-sm tracking-[0.04em]"}`}>
+              <span className={`font-bold text-[#075248] ${isArabic ? "font-elmessiri text-base" : "text-sm tracking-[0.04em]"}`}>
                 {isArabic ? "آفَاقُ الْقُرْآنِ" : "AFAQ AL-QURAN"}
               </span>
               <span className="mt-1 text-[9px] font-extrabold tracking-[0.22em] text-[#B8892E]">
@@ -58,7 +64,18 @@ export function SiteChrome({
         </header>
 
         <main className="min-h-screen">{children}</main>
-        <FloatingWhatsApp />
+
+        <a
+          href={academyContact.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={() => trackWhatsAppContact("focused_course_landing")}
+          aria-label={isArabic ? "تواصل عبر واتساب" : "Chat on WhatsApp"}
+          title={isArabic ? "تواصل عبر واتساب" : "Chat on WhatsApp"}
+          className="fixed bottom-4 left-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-green-500 text-white shadow-[0_8px_25px_rgba(34,197,94,0.38)] transition-transform hover:scale-105 md:bottom-6 md:left-6 md:h-14 md:w-14"
+        >
+          <WhatsAppIcon className="h-6 w-6 md:h-7 md:w-7" />
+        </a>
       </>
     );
   }

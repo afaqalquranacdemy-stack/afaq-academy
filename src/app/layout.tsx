@@ -99,12 +99,17 @@ export default async function RootLayout({
 
   const dir = isRtl(locale) ? "rtl" : "ltr";
   const focusedLanding = headerStore.get("x-afaq-focused-landing") === "1";
+  const useSystemFonts = focusedLanding && locale === "en";
+  const fontVariables = useSystemFonts
+    ? ""
+    : `${playfair.variable} ${inter.variable} ${elMessiri.variable} ${tajawal.variable}`;
 
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${playfair.variable} ${inter.variable} ${elMessiri.variable} ${tajawal.variable} font-sans antialiased bg-slate-50 text-slate-900`}
+        className={`${fontVariables} font-sans antialiased bg-slate-50 text-slate-900`}
+        style={useSystemFonts ? { fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" } : undefined}
       >
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-J3KX3TZ4F2"
@@ -123,10 +128,14 @@ export default async function RootLayout({
             window.gtag('config', 'AW-18440732535');
           `}
         </Script>
-        <LanguageProvider initialLocale={locale}>
-          <Toaster position="top-center" reverseOrder={false} />
-          <SiteChrome focusedLanding={focusedLanding} locale={locale}>{children}</SiteChrome>
-        </LanguageProvider>
+        {focusedLanding ? (
+          <SiteChrome focusedLanding locale={locale}>{children}</SiteChrome>
+        ) : (
+          <LanguageProvider initialLocale={locale}>
+            <Toaster position="top-center" reverseOrder={false} />
+            <SiteChrome locale={locale}>{children}</SiteChrome>
+          </LanguageProvider>
+        )}
       </body>
     </html>
   );
