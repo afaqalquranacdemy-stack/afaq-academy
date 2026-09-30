@@ -157,7 +157,7 @@ function CourseGridContent({
   });
 
   return (
-    <section data-reveal="true" id="courses-grid-content" className="py-24 md:py-32 bg-[#F8FAFC] relative overflow-hidden scroll-mt-20">
+    <section id="courses-grid-content" className="course-grid-enter py-24 md:py-32 bg-[#F8FAFC] relative overflow-hidden scroll-mt-20">
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-teal-500/[0.02] blur-[180px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-indigo-500/[0.02] blur-[180px] rounded-full pointer-events-none" />
 
