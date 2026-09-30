@@ -34,7 +34,20 @@ export function PricingSection({ showViewAllButton = false }: PricingSectionProp
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 blur-[150px] rounded-full pointer-events-none translate-x-1/2 translate-y-1/2" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        
+        <div className="mx-auto mb-10 max-w-3xl text-center md:mb-14">
+          <span className="mb-4 inline-flex rounded-full border border-teal-100 bg-teal-50 px-4 py-2 text-xs font-bold uppercase tracking-widest text-teal-700">
+            {isRtl ? "خطط مرنة" : "Flexible Plans"}
+          </span>
+          <h2 className={`mb-4 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl md:text-5xl ${isRtl ? "font-cairo" : "font-serif"}`}>
+            {isRtl ? "اختر الخطة المناسبة لرحلتك التعليمية" : "Choose the Plan That Fits Your Learning Journey"}
+          </h2>
+          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-500 sm:text-base md:text-lg">
+            {isRtl
+              ? "باقات تعليمية مرنة تناسب وقتك وميزانيتك مع إمكانية اختيار مدة الحصة."
+              : "Flexible learning plans designed around your schedule and budget, with lesson durations that fit your needs."}
+          </p>
+        </div>
+
         {/* Apple-style Segmented Control */}
         <div
           className="flex justify-center mb-16"

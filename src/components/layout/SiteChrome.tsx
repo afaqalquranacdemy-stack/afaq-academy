@@ -44,7 +44,7 @@ export function SiteChrome({
           observer.unobserve(entry.target);
         }
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+      { rootMargin: "220px 0px -5% 0px", threshold: 0.04 }
     );
 
     document

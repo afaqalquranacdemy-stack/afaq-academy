@@ -785,14 +785,8 @@ textarea {
   scrollbar-width: none;  /* Firefox */
 }
 
-/* Courses performance: skip below-the-fold rendering until needed. */
-@supports (content-visibility: auto) {
-  .course-defer-section {
-    content-visibility: auto;
-    contain-intrinsic-size: 900px;
-  }
-}
-
+/* CourseGrid is deferred by IntersectionObserver in DeferredCourseGrid.
+   Avoid content-visibility placeholders here: they can create blank gaps on mobile. */
 
 /* Performance-friendly progressive motion and deferred rendering. */
 @keyframes hero-rise-in {
@@ -816,7 +810,6 @@ textarea {
     transition:
       opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
       transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
   }
 
   .reveal-ready [data-reveal].is-visible {
@@ -848,21 +841,6 @@ textarea {
   }
 }
 
-@supports (content-visibility: auto) {
-  .home-defer-section {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 1100px;
-  }
-
-  .home-defer-section-tall {
-    contain-intrinsic-size: auto 1800px;
-  }
-
-  .home-defer-section-small {
-    contain-intrinsic-size: auto 180px;
-  }
-
-  .course-defer-section {
-    contain-intrinsic-size: auto 1000px;
-  }
-}
+/* Keep real document height on mobile and avoid blank placeholder regions.
+   Images and CourseGrid still lazy-load independently, while reveal animations
+   are triggered only when their section approaches the viewport. */
