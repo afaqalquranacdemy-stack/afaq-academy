@@ -1,9 +1,4 @@
-"use client";
-
-import { useState } from "react";
 import { getImageProps } from "next/image";
-import { useRouter } from "next/navigation";
-import { useLanguage } from "@/components/providers/LanguageProvider";
 import {
   Sparkles,
   GraduationCap,
@@ -20,6 +15,8 @@ type CoursesHeroProps = {
     ar: string;
     en: string;
   };
+  isRtl: boolean;
+  lang: string;
 };
 
 const { props: desktopCoursesHeroImage } = getImageProps({
@@ -42,16 +39,7 @@ const { props: mobileCoursesHeroImage } = getImageProps({
   loading: "eager",
 });
 
-export function CoursesHero({ landingTitle }: CoursesHeroProps) {
-  const { isRtl } = useLanguage();
-  const router = useRouter();
-  const [query, setQuery] = useState("");
-
-  const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const value = query.trim();
-    router.push(value ? `/courses?q=${encodeURIComponent(value)}#courses-grid` : "/courses#courses-grid");
-  };
+export function CoursesHero({ landingTitle, isRtl, lang }: CoursesHeroProps) {
 
   const stats = [
     {
@@ -196,14 +184,14 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
           <div
             className="w-full max-w-xl mx-auto mb-16 px-2 sm:px-0"
           >
-            <form onSubmit={handleSearch} className="relative group w-full" role="search">
+            <form action="/courses#courses-grid" method="get" className="relative group w-full" role="search">
+              <input type="hidden" name="lang" value={lang} />
               <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-teal-500/30 via-indigo-500/20 to-teal-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative flex items-center bg-slate-950/40 backdrop-blur-xl border border-white/15 rounded-2xl overflow-hidden group-hover:border-teal-500/50 transition-all duration-500 w-full">
                 <Search className="w-4 h-4 md:w-5 md:h-5 text-slate-300 group-hover:text-teal-400 transition-colors duration-300 mx-3 md:mx-4 shrink-0" />
                 <input
                   type="search"
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
+                  name="q"
                   aria-label={isRtl ? "البحث في البرامج" : "Search programs"}
                   placeholder={
                     isRtl

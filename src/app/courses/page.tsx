@@ -122,7 +122,7 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
 
   return (
     <main className="min-h-screen bg-[#F8FAFC]">
-      <CoursesHero landingTitle={landingTitle} />
+      <CoursesHero landingTitle={landingTitle} isRtl={sectionIsRtl} lang={resolvedLang} />
 
       <div className="course-defer-section"><FeaturedCourses isRtl={sectionIsRtl} /></div>
 
