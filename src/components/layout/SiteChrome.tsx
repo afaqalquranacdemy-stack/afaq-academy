@@ -47,11 +47,40 @@ export function SiteChrome({
       { rootMargin: "220px 0px -5% 0px", threshold: 0.04 }
     );
 
+    const observeRevealElement = (element: Element) => {
+      if (!(element instanceof HTMLElement)) return;
+      if (element.matches("[data-reveal]:not(.is-visible)")) {
+        observer.observe(element);
+      }
+      element
+        .querySelectorAll<HTMLElement>("[data-reveal]:not(.is-visible)")
+        .forEach((child) => observer.observe(child));
+    };
+
     document
       .querySelectorAll<HTMLElement>("[data-reveal]:not(.is-visible)")
       .forEach((element) => observer.observe(element));
 
-    return () => observer.disconnect();
+    // Deferred home sections are inserted after the initial render.
+    // Observe only newly-added DOM nodes so their reveal animations still
+    // trigger when they approach the viewport without rescanning the page.
+    const mutationObserver = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        for (const node of mutation.addedNodes) {
+          if (node instanceof Element) observeRevealElement(node);
+        }
+      }
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      mutationObserver.disconnect();
+      observer.disconnect();
+    };
   }, [pathname]);
 
   const isFreeTrial =
