@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/components/providers/LanguageProvider";
 import { courses, categories } from "@/data/courses";
 import { startingMonthlyPrice } from "@/data/pricing";
@@ -164,13 +163,7 @@ function CourseGridContent({
 
       <div className="container mx-auto px-4 md:px-8">
         {activeLanding ? (
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-5xl mx-auto mb-10 md:mb-12"
-          >
+          <div className="max-w-5xl mx-auto mb-10 md:mb-12">
             <div className="relative overflow-hidden rounded-[1.75rem] md:rounded-[2.25rem] border border-slate-200/80 bg-white px-6 py-8 md:px-10 md:py-11 shadow-[0_20px_70px_-35px_rgba(15,23,42,0.28)]">
               <div className="absolute -top-32 -right-20 h-72 w-72 rounded-full bg-teal-100/70 blur-3xl pointer-events-none" />
               <div className="absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-indigo-100/55 blur-3xl pointer-events-none" />
@@ -206,15 +199,9 @@ function CourseGridContent({
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         ) : (
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center max-w-3xl mx-auto mb-12"
-          >
+          <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="inline-block px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-widest mb-6">
               <BookOpen className="w-3.5 h-3.5 inline mr-1 -mt-0.5" />
               {isRtl ? "كتالوج البرامج" : "Program Catalog"}
@@ -225,10 +212,10 @@ function CourseGridContent({
             <p className="text-sm sm:text-base md:text-lg text-slate-500 leading-relaxed">
               {isRtl ? "تصفح جميع برامجنا الأكاديمية واختر ما يناسب مستواك وأهدافك" : "Browse all our academic programs and choose what fits your level and goals"}
             </p>
-          </motion.div>
+          </div>
         )}
 
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }} className="max-w-5xl mx-auto mb-12">
+        <div className="max-w-5xl mx-auto mb-12">
           <div className="glass-card !rounded-2xl p-4 md:p-5 hover:!translate-y-0 hover:!scale-100 border-slate-200/50">
             <div className="flex flex-col md:flex-row gap-4 md:items-center">
               <div className="flex-grow">
@@ -254,19 +241,18 @@ function CourseGridContent({
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         <div className="max-w-7xl mx-auto mb-8 flex flex-wrap items-center gap-3">
           <p className="text-sm text-slate-400">{isRtl ? `عرض ${filteredCourses.length} برنامج` : `Showing ${filteredCourses.length} programs`}</p>
           {query && <Link href="/courses#courses-grid" className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-slate-600 hover:border-teal-300 hover:text-teal-700 transition-colors">{isRtl ? `مسح البحث: ${query}` : `Clear search: ${query}`}</Link>}
         </div>
 
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          <AnimatePresence mode="popLayout">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {filteredCourses.map((course) => (
-              <motion.div layout initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95, y: -20 }} transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} key={course.id} className="glass-card p-2 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500 group flex flex-col">
+              <div key={course.id} className="glass-card p-2 rounded-[1.5rem] md:rounded-[2.5rem] bg-white border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500 group flex flex-col">
                 <div className="relative h-52 rounded-[1.2rem] md:rounded-[2rem] overflow-hidden">
-                  <Image src={course.image} alt={isRtl ? course.title.ar : course.title.en} fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <Image src={course.image} alt={isRtl ? course.title.ar : course.title.en} fill sizes="(max-width: 768px) calc(100vw - 3rem), (max-width: 1024px) 50vw, 33vw" quality={65} className="object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
                   <div className="absolute top-3 left-3 right-3 flex justify-between items-start">
                     <div className={`px-3 py-1.5 rounded-full bg-gradient-to-r ${categoryGradients[course.category]} text-white text-[10px] font-bold shadow-lg`}>{isRtl ? categoryLabels[course.category]?.ar : course.category}</div>
@@ -292,16 +278,15 @@ function CourseGridContent({
                     <Link href={`/courses/${course.slug}`} className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-50 text-slate-700 font-bold text-sm group-hover:bg-[#0B1120] group-hover:text-white transition-all duration-300">{isRtl ? "التفاصيل" : "Details"}<ArrowRight className={`w-4 h-4 ${isRtl ? "rotate-180" : ""}`} /></Link>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </AnimatePresence>
-        </motion.div>
+        </div>
 
         {filteredCourses.length === 0 && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-20">
+          <div className="text-center py-20">
             <GraduationCap className="w-16 h-16 text-slate-300 mx-auto mb-4" />
             <p className="text-lg text-slate-400">{isRtl ? "لا توجد برامج تطابق الفلاتر المحددة" : "No programs match the selected filters"}</p>
-          </motion.div>
+          </div>
         )}
       </div>
     </section>

@@ -784,3 +784,11 @@ textarea {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/* Courses performance: skip below-the-fold rendering until needed. */
+@supports (content-visibility: auto) {
+  .course-defer-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 900px;
+  }
+}

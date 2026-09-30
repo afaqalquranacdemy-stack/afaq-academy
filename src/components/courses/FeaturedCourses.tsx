@@ -86,7 +86,7 @@ export function FeaturedCourses() {
                 src={featured[0].image}
                 alt={isRtl ? featured[0].title.ar : featured[0].title.en}
                 fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 1024px) 100vw, 50vw" quality={65}
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Overlay */}
@@ -203,7 +203,7 @@ export function FeaturedCourses() {
                   src={course.image}
                   alt={isRtl ? course.title.ar : course.title.en}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 1024px) 100vw, 50vw" quality={65}
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 to-transparent" />

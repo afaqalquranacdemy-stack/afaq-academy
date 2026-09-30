@@ -15,7 +15,6 @@ import {
 } from "lucide-react";
 import { CountUp } from "@/components/effects/CountUp";
 import { academyStats } from "@/data/site";
-import Image from "next/image";
 
 type CoursesHeroProps = {
   landingTitle?: {
@@ -86,26 +85,19 @@ export function CoursesHero({ landingTitle }: CoursesHeroProps) {
     <section className="relative min-h-[100dvh] w-full flex flex-col justify-between overflow-hidden bg-slate-950">
       {/* ═══ Background Layers ═══ */}
       <div className="absolute inset-0 z-0 pointer-events-none select-none">
-        {/* Hero Background Image */}
-        {/* Desktop Hero Background Image */}
-        <Image
-          src="/images/courses/courses-bg.webp"
-          alt="Courses background desktop"
-          fill
-          priority
-          sizes="100vw"
-          className="hidden md:block object-cover opacity-[0.5] mix-blend-overlay"
-        />
-
-        {/* Mobile Hero Background Image */}
-        <Image
-          src="/images/courses/courses-bg-mobail.webp"
-          alt="Courses background mobile"
-          fill
-          priority
-          sizes="100vw"
-          className="block md:hidden object-cover opacity-[0.5] mix-blend-overlay"
-        />
+        {/* Hero Background Image: a single responsive request, not two priority preloads. */}
+        <picture className="absolute inset-0 block h-full w-full">
+          <source media="(max-width: 767px)" srcSet="/images/courses/courses-bg-mobail.webp" />
+          <img
+            src="/images/courses/courses-bg.webp"
+            alt=""
+            aria-hidden="true"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            className="h-full w-full object-cover opacity-50 mix-blend-overlay"
+          />
+        </picture>
 
         {/* Subtle noise texture */}
         <div

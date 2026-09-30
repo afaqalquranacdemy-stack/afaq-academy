@@ -5,6 +5,7 @@ import { CourseGrid } from "@/components/courses/CourseGrid";
 import { LearningMethodology } from "@/components/courses/LearningMethodology";
 import { CoursesFeatures } from "@/components/courses/CoursesFeatures";
 import { CoursesCTA } from "@/components/courses/CoursesCTA";
+import { CourseLandingView } from "@/components/courses/CourseLandingView";
 
 import type { Metadata } from "next";
 
@@ -14,6 +15,7 @@ type CoursesPageProps = {
     category?: string | string[];
     level?: string | string[];
     intent?: string | string[];
+    lang?: string | string[];
   }>;
 };
 
@@ -99,6 +101,20 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
   const intent = firstParam(params.intent).toLowerCase();
   const landingKey = category === "Quran" && intent === "tajweed" ? "tajweed" : category;
   const landingTitle = landingHeroTitleByLanding[landingKey];
+  const lang = firstParam(params.lang);
+
+  // Paid-search category URLs get a lightweight server-rendered landing view.
+  // This avoids hydrating the full course catalogue and its animation-heavy
+  // sections before the visitor can see the content they searched for.
+  if (landingTitle) {
+    return (
+      <CourseLandingView
+        category={category}
+        intent={intent}
+        lang={lang}
+      />
+    );
+  }
 
   return (
     <main className="min-h-screen bg-[#F8FAFC]">
@@ -115,11 +131,11 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
         initialIntent={firstParam(params.intent)}
       />
 
-      <LearningMethodology />
+      <div className="course-defer-section"><LearningMethodology /></div>
 
-      <CoursesFeatures />
+      <div className="course-defer-section"><CoursesFeatures /></div>
 
-      <CoursesCTA />
+      <div className="course-defer-section"><CoursesCTA /></div>
     </main>
   );
 }
