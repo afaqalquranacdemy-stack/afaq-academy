@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { courses } from "@/data/courses";
 import { startingMonthlyPrice } from "@/data/pricing";
 
@@ -196,19 +197,19 @@ export default function OnlineQuranClassesForKidsPage() {
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <a
+              <Link
                 href="/free-trial"
                 className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full bg-[#D0A64A] px-7 py-3.5 text-sm font-extrabold text-[#10211d] shadow-[0_16px_45px_-18px_rgba(208,166,74,.75)] transition-colors hover:bg-[#E2BD68] sm:text-base"
               >
                 Book Your Child&apos;s Free Trial
                 <ArrowIcon className="h-4 w-4" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="#kids-programs"
                 className="inline-flex min-h-13 items-center justify-center rounded-full border border-white/20 bg-white/[0.06] px-7 py-3.5 text-sm font-bold text-white transition-colors hover:bg-white/[0.11] sm:text-base"
               >
                 Explore Kids Programs
-              </a>
+              </Link>
             </div>
 
             <div className="mt-8 flex flex-wrap gap-x-5 gap-y-3 text-sm font-semibold text-slate-200">
@@ -350,13 +351,13 @@ export default function OnlineQuranClassesForKidsPage() {
                 then build a broader path as your child progresses.
               </p>
             </div>
-            <a
+            <Link
               href="/courses?category=Kids&lang=en#courses-grid"
               className="inline-flex items-center gap-2 text-sm font-extrabold text-teal-700 hover:text-teal-900"
             >
               View all kids courses
               <ArrowIcon className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -397,12 +398,12 @@ export default function OnlineQuranClassesForKidsPage() {
                         <span className="text-xs font-bold text-slate-500">/mo</span>
                       </div>
                     </div>
-                    <a
+                    <Link
                       href={`/courses/${course.slug}?lang=en`}
                       className="inline-flex min-h-10 items-center justify-center rounded-full bg-slate-950 px-4 py-2.5 text-xs font-extrabold text-white transition-colors hover:bg-teal-700"
                     >
                       View course
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </article>
@@ -417,13 +418,13 @@ export default function OnlineQuranClassesForKidsPage() {
               Book a free trial and we will recommend the right starting point based
               on age, current level, goals and preferred schedule.
             </p>
-            <a
+            <Link
               href="/free-trial"
               className="mt-6 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-teal-700 px-7 py-3.5 text-sm font-extrabold text-white transition-colors hover:bg-teal-800"
             >
               Book Your Child&apos;s Free Trial
               <ArrowIcon className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -484,13 +485,13 @@ export default function OnlineQuranClassesForKidsPage() {
               ))}
             </div>
 
-            <a
+            <Link
               href="/free-trial"
               className="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-teal-500 px-6 py-3.5 text-sm font-black text-[#071814] transition-colors hover:bg-teal-400 sm:w-auto"
             >
               Book Your Child&apos;s Free Trial
               <ArrowIcon className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -570,19 +571,19 @@ export default function OnlineQuranClassesForKidsPage() {
               point before committing to a longer plan.
             </p>
             <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-              <a
+              <Link
                 href="/free-trial"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#D0A64A] px-7 py-3.5 text-sm font-black text-[#10211d] transition-colors hover:bg-[#E2BD68]"
               >
                 Book Your Child&apos;s Free Trial
                 <ArrowIcon className="h-4 w-4" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/courses?category=Kids&lang=en#courses-grid"
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/20 bg-white/[0.06] px-7 py-3.5 text-sm font-extrabold text-white transition-colors hover:bg-white/[0.1]"
               >
                 Explore Kids Courses
-              </a>
+              </Link>
             </div>
           </div>
         </div>
