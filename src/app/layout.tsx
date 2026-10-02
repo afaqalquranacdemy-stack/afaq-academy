@@ -141,18 +141,23 @@ export default async function RootLayout({
                     });
 
                     window.addEventListener('load', function () {
-                      window.setTimeout(loadGoogleTag, 3000);
+                      window.setTimeout(loadGoogleTag, 12000);
                     }, { once: true });
 
                     document.addEventListener('click', function (event) {
                       var target = event.target;
                       if (!(target instanceof Element)) return;
-                      var link = target.closest('a[href^="/free-trial"]');
+                      var link = target.closest('a[href]');
                       if (!link) return;
+
+                      var rawHref = link.getAttribute('href');
+                      if (!rawHref || rawHref.charAt(0) === '#') return;
+
+                      var destination = new URL(rawHref, window.location.origin);
+                      if (destination.origin !== window.location.origin) return;
 
                       var current = new URLSearchParams(window.location.search);
                       var keys = ['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
-                      var destination = new URL(link.getAttribute('href') || '/free-trial', window.location.origin);
 
                       keys.forEach(function (key) {
                         var value = current.get(key);
