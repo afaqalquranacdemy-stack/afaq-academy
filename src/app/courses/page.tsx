@@ -107,9 +107,8 @@ export default async function CoursesPage({ searchParams }: CoursesPageProps) {
   const resolvedLang = lang || requestHeaders.get("x-afaq-locale") || "en";
   const sectionIsRtl = resolvedLang === "ar";
 
-  // Paid-search category URLs get a lightweight server-rendered landing view.
-  // This avoids hydrating the full course catalogue and its animation-heavy
-  // sections before the visitor can see the content they searched for.
+  // Category-filtered course URLs use a lightweight server-rendered view.
+  // Paid-search traffic now uses dedicated intent-specific landing pages.
   if (landingTitle) {
     return (
       <CourseLandingView
