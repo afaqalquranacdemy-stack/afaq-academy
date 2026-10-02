@@ -864,3 +864,11 @@ textarea {
     animation: course-grid-enter 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }
+
+
+/* Paid-search landing pages: keep the first viewport cheap to render.
+   Below-fold sections retain an intrinsic size until they approach the viewport. */
+.paid-landing-page > section:not(:first-of-type) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
