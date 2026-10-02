@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { academyContact } from "@/data/site";
 import { TrackedWhatsAppLink } from "@/components/layout/TrackedWhatsAppLink";
 
@@ -19,20 +20,32 @@ export function FocusedLandingChrome({
         <div className="mx-auto flex min-h-[64px] w-full max-w-[1120px] items-center justify-between rounded-[24px] border border-slate-200/80 bg-white/95 px-4 shadow-[0_14px_40px_-24px_rgba(15,23,42,0.4)] md:px-6">
           <Link
             href={`/?lang=${isArabic ? "ar" : "en"}`}
-            className="flex flex-col leading-none"
+            className="flex items-center gap-2.5 leading-none"
             aria-label="Afaq Al-Quran Academy"
           >
-            <span
-              className={`font-bold text-[#075248] ${
-                isArabic
-                  ? "font-elmessiri text-base"
-                  : "text-sm tracking-[0.04em]"
-              }`}
-            >
-              {isArabic ? "آفَاقُ الْقُرْآنِ" : "AFAQ AL-QURAN"}
-            </span>
-            <span className="mt-1 text-[9px] font-extrabold tracking-[0.22em] text-[#B8892E]">
-              {isArabic ? "أَكَادِيمِيَّة" : "ACADEMY"}
+            <Image
+              src="/header-icon.png"
+              alt=""
+              aria-hidden="true"
+              width={34}
+              height={50}
+              sizes="34px"
+              quality={55}
+              className="h-[44px] w-auto shrink-0"
+            />
+            <span className="flex flex-col leading-none">
+              <span
+                className={`font-bold text-[#075248] ${
+                  isArabic
+                    ? "font-elmessiri text-base"
+                    : "text-sm tracking-[0.04em]"
+                }`}
+              >
+                {isArabic ? "آفَاقُ الْقُرْآنِ" : "AFAQ AL-QURAN"}
+              </span>
+              <span className="mt-1 text-[9px] font-extrabold tracking-[0.22em] text-[#B8892E]">
+                {isArabic ? "أَكَادِيمِيَّة" : "ACADEMY"}
+              </span>
             </span>
           </Link>
 
