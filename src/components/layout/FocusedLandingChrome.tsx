@@ -17,7 +17,7 @@ export function FocusedLandingChrome({
     <>
       <header className="fixed inset-x-0 top-0 z-[100] px-3 pt-3 md:px-6 md:pt-5">
         <div className="mx-auto flex min-h-[64px] w-full max-w-[1120px] items-center justify-between rounded-[24px] border border-slate-200/80 bg-white/95 px-4 shadow-[0_14px_40px_-24px_rgba(15,23,42,0.4)] md:px-6">
-          <Link
+          <Link prefetch={false}
             href={`/?lang=${isArabic ? "ar" : "en"}`}
             className="flex items-center gap-2.5 leading-none"
             aria-label="Afaq Al-Quran Academy"
@@ -48,7 +48,7 @@ export function FocusedLandingChrome({
             </span>
           </Link>
 
-          <Link
+          <Link prefetch={false}
             href={`/free-trial?lang=${isArabic ? "ar" : "en"}`}
             className="inline-flex min-h-10 items-center justify-center rounded-full bg-[#0B1120] px-4 py-2 text-xs font-bold text-white transition-colors hover:bg-teal-700 sm:px-5 sm:text-sm"
           >
