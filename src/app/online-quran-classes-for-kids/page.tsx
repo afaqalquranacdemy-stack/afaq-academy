@@ -152,7 +152,7 @@ function ArrowIcon({ className = "" }: { className?: string }) {
 
 export default function OnlineQuranClassesForKidsPage() {
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-slate-950">
+    <div className="paid-landing-page min-h-screen bg-[#F8FAFC] text-slate-950">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
