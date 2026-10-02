@@ -19,15 +19,20 @@ export function proxy(request: NextRequest) {
     request.nextUrl.pathname === "/online-quran-classes";
   const isFocusedKidsLanding =
     request.nextUrl.pathname === "/online-quran-classes-for-kids";
+  const isFocusedTajweedLanding =
+    request.nextUrl.pathname === "/online-tajweed-classes";
   const isFocusedLanding =
-    isFocusedCourseLanding || isFocusedQuranLanding || isFocusedKidsLanding;
+    isFocusedCourseLanding ||
+    isFocusedQuranLanding ||
+    isFocusedKidsLanding ||
+    isFocusedTajweedLanding;
 
   if (!locale && !isFocusedLanding) {
     return NextResponse.next();
   }
 
   const requestHeaders = new Headers(request.headers);
-  if (isFocusedQuranLanding || isFocusedKidsLanding) {
+  if (isFocusedQuranLanding || isFocusedKidsLanding || isFocusedTajweedLanding) {
     requestHeaders.set(LOCALE_HEADER, "en");
   } else if (locale) {
     requestHeaders.set(LOCALE_HEADER, locale);
