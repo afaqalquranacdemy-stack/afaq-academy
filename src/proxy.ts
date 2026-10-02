@@ -25,13 +25,16 @@ export function proxy(request: NextRequest) {
     request.nextUrl.pathname === "/online-arabic-classes";
   const isFocusedIslamicLanding =
     request.nextUrl.pathname === "/online-islamic-studies";
+  const isFocusedFreeTrialLanding =
+    request.nextUrl.pathname === "/free-trial";
   const isFocusedLanding =
     isFocusedCourseLanding ||
     isFocusedQuranLanding ||
     isFocusedKidsLanding ||
     isFocusedTajweedLanding ||
     isFocusedArabicLanding ||
-    isFocusedIslamicLanding;
+    isFocusedIslamicLanding ||
+    isFocusedFreeTrialLanding;
 
   if (!locale && !isFocusedLanding) {
     return NextResponse.next();
@@ -46,6 +49,8 @@ export function proxy(request: NextRequest) {
     isFocusedIslamicLanding
   ) {
     requestHeaders.set(LOCALE_HEADER, "en");
+  } else if (isFocusedFreeTrialLanding) {
+    requestHeaders.set(LOCALE_HEADER, urlLocale ?? cookieLocale ?? "en");
   } else if (locale) {
     requestHeaders.set(LOCALE_HEADER, locale);
   }
