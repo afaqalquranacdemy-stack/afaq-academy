@@ -76,6 +76,7 @@ export const metadata: Metadata = {
 };
 
 import { SiteChrome } from "@/components/layout/SiteChrome";
+import { FocusedLandingChrome } from "@/components/layout/FocusedLandingChrome";
 import { Toaster } from "react-hot-toast";
 import { LanguageProvider } from "@/components/providers/LanguageProvider";
 import { cookies, headers } from "next/headers";
@@ -127,7 +128,7 @@ export default async function RootLayout({
           strategy="lazyOnload"
         />
         {focusedLanding ? (
-          <SiteChrome focusedLanding locale={locale}>{children}</SiteChrome>
+          <FocusedLandingChrome locale={locale}>{children}</FocusedLandingChrome>
         ) : (
           <LanguageProvider initialLocale={locale}>
             <Toaster position="top-center" reverseOrder={false} />
