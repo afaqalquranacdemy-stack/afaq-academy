@@ -15,16 +15,21 @@ export function proxy(request: NextRequest) {
   const isFocusedCourseLanding =
     request.nextUrl.pathname === "/courses" &&
     Boolean(request.nextUrl.searchParams.get("category"));
+  const isFocusedQuranLanding =
+    request.nextUrl.pathname === "/online-quran-classes";
+  const isFocusedLanding = isFocusedCourseLanding || isFocusedQuranLanding;
 
-  if (!locale && !isFocusedCourseLanding) {
+  if (!locale && !isFocusedLanding) {
     return NextResponse.next();
   }
 
   const requestHeaders = new Headers(request.headers);
-  if (locale) {
+  if (isFocusedQuranLanding) {
+    requestHeaders.set(LOCALE_HEADER, "en");
+  } else if (locale) {
     requestHeaders.set(LOCALE_HEADER, locale);
   }
-  if (isFocusedCourseLanding) {
+  if (isFocusedLanding) {
     requestHeaders.set("x-afaq-focused-landing", "1");
   }
 
