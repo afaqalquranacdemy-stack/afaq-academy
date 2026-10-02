@@ -114,26 +114,81 @@ export default async function RootLayout({
         className={`${fontVariables} font-sans antialiased bg-slate-50 text-slate-900`}
         style={useSystemFonts ? { fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" } : undefined}
       >
-        <Script id="google-tag-bootstrap" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
-            window.gtag('js', new Date());
-            window.gtag('config', 'G-J3KX3TZ4F2');
-            window.gtag('config', 'AW-18440732535');
-          `}
-        </Script>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-J3KX3TZ4F2"
-          strategy="lazyOnload"
-        />
         {focusedLanding ? (
-          <FocusedLandingChrome locale={locale}>{children}</FocusedLandingChrome>
+          <>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  (function () {
+                    window.dataLayer = window.dataLayer || [];
+                    window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+                    window.gtag('js', new Date());
+                    window.gtag('config', 'G-J3KX3TZ4F2');
+                    window.gtag('config', 'AW-18440732535');
+
+                    var loaded = false;
+                    function loadGoogleTag() {
+                      if (loaded) return;
+                      loaded = true;
+                      var script = document.createElement('script');
+                      script.async = true;
+                      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-J3KX3TZ4F2';
+                      document.head.appendChild(script);
+                    }
+
+                    ['pointerdown', 'touchstart', 'keydown'].forEach(function (eventName) {
+                      window.addEventListener(eventName, loadGoogleTag, { once: true, passive: true });
+                    });
+
+                    window.addEventListener('load', function () {
+                      window.setTimeout(loadGoogleTag, 3000);
+                    }, { once: true });
+
+                    document.addEventListener('click', function (event) {
+                      var target = event.target;
+                      if (!(target instanceof Element)) return;
+                      var link = target.closest('a[href^="/free-trial"]');
+                      if (!link) return;
+
+                      var current = new URLSearchParams(window.location.search);
+                      var keys = ['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+                      var destination = new URL(link.getAttribute('href') || '/free-trial', window.location.origin);
+
+                      keys.forEach(function (key) {
+                        var value = current.get(key);
+                        if (value && !destination.searchParams.has(key)) {
+                          destination.searchParams.set(key, value);
+                        }
+                      });
+
+                      link.setAttribute('href', destination.pathname + destination.search + destination.hash);
+                    }, true);
+                  })();
+                `,
+              }}
+            />
+            <FocusedLandingChrome locale={locale}>{children}</FocusedLandingChrome>
+          </>
         ) : (
-          <LanguageProvider initialLocale={locale}>
-            <Toaster position="top-center" reverseOrder={false} />
-            <SiteChrome locale={locale}>{children}</SiteChrome>
-          </LanguageProvider>
+          <>
+            <Script id="google-tag-bootstrap" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
+                window.gtag('js', new Date());
+                window.gtag('config', 'G-J3KX3TZ4F2');
+                window.gtag('config', 'AW-18440732535');
+              `}
+            </Script>
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-J3KX3TZ4F2"
+              strategy="lazyOnload"
+            />
+            <LanguageProvider initialLocale={locale}>
+              <Toaster position="top-center" reverseOrder={false} />
+              <SiteChrome locale={locale}>{children}</SiteChrome>
+            </LanguageProvider>
+          </>
         )}
       </body>
     </html>
