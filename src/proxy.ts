@@ -12,9 +12,6 @@ export function proxy(request: NextRequest) {
   const urlLocale = resolveLocale(request.nextUrl.searchParams.get("lang"));
   const cookieLocale = resolveLocale(request.cookies.get(LOCALE_COOKIE)?.value);
   const locale = urlLocale ?? cookieLocale;
-  const isFocusedCourseLanding =
-    request.nextUrl.pathname === "/courses" &&
-    Boolean(request.nextUrl.searchParams.get("category"));
   const isFocusedQuranLanding =
     request.nextUrl.pathname === "/online-quran-classes";
   const isFocusedKidsLanding =
@@ -28,7 +25,6 @@ export function proxy(request: NextRequest) {
   const isFocusedFreeTrialLanding =
     request.nextUrl.pathname === "/free-trial";
   const isFocusedLanding =
-    isFocusedCourseLanding ||
     isFocusedQuranLanding ||
     isFocusedKidsLanding ||
     isFocusedTajweedLanding ||
