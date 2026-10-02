@@ -17,14 +17,17 @@ export function proxy(request: NextRequest) {
     Boolean(request.nextUrl.searchParams.get("category"));
   const isFocusedQuranLanding =
     request.nextUrl.pathname === "/online-quran-classes";
-  const isFocusedLanding = isFocusedCourseLanding || isFocusedQuranLanding;
+  const isFocusedKidsLanding =
+    request.nextUrl.pathname === "/online-quran-classes-for-kids";
+  const isFocusedLanding =
+    isFocusedCourseLanding || isFocusedQuranLanding || isFocusedKidsLanding;
 
   if (!locale && !isFocusedLanding) {
     return NextResponse.next();
   }
 
   const requestHeaders = new Headers(request.headers);
-  if (isFocusedQuranLanding) {
+  if (isFocusedQuranLanding || isFocusedKidsLanding) {
     requestHeaders.set(LOCALE_HEADER, "en");
   } else if (locale) {
     requestHeaders.set(LOCALE_HEADER, locale);
