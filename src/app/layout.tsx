@@ -126,23 +126,10 @@ export default async function RootLayout({
                     window.gtag('config', 'G-J3KX3TZ4F2');
                     window.gtag('config', 'AW-18440732535');
 
-                    var loaded = false;
-                    function loadGoogleTag() {
-                      if (loaded) return;
-                      loaded = true;
-                      var script = document.createElement('script');
-                      script.async = true;
-                      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-J3KX3TZ4F2';
-                      document.head.appendChild(script);
-                    }
-
-                    ['pointerdown', 'touchstart', 'keydown'].forEach(function (eventName) {
-                      window.addEventListener(eventName, loadGoogleTag, { once: true, passive: true });
-                    });
-
-                    window.addEventListener('load', function () {
-                      window.setTimeout(loadGoogleTag, 12000);
-                    }, { once: true });
+                    var script = document.createElement('script');
+                    script.async = true;
+                    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-J3KX3TZ4F2';
+                    document.head.appendChild(script);
 
                     document.addEventListener('click', function (event) {
                       var target = event.target;
